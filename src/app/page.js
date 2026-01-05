@@ -1,7 +1,9 @@
-import Navbar from '@/components/shared/Navbar';
-import HeroSlideshow from '@/components/home/HeroSlideshow';
-import AboutSection from '../components/home/AboutSection';
-import ManufacturingSection from '../components/home/ManufacturingSection';
+import Navbar from "@/components/shared/Navbar";
+import HeroSlideshow from "@/components/home/HeroSlideshow";
+import AboutSection from "../components/home/AboutSection";
+import ManufacturingSection from "../components/home/ManufacturingSection";
+import QualitySection from "@/components/home/QualitySection";
+import SpecsSection from "@/components/home/SpecsSection";
 
 export default function Home() {
   return (
@@ -9,7 +11,8 @@ export default function Home() {
       <HeroSlideshow />
       <AboutSection />
       <ManufacturingSection />
-      {/* Section Manufacturing & Product Lineup menyusul */}
+      <QualitySection />
+      <SpecsSection />
     </main>
   );
 }

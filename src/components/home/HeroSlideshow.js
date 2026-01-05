@@ -1,230 +1,156 @@
-'use client';
+"use client";
 
-import { useState, useRef, useEffect } from 'react';
-import Image from 'next/image';
-import gsap from 'gsap';
-import { useGSAP } from '@gsap/react';
-
-const SLIDES = [
-  {
-    title: 'GLOBAL FOUNDATION',
-    desc: '10,000+ SQM of automated manufacturing excellence.',
-    img: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2940',
-  },
-  {
-    title: 'PRECISION PARTS',
-    desc: 'Fully functional, not gimmick. Engineered for performance.',
-    img: 'https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?q=80&w=2940',
-  },
-  {
-    title: 'BUILDING BUSINESS',
-    desc: 'Others sell parts, we build ecosystems for partners.',
-    img: 'https://images.unsplash.com/photo-1560179707-f14e90ef3623?q=80&w=2940',
-  },
-];
+import { useRef } from "react";
+import Image from "next/image";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import Marquee from "react-fast-marquee"; // Import Marquee
 
 export default function HeroSlideshow() {
-  const [active, setActive] = useState(0);
   const container = useRef();
-  const slideRefs = useRef([]);
-  const prevActive = useRef(0);
-
-  // Logic Next & Prev
-  const nextSlide = () => setActive((prev) => (prev + 1) % SLIDES.length);
-  const prevSlide = () =>
-    setActive((prev) => (prev - 1 + SLIDES.length) % SLIDES.length);
 
   useGSAP(
     () => {
-      // (GSAP logic tetap sama)
       const tl = gsap.timeline();
-      const currentSlide = slideRefs.current[active];
-      const previousSlide = slideRefs.current[prevActive.current];
-
-      if (!currentSlide || !previousSlide) return;
-
-      if (active !== prevActive.current) {
-        gsap.set(currentSlide, { zIndex: 10, opacity: 1, xPercent: 0 });
-        gsap.set(previousSlide, { zIndex: 20, opacity: 1, xPercent: 0 });
-
-        tl.to(previousSlide, {
-          xPercent: 100,
-          duration: 1.2,
-          ease: 'power3.inOut',
-          onComplete: () => {
-            gsap.set(previousSlide, { opacity: 0, zIndex: 0, xPercent: 0 });
-          },
-        }).fromTo(
-          currentSlide.querySelector('img'),
-          { scale: 1.2 },
-          { scale: 1, duration: 1.5, ease: 'power2.out' },
-          0
-        );
-      } else {
-        gsap.set(currentSlide, { zIndex: 10, opacity: 1 });
-        gsap.fromTo(
-          currentSlide.querySelector('img'),
-          { scale: 1.2 },
-          { scale: 1, duration: 2, ease: 'power2.out' }
-        );
-      }
 
       tl.fromTo(
-        '.slide-title',
-        { y: 50, opacity: 0 },
-        { y: 0, opacity: 1, duration: 1, ease: 'power4.out' },
-        '-=0.8'
-      ).fromTo(
-        '.slide-desc',
+        ".hero-sub",
         { y: 20, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.8 },
-        '-=0.7'
-      );
-
-      prevActive.current = active;
+        { y: 0, opacity: 1, duration: 0.8, ease: "power2.out" }
+      )
+        .fromTo(
+          ".hero-title",
+          { y: 50, opacity: 0 },
+          { y: 0, opacity: 1, duration: 1, ease: "power4.out" },
+          "-=0.6"
+        )
+        .fromTo(
+          ".hero-desc",
+          { y: 20, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.8 },
+          "-=0.7"
+        )
+        // Tambahkan animasi masuk untuk button
+        .fromTo(
+          ".hero-btn",
+          { y: 20, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.8 },
+          "-=0.6"
+        );
     },
-    { dependencies: [active], scope: container }
+    { scope: container }
   );
-
-  // PERBAIKAN DI SINI:
-  // Tambahkan [active] sebagai dependency agar timer reset setiap kali slide berubah
-  useEffect(() => {
-    const timer = setInterval(() => {
-      nextSlide();
-    }, 6000);
-
-    return () => clearInterval(timer);
-  }, [active]);
 
   return (
     <section
       ref={container}
       className="relative h-screen w-full bg-dark-77 overflow-hidden"
     >
-      {/* Background Images Layer */}
-      {SLIDES.map((slide, i) => (
-        <div
-          key={i}
-          ref={(el) => (slideRefs.current[i] = el)}
-          className="absolute inset-0 w-full h-full opacity-0"
-        >
-          <div className="relative h-full w-full">
-            <Image
-              src={slide.img}
-              alt={slide.title}
-              fill
-              className="object-cover brightness-50"
-              priority={i === 0}
-            />
-          </div>
+      {/* Single Background Image */}
+      <div className="absolute inset-0 w-full h-full">
+        <div className="relative h-full w-full">
+          <Image
+            src="https://i.imgur.com/aVcGBvO.png"
+            alt="Premium Import Automotive Parts"
+            fill
+            className="object-cover "
+            priority
+            unoptimized
+          />
+          {/* Gradient Overlay for better text readability against the blue sky/shirt */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-black/10 to-transparent" />
         </div>
-      ))}
+      </div>
 
       {/* Content Overlay */}
-      <div className="relative z-30 h-full flex flex-col justify-center px-6 lg:px-20 text-white pointer-events-none">
+      <div className="relative z-30 h-full w-full max-w-[1440px] mx-auto flex flex-col justify-center px-6 text-white pointer-events-none">
         <div className="max-w-4xl pointer-events-auto">
-          <h1 className="slide-title text-7xl md:text-9xl font-display font-black leading-none mb-6">
-            {SLIDES[active].title}
+          <span className="hero-sub block text-cyan-77 font-bold tracking-widest mb-4 text-sm md:text-base">
+            GLOBAL • PREMIUM • PERFORMANCE
+          </span>
+          <h1 className="hero-title text-5xl md:text-7xl lg:text-8xl font-mulish font-bold mb-6">
+            Premium Import Automotive Parts
           </h1>
-          <p className="slide-desc text-xl md:text-2xl font-body max-w-xl opacity-80">
-            {SLIDES[active].desc}
+          <p className="hero-desc text-lg md:text-2xl font-body max-w-xl text-gray-200">
+            Discover the finest selection of automotive parts, engineered for
+            performance and durability. Elevate your vehicle with our premium
+            imports.
           </p>
-        </div>
 
-        {/* Bottom UI Container */}
-        <div className="absolute bottom-12 left-0 w-full px-6 lg:px-20 flex justify-between items-end pointer-events-auto">
-          {/* Left: Progress Indicators */}
-          <div className="flex gap-4">
-            {SLIDES.map((_, i) => (
-              <button
-                key={i}
-                onClick={() => setActive(i)}
-                className="group flex flex-col gap-2"
-              >
-                <span
-                  className={`text-[10px] font-bold tracking-widest ${
-                    active === i ? 'text-cyan-77' : 'text-white/50'
-                  }`}
-                >
-                  0{i + 1}
+          {/* CTA Button */}
+          <div className="hero-btn mt-10">
+            <button className="group relative px-8 py-4 bg-transparent border border-white/30 overflow-hidden transition-colors duration-300 hover:border-cyan-77">
+              {/* Animated Background Fill */}
+              <div className="absolute inset-0 w-full h-full bg-cyan-77 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.19,1,0.22,1)]" />
+
+              {/* Button Content */}
+              <div className="relative z-10 flex items-center gap-3">
+                <span className="font-mulish font-bold tracking-[0.15em] text-white group-hover:text-black transition-colors duration-300">
+                  EXPLORE PARTS
                 </span>
-                <div
-                  className={`h-[2px] w-12 lg:w-20 bg-white/20 relative overflow-hidden`}
+                <svg
+                  className="w-5 h-5 text-cyan-77 group-hover:text-black transition-all duration-300 group-hover:translate-x-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
                 >
-                  {active === i && (
-                    <div
-                      className="absolute inset-0 bg-cyan-77 origin-left"
-                      style={{ animation: 'progress 6s linear forwards' }}
-                    />
-                  )}
-                </div>
-              </button>
-            ))}
-          </div>
-
-          {/* Right: Navigation Arrows */}
-          <div className="flex gap-2">
-            <NavButton onClick={prevSlide} label="Prev">
-              <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="m15 18-6-6 6-6" />
-              </svg>
-            </NavButton>
-            <NavButton onClick={nextSlide} label="Next">
-              <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="m9 18 6-6-6-6" />
-              </svg>
-            </NavButton>
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M17 8l4 4m0 0l-4 4m4-4H3"
+                  />
+                </svg>
+              </div>
+            </button>
           </div>
         </div>
       </div>
 
-      <style jsx>{`
-        @keyframes progress {
-          from {
-            transform: scaleX(0);
-          }
-          to {
-            transform: scaleX(1);
-          }
-        }
-      `}</style>
+      {/* Running Text Marquee */}
+      <div className="absolute bottom-0 left-0 w-full z-40 border-t border-white/10 bg-black/40 backdrop-blur-md">
+        <Marquee
+          autoFill
+          speed={40}
+          gradient={false}
+          className="py-4 overflow-hidden"
+        >
+          <div className="flex items-center">
+            <span className="mx-8 text-sm md:text-base font-bold tracking-[0.2em] text-white font-mulish">
+              77 PERFORMANCE
+            </span>
+            <span className="text-cyan-77 text-xs">✦</span>
+            <span
+              className="mx-8 text-sm md:text-base font-bold tracking-[0.2em] text-transparent font-mulish"
+              style={{ WebkitTextStroke: "1px rgba(255,255,255,0.5)" }}
+            >
+              PREMIUM IMPORT PARTS
+            </span>
+            <span className="text-cyan-77 text-xs">✦</span>
+            <span className="mx-8 text-sm md:text-base font-bold tracking-[0.2em] text-white font-mulish">
+              WORLDWIDE SHIPPING
+            </span>
+            <span className="text-cyan-77 text-xs">✦</span>
+            <span
+              className="mx-8 text-sm md:text-base font-bold tracking-[0.2em] text-transparent font-mulish"
+              style={{ WebkitTextStroke: "1px rgba(255,255,255,0.5)" }}
+            >
+              AUTHENTIC QUALITY
+            </span>
+            <span className="text-cyan-77 text-xs">✦</span>
+            <span className="mx-8 text-sm md:text-base font-bold tracking-[0.2em] text-white font-mulish">
+              24/7 CUSTOMER SUPPORT
+            </span>
+            <span className="text-cyan-77 text-xs">✦</span>
+            <span
+              className="mx-8 text-sm md:text-base font-bold tracking-[0.2em] text-transparent font-mulish"
+              style={{ WebkitTextStroke: "1px rgba(255,255,255,0.5)" }}
+            >
+              SECURE PAYMENT
+            </span>
+          </div>
+        </Marquee>
+      </div>
     </section>
-  );
-}
-
-// Komponen Tombol Navigasi Reusable
-function NavButton({ onClick, children, label }) {
-  return (
-    <button
-      onClick={onClick}
-      aria-label={label}
-      className="
-        relative w-14 h-14 flex items-center justify-center
-        border border-white/20 bg-dark-77/30 backdrop-blur-sm
-        text-white transition-all duration-300
-        hover:border-cyan-77 hover:text-cyan-77 hover:bg-dark-77/80
-        active:scale-95
-      "
-    >
-      {children}
-    </button>
   );
 }

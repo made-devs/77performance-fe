@@ -8,21 +8,8 @@
   --color-dark-77: #111111;
 
   /* Fonts */
-  --font-display: var(--font-syne);
-  --font-body: var(--font-inter);
-}
-
-/* Base Style */
-body {
-  @apply bg-white text-dark-77 font-body antialiased;
-  overflow-x: hidden;
-}
-
-h1,
-h2,
-h3,
-h4 {
-  @apply font-display font-bold uppercase;
+  --font-syne: var(--font-syne);
+  --font-mulish: var(--font-mulish);
 }
 
 /* HANYA aktif di device yang punya mouse (Desktop) */

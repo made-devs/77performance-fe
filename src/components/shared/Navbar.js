@@ -68,7 +68,8 @@ export default function Navbar() {
         style={{ opacity: isScrolled ? 1 : 0 }}
       />
 
-      <div className="flex justify-between items-center relative">
+      {/* Container konten dibatasi max-width 1440px dan di-center */}
+      <div className="w-full max-w-[1440px] mx-auto flex justify-between items-center relative">
         {/* Logo Area */}
         <div
           ref={logoRef}
@@ -98,7 +99,7 @@ export default function Navbar() {
               href={link.href}
               className="relative group py-2"
             >
-              <span className="font-body text-xs font-bold uppercase tracking-widest text-white/80 group-hover:text-white transition-colors">
+              <span className="font-mulish text-sm font-bold uppercase tracking-widest text-white transition-colors">
                 {link.name}
               </span>
               {/* Hover Line Animation */}
@@ -112,7 +113,7 @@ export default function Navbar() {
         {/* CTA Button */}
         <button className="hidden md:block relative overflow-hidden group px-6 py-2 bg-white/10 border border-white/20 hover:border-cyan-77 transition-all duration-300">
           <div className="absolute inset-0 bg-cyan-77 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out" />
-          <span className="relative font-body text-xs font-bold tracking-widest text-white group-hover:text-white z-10 flex items-center gap-2">
+          <span className="relative font-mulish text-sm font-bold tracking-widest text-white z-10 flex items-center gap-2">
             DISTRIBUTOR
             <svg
               className="w-3 h-3 transition-transform group-hover:translate-x-1"
