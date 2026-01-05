@@ -7,6 +7,11 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
+// FIX 1: Cegah kalkulasi ulang saat address bar mobile berubah tinggi
+ScrollTrigger.config({
+  ignoreMobileResize: true,
+});
+
 const QUALITY_PILLARS = [
   {
     id: "01",
@@ -48,9 +53,12 @@ export default function QualitySection() {
 
   useGSAP(
     () => {
+      // FIX 2: Aktifkan scroll normalizing untuk mobile yang super smooth (anti-jitter)
+      ScrollTrigger.normalizeScroll(true);
+
       const sections = gsap.utils.toArray(".quality-panel");
 
-      // 1. Horizontal Scroll Logic
+      // Logic Horizontal Scroll
       const scrollTween = gsap.to(sections, {
         xPercent: -100 * (sections.length - 1),
         ease: "none",
@@ -59,12 +67,11 @@ export default function QualitySection() {
           pin: true,
           scrub: 1,
           snap: 1 / (sections.length - 1),
-          // Tambahkan end lebih panjang agar scroll terasa lebih 'berat'/premium
           end: () => "+=" + triggerRef.current.offsetWidth * 3,
         },
       });
 
-      // 2. Parallax Text Background
+      // Logic Parallax Background Text
       gsap.to(bgTextRef.current, {
         xPercent: -50,
         ease: "none",
@@ -76,7 +83,7 @@ export default function QualitySection() {
         },
       });
 
-      // 3. Stagger Animation for Content per Panel
+      // Logic Content Stagger
       gsap.utils.toArray(".panel-content").forEach((text) => {
         gsap.fromTo(
           text,
@@ -86,7 +93,7 @@ export default function QualitySection() {
             opacity: 1,
             duration: 1,
             scrollTrigger: {
-              trigger: text.parentElement, // Trigger saat parent panel masuk
+              trigger: text.parentElement,
               containerAnimation: scrollTween,
               start: "left center",
               toggleActions: "play none none reverse",
@@ -94,13 +101,16 @@ export default function QualitySection() {
           }
         );
       });
+
+      // Cleanup: Matikan normalize saat component unmount agar halaman lain normal
+      return () => ScrollTrigger.normalizeScroll(false);
     },
     { scope: triggerRef }
   );
 
   return (
     <section className="relative bg-white text-slate-800 overflow-hidden">
-      {/* Container utama: Flex nowrap untuk horizontal layout, h-screen dynamic */}
+      {/* Container utama: Flex nowrap, h-[100dvh] untuk mobile viewport stability */}
       <div
         ref={triggerRef}
         className="w-full flex flex-nowrap h-[100dvh] overflow-hidden relative"
@@ -110,7 +120,7 @@ export default function QualitySection() {
           ref={bgTextRef}
           className="absolute inset-0 flex flex-nowrap items-center pointer-events-none z-0 whitespace-nowrap top-1/2 -translate-y-1/2"
         >
-          <div className="min-w-[100vw]" /> {/* Spacer awal */}
+          <div className="min-w-[100vw]" />
           {QUALITY_PILLARS.map((item, index) => (
             <div key={index} className="min-w-[100vw] flex justify-center">
               <span
@@ -128,7 +138,6 @@ export default function QualitySection() {
 
         {/* --- PANEL 1: INTRO --- */}
         <div className="quality-panel min-w-full h-full flex items-center justify-center relative border-r border-slate-100 z-10">
-          {/* BG Image Intro */}
           <div className="absolute inset-0 z-0">
             <div
               className="absolute inset-0 bg-cover bg-center"
@@ -153,7 +162,6 @@ export default function QualitySection() {
                 mengutamakan presisi teknik dan standar global.
               </p>
 
-              {/* Scroll Indicator */}
               <div className="mt-8 lg:mt-12 flex items-center gap-5 animate-pulse">
                 <div className="w-6 h-10 lg:w-8 lg:h-12 border-2 border-cyan-500/50 rounded-full flex justify-center p-1">
                   <div className="w-1 lg:w-1.5 h-2 lg:h-3 bg-cyan-500 rounded-full animate-[bounce_1.5s_infinite]" />
@@ -174,7 +182,7 @@ export default function QualitySection() {
             key={index}
             className="quality-panel min-w-full h-full flex items-center relative border-r border-slate-100 bg-transparent z-10"
           >
-            {/* Mobile Background: Image visible faint behind text */}
+            {/* Mobile BG Image (Faint) */}
             <div className="absolute inset-0 lg:hidden z-[-1] opacity-20">
               <div
                 className="w-full h-full bg-cover bg-center"
@@ -215,7 +223,7 @@ export default function QualitySection() {
                 </ul>
               </div>
 
-              {/* Image Content (Desktop Only - 'hidden lg:block') */}
+              {/* Desktop Image (3D Card) */}
               <div className="relative h-[400px] w-full hidden lg:block group panel-image">
                 <div className="absolute top-4 left-4 w-full h-full border-2 border-cyan-500/20 rounded-br-3xl z-0 transition-transform duration-500 group-hover:translate-x-2 group-hover:translate-y-2" />
                 <div className="absolute -top-2 -right-2 w-12 h-12 border-t-4 border-r-4 border-cyan-500 z-20" />

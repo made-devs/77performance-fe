@@ -47,13 +47,13 @@ export default function HeroSlideshow() {
       className="relative h-screen w-full bg-dark-77 overflow-hidden"
     >
       {/* Single Background Image */}
-      <div className="absolute inset-0 w-full h-full">
+      <div className="absolute inset-0 right-5 w-full h-full">
         <div className="relative h-full w-full">
           <Image
             src="https://i.imgur.com/aVcGBvO.png"
             alt="Premium Import Automotive Parts"
             fill
-            className="object-cover "
+            className="object-cover object-[65%_center] md:object-center"
             priority
             unoptimized
           />
