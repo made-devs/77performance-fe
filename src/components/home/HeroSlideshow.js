@@ -50,7 +50,7 @@ export default function HeroSlideshow() {
       <div className="absolute inset-0 right-5 w-full h-full">
         <div className="relative h-full w-full">
           <Image
-            src="https://i.imgur.com/aVcGBvO.png"
+            src="/hero.webp"
             alt="Premium Import Automotive Parts"
             fill
             className="object-cover object-[65%_center] md:object-center"
