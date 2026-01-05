@@ -1,25 +1,25 @@
-"use client";
+'use client';
 
-import { useState, useRef, useEffect } from "react";
-import Image from "next/image";
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
+import { useState, useRef, useEffect } from 'react';
+import Image from 'next/image';
+import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
 
 const SLIDES = [
   {
-    title: "GLOBAL FOUNDATION",
-    desc: "10,000+ SQM of automated manufacturing excellence.",
-    img: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2940",
+    title: 'GLOBAL FOUNDATION',
+    desc: '10,000+ SQM of automated manufacturing excellence.',
+    img: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2940',
   },
   {
-    title: "PRECISION PARTS",
-    desc: "Fully functional, not gimmick. Engineered for performance.",
-    img: "https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?q=80&w=2940",
+    title: 'PRECISION PARTS',
+    desc: 'Fully functional, not gimmick. Engineered for performance.',
+    img: 'https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?q=80&w=2940',
   },
   {
-    title: "BUILDING BUSINESS",
-    desc: "Others sell parts, we build ecosystems for partners.",
-    img: "https://images.unsplash.com/photo-1560179707-f14e90ef3623?q=80&w=2940",
+    title: 'BUILDING BUSINESS',
+    desc: 'Others sell parts, we build ecosystems for partners.',
+    img: 'https://images.unsplash.com/photo-1560179707-f14e90ef3623?q=80&w=2940',
   },
 ];
 
@@ -50,35 +50,35 @@ export default function HeroSlideshow() {
         tl.to(previousSlide, {
           xPercent: 100,
           duration: 1.2,
-          ease: "power3.inOut",
+          ease: 'power3.inOut',
           onComplete: () => {
             gsap.set(previousSlide, { opacity: 0, zIndex: 0, xPercent: 0 });
           },
         }).fromTo(
-          currentSlide.querySelector("img"),
+          currentSlide.querySelector('img'),
           { scale: 1.2 },
-          { scale: 1, duration: 1.5, ease: "power2.out" },
+          { scale: 1, duration: 1.5, ease: 'power2.out' },
           0
         );
       } else {
         gsap.set(currentSlide, { zIndex: 10, opacity: 1 });
         gsap.fromTo(
-          currentSlide.querySelector("img"),
+          currentSlide.querySelector('img'),
           { scale: 1.2 },
-          { scale: 1, duration: 2, ease: "power2.out" }
+          { scale: 1, duration: 2, ease: 'power2.out' }
         );
       }
 
       tl.fromTo(
-        ".slide-title",
+        '.slide-title',
         { y: 50, opacity: 0 },
-        { y: 0, opacity: 1, duration: 1, ease: "power4.out" },
-        "-=0.8"
+        { y: 0, opacity: 1, duration: 1, ease: 'power4.out' },
+        '-=0.8'
       ).fromTo(
-        ".slide-desc",
+        '.slide-desc',
         { y: 20, opacity: 0 },
         { y: 0, opacity: 1, duration: 0.8 },
-        "-=0.7"
+        '-=0.7'
       );
 
       prevActive.current = active;
@@ -143,7 +143,7 @@ export default function HeroSlideshow() {
               >
                 <span
                   className={`text-[10px] font-bold tracking-widest ${
-                    active === i ? "text-cyan-77" : "text-white/50"
+                    active === i ? 'text-cyan-77' : 'text-white/50'
                   }`}
                 >
                   0{i + 1}
@@ -154,7 +154,7 @@ export default function HeroSlideshow() {
                   {active === i && (
                     <div
                       className="absolute inset-0 bg-cyan-77 origin-left"
-                      style={{ animation: "progress 6s linear forwards" }}
+                      style={{ animation: 'progress 6s linear forwards' }}
                     />
                   )}
                 </div>
