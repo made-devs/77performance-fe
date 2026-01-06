@@ -4,6 +4,8 @@ import AboutSection from "../components/home/AboutSection";
 import ManufacturingSection from "../components/home/ManufacturingSection";
 import QualitySection from "@/components/home/QualitySection";
 import SpecsSection from "@/components/home/SpecsSection";
+import BrandPositioning from "@/components/home/BrandPositioning";
+import GlobalVision from "@/components/home/GlobalVision";
 
 export default function Home() {
   return (
@@ -13,6 +15,8 @@ export default function Home() {
       <ManufacturingSection />
       <QualitySection />
       <SpecsSection />
+      <BrandPositioning />
+      <GlobalVision />
     </main>
   );
 }
