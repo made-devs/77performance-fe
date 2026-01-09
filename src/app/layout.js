@@ -3,6 +3,7 @@ import "./globals.css";
 import GSAPWrapper from "@/components/shared/GSAPWrapper";
 import Navbar from "@/components/shared/Navbar";
 import CustomCursor from "@/components/shared/CustomCursor";
+import Footer from "@/components/shared/Footer";
 
 const syne = Syne({
   subsets: ["latin"],
@@ -26,8 +27,10 @@ export default function RootLayout({ children }) {
       <body className="antialiased">
         <CustomCursor />
         <Navbar />
-
-        <GSAPWrapper>{children}</GSAPWrapper>
+        <GSAPWrapper>
+          {children}
+          <Footer />
+        </GSAPWrapper>
       </body>
     </html>
   );
