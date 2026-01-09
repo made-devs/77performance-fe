@@ -17,9 +17,9 @@ const GlobalVision = () => {
     let phi = 0;
 
     const globe = createGlobe(canvasRef.current, {
-      devicePixelRatio: 2,
-      width: 900 * 2,
-      height: 900 * 2,
+      devicePixelRatio: 0.5,
+      width: 450,
+      height: 450,
       phi: 0,
       theta: 0,
       dark: 0, // Light Mode
@@ -91,10 +91,10 @@ const GlobalVision = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative py-24 bg-white overflow-visible text-slate-900 flex flex-col justify-center min-h-[800px]"
+      className="relative pb-30 bg-white overflow-visible text-slate-900 flex flex-col justify-center min-h-[800px]"
     >
       {/* BACKGROUND GLOBE CONTAINER - Adjusted positioning */}
-      <div className="absolute top-1/2 -translate-y-1/2 right-0 md:right-[5%] w-[600px] h-[600px] md:w-[700px] md:h-[700px] lg:w-[850px] lg:h-[850px] z-0 flex items-center justify-center pointer-events-none">
+      <div className="absolute top-1/2 -translate-y-1/2 right-0 md:right-[5%] w-[600px] h-[850px] md:w-[700px] md:h-[700px] lg:w-[850px] lg:h-[850px] z-0 flex items-center justify-center pointer-events-none">
         <canvas
           ref={canvasRef}
           style={{ width: "100%", height: "100%", maxWidth: "100%" }}

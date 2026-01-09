@@ -26,7 +26,7 @@ const BrandPositioning = () => {
         },
       });
 
-      // Parallax Effect
+      // OPTIMASI: Kurangi scrub value & akan-change
       gsap.to(imageRef.current, {
         yPercent: 15,
         ease: "none",
@@ -34,8 +34,14 @@ const BrandPositioning = () => {
           trigger: containerRef.current,
           start: "top bottom",
           end: "bottom top",
-          scrub: 1.2,
+          scrub: 0.5, // Lebih rendah = lebih ringan (was 1.2)
+          invalidateOnRefresh: true,
         },
+      });
+
+      // TAMBAHKAN: will-change untuk GPU acceleration
+      gsap.set(imageRef.current, {
+        willChange: "transform",
       });
     },
     { scope: containerRef }
@@ -44,7 +50,7 @@ const BrandPositioning = () => {
   return (
     <section
       ref={containerRef}
-      className="relative py-24 bg-white overflow-hidden"
+      className="relative py-24 md:mb-30 bg-white overflow-hidden"
     >
       {/* Background Decor (Grid & Aero Flow) */}
       <div

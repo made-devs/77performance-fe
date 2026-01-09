@@ -1,12 +1,11 @@
 "use client";
 
-import { useLayoutEffect, useRef } from "react";
+import { useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ScrollSmoother } from "gsap/ScrollSmoother";
 import { useGSAP } from "@gsap/react";
 
-// Registrasi plugin
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother, useGSAP);
 
 export default function GSAPWrapper({ children }) {
@@ -14,12 +13,14 @@ export default function GSAPWrapper({ children }) {
 
   useGSAP(
     () => {
-      // Inisialisasi smooth scroll
+      // Kurangi smooth value & matikan effects
       ScrollSmoother.create({
         wrapper: "#smooth-wrapper",
         content: "#smooth-content",
-        smooth: 1.5,
-        effects: true,
+        smooth: 0.8, // Lebih rendah = lebih ringan (was 1.5)
+        effects: false, // Matikan effects (was true)
+        smoothTouch: false, // Matikan di touch devices
+        normalizeScroll: true, // Lebih stabil di berbagai device
       });
     },
     { scope: container }
