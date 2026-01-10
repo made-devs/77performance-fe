@@ -56,7 +56,7 @@ export default function HeroSlideshow() {
           src="/hero.webp"
           alt="Poster"
           fill
-          className="object-cover object-center"
+          className="object-cover max-[400px]:object-[-710px_center] object-[-810px_center] md:object-center"
           priority
         />
       </div>
