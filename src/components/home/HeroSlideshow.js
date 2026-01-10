@@ -69,7 +69,7 @@ export default function HeroSlideshow() {
         loop
         playsInline
         preload="auto"
-        className="hero-video absolute inset-0 w-full h-full object-cover object-[-710px_center] md:object-center opacity-0 transition-opacity"
+        className="hero-video absolute inset-0 w-full h-full object-cover max-[400px]:object-[-710px_center] object-[-810px_center] md:object-center opacity-0 transition-opacity"
       >
         <source src="/hero.mp4" type="video/mp4" />
       </video>
@@ -83,7 +83,7 @@ export default function HeroSlideshow() {
           <span className="hero-sub block text-cyan-77 font-bold tracking-widest mb-4 text-sm md:text-base">
             GLOBAL • PREMIUM • PERFORMANCE
           </span>
-          <h1 className="hero-title text-5xl md:text-7xl lg:text-8xl font-mulish font-bold mb-6">
+          <h1 className="hero-title pr-10 md:pr-0 text-5xl md:text-7xl lg:text-8xl font-mulish font-bold mb-6">
             Premium Import Automotive Parts
           </h1>
           <p className="hero-desc text-lg md:text-2xl font-body max-w-xl text-gray-200">
