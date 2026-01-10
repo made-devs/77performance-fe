@@ -1,41 +1,45 @@
-"use client";
+'use client';
 
-import { useRef } from "react";
-import Image from "next/image";
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
-import Marquee from "react-fast-marquee"; // Import Marquee
+import { useRef } from 'react';
+import Image from 'next/image';
+import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
+import Marquee from 'react-fast-marquee';
 
 export default function HeroSlideshow() {
   const container = useRef();
+  const videoRef = useRef();
 
   useGSAP(
     () => {
       const tl = gsap.timeline();
 
+      // Animasi fade-in untuk video saat siap
+      tl.to('.hero-video', { opacity: 1, duration: 1.5, ease: 'power2.inOut' });
+
       tl.fromTo(
-        ".hero-sub",
+        '.hero-sub',
         { y: 20, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.8, ease: "power2.out" }
+        { y: 0, opacity: 1, duration: 0.8, ease: 'power2.out' },
+        '-=0.5'
       )
         .fromTo(
-          ".hero-title",
+          '.hero-title',
           { y: 50, opacity: 0 },
-          { y: 0, opacity: 1, duration: 1, ease: "power4.out" },
-          "-=0.6"
+          { y: 0, opacity: 1, duration: 1, ease: 'power4.out' },
+          '-=0.6'
         )
         .fromTo(
-          ".hero-desc",
+          '.hero-desc',
           { y: 20, opacity: 0 },
           { y: 0, opacity: 1, duration: 0.8 },
-          "-=0.7"
+          '-=0.7'
         )
-        // Tambahkan animasi masuk untuk button
         .fromTo(
-          ".hero-btn",
+          '.hero-btn',
           { y: 20, opacity: 0 },
           { y: 0, opacity: 1, duration: 0.8 },
-          "-=0.6"
+          '-=0.6'
         );
     },
     { scope: container }
@@ -46,21 +50,32 @@ export default function HeroSlideshow() {
       ref={container}
       className="relative h-screen w-full bg-dark-77 overflow-hidden"
     >
-      {/* Single Background Image */}
-      <div className="absolute inset-0 right-5 w-full h-full">
-        <div className="relative h-full w-full">
-          <Image
-            src="/hero.webp"
-            alt="Premium Import Automotive Parts"
-            fill
-            className="object-cover object-[65%_center] md:object-center"
-            priority
-            unoptimized
-          />
-          {/* Gradient Overlay for better text readability against the blue sky/shirt */}
-          <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-black/10 to-transparent" />
-        </div>
+      {/* Layer 1: Poster Image (Fallback) */}
+      <div className="absolute inset-0 w-full h-full">
+        <Image
+          src="/hero.webp"
+          alt="Poster"
+          fill
+          className="object-cover object-center"
+          priority
+        />
       </div>
+
+      {/* Layer 2: Optimized Video Background */}
+      <video
+        ref={videoRef}
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="auto"
+        className="hero-video absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity"
+      >
+        <source src="/hero.mp4" type="video/mp4" />
+      </video>
+
+      {/* Layer 3: Overlay Gradient */}
+      <div className="absolute inset-0 bg-gradient-to-r from-black/30 via-black/10 to-transparent z-10" />
 
       {/* Content Overlay */}
       <div className="relative z-30 h-full w-full max-w-[1440px] mx-auto flex flex-col justify-center px-6 text-white pointer-events-none">
@@ -73,17 +88,12 @@ export default function HeroSlideshow() {
           </h1>
           <p className="hero-desc text-lg md:text-2xl font-body max-w-xl text-gray-200">
             Discover the finest selection of automotive parts, engineered for
-            performance and durability. Elevate your vehicle with our premium
-            imports.
+            performance and durability.
           </p>
 
-          {/* CTA Button */}
           <div className="hero-btn mt-10">
             <button className="group relative px-8 py-4 bg-transparent border border-white/30 overflow-hidden transition-colors duration-300 hover:border-cyan-77">
-              {/* Animated Background Fill */}
               <div className="absolute inset-0 w-full h-full bg-cyan-77 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.19,1,0.22,1)]" />
-
-              {/* Button Content */}
               <div className="relative z-10 flex items-center gap-3">
                 <span className="font-mulish font-bold tracking-[0.15em] text-white group-hover:text-black transition-colors duration-300">
                   EXPLORE PARTS
@@ -122,32 +132,11 @@ export default function HeroSlideshow() {
             <span className="text-cyan-77 text-xs">✦</span>
             <span
               className="mx-8 text-sm md:text-base font-bold tracking-[0.2em] text-transparent font-mulish"
-              style={{ WebkitTextStroke: "1px rgba(255,255,255,0.5)" }}
+              style={{ WebkitTextStroke: '1px rgba(255,255,255,0.5)' }}
             >
               PREMIUM IMPORT PARTS
             </span>
             <span className="text-cyan-77 text-xs">✦</span>
-            <span className="mx-8 text-sm md:text-base font-bold tracking-[0.2em] text-white font-mulish">
-              WORLDWIDE SHIPPING
-            </span>
-            <span className="text-cyan-77 text-xs">✦</span>
-            <span
-              className="mx-8 text-sm md:text-base font-bold tracking-[0.2em] text-transparent font-mulish"
-              style={{ WebkitTextStroke: "1px rgba(255,255,255,0.5)" }}
-            >
-              AUTHENTIC QUALITY
-            </span>
-            <span className="text-cyan-77 text-xs">✦</span>
-            <span className="mx-8 text-sm md:text-base font-bold tracking-[0.2em] text-white font-mulish">
-              24/7 CUSTOMER SUPPORT
-            </span>
-            <span className="text-cyan-77 text-xs">✦</span>
-            <span
-              className="mx-8 text-sm md:text-base font-bold tracking-[0.2em] text-transparent font-mulish"
-              style={{ WebkitTextStroke: "1px rgba(255,255,255,0.5)" }}
-            >
-              SECURE PAYMENT
-            </span>
           </div>
         </Marquee>
       </div>
