@@ -69,7 +69,7 @@ export default function HeroSlideshow() {
         loop
         playsInline
         preload="auto"
-        className="hero-video absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity"
+        className="hero-video absolute inset-0 w-full h-full object-cover object-[-710px_center] md:object-center opacity-0 transition-opacity"
       >
         <source src="/hero.mp4" type="video/mp4" />
       </video>
