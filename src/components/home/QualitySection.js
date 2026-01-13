@@ -148,23 +148,23 @@ export default function QualitySection() {
 
           <div className="container mx-auto px-6 lg:px-20 relative z-10 flex flex-col justify-center h-full">
             <div className="max-w-4xl panel-content">
-              <span className="inline-block py-1 px-3 border border-cyan-500/30 rounded-full bg-cyan-50/80 backdrop-blur-sm text-cyan-600 text-[10px] lg:text-xs font-bold tracking-widest uppercase mb-4 lg:mb-6">
+              <span className="inline-block py-1 px-3 border border-cyan-77/30 rounded-full bg-cyan-50/80 backdrop-blur-sm text-cyan-600 text-[10px] lg:text-xs font-bold tracking-widest uppercase mb-4 lg:mb-6">
                 The Philosophy
               </span>
               <h2 className="text-4xl sm:text-6xl lg:text-8xl font-black leading-tight mb-4 lg:mb-8 text-slate-900">
                 ENGINEERED <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-blue-600">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-77 to-navy-77">
                   QUALITY
                 </span>
               </h2>
-              <p className="text-base sm:text-lg lg:text-xl text-slate-600 max-w-xl border-l-4 border-cyan-500 pl-4 lg:pl-6">
+              <p className="text-base sm:text-lg lg:text-xl text-slate-600 max-w-xl border-l-4 border-cyan-77 pl-4 lg:pl-6">
                 Kualitas bukan sekadar janji. Di 77 Performance, kami
                 mengutamakan presisi teknik dan standar global.
               </p>
 
               <div className="mt-8 lg:mt-12 flex items-center gap-5 animate-pulse">
-                <div className="w-6 h-10 lg:w-8 lg:h-12 border-2 border-cyan-500/50 rounded-full flex justify-center p-1">
-                  <div className="w-1 lg:w-1.5 h-2 lg:h-3 bg-cyan-500 rounded-full animate-[bounce_1.5s_infinite]" />
+                <div className="w-6 h-10 lg:w-8 lg:h-12 border-2 border-cyan-77/50 rounded-full flex justify-center p-1">
+                  <div className="w-1 lg:w-1.5 h-2 lg:h-3 bg-cyan-77 rounded-full animate-[bounce_1.5s_infinite]" />
                 </div>
                 <div className="flex flex-col">
                   <span className="text-xs lg:text-sm font-black text-cyan-600 tracking-[0.2em] uppercase">
@@ -194,10 +194,10 @@ export default function QualitySection() {
               {/* Text Content */}
               <div className="panel-content flex flex-col justify-center">
                 <div className="flex items-center gap-4 mb-4 lg:mb-6">
-                  <span className="text-5xl lg:text-6xl font-black text-cyan-500/20">
+                  <span className="text-5xl lg:text-6xl font-black text-cyan-77/20">
                     {item.id}
                   </span>
-                  <div className="h-[2px] flex-grow bg-gradient-to-r from-cyan-500 to-transparent opacity-20" />
+                  <div className="h-[2px] flex-grow bg-gradient-to-r from-cyan-77 to-transparent opacity-20" />
                 </div>
 
                 <h3 className="text-3xl lg:text-5xl font-black text-slate-900 mb-2">
@@ -216,7 +216,7 @@ export default function QualitySection() {
                       key={i}
                       className="flex items-center gap-3 text-slate-700 font-bold uppercase text-xs lg:text-sm tracking-wide"
                     >
-                      <span className="w-1.5 h-1.5 bg-cyan-500 rounded-full" />
+                      <span className="w-1.5 h-1.5 bg-cyan-77 rounded-full" />
                       {feat}
                     </li>
                   ))}
@@ -225,9 +225,9 @@ export default function QualitySection() {
 
               {/* Desktop Image (3D Card) */}
               <div className="relative h-[400px] w-full hidden lg:block group panel-image">
-                <div className="absolute top-4 left-4 w-full h-full border-2 border-cyan-500/20 rounded-br-3xl z-0 transition-transform duration-500 group-hover:translate-x-2 group-hover:translate-y-2" />
-                <div className="absolute -top-2 -right-2 w-12 h-12 border-t-4 border-r-4 border-cyan-500 z-20" />
-                <div className="absolute -bottom-2 -left-2 w-12 h-12 border-b-4 border-l-4 border-cyan-500 z-20" />
+                <div className="absolute top-4 left-4 w-full h-full border-2 border-cyan-77/20 rounded-br-3xl z-0 transition-transform duration-500 group-hover:translate-x-2 group-hover:translate-y-2" />
+                <div className="absolute -top-2 -right-2 w-12 h-12 border-t-4 border-r-4 border-cyan-77 z-20" />
+                <div className="absolute -bottom-2 -left-2 w-12 h-12 border-b-4 border-l-4 border-cyan-77 z-20" />
 
                 <div className="relative w-full h-full overflow-hidden bg-slate-100 z-10 shadow-2xl shadow-cyan-900/10">
                   <div

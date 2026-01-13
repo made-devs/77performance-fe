@@ -133,27 +133,30 @@ const DistributorBenefits = () => {
         <div
           className="absolute inset-0 opacity-[0.05]"
           style={{
+            // Mengganti #0891b2 (cyan-500) menjadi #0591be (cyan-77)
             backgroundImage:
-              "linear-gradient(#0891b2 1px, transparent 1px), linear-gradient(90deg, #0891b2 1px, transparent 1px)",
+              "linear-gradient(#0591be 1px, transparent 1px), linear-gradient(90deg, #0591be 1px, transparent 1px)",
             backgroundSize: "40px 40px",
           }}
         />
-        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-cyan-100/40 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/4" />
-        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-blue-100/50 rounded-full blur-[100px] translate-y-1/2 -translate-x-1/4" />
+        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-cyan-77/40 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/4" />
+        {/* Mengganti bg-blue-100/50 menjadi bg-navy-77/20 */}
+        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-navy-77/20 rounded-full blur-[100px] translate-y-1/2 -translate-x-1/4" />
       </div>
 
       <div className="container mx-auto px-6 lg:px-12 relative z-10">
         {/* HEADER SECTION */}
         <div className="max-w-4xl mb-16">
           <div className="benefit-header flex items-center gap-3 mb-4">
-            <span className="h-[2px] w-12 bg-cyan-500" />
-            <span className="text-cyan-600 font-bold tracking-widest uppercase text-sm font-mulish">
+            <span className="h-[2px] w-12 bg-cyan-77" />
+            <span className="text-cyan-77 font-bold tracking-widest uppercase text-sm font-mulish">
               Distributor Value Proposition
             </span>
           </div>
-          <h2 className="benefit-header text-4xl lg:text-5xl font-black text-slate-900 font-mulish leading-tight">
+          {/* Mengganti text-slate-900 menjadi text-dark-77 */}
+          <h2 className="benefit-header text-4xl lg:text-5xl font-black text-dark-77 font-mulish leading-tight">
             Not Just Buying Parts. <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 to-blue-800">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-77 to-navy-77">
               It's a Structured Partnership.
             </span>
           </h2>
@@ -172,19 +175,20 @@ const DistributorBenefits = () => {
               key={index}
               // Hapus class 'benefit-card' agar tidak tertarget oleh script GSAP lama (jika ada sisa)
               // Tambahkan hover effect CSS murni (hover:scale-[1.02]) untuk interaktivitas tanpa JS
-              className="group relative bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-cyan-500/10 hover:border-cyan-400 hover:-translate-y-1 transition-all duration-300 overflow-hidden"
+              className="group relative bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-cyan-77/10 hover:border-cyan-77 hover:-translate-y-1 transition-all duration-300 overflow-hidden"
             >
-              {/* Number Watermark */}
-              <div className="absolute -right-2 -top-4 text-[80px] font-black text-slate-100/50 select-none group-hover:text-cyan-50/80 transition-colors font-mulish z-0">
+              {/* Number Watermark - Mengganti group-hover:text-cyan-50/80 menjadi text-cyan-77/10 */}
+              <div className="absolute -right-2 -top-4 text-[80px] font-black text-slate-100/50 select-none group-hover:text-cyan-77/10 transition-colors font-mulish z-0">
                 {index + 1 < 10 ? `0${index + 1}` : index + 1}
               </div>
 
               {/* Decorative Header Bar */}
-              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-slate-200 to-transparent group-hover:from-cyan-500 transition-all duration-300" />
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-slate-200 to-transparent group-hover:from-cyan-77 transition-all duration-300" />
 
               <div className="relative z-10 h-full flex flex-col justify-between">
                 <div>
-                  <h3 className="font-mulish font-extrabold text-lg text-slate-800 leading-snug mb-3 group-hover:text-cyan-700 transition-colors">
+                  {/* Mengganti text-slate-800 menjadi text-dark-77 */}
+                  <h3 className="font-mulish font-extrabold text-lg text-dark-77 leading-snug mb-3 group-hover:text-cyan-77 transition-colors">
                     {item.title}
                   </h3>
                   <p className="text-slate-500 text-sm leading-relaxed font-mulish">
@@ -193,7 +197,7 @@ const DistributorBenefits = () => {
                 </div>
 
                 {/* Micro Interaction Element */}
-                <div className="mt-4 w-6 h-6 rounded-full border border-slate-200 flex items-center justify-center group-hover:bg-cyan-500 group-hover:border-cyan-500 transition-all">
+                <div className="mt-4 w-6 h-6 rounded-full border border-slate-200 flex items-center justify-center group-hover:bg-cyan-77 group-hover:border-cyan-77 transition-all">
                   <svg
                     className="w-3 h-3 text-slate-300 group-hover:text-white"
                     fill="none"
@@ -214,12 +218,13 @@ const DistributorBenefits = () => {
         </div>
 
         {/* --- BONUS SECTION --- */}
-        <div className="bonus-container bg-gradient-to-br from-slate-900 to-blue-950 rounded-3xl p-8 lg:p-12 relative overflow-hidden shadow-2xl">
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-full bg-cyan-500/10 blur-[80px] pointer-events-none" />
+        {/* Mengganti from-slate-900 menjadi from-dark-77 */}
+        <div className="bonus-container bg-gradient-to-br from-navy-77 to-cyan-77 rounded-3xl p-8 lg:p-12 relative overflow-hidden shadow-2xl">
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-full bg-cyan-77/10 blur-[80px] pointer-events-none" />
 
           <div className="relative z-10">
             <div className="text-center mb-10">
-              <span className="inline-block px-4 py-1 rounded-full bg-cyan-500/20 text-cyan-400 border border-cyan-500/30 text-xs font-bold uppercase tracking-widest mb-4">
+              <span className="inline-block px-4 py-1 rounded-full bg-cyan-77/20 text-white border border-cyan-77/30 text-xs font-bold uppercase tracking-widest mb-4">
                 Exclusive Distributor Perks
               </span>
               <h3 className="text-3xl font-black text-white font-mulish">
@@ -233,7 +238,7 @@ const DistributorBenefits = () => {
                   key={index}
                   className="bonus-card flex items-start gap-6 bg-white/5 border border-white/10 p-6 rounded-xl hover:bg-white/10 transition-colors"
                 >
-                  <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-cyan-400 to-blue-600 rounded-lg flex items-center justify-center text-white font-bold text-xl font-mulish shadow-lg shadow-cyan-500/20">
+                  <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-cyan-77 to-navy-77 rounded-lg flex items-center justify-center text-white font-bold text-xl font-mulish shadow-lg shadow-cyan-77/20">
                     {index + 1}
                   </div>
                   <div>

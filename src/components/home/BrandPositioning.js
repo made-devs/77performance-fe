@@ -57,7 +57,7 @@ const BrandPositioning = () => {
         className="absolute inset-0 opacity-[0.03] pointer-events-none"
         style={{
           backgroundImage:
-            "linear-gradient(#0891b2 1px, transparent 1px), linear-gradient(90deg, #0891b2 1px, transparent 1px)",
+            "linear-gradient(#0591be 1px, transparent 1px), linear-gradient(90deg, #0591be 1px, transparent 1px)",
           backgroundSize: "50px 50px",
         }}
       />
@@ -73,7 +73,7 @@ const BrandPositioning = () => {
 
             <h2 className="reveal-text text-4xl lg:text-5xl font-mulish font-black text-dark-77 leading-[1.15] mb-8">
               The Long-Term <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-77 to-blue-900">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-77 to-navy-77">
                 Business Game.
               </span>
             </h2>
@@ -135,7 +135,7 @@ const BrandPositioning = () => {
 
               {/* Float Card */}
               <div className="absolute bottom-8 right-8 z-20 bg-dark-77/90 backdrop-blur-md border border-white/10 p-6 text-white rounded-xl shadow-2xl">
-                <div className="text-3xl font-mulish font-black text-cyan-400 mb-1">
+                <div className="text-3xl font-mulish font-black text-cyan-77 mb-1">
                   100%
                 </div>
                 <div className="text-[10px] tracking-[0.2em] uppercase font-bold opacity-80 font-mulish">

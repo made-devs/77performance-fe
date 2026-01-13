@@ -61,12 +61,12 @@ export default function SpecsSection() {
       <div className="container mx-auto px-6 lg:px-20 relative z-10">
         {/* HEADER */}
         <div className="mb-16 max-w-3xl spec-title">
-          <span className="text-cyan-600 font-mulish font-bold tracking-widest text-sm uppercase mb-2 block">
+          <span className="text-cyan-77 font-mulish font-bold tracking-widest text-sm uppercase mb-2 block">
             Manufacturing DNA
           </span>
           <h2 className="text-4xl md:text-5xl font-mulish font-black text-slate-900 leading-tight">
             The{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-blue-600">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-77 to-navy-77">
               Blueprint
             </span>{" "}
             of <br />
@@ -81,7 +81,7 @@ export default function SpecsSection() {
         {/* BENTO GRID LAYOUT */}
         <div className="bento-grid grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 auto-rows-[minmax(180px,auto)]">
           {/* CARD 1: FACTORY ECOSYSTEM (Large) */}
-          <div className="bento-card col-span-1 md:col-span-2 lg:col-span-2 row-span-2 relative group overflow-hidden rounded-3xl bg-white shadow-sm border border-slate-200 hover:border-cyan-400 transition-all duration-500">
+          <div className="bento-card col-span-1 md:col-span-2 lg:col-span-2 row-span-2 relative group overflow-hidden rounded-3xl bg-white shadow-sm border border-slate-200 hover:border-cyan-77 transition-all duration-500">
             <div className="absolute inset-0 bg-slate-900">
               {/* Image Placeholder */}
               <div
@@ -94,7 +94,7 @@ export default function SpecsSection() {
             <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/50 to-transparent" />
 
             <div className="relative h-full p-8 flex flex-col justify-end text-white">
-              <div className="mb-4 w-12 h-12 bg-cyan-500 rounded-full flex items-center justify-center">
+              <div className="mb-4 w-12 h-12 bg-cyan-77 rounded-full flex items-center justify-center">
                 <svg
                   className="w-6 h-6 text-white"
                   fill="none"
@@ -126,10 +126,10 @@ export default function SpecsSection() {
           </div>
 
           {/* CARD 2: EXPERIENCE (Medium) */}
-          <div className="bento-card col-span-1 md:col-span-1 lg:col-span-1 row-span-1 bg-white rounded-3xl p-8 shadow-sm border border-slate-200 hover:border-cyan-400 transition-all duration-300 flex flex-col justify-center relative overflow-hidden group">
+          <div className="bento-card col-span-1 md:col-span-1 lg:col-span-1 row-span-1 bg-white rounded-3xl p-8 shadow-sm border border-slate-200 hover:border-cyan-77 transition-all duration-300 flex flex-col justify-center relative overflow-hidden group">
             <div className="absolute -right-4 -top-4 w-24 h-24 bg-cyan-50 rounded-full group-hover:scale-150 transition-transform duration-500" />
             <h4 className="text-6xl font-mulish font-black text-slate-900 relative z-10">
-              15<span className="text-cyan-500 text-4xl">+</span>
+              15<span className="text-cyan-77 text-4xl">+</span>
             </h4>
             <p className="text-slate-500 font-mulish font-bold text-sm tracking-wider uppercase mt-2 relative z-10">
               Years Experience
@@ -140,7 +140,7 @@ export default function SpecsSection() {
           </div>
 
           {/* CARD 3: GLOBAL REACH (Medium) */}
-          <div className="bento-card col-span-1 md:col-span-1 lg:col-span-1 row-span-1 bg-slate-900 rounded-3xl p-8 shadow-sm border border-slate-800 hover:border-cyan-500 transition-all duration-300 flex flex-col justify-between relative overflow-hidden">
+          <div className="bento-card col-span-1 md:col-span-1 lg:col-span-1 row-span-1 bg-slate-900 rounded-3xl p-8 shadow-sm border border-slate-800 hover:border-cyan-77 transition-all duration-300 flex flex-col justify-between relative overflow-hidden">
             {/* Abstract Map Dots */}
             <div
               className="absolute inset-0 opacity-20"
@@ -155,7 +155,7 @@ export default function SpecsSection() {
               <h3 className="text-white font-mulish font-bold text-xl">
                 Global Market
               </h3>
-              <p className="text-cyan-400 text-xs mt-1 font-mulish">
+              <p className="text-cyan-77 text-xs mt-1 font-mulish">
                 ASIA • EUROPE • AMERICA • MEA
               </p>
             </div>
@@ -168,9 +168,9 @@ export default function SpecsSection() {
           </div>
 
           {/* CARD 4: QUALITY STANDARDS (Tall) */}
-          <div className="bento-card col-span-1 md:col-span-1 lg:col-span-1 row-span-2 bg-white rounded-3xl p-8 shadow-sm border border-slate-200 hover:border-cyan-400 transition-all duration-300 flex flex-col">
+          <div className="bento-card col-span-1 md:col-span-1 lg:col-span-1 row-span-2 bg-white rounded-3xl p-8 shadow-sm border border-slate-200 hover:border-cyan-77 transition-all duration-300 flex flex-col">
             <div className="mb-6">
-              <div className="w-10 h-10 bg-cyan-100 rounded-lg flex items-center justify-center mb-4 text-cyan-600">
+              <div className="w-10 h-10 bg-cyan-100 rounded-lg flex items-center justify-center mb-4 text-cyan-77">
                 <svg
                   className="w-6 h-6"
                   fill="none"
@@ -209,7 +209,7 @@ export default function SpecsSection() {
           </div>
 
           {/* CARD 5: PRODUCT PORTFOLIO (Wide) */}
-          <div className="bento-card col-span-1 md:col-span-2 lg:col-span-2 row-span-1 bg-white rounded-3xl p-8 shadow-sm border border-slate-200 hover:border-cyan-400 transition-all duration-300 flex flex-col md:flex-row items-center gap-8 relative overflow-hidden">
+          <div className="bento-card col-span-1 md:col-span-2 lg:col-span-2 row-span-1 bg-white rounded-3xl p-8 shadow-sm border border-slate-200 hover:border-cyan-77 transition-all duration-300 flex flex-col md:flex-row items-center gap-8 relative overflow-hidden">
             <div className="flex-1 relative z-10">
               <h3 className="text-xl font-mulish font-bold text-slate-900 mb-2">
                 Complete Portfolio
@@ -240,7 +240,7 @@ export default function SpecsSection() {
           </div>
 
           {/* CARD 6: R&D (Small) */}
-          <div className="bento-card col-span-1 md:col-span-1 lg:col-span-1 row-span-1 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-3xl p-8 shadow-lg text-white flex flex-col justify-center hover:scale-[1.02] transition-transform duration-300">
+          <div className="bento-card col-span-1 md:col-span-1 lg:col-span-1 row-span-1 bg-gradient-to-br from-cyan-77 to-navy-77 rounded-3xl p-8 shadow-lg text-white flex flex-col justify-center hover:scale-[1.02] transition-transform duration-300">
             <h3 className="text-lg font-mulish font-bold mb-2">R&D Oriented</h3>
             <p className="text-cyan-100 text-xs leading-relaxed font-mulish">
               Tim riset internal untuk peningkatan desain & material secara
@@ -281,9 +281,9 @@ function Badge({ text }) {
 function ListItem({ title, desc }) {
   return (
     <li className="flex items-start gap-3 group">
-      <div className="w-1.5 h-1.5 mt-1.5 rounded-full bg-cyan-500 group-hover:scale-150 transition-transform" />
+      <div className="w-1.5 h-1.5 mt-1.5 rounded-full bg-cyan-77 group-hover:scale-150 transition-transform" />
       <div>
-        <h4 className="text-sm font-mulish font-bold text-slate-800 group-hover:text-cyan-600 transition-colors">
+        <h4 className="text-sm font-mulish font-bold text-slate-800 group-hover:text-cyan-77 transition-colors">
           {title}
         </h4>
         <p className="text-[10px] text-slate-500 uppercase tracking-wide font-mulish">

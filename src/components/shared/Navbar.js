@@ -71,25 +71,12 @@ export default function Navbar() {
       {/* Container konten dibatasi max-width 1440px dan di-center */}
       <div className="w-full max-w-[1440px] mx-auto flex justify-between items-center relative">
         {/* Logo Area */}
-        <div
+        <img
           ref={logoRef}
-          className="flex items-center gap-2 group cursor-pointer"
-        >
-          {/* Logo Icon Placeholder (Bisa diganti SVG logo asli) */}
-          <div className="w-8 h-8 bg-cyan-77 skew-x-[-12deg] flex items-center justify-center">
-            <span className="font-display font-bold text-white text-sm skew-x-[12deg]">
-              77
-            </span>
-          </div>
-          <div className="flex flex-col">
-            <span className="text-xl font-display font-black text-white tracking-tighter leading-none group-hover:text-cyan-77 transition-colors">
-              PERFORMANCE
-            </span>
-            <span className="text-[10px] font-body font-bold text-white/50 tracking-[0.2em] leading-none">
-              AUTOMOTIVE PARTS
-            </span>
-          </div>
-        </div>
+          src="/logo.webp"
+          alt="Logo"
+          className=" w-25 h-auto cursor-pointer"
+        />
 
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center gap-12">

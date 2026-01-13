@@ -114,20 +114,20 @@ const GlobalVision = () => {
           </h2>
 
           <div className="reveal-content pt-10 relative">
-            <span className="inline-block px-3 py-1 rounded border border-cyan-500/30 bg-cyan-50 text-cyan-700 font-mulish font-bold tracking-[0.2em] text-[10px] uppercase mb-6">
+            <span className="inline-block px-3 py-1 rounded border border-cyan-77/30 bg-cyan-50 text-cyan-77 font-mulish font-bold tracking-[0.2em] text-[10px] uppercase mb-6">
               International Coverage
             </span>
 
             <h3 className="text-4xl md:text-6xl font-mulish font-black leading-[1.1] mb-6 text-slate-900">
               Global-Ready <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-blue-600">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-77 to-navy-77">
                 Vision & Execution.
               </span>
             </h3>
 
             <p className="text-xl md:text-2xl font-mulish font-light leading-relaxed text-slate-600 max-w-xl">
               Berangkat dari manufaktur berstandar internasional,
-              <span className="text-cyan-600 font-bold"> 77 Performance </span>
+              <span className="text-cyan-77 font-bold"> 77 Performance </span>
               tidak dibatasi oleh geografi. Kami membangun ekosistem produk yang
               relevan untuk pasar Asia, Eropa, hingga Amerika.
             </p>

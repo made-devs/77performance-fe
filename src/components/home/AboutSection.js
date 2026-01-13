@@ -6,10 +6,10 @@ export default function AboutSection() {
       {/* --- AERO FLOW BACKGROUND START --- */}
 
       {/* 1. Top-Left Cyan Flow (Soft Entry) */}
-      <div className="absolute -top-[15%] -left-[10%] w-[60%] h-[60%] bg-gradient-to-br from-cyan-77/12 via-cyan-400/8 to-transparent rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute -top-[15%] -left-[10%] w-[60%] h-[60%] bg-gradient-to-br from-cyan-77/12 via-cyan-77/8 to-transparent rounded-full blur-[100px] pointer-events-none" />
 
       {/* 2. Bottom-Right Cyan Flow (Soft Exit) */}
-      <div className="absolute -bottom-[15%] -right-[10%] w-[60%] h-[60%] bg-gradient-to-tl from-cyan-77/12 via-cyan-400/8 to-transparent rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute -bottom-[15%] -right-[10%] w-[60%] h-[60%] bg-gradient-to-tl from-cyan-77/12 via-cyan-77/8 to-transparent rounded-full blur-[100px] pointer-events-none" />
 
       {/* 3. Subtle Tech Grid Pattern (Optional - for industrial feel) */}
       <div
@@ -64,7 +64,7 @@ export default function AboutSection() {
             {/* Headline */}
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-mulish font-black text-dark-77 leading-tight mb-6">
               Built on Proven <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-77 to-blue-900">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-77 to-navy-77">
                 Global Manufacturing
               </span>
             </h2>
