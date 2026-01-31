@@ -3,7 +3,6 @@ BRIEF WEBSITE
 
 REFERENSI TEMPLATE
 Gunakan struktur dan flow layout dari template:
-https://shiftup.qodeinteractive.com/product/coupling/
 Template digunakan sebagai acuan tampilan (full-width, clean, industrial), bukan untuk copywriting.
 
 KONSEP UTAMA WEBSITE

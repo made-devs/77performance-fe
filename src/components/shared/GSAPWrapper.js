@@ -17,13 +17,13 @@ export default function GSAPWrapper({ children }) {
       ScrollSmoother.create({
         wrapper: "#smooth-wrapper",
         content: "#smooth-content",
-        smooth: 0.8, // Lebih rendah = lebih ringan (was 1.5)
+        smooth: 1.5, // Lebih rendah = lebih ringan (was 1.5)
         effects: false, // Matikan effects (was true)
         smoothTouch: false, // Matikan di touch devices
         normalizeScroll: true, // Lebih stabil di berbagai device
       });
     },
-    { scope: container }
+    { scope: container },
   );
 
   return (
