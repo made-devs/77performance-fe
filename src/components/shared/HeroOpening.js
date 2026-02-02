@@ -80,7 +80,7 @@ export default function HeroOpening({
             scale: scaleBg,
           }}
           // h-[120%] dan top-[-10%] memastikan tidak ada celah putih saat parallax bergerak
-          className="absolute inset-x-0 -top-[10%] h-[120%] w-full bg-cover bg-center grayscale opacity-60 will-change-transform"
+          className="absolute inset-x-0 -top-[10%] h-[120%] w-full bg-cover bg-center opacity-80 will-change-transform"
         />
         {/* Gradient Overlay untuk keterbacaan teks */}
         <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/50 to-transparent mix-blend-multiply z-10" />

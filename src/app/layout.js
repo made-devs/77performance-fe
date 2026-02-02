@@ -4,6 +4,7 @@ import GSAPWrapper from "@/components/shared/GSAPWrapper";
 import Navbar from "@/components/shared/Navbar";
 import CustomCursor from "@/components/shared/CustomCursor";
 import Footer from "@/components/shared/Footer";
+import ReviewGuide from "@/components/shared/ReviewGuide";
 
 const syne = Syne({
   subsets: ["latin"],
@@ -26,6 +27,7 @@ export default function RootLayout({ children }) {
     <html lang="en" className={`${syne.variable} ${mulish.variable}`}>
       <body className="antialiased">
         <CustomCursor />
+        <ReviewGuide />
         <Navbar />
         <GSAPWrapper>
           {children}
