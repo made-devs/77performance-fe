@@ -1,4 +1,4 @@
-import ManufacturingOpening from "@/components/manufacturing/ManufacturingOpening";
+import HeroOpening from "@/components/shared/HeroOpening";
 import ManufacturingFacility from "@/components/manufacturing/ManufacturingFacility";
 import ProductionTech from "@/components/manufacturing/ProductionTech";
 import DurabilitySection from "@/components/manufacturing/DurabilitySection";
@@ -8,7 +8,20 @@ import GlobalSupply from "@/components/manufacturing/GlobalSupply";
 export default function ManufacturingPage() {
   return (
     <main className="bg-white text-slate-900 selection:bg-[var(--color-navy-77)] selection:text-white overflow-hidden">
-      <ManufacturingOpening />
+      <HeroOpening
+        uptitle="Infrastructure & Capacity"
+        titleLines={["GLOBAL", "MANUFACTURING", "FOUNDATION"]}
+        description={
+          <>
+            Engineered to International Standards. <br />
+            <span className="text-white font-medium">
+              Precision. Automation. Scale.
+            </span>
+          </>
+        }
+        bgImageUrl="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=3270&auto=format&fit=crop"
+        height="110vh"
+      />
       <ManufacturingFacility />
       <ProductionTech />
       <DurabilitySection />

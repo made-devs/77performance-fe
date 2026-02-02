@@ -9,10 +9,13 @@ import Link from "next/link";
 gsap.registerPlugin(ScrollTrigger);
 
 const NAV_LINKS = [
-  { name: "Manufacturing", href: "#" },
-  { name: "Products", href: "#" },
-  { name: "Partnership", href: "#" },
-  { name: "About", href: "#" },
+  { name: "Manufacturing", href: "/manufacturing" },
+  { name: "Products", href: "/products" },
+  { name: "Gallery", href: "/gallery" },
+  { name: "Community", href: "/community" },
+  { name: "Contact", href: "/contact" },
+  { name: "About", href: "/about" },
+  { name: "Distributor", href: "/distributor" },
 ];
 
 export default function Navbar() {
@@ -51,10 +54,10 @@ export default function Navbar() {
           transformOrigin: "left center",
           duration: 0.3,
         },
-        0
+        0,
       );
     },
-    { scope: navRef }
+    { scope: navRef },
   );
 
   return (
@@ -86,7 +89,7 @@ export default function Navbar() {
               href={link.href}
               className="relative group py-2"
             >
-              <span className="font-mulish text-sm font-bold uppercase tracking-widest text-white transition-colors">
+              <span className="font-mulish text-sm font-bold tracking-widest text-white transition-colors">
                 {link.name}
               </span>
               {/* Hover Line Animation */}
@@ -101,7 +104,7 @@ export default function Navbar() {
         <button className="hidden md:block relative overflow-hidden group px-6 py-2 bg-white/10 border border-white/20 hover:border-cyan-77 transition-all duration-300">
           <div className="absolute inset-0 bg-cyan-77 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out" />
           <span className="relative font-mulish text-sm font-bold tracking-widest text-white z-10 flex items-center gap-2">
-            DISTRIBUTOR
+            Distributor
             <svg
               className="w-3 h-3 transition-transform group-hover:translate-x-1"
               fill="none"
