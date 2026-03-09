@@ -1,10 +1,5 @@
 import { Syne, Mulish } from "next/font/google";
 import "./globals.css";
-import GSAPWrapper from "@/components/shared/GSAPWrapper";
-import Navbar from "@/components/shared/Navbar";
-import CustomCursor from "@/components/shared/CustomCursor";
-import Footer from "@/components/shared/Footer";
-import ReviewGuide from "@/components/shared/ReviewGuide";
 
 const syne = Syne({
   subsets: ["latin"],
@@ -25,15 +20,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${syne.variable} ${mulish.variable}`}>
-      <body className="antialiased">
-        <CustomCursor />
-        <ReviewGuide />
-        <Navbar />
-        <GSAPWrapper>
-          {children}
-          <Footer />
-        </GSAPWrapper>
-      </body>
+      <body className="antialiased">{children}</body>
     </html>
   );
 }

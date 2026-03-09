@@ -13,8 +13,17 @@ export default function GSAPWrapper({ children }) {
 
   useGSAP(
     () => {
+      const isMobile = window.matchMedia("(max-width: 1024px)").matches;
+      const prefersReducedMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)",
+      ).matches;
+
+      if (isMobile || prefersReducedMotion) {
+        return;
+      }
+
       // Kurangi smooth value & matikan effects
-      ScrollSmoother.create({
+      const smoother = ScrollSmoother.create({
         wrapper: "#smooth-wrapper",
         content: "#smooth-content",
         smooth: 1.5, // Lebih rendah = lebih ringan (was 1.5)
@@ -22,6 +31,10 @@ export default function GSAPWrapper({ children }) {
         smoothTouch: false, // Matikan di touch devices
         normalizeScroll: true, // Lebih stabil di berbagai device
       });
+
+      return () => {
+        smoother.kill();
+      };
     },
     { scope: container },
   );

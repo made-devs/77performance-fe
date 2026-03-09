@@ -1,0 +1,32 @@
+{
+  "brandDescription": "We build the future automotive ecosystem. Not just selling parts, but delivering sustainable business solutions, proven systems, and Grade A products for partner growth.",
+  "sections": {
+    "company": "Company",
+    "contact": "Contact Us",
+    "newsletter": "Stay Connected"
+  },
+  "companyLinks": {
+    "about": "About Us",
+    "vision": "Vision & Mission",
+    "career": "Careers",
+    "news": "News & Articles"
+  },
+  "contact": {
+    "hqLabel": "Headquarters:",
+    "addressLine1": "Jl. Otomotif Raya No. 77",
+    "addressLine2": "North Jakarta, Indonesia",
+    "email": "partnership@77performance.id",
+    "phone": "+62 812-3456-7890"
+  },
+  "newsletter": {
+    "description": "Get the latest product updates and automotive business strategies delivered to your inbox.",
+    "placeholder": "Your Email Address",
+    "button": "Subscribe"
+  },
+  "bottom": {
+    "copyright": "© {year} 77 Performance. All rights reserved.",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "sitemap": "Sitemap"
+  }
+}

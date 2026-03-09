@@ -1,12 +1,13 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 
 export default function CustomCursor() {
   const cursorRef = useRef(null); // The big ring
   const dotRef = useRef(null); // The small dot
+  const visibleRef = useRef(false);
   const [isHovering, setIsHovering] = useState(false);
   const [isVisible, setIsVisible] = useState(false); // Untuk hide cursor saat keluar window
 
@@ -31,7 +32,10 @@ export default function CustomCursor() {
 
     const onMouseMove = (e) => {
       // Tampilkan cursor saat mouse bergerak
-      if (!isVisible) setIsVisible(true);
+      if (!visibleRef.current) {
+        visibleRef.current = true;
+        setIsVisible(true);
+      }
 
       xTo(e.clientX);
       yTo(e.clientY);
@@ -54,8 +58,14 @@ export default function CustomCursor() {
     };
 
     // Hide cursor saat mouse keluar window
-    const onMouseLeave = () => setIsVisible(false);
-    const onMouseEnter = () => setIsVisible(true);
+    const onMouseLeave = () => {
+      visibleRef.current = false;
+      setIsVisible(false);
+    };
+    const onMouseEnter = () => {
+      visibleRef.current = true;
+      setIsVisible(true);
+    };
 
     window.addEventListener("mousemove", onMouseMove);
     window.addEventListener("mouseover", onMouseOver);
@@ -68,7 +78,7 @@ export default function CustomCursor() {
       document.body.removeEventListener("mouseleave", onMouseLeave);
       document.body.removeEventListener("mouseenter", onMouseEnter);
     };
-  }, [isVisible]);
+  }, []);
 
   useGSAP(() => {
     if (isHovering) {

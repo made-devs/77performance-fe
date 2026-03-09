@@ -4,24 +4,40 @@ import { useRef, useState } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Link from "next/link";
+import { useLocale, useTranslations } from "next-intl";
+import { Link, usePathname, useRouter } from "@/i18n/navigation";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const NAV_LINKS = [
-  { name: "Manufacturing", href: "/manufacturing" },
-  { name: "Products", href: "/products" },
-  { name: "Gallery", href: "/gallery" },
-  { name: "Community", href: "/community" },
-  { name: "Contact", href: "/contact" },
-  { name: "About", href: "/about" },
-  { name: "Distributor", href: "/distributor" },
+  { key: "manufacturing", href: "/manufacturing" },
+  { key: "products", href: "/products" },
+  { key: "gallery", href: "/gallery" },
+  { key: "community", href: "/community" },
+  { key: "contact", href: "/contact" },
+  { key: "about", href: "/about" },
+  { key: "distributor", href: "/distributor" },
 ];
+
+const LANGUAGES = ["id", "en", "zh"];
 
 export default function Navbar() {
   const navRef = useRef(null);
   const logoRef = useRef(null);
   const [isScrolled, setIsScrolled] = useState(false);
+  const t = useTranslations("navbar");
+  const tCommon = useTranslations("common");
+  const locale = useLocale();
+  const pathname = usePathname();
+  const router = useRouter();
+
+  const handleLocaleChange = (nextLocale) => {
+    if (nextLocale === locale) {
+      return;
+    }
+
+    router.replace(pathname, { locale: nextLocale });
+  };
 
   useGSAP(
     () => {
@@ -74,23 +90,25 @@ export default function Navbar() {
       {/* Container konten dibatasi max-width 1440px dan di-center */}
       <div className="w-full max-w-[1440px] mx-auto flex justify-between items-center relative">
         {/* Logo Area */}
-        <img
-          ref={logoRef}
-          src="/logo.webp"
-          alt="Logo"
-          className=" w-25 h-auto cursor-pointer"
-        />
+        <Link href="/" aria-label={t("logoAlt")}>
+          <img
+            ref={logoRef}
+            src="/logo.webp"
+            alt={t("logoAlt")}
+            className="w-25 h-auto cursor-pointer"
+          />
+        </Link>
 
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center gap-12">
           {NAV_LINKS.map((link) => (
             <Link
-              key={link.name}
+              key={link.key}
               href={link.href}
               className="relative group py-2"
             >
               <span className="font-mulish text-sm font-bold tracking-widest text-white transition-colors">
-                {link.name}
+                {t(`links.${link.key}`)}
               </span>
               {/* Hover Line Animation */}
               <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-cyan-77 transition-all duration-300 group-hover:w-full" />
@@ -101,10 +119,13 @@ export default function Navbar() {
         </div>
 
         {/* CTA Button */}
-        <button className="hidden md:block relative overflow-hidden group px-6 py-2 bg-white/10 border border-white/20 hover:border-cyan-77 transition-all duration-300">
+        <Link
+          href="/distributor"
+          className="hidden md:block relative overflow-hidden group px-6 py-2 bg-white/10 border border-white/20 hover:border-cyan-77 transition-all duration-300"
+        >
           <div className="absolute inset-0 bg-cyan-77 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out" />
           <span className="relative font-mulish text-sm font-bold tracking-widest text-white z-10 flex items-center gap-2">
-            Distributor
+            {t("cta")}
             <svg
               className="w-3 h-3 transition-transform group-hover:translate-x-1"
               fill="none"
@@ -119,7 +140,31 @@ export default function Navbar() {
               ></path>
             </svg>
           </span>
-        </button>
+        </Link>
+
+        <div
+          className="hidden md:flex items-center gap-2 ml-4"
+          aria-label={tCommon("language")}
+        >
+          {LANGUAGES.map((language) => {
+            const active = language === locale;
+
+            return (
+              <button
+                key={language}
+                type="button"
+                onClick={() => handleLocaleChange(language)}
+                className={`px-2 py-1 text-xs tracking-widest border transition-colors ${
+                  active
+                    ? "bg-white text-slate-900 border-white"
+                    : "text-white border-white/30 hover:border-cyan-77"
+                }`}
+              >
+                {t(`languages.${language}`)}
+              </button>
+            );
+          })}
+        </div>
 
         {/* Mobile Menu Toggle (Hamburger) */}
         <button className="md:hidden text-white">

@@ -4,6 +4,7 @@ import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useTranslations } from "next-intl";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -12,51 +13,29 @@ ScrollTrigger.config({
   ignoreMobileResize: true,
 });
 
-const QUALITY_PILLARS = [
-  {
-    id: "01",
-    bgText: "77 PERFORMANCE",
-    title: "Premium Materials",
-    subtitle: "Grade A Selection",
-    desc: "Kami tidak berkompromi pada bahan dasar. Menggunakan baja berkualitas tinggi dan komponen karet grade-A.",
-    features: [
-      "High-Tensile Steel",
-      "Heat Resistant Rubber",
-      "Anti-Corrosion Coating",
-    ],
-    image: "/home4.avif",
-  },
-  {
-    id: "02",
-    bgText: "COMFORT",
-    title: "Engineered Comfort",
-    subtitle: "Precision Damping",
-    desc: "Kenyamanan berkendara bukan kebetulan. Valving system kami dikalibrasi untuk meredam getaran mikro.",
-    features: ["Adaptive Valving", "Noise Reduction", "Smooth Rebound"],
-    image:
-      "https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?q=80&w=1000&auto=format&fit=crop",
-  },
-  {
-    id: "03",
-    bgText: "DURABILITY",
-    title: "Extreme Durability",
-    subtitle: "Built to Last",
-    desc: "Dirancang untuk umur pakai panjang. Setiap unit melewati uji ketahanan siklus tinggi.",
-    features: ["High Cycle Testing", "Leak-Proof Seal", "Heavy Duty Structure"],
-    image: "/home5.png",
-  },
+const QUALITY_IMAGES = [
+  "/home4.avif",
+  "https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?q=80&w=1000&auto=format&fit=crop",
+  "/home5.png",
 ];
 
 export default function QualitySection() {
   const triggerRef = useRef(null);
   const bgTextRef = useRef(null);
+  const t = useTranslations("pageHome.qualitySection");
+  const qualityPillars = t.raw("pillars").map((pillar, index) => ({
+    ...pillar,
+    image: QUALITY_IMAGES[index],
+  }));
 
   useGSAP(
     () => {
-      // FIX 2: Aktifkan scroll normalizing untuk mobile yang super smooth (anti-jitter)
-      ScrollTrigger.normalizeScroll(true);
+      const isDesktop = window.matchMedia("(min-width: 1024px)").matches;
 
       const sections = gsap.utils.toArray(".quality-panel");
+      const setBgTextX = gsap.quickSetter(bgTextRef.current, "xPercent");
+      const distance = () =>
+        "+=" + triggerRef.current.offsetWidth * (sections.length - 1);
 
       // Logic Horizontal Scroll
       const scrollTween = gsap.to(sections, {
@@ -64,22 +43,12 @@ export default function QualitySection() {
         ease: "none",
         scrollTrigger: {
           trigger: triggerRef.current,
-          pin: true,
-          scrub: 1,
-          snap: 1 / (sections.length - 1),
-          end: () => "+=" + triggerRef.current.offsetWidth * 3,
-        },
-      });
-
-      // Logic Parallax Background Text
-      gsap.to(bgTextRef.current, {
-        xPercent: -50,
-        ease: "none",
-        scrollTrigger: {
-          trigger: triggerRef.current,
-          scrub: 1,
-          start: "top top",
-          end: () => "+=" + triggerRef.current.offsetWidth * 3,
+          pin: isDesktop,
+          scrub: isDesktop ? 1 : 0.7,
+          snap: isDesktop ? 1 / (sections.length - 1) : false,
+          anticipatePin: 1,
+          end: distance,
+          onUpdate: (self) => setBgTextX(-50 * self.progress),
         },
       });
 
@@ -96,16 +65,14 @@ export default function QualitySection() {
               trigger: text.parentElement,
               containerAnimation: scrollTween,
               start: "left center",
-              toggleActions: "play none none reverse",
+              toggleActions: "play none none none",
+              once: true,
             },
-          }
+          },
         );
       });
-
-      // Cleanup: Matikan normalize saat component unmount agar halaman lain normal
-      return () => ScrollTrigger.normalizeScroll(false);
     },
-    { scope: triggerRef }
+    { scope: triggerRef },
   );
 
   return (
@@ -121,7 +88,7 @@ export default function QualitySection() {
           className="absolute inset-0 flex flex-nowrap items-center pointer-events-none z-0 whitespace-nowrap top-1/2 -translate-y-1/2"
         >
           <div className="min-w-[100vw]" />
-          {QUALITY_PILLARS.map((item, index) => (
+          {qualityPillars.map((item, index) => (
             <div key={index} className="min-w-[100vw] flex justify-center">
               <span
                 className="text-[40vw] lg:text-[25vw] font-black leading-none opacity-10 select-none"
@@ -149,17 +116,16 @@ export default function QualitySection() {
           <div className="container mx-auto px-6 lg:px-20 relative z-10 flex flex-col justify-center h-full">
             <div className="max-w-4xl panel-content">
               <span className="inline-block py-1 px-3 border border-cyan-77/30 rounded-full bg-cyan-50/80 backdrop-blur-sm text-cyan-600 text-[10px] lg:text-xs font-bold tracking-widest uppercase mb-4 lg:mb-6">
-                The Philosophy
+                {t("intro.tag")}
               </span>
               <h2 className="text-4xl sm:text-6xl lg:text-8xl font-black leading-tight mb-4 lg:mb-8 text-slate-900">
-                ENGINEERED <br />
+                {t("intro.titleLine1")} <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-77 to-navy-77">
-                  QUALITY
+                  {t("intro.titleLine2")}
                 </span>
               </h2>
               <p className="text-base sm:text-lg lg:text-xl text-slate-600 max-w-xl border-l-4 border-cyan-77 pl-4 lg:pl-6">
-                Kualitas bukan sekadar janji. Di 77 Performance, kami
-                mengutamakan presisi teknik dan standar global.
+                {t("intro.description")}
               </p>
 
               <div className="mt-8 lg:mt-12 flex items-center gap-5 animate-pulse">
@@ -168,7 +134,7 @@ export default function QualitySection() {
                 </div>
                 <div className="flex flex-col">
                   <span className="text-xs lg:text-sm font-black text-cyan-600 tracking-[0.2em] uppercase">
-                    Scroll
+                    {t("intro.scroll")}
                   </span>
                 </div>
               </div>
@@ -177,7 +143,7 @@ export default function QualitySection() {
         </div>
 
         {/* --- PANEL PILLARS (LOOP) --- */}
-        {QUALITY_PILLARS.map((item, index) => (
+        {qualityPillars.map((item, index) => (
           <div
             key={index}
             className="quality-panel min-w-full h-full flex items-center relative border-r border-slate-100 bg-transparent z-10"

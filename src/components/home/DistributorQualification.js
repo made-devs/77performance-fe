@@ -4,84 +4,49 @@ import React, { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useTranslations } from "next-intl";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const REQUIREMENTS = [
-  {
-    id: 1,
-    title: "Legalitas Perusahaan Resmi",
-    desc: "Memiliki KTP penanggung jawab, NPWP, badan usaha (PT), serta gudang operasional.",
-    icon: "document",
-  },
-  {
-    id: 2,
-    title: "Background Otomotif Aktif",
-    desc: "Memiliki pengalaman atau jaringan aktif di bidang otomotif (bengkel/toko/komunitas).",
-    icon: "car",
-  },
-  {
-    id: 3,
-    title: "Komitmen Target Wilayah",
-    desc: "Siap memenuhi target penjualan sesuai wilayah yang ditetapkan oleh principal.",
-    icon: "target",
-  },
-  {
-    id: 4,
-    title: "Wajib Training Product",
-    desc: "Lulus training product knowledge resmi sebagai syarat aktivasi distributor.",
-    icon: "academic",
-  },
-  {
-    id: 5,
-    title: "Kemampuan Bangun Jaringan",
-    desc: "Mampu mengelola rantai penjualan (mitra bengkel) di wilayah masing-masing.",
-    icon: "network",
-  },
-  {
-    id: 6,
-    title: "Kepatuhan Sistem Principal",
-    desc: "Wajib mengikuti standar harga dan kebijakan resmi 77 Performance.",
-    icon: "shield",
-  },
-  {
-    id: 7,
-    title: "Tanggung Jawab Operasional",
-    desc: "Seluruh biaya operasional dan SDM menjadi tanggung jawab distributor.",
-    icon: "briefcase",
-  },
-  {
-    id: 8,
-    title: "Komitmen Reputasi Brand",
-    desc: "Menjaga citra brand 77 Performance di wilayah operasional secara profesional.",
-    icon: "star",
-  },
+const REQUIREMENT_ICONS = [
+  "document",
+  "car",
+  "target",
+  "academic",
+  "network",
+  "shield",
+  "briefcase",
+  "star",
 ];
 
 const DistributorQualification = () => {
   const containerRef = useRef(null);
   const ghostTextRef = useRef(null);
+  const t = useTranslations("pageHome.distributorQualification");
+  const requirements = t.raw("requirements").map((item, index) => ({
+    id: index + 1,
+    title: item.title,
+    desc: item.desc,
+    icon: REQUIREMENT_ICONS[index],
+  }));
 
   useGSAP(
     () => {
-      ScrollTrigger.refresh();
-
-      // 1. Ghost Typography Parallax
-      gsap.to(ghostTextRef.current, {
-        xPercent: -20,
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: "top bottom",
-          end: "bottom top",
-          scrub: 1,
-        },
+      // 1. Ghost Typography Parallax — quickSetter
+      const setGhostX = gsap.quickSetter(ghostTextRef.current, "xPercent");
+      ScrollTrigger.create({
+        trigger: containerRef.current,
+        start: "top bottom",
+        end: "bottom top",
+        scrub: 1,
+        onUpdate: (self) => setGhostX(-20 * self.progress),
       });
 
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: containerRef.current,
           start: "top 75%",
-          toggleActions: "play none none reverse",
+          once: true,
         },
       });
 
@@ -100,7 +65,7 @@ const DistributorQualification = () => {
             duration: 1.2,
             ease: "power4.inOut",
           },
-          "-=0.4"
+          "-=0.4",
         )
         .from(
           ".req-card",
@@ -111,10 +76,10 @@ const DistributorQualification = () => {
             duration: 0.8,
             ease: "power3.out",
           },
-          "-=0.8"
+          "-=0.8",
         );
     },
-    { scope: containerRef }
+    { scope: containerRef },
   );
 
   return (
@@ -128,7 +93,7 @@ const DistributorQualification = () => {
           ref={ghostTextRef}
           className="absolute top-1/2 -translate-y-1/2 left-0 whitespace-nowrap text-[22vw] font-black uppercase text-navy-77/[0.02] italic tracking-tighter"
         >
-          Qualification Qualification
+          {t("bgText")}
         </div>
         <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_10%_10%,_rgba(2,21,38,0.03)_0%,_transparent_50%)]" />
         <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_90%_90%,_rgba(34,211,238,0.03)_0%,_transparent_50%)]" />
@@ -140,18 +105,17 @@ const DistributorQualification = () => {
           <div className="qual-header-el inline-flex items-center gap-2 px-4 py-1.5 bg-slate-50 border border-navy-77/5 rounded-full mb-6">
             <span className="w-1.5 h-1.5 rounded-full bg-cyan-77 animate-pulse" />
             <span className="text-navy-77/60 font-bold text-[10px] uppercase tracking-[0.3em]">
-              Official Standards
+              {t("badge")}
             </span>
           </div>
           <h2 className="qual-header-el text-5xl lg:text-6xl font-black font-mulish mb-8 leading-tight">
-            Distributor{" "}
+            {t("titlePrefix")}{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-navy-77 to-cyan-77">
-              Qualification.
+              {t("titleHighlight")}
             </span>
           </h2>
           <p className="qual-header-el text-slate-500 text-lg font-light max-w-xl mx-auto italic">
-            "Membangun masa depan otomotif dengan standar profesionalisme tanpa
-            kompromi."
+            “{t("quote")}”
           </p>
         </div>
 
@@ -161,7 +125,7 @@ const DistributorQualification = () => {
           <div className="center-spine absolute left-1/2 top-0 bottom-0 w-[1px] bg-gradient-to-b from-navy-77/5 via-cyan-77/40 to-navy-77/5 -translate-x-1/2 hidden lg:block" />
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-24 gap-y-12">
-            {REQUIREMENTS.map((req, index) => {
+            {requirements.map((req, index) => {
               const isEven = index % 2 === 0;
               return (
                 <div
@@ -218,7 +182,7 @@ const DistributorQualification = () => {
           <button className="group relative px-10 py-5 bg-navy-77 text-white font-bold rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-[0_20px_40px_rgba(2,21,38,0.2)]">
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
             <span className="relative z-10 flex items-center gap-3">
-              Download Requirements PDF
+              {t("cta")}
               <svg
                 className="w-5 h-5 group-hover:translate-y-1 transition-transform"
                 fill="none"

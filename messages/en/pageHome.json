@@ -1,0 +1,509 @@
+{
+  "heroSlideshow": {
+    "sub": "GLOBAL • PREMIUM • PERFORMANCE",
+    "title": "Premium Import Automotive Parts",
+    "description": "Discover the finest selection of automotive parts engineered for performance and durability.",
+    "cta": "EXPLORE PARTS",
+    "posterAlt": "Hero Poster",
+    "marqueeBrand": "77 PERFORMANCE",
+    "marqueeTag": "PREMIUM IMPORT PARTS"
+  },
+  "aboutSection": {
+    "badgeYears": "Years of Global Manufacturing Experience",
+    "tagline": "Global Ready Vision",
+    "titleLine1": "Built on Proven",
+    "titleLine2": "Global Manufacturing",
+    "description": "77 Performance is a premium imported automotive parts brand built on a proven global manufacturing foundation, using Premium Grade A materials and supported by a business system for long-term growth.",
+    "features": [
+      "Global Manufacturing Standard",
+      "Premium Grade A Materials",
+      "Business System for Long-term Growth"
+    ],
+    "stats": {
+      "facilityLabel": "SQM Facility",
+      "qualityLabel": "Quality Standard",
+      "exportLabel": "Continents Export"
+    }
+  },
+  "manufacturingSection": {
+    "badge": "Behind The Quality",
+    "titleLine1": "Engineered at",
+    "titleLine2": "Industrial Scale",
+    "description": "We do not just assemble, we manufacture. With tens of thousands of square meters of facilities and precision technology, every 77 Performance component is produced under world-class manufacturing standards.",
+    "features": [
+      {
+        "title": "Industrial Scale Facility",
+        "desc": "Tens of thousands of m² covering production, R&D, and centralized warehousing."
+      },
+      {
+        "title": "Automated Assembly",
+        "desc": "Automated robotic systems ensure precise consistency in every unit."
+      },
+      {
+        "title": "Precision Machining",
+        "desc": "Advanced CNC technology for micron-level accuracy and component performance."
+      },
+      {
+        "title": "Multi-stage QC",
+        "desc": "Layered inspection from raw materials to final checks before shipment."
+      },
+      {
+        "title": "R&D Innovation",
+        "desc": "Continuous development for design improvement and material durability."
+      },
+      {
+        "title": "Global OEM Standard",
+        "desc": "Trusted globally as OEM-equivalent replacement quality."
+      }
+    ]
+  },
+  "qualitySection": {
+    "intro": {
+      "tag": "The Philosophy",
+      "titleLine1": "ENGINEERED",
+      "titleLine2": "QUALITY",
+      "description": "Quality is not just a promise. At 77 Performance, we prioritize engineering precision and global standards.",
+      "scroll": "Scroll"
+    },
+    "pillars": [
+      {
+        "id": "01",
+        "bgText": "77 PERFORMANCE",
+        "title": "Premium Materials",
+        "subtitle": "Grade A Selection",
+        "desc": "We do not compromise on core materials. Built with high-quality steel and Grade-A rubber components.",
+        "features": [
+          "High-Tensile Steel",
+          "Heat Resistant Rubber",
+          "Anti-Corrosion Coating"
+        ]
+      },
+      {
+        "id": "02",
+        "bgText": "COMFORT",
+        "title": "Engineered Comfort",
+        "subtitle": "Precision Damping",
+        "desc": "Driving comfort is not accidental. Our valving system is calibrated to absorb micro-vibrations.",
+        "features": [
+          "Adaptive Valving",
+          "Noise Reduction",
+          "Smooth Rebound"
+        ]
+      },
+      {
+        "id": "03",
+        "bgText": "DURABILITY",
+        "title": "Extreme Durability",
+        "subtitle": "Built to Last",
+        "desc": "Designed for long service life. Every unit undergoes high-cycle durability testing.",
+        "features": [
+          "High Cycle Testing",
+          "Leak-Proof Seal",
+          "Heavy Duty Structure"
+        ]
+      }
+    ]
+  },
+  "specsSection": {
+    "header": {
+      "tag": "Manufacturing DNA",
+      "titlePrefix": "The",
+      "titleMiddle": "Blueprint",
+      "titleSuffix": "of Global Standards",
+      "description": "Our manufacturing foundation is built on quality pillars that ensure world-class precision, consistency, and durability."
+    },
+    "cards": {
+      "integrated": {
+        "title": "Integrated Production Ecosystem",
+        "desc": "A tens-of-thousands m² facility with integrated systems: Machining, Assembly, Surface Treatment, and Final Inspection under one roof.",
+        "badges": [
+          "Automated Assembly",
+          "Precision Machining",
+          "Scale Industry"
+        ]
+      },
+      "experience": {
+        "label": "Years Experience",
+        "desc": "Since 2008, a stable and sustainable production track record."
+      },
+      "globalMarket": {
+        "title": "Global Market",
+        "regions": "ASIA • EUROPE • AMERICA • MEA",
+        "desc": "Trusted across regions worldwide for Aftermarket and OEM Replacement markets."
+      },
+      "quality": {
+        "title": "Strict Quality Control",
+        "desc": "Multi-stage inspection from raw materials to finished goods.",
+        "items": [
+          {
+            "title": "ISO Certified",
+            "desc": "Quality Management System"
+          },
+          {
+            "title": "E-Coating",
+            "desc": "Electrophoresis Anti-Corrosion"
+          },
+          {
+            "title": "Dynamic Damping",
+            "desc": "100% Performance Test"
+          },
+          {
+            "title": "High Cycle Test",
+            "desc": "Durability Assurance"
+          },
+          {
+            "title": "OEM Standard",
+            "desc": "Equivalent Quality"
+          }
+        ]
+      },
+      "portfolio": {
+        "title": "Complete Portfolio",
+        "desc": "Comprehensive chassis and suspension range: Shock Absorber, Control Arm, Bushing, Ball Joint, and Rack End.",
+        "tag1": "Shock Absorber",
+        "tag2": "Suspension Parts"
+      },
+      "rnd": {
+        "title": "R&D Oriented",
+        "desc": "Internal research team for continuous design and material enhancement.",
+        "footer": "OEM & ODM"
+      }
+    }
+  },
+  "brandPositioning": {
+    "badge": "Brand Positioning",
+    "titleLine1": "The Long-Term",
+    "titleLine2": "Business Game.",
+    "descriptionLead": "In a market filled with quality fluctuations, we take a different path.",
+    "brandName": "77 Performance",
+    "descriptionTail": "was not created merely to compete on the lowest price shelf.",
+    "quote": "We do not just sell parts. We build authority, consistency, and trust for the future.",
+    "points": [
+      {
+        "title": "Value Over Price",
+        "desc": "Pricing that reflects Grade-A materials and R&D quality."
+      },
+      {
+        "title": "Global Consistency",
+        "desc": "The first batch quality is identical to the thousandth batch."
+      },
+      {
+        "title": "Legacy Building",
+        "desc": "For partners seeking business authority, not just commodity trade."
+      }
+    ],
+    "complianceLabel": "Premium Standard Compliance",
+    "imageAlt": "77 Performance Engineering"
+  },
+  "globalVision": {
+    "watermark": "GLOBAL",
+    "badge": "International Coverage",
+    "titleLine1": "Global-Ready",
+    "titleLine2": "Vision & Execution.",
+    "descriptionLead": "Built on internationally standardized manufacturing,",
+    "brandName": "77 Performance",
+    "descriptionTail": "is not limited by geography. We build a product ecosystem relevant to markets across Asia, Europe, and America.",
+    "stats": [
+      {
+        "label": "Standard",
+        "value": "OEM Equivalent",
+        "sub": "Global Compliance"
+      },
+      {
+        "label": "Expansion",
+        "value": "Export Ready",
+        "sub": "Cross-border Logistics"
+      },
+      {
+        "label": "Network",
+        "value": "Multi-Region",
+        "sub": "APAC • EU • MEA • US"
+      }
+    ]
+  },
+  "distributorBenefits": {
+    "badge": "Distributor Value Proposition",
+    "titleLine1": "Not Just Buying Parts.",
+    "titleLine2": "It's a Structured Partnership.",
+    "description": "Becoming a 77 Performance distributor means access to a mature business ecosystem. We provide 360° support from upstream to downstream.",
+    "benefits": [
+      {
+        "title": "Monthly Revenue Guarantee",
+        "desc": "Minimum monthly revenue guarantee of IDR 100,000,000 from sales to TJM Auto Care and Raja Oto workshop networks across Indonesia."
+      },
+      {
+        "title": "Annual Order Target",
+        "desc": "Target IDR 500M/month (IDR 6B/year). First year reduced to IDR 250M/month."
+      },
+      {
+        "title": "Maximum Profit Margin",
+        "desc": "Up to 150% margin, special distributor discounts, and volume-based pricing."
+      },
+      {
+        "title": "Official Product Warranty",
+        "desc": "1-year national warranty and 2-year international warranty for all products."
+      },
+      {
+        "title": "Exclusive Area",
+        "desc": "One distributor per city/territory. No dual distributors in the same area."
+      },
+      {
+        "title": "Product Training",
+        "desc": "Official online/offline product knowledge training and latest technology updates."
+      },
+      {
+        "title": "Free Premium Website",
+        "desc": "Dedicated distributor website for branding (e.g. www.7performancejogja.com)."
+      },
+      {
+        "title": "Corporate Legal Assistance",
+        "desc": "Access to legal team and third-party debt recovery support for overdue receivables."
+      },
+      {
+        "title": "National Celebrity Promotion",
+        "desc": "Free promotion by Zack Lee plus ready-to-publish content to support partner workshops/stores."
+      },
+      {
+        "title": "Complete Promotion Package",
+        "desc": "Marketing kit: banners, display racks, product modules, and physical brochures."
+      },
+      {
+        "title": "Modern Stock System",
+        "desc": "Stock management, custom barcode, and real-time live pricelist updates."
+      },
+      {
+        "title": "Store Display Package",
+        "desc": "One TV display set + promotional and educational videos ready for store playback."
+      },
+      {
+        "title": "Emergency Support",
+        "desc": "Fast-response central team access for urgent stock, claims, and technical issues."
+      },
+      {
+        "title": "Principal Referral",
+        "desc": "Direct workshop and store referrals from central principal to area distributors."
+      },
+      {
+        "title": "Free Nationwide Shipping",
+        "desc": "Free shipping in Greater Jakarta + nationwide subsidy (minimum order IDR 400M)."
+      },
+      {
+        "title": "Ready Marketing Content",
+        "desc": "Full kit: product photos, cinematic videos, ready-to-post branding assets."
+      }
+    ],
+    "bonusBadge": "Exclusive Distributor Perks",
+    "bonusTitle": "Special Additional Benefits",
+    "bonus": [
+      {
+        "title": "Annual Revenue Bonus",
+        "desc": "Exclusive rewards (cash/display unit) based on revenue achievement and consistency."
+      },
+      {
+        "title": "Early Stock Priority",
+        "desc": "Early access to new products and stock availability priority before general market release."
+      }
+    ]
+  },
+  "promotionStrategy": {
+    "bgText": "77 Performance 77 Performance",
+    "badge": "Professional Strategy",
+    "titleLine1": "Functional Relevance.",
+    "titleLine2": "Premium Value.",
+    "description": "Building partner trust through complementary product strategies that add tangible value to every transaction.",
+    "mainPromo": {
+      "subtitle": "Main Program",
+      "title": "Buy Shockbreaker / Racksteer",
+      "highlight": "FREE Trisev Buffer Suspension",
+      "desc": "Every purchase of Shockbreaker and/or Racksteer units from 77 Performance gets an instant Trisev Buffer Suspension bonus. Improve comfort and stability at no extra cost.",
+      "tags": [
+        "Shockbreaker",
+        "Racksteer",
+        "Bundling Package"
+      ]
+    },
+    "offerLabel": "Corporate Offer",
+    "offerTitle": "Exclusive Bundling Kit",
+    "programTitle": "Featured Programs",
+    "additionalPrograms": [
+      {
+        "title": "Free Digital Assets",
+        "desc": "Access ready-to-post HD photos, posters, and official social media content."
+      },
+      {
+        "title": "Zack Lee Endorsement Video",
+        "desc": "Exclusive promotional video for workshops and stores directly by Zack Lee."
+      },
+      {
+        "title": "Demo Video Access",
+        "desc": "Official product education and installation demo videos to support closing."
+      },
+      {
+        "title": "30% Product Discount",
+        "desc": "Up to 30% off selected items during promo periods."
+      },
+      {
+        "title": "Bundling Package Price",
+        "desc": "Special pricing for bundle purchases with attractive profit margins."
+      },
+      {
+        "title": "Nationwide Free Shipping",
+        "desc": "Free delivery cost for promo purchases across Indonesia."
+      },
+      {
+        "title": "Priority Delivery",
+        "desc": "Promo orders receive priority packing and dispatch lanes."
+      },
+      {
+        "title": "Early Promo Access",
+        "desc": "Get earlier access to product launches and promo programs than the market."
+      },
+      {
+        "title": "10% Off Official Store",
+        "desc": "Get 10% discount for every purchase through the official store."
+      }
+    ]
+  },
+  "memberCommunity": {
+    "bgText": "77 Community 77 Community",
+    "badge": "Exclusive Ecosystem",
+    "titleLine1": "77 Performance",
+    "titleLine2": "Member Community",
+    "description": "More than buying and selling. Join an ecosystem that drives sustainable business growth.",
+    "hubRepeat": "Repeat",
+    "hubEcosystem": "ECOSYSTEM",
+    "benefits": [
+      {
+        "title": "Exclusive Member Group",
+        "desc": "Access to a private community of workshop and store entrepreneurs."
+      },
+      {
+        "title": "Faster Promo Updates",
+        "desc": "Be the first to know about new products and campaigns."
+      },
+      {
+        "title": "Training & Education Info",
+        "desc": "Technical materials and business strategies to level up your team skills."
+      },
+      {
+        "title": "Nationwide Networking",
+        "desc": "Broad connections across workshop networks throughout Indonesia."
+      },
+      {
+        "title": "Event & Campaign Invitations",
+        "desc": "Priority invitations for exhibitions and 77 Performance events."
+      },
+      {
+        "title": "Partner Workshop Vouchers",
+        "desc": "Special promo voucher incentives for partners."
+      }
+    ],
+    "footerQuote": "This community creates a repeat ecosystem, not one-time sales."
+  },
+  "realDifference": {
+    "bgText": "High Performance Standard High Performance Standard",
+    "badge": "Comparison Study",
+    "titlePrefix": "The Real",
+    "titleHighlight": "Difference.",
+    "advantageLabel": "77 Performance Advantage",
+    "philosophyTag": "Our Core Philosophy",
+    "philosophyLine1": "Others Sell Parts.",
+    "philosophyLine2": "We Build Business.",
+    "comparisons": [
+      {
+        "label": "Core Focus",
+        "others": "Only Selling Products",
+        "us": "Building Systems, Demand, and Sustainability"
+      },
+      {
+        "label": "Pricing Strategy",
+        "others": "Price War Without Value",
+        "us": "Focus on Value and Business Growth"
+      },
+      {
+        "label": "System Support",
+        "others": "Hands Off After Sale",
+        "us": "Assistance, Training, and Digital Marketing"
+      }
+    ]
+  },
+  "distributorQualification": {
+    "bgText": "Qualification Qualification",
+    "badge": "Official Standards",
+    "titlePrefix": "Distributor",
+    "titleHighlight": "Qualification.",
+    "quote": "Building the automotive future with uncompromising professional standards.",
+    "requirements": [
+      {
+        "title": "Official Company Legality",
+        "desc": "Provide responsible person ID, tax number, legal entity documents, and operational warehouse."
+      },
+      {
+        "title": "Active Automotive Background",
+        "desc": "Have active experience or network in the automotive sector (workshop/store/community)."
+      },
+      {
+        "title": "Territory Target Commitment",
+        "desc": "Ready to meet sales targets according to principal-defined territories."
+      },
+      {
+        "title": "Mandatory Product Training",
+        "desc": "Pass official product knowledge training as distributor activation requirement."
+      },
+      {
+        "title": "Network Development Capability",
+        "desc": "Able to manage sales chains (partner workshops) in each territory."
+      },
+      {
+        "title": "Principal System Compliance",
+        "desc": "Must follow official pricing standards and 77 Performance policies."
+      },
+      {
+        "title": "Operational Responsibility",
+        "desc": "All operational and HR costs are the distributor's responsibility."
+      },
+      {
+        "title": "Brand Reputation Commitment",
+        "desc": "Maintain professional 77 Performance brand image in the operational region."
+      }
+    ],
+    "cta": "Download Requirements PDF"
+  },
+  "limitedOpportunity": {
+    "alert": "Urgent Notice",
+    "limited": "LIMITED",
+    "opportunity": "OPPORTUNITY",
+    "exclusive": "One City • One Distributor",
+    "leftTitleTop": "77 Performance is",
+    "leftTitleBottom": "The Perfect Combination of:",
+    "combinations": [
+      "Global Manufacturing Foundation",
+      "Premium Grade A Products",
+      "Functional Product Promotion",
+      "Sustainable Automotive Ecosystem"
+    ],
+    "partnerPrivilege": "Partner Privilege:",
+    "securityPoints": [
+      "Territory",
+      "Market Demand",
+      "Profit Margin",
+      "Long-Term Position"
+    ],
+    "slotNote": "*Territory slots are exclusive",
+    "optionALabel": "Option A",
+    "optionAText": "If you only want to sell,",
+    "optionASubtext": "there are plenty of choices out there.",
+    "optionBLabel": "Option B",
+    "optionBLine1": "Build",
+    "optionBLine2": "Long-Term Business",
+    "optionBLine3": "With Us."
+  },
+  "finalCta": {
+    "badge": "Strategic Expansion",
+    "titleLine1": "Secure Your",
+    "titleLine2": "Exclusive Territory.",
+    "description": "Become the sole distributor in your city. Do not let competitors take the golden opportunity inside the 77 Performance ecosystem.",
+    "button": "CONTACT PRINCIPAL",
+    "footer": "77 Performance • Official Partnership 2026"
+  }
+}

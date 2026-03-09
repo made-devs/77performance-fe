@@ -3,21 +3,23 @@ import AboutWhoWeAre from "@/components/about/AboutWhoWeAre";
 import AboutManufacturing from "@/components/about/AboutManufacturing";
 import AboutPhilosophy from "@/components/about/AboutPhilosophy";
 import AboutClosing from "@/components/about/AboutClosing";
+import { getTranslations } from "next-intl/server";
 
-export default function AboutPage() {
+export default async function AboutPage() {
+  const t = await getTranslations("pageAbout");
+
   return (
     <main className="bg-white text-slate-900 selection:bg-blue-900 selection:text-white overflow-hidden">
       <HeroOpening
-        uptitle="Since 2008 • Global Manufacturing"
-        titleLines={["ENGINEERED", "PERFECTION"]}
+        uptitle={t("uptitle")}
+        titleLines={[t("titleLine1"), t("titleLine2")]}
         description={
           <>
-            77 Performance delivers{" "}
+            {t("descriptionLead")}{" "}
             <span className="text-white font-medium">
-              premium automotive parts
+              {t("descriptionHighlight")}
             </span>{" "}
-            built on a foundation of proven global manufacturing and precision
-            engineering.
+            {t("descriptionTail")}
           </>
         }
         bgImageUrl="/about.webp"

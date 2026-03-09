@@ -1,6 +1,10 @@
 import Image from "next/image";
+import { getTranslations } from "next-intl/server";
 
-export default function AboutSection() {
+export default async function AboutSection() {
+  const t = await getTranslations("pageHome.aboutSection");
+  const features = t.raw("features");
+
   return (
     <section className="relative py-20 lg:py-32 bg-white overflow-hidden">
       {/* --- AERO FLOW BACKGROUND START --- */}
@@ -42,7 +46,7 @@ export default function AboutSection() {
               <div className="absolute bottom-0 left-0 bg-cyan-77 text-white p-6 max-w-[200px]">
                 <p className="text-4xl font-mulish font-black">15+</p>
                 <p className="text-sm font-mulish font-bold leading-tight">
-                  Years of Global Manufacturing Experience
+                  {t("badgeYears")}
                 </p>
               </div>
             </div>
@@ -57,31 +61,28 @@ export default function AboutSection() {
             <div className="flex items-center gap-3 mb-4">
               <div className="h-[2px] w-10 bg-cyan-77" />
               <span className="text-cyan-77 font-mulish font-bold tracking-widest text-sm uppercase">
-                Global Ready Vision
+                {t("tagline")}
               </span>
             </div>
 
             {/* Headline */}
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-mulish font-black text-dark-77 leading-tight mb-6">
-              Built on Proven <br />
+              {t("titleLine1")} <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-77 to-navy-77">
-                Global Manufacturing
+                {t("titleLine2")}
               </span>
             </h2>
 
             {/* Main Description */}
             <p className="text-lg text-gray-600 leading-relaxed mb-8 font-mulish">
-              77 Performance adalah brand sparepart otomotif impor premium yang
-              dibangun di atas fondasi manufaktur global, menggunakan material
-              Premium Grade A, serta didukung sistem bisnis untuk pertumbuhan
-              jangka panjang.
+              {t("description")}
             </p>
 
             {/* Key Features List */}
             <div className="space-y-4">
-              <FeatureItem text="Global Manufacturing Standard" />
-              <FeatureItem text="Material Premium Grade A" />
-              <FeatureItem text="Sistem Bisnis untuk Long-term Growth" />
+              {features.map((feature) => (
+                <FeatureItem key={feature} text={feature} />
+              ))}
             </div>
 
             {/* Stats / Trust Indicators */}
@@ -91,7 +92,7 @@ export default function AboutSection() {
                   10k+
                 </h4>
                 <p className="text-xs text-gray-500 uppercase font-mulish">
-                  SQM Facility
+                  {t("stats.facilityLabel")}
                 </p>
               </div>
               <div>
@@ -99,7 +100,7 @@ export default function AboutSection() {
                   OEM
                 </h4>
                 <p className="text-xs text-gray-500 uppercase font-mulish">
-                  Quality Standard
+                  {t("stats.qualityLabel")}
                 </p>
               </div>
               <div>
@@ -107,7 +108,7 @@ export default function AboutSection() {
                   4+
                 </h4>
                 <p className="text-xs text-gray-500 uppercase font-mulish">
-                  Continents Export
+                  {t("stats.exportLabel")}
                 </p>
               </div>
             </div>

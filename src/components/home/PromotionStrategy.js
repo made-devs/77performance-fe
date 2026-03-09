@@ -1,75 +1,24 @@
 "use client";
 
 import React, { useRef } from "react";
+import Image from "next/image";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useTranslations } from "next-intl";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const MAIN_PROMO = {
-  title: "Buy Shockbreaker / Racksteer",
-  highlight: "FREE Trisev Buffer Suspension",
-  subtitle: "Program Utama",
-  desc: "Setiap pembelian unit Shockbreaker dan/atau Racksteer 77 Performance mendapatkan Bonus Langsung Trisev Buffer Suspension. Tingkatkan kenyamanan & stabilitas tanpa biaya tambahan.",
-  tags: ["Shockbreaker", "Racksteer", "Bundling Package"],
-};
-
-const ADDITIONAL_PROGRAMS = [
-  {
-    id: 1,
-    title: "Gratis Materi Digital",
-    desc: "Akses foto, poster, & konten sosmed resmi HD siap posting.",
-    icon: "image",
-  },
-  {
-    id: 2,
-    title: "Endorse Video Zack Lee",
-    desc: "Video promosi eksklusif bengkel & toko langsung oleh Zack Lee.",
-    icon: "star",
-  },
-  {
-    id: 3,
-    title: "Akses Video Demo",
-    desc: "Video edukasi produk & demo instalasi resmi untuk bantu closing.",
-    icon: "play",
-  },
-  {
-    id: 4,
-    title: "Diskon Produk 30%",
-    desc: "Potongan harga hingga 30% untuk item tertentu selama periode promo.",
-    icon: "percent",
-  },
-  {
-    id: 5,
-    title: "Harga Paket Bundling",
-    desc: "Harga khusus pembelian paket bundling dengan margin profit menarik.",
-    icon: "box",
-  },
-  {
-    id: 6,
-    title: "Free Ongkir Nasional",
-    desc: "Gratis biaya pengantaran pembelian promo ke seluruh Indonesia.",
-    icon: "truck",
-  },
-  {
-    id: 7,
-    title: "Prioritas Pengiriman",
-    desc: "Pesanan promo mendapatkan jalur prioritas proses packing.",
-    icon: "fast",
-  },
-  {
-    id: 8,
-    title: "Akses Promo Awal",
-    desc: "Info launching produk baru & promo lebih awal dibanding pasar.",
-    icon: "lock",
-  },
-  {
-    id: 9,
-    title: "Diskon 10% di Official Store",
-    desc: "Dapatkan diskon 10% untuk setiap pembelian melalui official store.",
-    icon: "store",
-  },
+const ADDITIONAL_PROGRAM_ICONS = [
+  "image",
+  "star",
+  "play",
+  "percent",
+  "box",
+  "truck",
+  "fast",
+  "lock",
+  "store",
 ];
 
 const PromotionStrategy = () => {
@@ -77,47 +26,60 @@ const PromotionStrategy = () => {
   const hudCircleRef = useRef(null);
   const bgTextRef = useRef(null);
   const spotlightRef = useRef(null);
+  const t = useTranslations("pageHome.promotionStrategy");
+  const mainPromo = t.raw("mainPromo");
+  const additionalPrograms = t.raw("additionalPrograms").map((item, index) => ({
+    id: index + 1,
+    title: item.title,
+    desc: item.desc,
+    icon: ADDITIONAL_PROGRAM_ICONS[index],
+  }));
 
   useGSAP(
     () => {
-      ScrollTrigger.refresh();
+      const isDesktop = window.matchMedia("(min-width: 1280px)").matches;
 
       // 1. Kinetic Background Typography (Parallax)
-      gsap.to(bgTextRef.current, {
-        xPercent: -20,
-        ease: "none",
-        scrollTrigger: {
+      if (isDesktop) {
+        gsap.set([bgTextRef.current, spotlightRef.current], {
+          willChange: "transform",
+        });
+
+        const setBgTextX = gsap.quickSetter(bgTextRef.current, "xPercent");
+        const setSpotlightX = gsap.quickSetter(
+          spotlightRef.current,
+          "xPercent",
+        );
+        const setSpotlightY = gsap.quickSetter(
+          spotlightRef.current,
+          "yPercent",
+        );
+
+        ScrollTrigger.create({
           trigger: containerRef.current,
           start: "top bottom",
           end: "bottom top",
           scrub: 1,
-        },
-      });
-
-      // 2. Spotlight Sweep Movement
-      gsap.to(spotlightRef.current, {
-        yPercent: 50,
-        xPercent: 30,
-        ease: "none",
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: "top bottom",
-          end: "bottom top",
-          scrub: 2,
-        },
-      });
+          onUpdate: (self) => {
+            const progress = self.progress;
+            setBgTextX(-20 * progress);
+            setSpotlightX(18 * progress);
+            setSpotlightY(40 * progress);
+          },
+        });
+      }
 
       // 3. Precision Lines Animation
       gsap.from(".precision-line", {
         scaleY: 0,
         transformOrigin: "top",
         stagger: 0.2,
+        duration: 0.8,
         ease: "power2.inOut",
         scrollTrigger: {
           trigger: containerRef.current,
           start: "top 70%",
-          end: "bottom 20%",
-          scrub: true,
+          once: true,
         },
       });
 
@@ -131,8 +93,12 @@ const PromotionStrategy = () => {
           duration: 0.8,
           stagger: 0.1,
           ease: "power3.out",
-          scrollTrigger: { trigger: containerRef.current, start: "top 80%" },
-        }
+          scrollTrigger: {
+            trigger: containerRef.current,
+            start: "top 80%",
+            once: true,
+          },
+        },
       );
 
       gsap.fromTo(
@@ -144,8 +110,12 @@ const PromotionStrategy = () => {
           scale: 1,
           duration: 1,
           ease: "power4.out",
-          scrollTrigger: { trigger: ".main-card-wrapper", start: "top 85%" },
-        }
+          scrollTrigger: {
+            trigger: ".main-card-wrapper",
+            start: "top 85%",
+            once: true,
+          },
+        },
       );
 
       gsap.fromTo(
@@ -157,21 +127,36 @@ const PromotionStrategy = () => {
           duration: 0.5,
           stagger: 0.05,
           ease: "power2.out",
-          scrollTrigger: { trigger: ".additional-grid", start: "top 90%" },
-        }
+          scrollTrigger: {
+            trigger: ".additional-grid",
+            start: "top 90%",
+            once: true,
+          },
+        },
       );
 
       // HUD Rotation
       if (hudCircleRef.current) {
-        gsap.to(hudCircleRef.current, {
+        const hudRotation = gsap.to(hudCircleRef.current, {
           rotation: 360,
           duration: 40,
           repeat: -1,
           ease: "linear",
+          paused: true,
+        });
+
+        ScrollTrigger.create({
+          trigger: containerRef.current,
+          start: "top bottom",
+          end: "bottom top",
+          onEnter: () => hudRotation.play(),
+          onEnterBack: () => hudRotation.play(),
+          onLeave: () => hudRotation.pause(),
+          onLeaveBack: () => hudRotation.pause(),
         });
       }
     },
-    { scope: containerRef }
+    { scope: containerRef },
   );
 
   return (
@@ -186,7 +171,7 @@ const PromotionStrategy = () => {
           ref={bgTextRef}
           className="absolute top-20 left-0 whitespace-nowrap opacity-[0.03] leading-none font-black text-[25vw] tracking-tighter uppercase italic"
         >
-          77 Performance 77 Performance
+          {t("bgText")}
         </div>
 
         {/* Dynamic Spotlight Sweep */}
@@ -220,18 +205,17 @@ const PromotionStrategy = () => {
           <div className="promo-text opacity-0 flex items-center gap-3 mb-6">
             <div className="h-[1px] w-12 bg-cyan-400" />
             <span className="text-cyan-400 font-bold tracking-[0.3em] text-xs uppercase font-mulish">
-              Professional Strategy
+              {t("badge")}
             </span>
           </div>
           <h2 className="promo-text opacity-0 text-5xl lg:text-7xl font-black font-mulish leading-[1.1] text-white">
-            Relevansi Fungsi. <br />
+            {t("titleLine1")} <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-white/40">
-              Premium Value.
+              {t("titleLine2")}
             </span>
           </h2>
           <p className="promo-text opacity-0 mt-8 text-white/60 text-xl max-w-2xl font-mulish font-light leading-relaxed">
-            Membangun kepercayaan mitra melalui strategi produk komplementer
-            yang menambah <b>nilai nyata</b> pada setiap transaksi.
+            {t("description")}
           </p>
         </div>
 
@@ -241,20 +225,19 @@ const PromotionStrategy = () => {
             <div className="relative rounded-[38px] p-10 lg:p-16 flex flex-col lg:flex-row items-center gap-14">
               <div className="flex-1 z-10">
                 <div className="inline-block px-4 py-1.5 bg-white/10 border border-white/10 rounded-full text-[10px] font-bold uppercase tracking-widest mb-8 text-cyan-300">
-                  {MAIN_PROMO.subtitle}
+                  {mainPromo.subtitle}
                 </div>
                 <h3 className="text-3xl lg:text-4xl font-bold text-white mb-4 font-mulish leading-tight">
-                  {MAIN_PROMO.title}
+                  {mainPromo.title}
                 </h3>
                 <div className="text-4xl lg:text-5xl font-black text-white mb-8 font-mulish leading-tight">
-                  <span className="text-cyan-400">+</span>{" "}
-                  {MAIN_PROMO.highlight}
+                  <span className="text-cyan-400">+</span> {mainPromo.highlight}
                 </div>
                 <p className="text-white/50 text-lg mb-10 leading-relaxed max-w-lg font-light italic border-l border-white/20 pl-6">
-                  {MAIN_PROMO.desc}
+                  {mainPromo.desc}
                 </p>
                 <div className="flex flex-wrap gap-3">
-                  {MAIN_PROMO.tags.map((tag, i) => (
+                  {mainPromo.tags.map((tag, i) => (
                     <span
                       key={i}
                       className="text-[10px] font-bold uppercase tracking-tighter bg-white/5 border border-white/10 px-3 py-1 rounded-md text-white/70"
@@ -266,18 +249,20 @@ const PromotionStrategy = () => {
               </div>
 
               <div className="w-full lg:w-[500px] aspect-[4/3] relative rounded-3xl overflow-hidden shadow-2xl grayscale hover:grayscale-0 transition-all duration-1000 group">
-                <img
+                <Image
                   src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?q=80&w=800"
                   alt="Product"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 500px"
                   className="w-full h-full object-cover scale-110 group-hover:scale-100 transition-transform duration-1000"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#021526] via-transparent to-transparent opacity-80" />
                 <div className="absolute bottom-8 left-8">
                   <p className="text-cyan-400 text-xs font-bold tracking-widest uppercase mb-1">
-                    Corporate Offer
+                    {t("offerLabel")}
                   </p>
                   <p className="text-white text-xl font-bold font-mulish">
-                    Exclusive Bundling Kit
+                    {t("offerTitle")}
                   </p>
                 </div>
               </div>
@@ -288,10 +273,10 @@ const PromotionStrategy = () => {
         {/* ADDITIONAL GRID */}
         <div>
           <h3 className="text-xl font-bold font-mulish text-white/40 uppercase tracking-[0.2em] mb-12 text-center">
-            Program Keunggulan
+            {t("programTitle")}
           </h3>
           <div className="additional-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {ADDITIONAL_PROGRAMS.map((item) => (
+            {additionalPrograms.map((item) => (
               <div
                 key={item.id}
                 className="additional-card opacity-0 group relative bg-white/[0.02] p-8 rounded-2xl border border-white/5 hover:border-white/20 transition-all duration-500"

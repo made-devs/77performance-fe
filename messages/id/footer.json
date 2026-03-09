@@ -1,0 +1,32 @@
+{
+  "brandDescription": "Kami membangun ekosistem otomotif masa depan. Bukan sekadar menjual suku cadang, tetapi menghadirkan solusi bisnis berkelanjutan, sistem teruji, dan produk Grade A untuk pertumbuhan mitra.",
+  "sections": {
+    "company": "Perusahaan",
+    "contact": "Hubungi Kami",
+    "newsletter": "Tetap Terhubung"
+  },
+  "companyLinks": {
+    "about": "Tentang Kami",
+    "vision": "Visi & Misi",
+    "career": "Karier",
+    "news": "Berita & Artikel"
+  },
+  "contact": {
+    "hqLabel": "Kantor Pusat:",
+    "addressLine1": "Jl. Otomotif Raya No. 77",
+    "addressLine2": "Jakarta Utara, Indonesia",
+    "email": "partnership@77performance.id",
+    "phone": "+62 812-3456-7890"
+  },
+  "newsletter": {
+    "description": "Dapatkan pembaruan produk terbaru dan strategi bisnis otomotif langsung ke inbox Anda.",
+    "placeholder": "Alamat Email Anda",
+    "button": "Berlangganan"
+  },
+  "bottom": {
+    "copyright": "© {year} 77 Performance. Seluruh hak cipta dilindungi.",
+    "privacy": "Kebijakan Privasi",
+    "terms": "Syarat & Ketentuan",
+    "sitemap": "Peta Situs"
+  }
+}

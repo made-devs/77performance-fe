@@ -5,16 +5,21 @@ import createGlobe from "cobe";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useTranslations } from "next-intl";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const GlobalVision = () => {
   const sectionRef = useRef(null);
   const canvasRef = useRef(null);
+  const t = useTranslations("pageHome.globalVision");
+  const stats = t.raw("stats");
 
-  // 1. Setup Globe (Cobe) - Light Mode Config
+  // 1. Setup Globe (Cobe) - Light Mode Config + visibility gating
   useEffect(() => {
     let phi = 0;
+    let isVisible = false;
+    let frameId;
 
     const globe = createGlobe(canvasRef.current, {
       devicePixelRatio: 0.5,
@@ -25,10 +30,10 @@ const GlobalVision = () => {
       dark: 0, // Light Mode
       diffuse: 1.2,
       mapSamples: 16000,
-      mapBrightness: 2, // Brightness disesuaikan untuk background putih
-      baseColor: [0.85, 0.85, 0.85], // Abu-abu muda untuk benua (Clean look)
-      markerColor: [0.03, 0.57, 0.82], // Cyan-77 Strong (RGB: 8, 145, 178)
-      glowColor: [1, 1, 1], // White Glow (biar blend sama background)
+      mapBrightness: 2,
+      baseColor: [0.85, 0.85, 0.85],
+      markerColor: [0.03, 0.57, 0.82],
+      glowColor: [1, 1, 1],
       opacity: 0.8,
       markers: [
         { location: [1.3521, 103.8198], size: 0.08 }, // Singapore
@@ -38,12 +43,24 @@ const GlobalVision = () => {
         { location: [25.2048, 55.2708], size: 0.05 }, // Dubai
       ],
       onRender: (state) => {
+        if (!isVisible) return;
         state.phi = phi;
         phi += 0.003;
       },
     });
 
+    // IntersectionObserver: hanya render globe saat terlihat
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        isVisible = entry.isIntersecting;
+      },
+      { rootMargin: "200px" },
+    );
+
+    if (sectionRef.current) observer.observe(sectionRef.current);
+
     return () => {
+      observer.disconnect();
       globe.destroy();
     };
   }, []);
@@ -85,7 +102,7 @@ const GlobalVision = () => {
         },
       });
     },
-    { scope: sectionRef }
+    { scope: sectionRef },
   );
 
   return (
@@ -110,47 +127,39 @@ const GlobalVision = () => {
         <div className="max-w-3xl">
           {/* Big Background Text (Watermark) */}
           <h2 className="kinetic-text text-8xl md:text-[180px] opacity-20 font-mulish font-black text-slate-100 leading-none tracking-tighter absolute -top-20 -left-10 select-none -z-10">
-            GLOBAL
+            {t("watermark")}
           </h2>
 
           <div className="reveal-content pt-10 relative">
             <span className="inline-block px-3 py-1 rounded border border-cyan-77/30 bg-cyan-50 text-cyan-77 font-mulish font-bold tracking-[0.2em] text-[10px] uppercase mb-6">
-              International Coverage
+              {t("badge")}
             </span>
 
             <h3 className="text-4xl md:text-6xl font-mulish font-black leading-[1.1] mb-6 text-slate-900">
-              Global-Ready <br />
+              {t("titleLine1")} <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-77 to-navy-77">
-                Vision & Execution.
+                {t("titleLine2")}
               </span>
             </h3>
 
             <p className="text-xl md:text-2xl font-mulish font-light leading-relaxed text-slate-600 max-w-xl">
-              Berangkat dari manufaktur berstandar internasional,
-              <span className="text-cyan-77 font-bold"> 77 Performance </span>
-              tidak dibatasi oleh geografi. Kami membangun ekosistem produk yang
-              relevan untuk pasar Asia, Eropa, hingga Amerika.
+              {t("descriptionLead")}
+              <span className="text-cyan-77 font-bold"> {t("brandName")} </span>
+              {t("descriptionTail")}
             </p>
           </div>
         </div>
 
         {/* BOTTOM STATS / DETAILS */}
         <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 border-t border-slate-200 pt-8 reveal-content max-w-4xl">
-          <StatItem
-            label="Standard"
-            value="OEM Equivalent"
-            sub="Global Compliance"
-          />
-          <StatItem
-            label="Expansion"
-            value="Export Ready"
-            sub="Cross-border Logistics"
-          />
-          <StatItem
-            label="Network"
-            value="Multi-Region"
-            sub="APAC • EU • MEA • US"
-          />
+          {stats.map((item) => (
+            <StatItem
+              key={item.label}
+              label={item.label}
+              value={item.value}
+              sub={item.sub}
+            />
+          ))}
         </div>
       </div>
     </section>

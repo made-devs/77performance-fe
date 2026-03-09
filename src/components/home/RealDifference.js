@@ -4,50 +4,34 @@ import React, { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useTranslations } from "next-intl";
 
 gsap.registerPlugin(ScrollTrigger);
-
-const COMPARISONS = [
-  {
-    id: 1,
-    label: "Fokus Utama",
-    others: "Hanya Menjual Produk",
-    us: "Membangun Sistem, Demand, & Keberlanjutan",
-  },
-  {
-    id: 2,
-    label: "Strategi Harga",
-    others: "Perang Harga Tanpa Nilai",
-    us: "Fokus pada Value & Pertumbuhan Bisnis",
-  },
-  {
-    id: 3,
-    label: "Support Sistem",
-    others: "Lepas Tangan Setelah Jual",
-    us: "Pendampingan, Training, & Marketing Digital",
-  },
-];
 
 const RealDifference = () => {
   const containerRef = useRef(null);
   const ghostTextRef = useRef(null);
+  const t = useTranslations("pageHome.realDifference");
+  const comparisons = t.raw("comparisons").map((item, index) => ({
+    id: index + 1,
+    label: item.label,
+    others: item.others,
+    us: item.us,
+  }));
 
   useGSAP(
     () => {
-      // 1. Ghost Typography Parallax (Lebih lambat & smooth)
-      gsap.to(ghostTextRef.current, {
-        xPercent: -20,
-        ease: "none",
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: "top bottom",
-          end: "bottom top",
-          scrub: 1.5,
-        },
+      // 1. Ghost Typography Parallax — quickSetter (ringan)
+      const setGhostX = gsap.quickSetter(ghostTextRef.current, "xPercent");
+      ScrollTrigger.create({
+        trigger: containerRef.current,
+        start: "top bottom",
+        end: "bottom top",
+        scrub: 1.5,
+        onUpdate: (self) => setGhostX(-20 * self.progress),
       });
 
-      // 2. Row Animation Loop (Cinematic Entrance)
-      // Kita animasikan per-row agar interaksinya terasa "one by one"
+      // 2. Row Animation Loop — once:true, tanpa filter:blur (GPU mahal)
       const rows = gsap.utils.toArray(".comparison-row");
       rows.forEach((row) => {
         const leftCard = row.querySelector(".left-card");
@@ -58,44 +42,43 @@ const RealDifference = () => {
         const tl = gsap.timeline({
           scrollTrigger: {
             trigger: row,
-            start: "top 85%", // Muncul saat hampir masuk viewport
-            toggleActions: "play none none reverse",
+            start: "top 85%",
+            once: true,
           },
         });
 
         tl
-          // Step A: Kiri masuk (Buram & Gelap)
+          // Step A: Kiri masuk (tanpa blur, pakai opacity + x saja)
           .fromTo(
             leftCard,
-            { x: -50, opacity: 0, filter: "blur(10px)" },
+            { x: -50, opacity: 0 },
             {
               x: 0,
               opacity: 1,
-              filter: "blur(0px)",
               duration: 0.8,
               ease: "power2.out",
-            }
+            },
           )
           // Step B: VS Badge Pop
           .fromTo(
             vsBadge,
             { scale: 0, rotation: 180 },
             { scale: 1, rotation: 0, duration: 0.5, ease: "back.out(1.7)" },
-            "-=0.4"
+            "-=0.4",
           )
-          // Step C: Kanan Masuk (Powerful & Bright)
+          // Step C: Kanan Masuk
           .fromTo(
             rightCard,
             { x: 50, opacity: 0, scale: 0.9 },
             { x: 0, opacity: 1, scale: 1, duration: 0.8, ease: "power3.out" },
-            "-=0.3"
+            "-=0.3",
           )
           // Step D: Glow Line expands
           .fromTo(
             glowLine,
             { scaleX: 0 },
             { scaleX: 1, duration: 0.6 },
-            "-=0.6"
+            "-=0.6",
           );
       });
 
@@ -109,10 +92,11 @@ const RealDifference = () => {
         scrollTrigger: {
           trigger: ".final-slogan",
           start: "top 80%",
+          once: true,
         },
       });
     },
-    { scope: containerRef }
+    { scope: containerRef },
   );
 
   return (
@@ -135,7 +119,7 @@ const RealDifference = () => {
           ref={ghostTextRef}
           className="absolute top-1/2 -translate-y-1/2 left-0 whitespace-nowrap text-[20vw] font-black uppercase tracking-tighter text-white/[0.03] italic"
         >
-          High Performance Standard High Performance Standard
+          {t("bgText")}
         </div>
 
         {/* Tech Grid Pattern (White transparent) */}
@@ -155,14 +139,15 @@ const RealDifference = () => {
           <div className="inline-flex items-center justify-center gap-3 mb-6">
             <span className="w-12 h-[1px] bg-cyan-77"></span>
             <span className="text-cyan-77 font-bold tracking-[0.4em] text-xs uppercase shadow-cyan-500/50 drop-shadow-[0_0_8px_rgba(5,145,190,0.5)]">
-              Comparison Study
+              {t("badge")}
             </span>
             <span className="w-12 h-[1px] bg-cyan-77"></span>
           </div>
           <h2 className="text-4xl lg:text-7xl font-black font-mulish text-white tracking-tight">
-            The Real {/* Gradient Text yang lebih contrast di dark mode */}
+            {t("titlePrefix")}{" "}
+            {/* Gradient Text yang lebih contrast di dark mode */}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-white to-cyan-400 animate-pulse">
-              Difference.
+              {t("titleHighlight")}
             </span>
           </h2>
         </div>
@@ -173,7 +158,7 @@ const RealDifference = () => {
           <div className="absolute left-1/2 top-0 bottom-0 w-[1px] bg-gradient-to-b from-transparent via-white/10 to-transparent hidden md:block" />
 
           <div className="space-y-12 md:space-y-20">
-            {COMPARISONS.map((item) => (
+            {comparisons.map((item) => (
               <div
                 key={item.id}
                 className="comparison-row grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-20 relative items-center"
@@ -202,7 +187,7 @@ const RealDifference = () => {
 
                   <span className="relative z-10 flex items-center justify-center md:justify-start gap-2 text-[11px] font-bold text-cyan-300 uppercase tracking-widest mb-3">
                     <span className="w-1.5 h-1.5 bg-cyan-400 rounded-full animate-ping" />
-                    77 Performance Advantage
+                    {t("advantageLabel")}
                   </span>
                   <h3 className="relative z-10 text-white font-black font-mulish text-xl md:text-2xl leading-snug drop-shadow-sm">
                     {item.us}
@@ -240,13 +225,13 @@ const RealDifference = () => {
 
             <div className="relative z-10">
               <p className="text-cyan-300 font-bold tracking-[0.3em] text-xs uppercase mb-6">
-                Our Core Philosophy
+                {t("philosophyTag")}
               </p>
               <h3 className="text-3xl md:text-5xl lg:text-6xl font-black font-mulish leading-tight text-white">
-                Others Sell Parts.
+                {t("philosophyLine1")}
                 <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-white to-cyan-400">
-                  We Build Business.
+                  {t("philosophyLine2")}
                 </span>
               </h3>
             </div>

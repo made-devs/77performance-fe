@@ -4,72 +4,40 @@ import React, { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useTranslations } from "next-intl";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const BENEFITS = [
-  {
-    id: 1,
-    title: "Grup Eksklusif Member",
-    desc: "Akses ke komunitas tertutup sesama pebisnis bengkel & toko.",
-    icon: "users",
-  },
-  {
-    id: 2,
-    title: "Update Promo Lebih Cepat",
-    desc: "Jadilah yang pertama tahu tentang produk baru dan campaign.",
-    icon: "lightning",
-  },
-  {
-    id: 3,
-    title: "Info Training & Edukasi",
-    desc: "Materi teknis dan strategi bisnis untuk upgrade skill tim Anda.",
-    icon: "book",
-  },
-  {
-    id: 4,
-    title: "Networking Nasional",
-    desc: "Koneksi luas dengan jaringan bengkel se-Indonesia.",
-    icon: "globe",
-  },
-  {
-    id: 5,
-    title: "Undangan Event & Campaign",
-    desc: "Prioritas undangan untuk pameran dan event 77 Performance.",
-    icon: "ticket",
-  },
-  {
-    id: 6,
-    title: "Voucher Bengkel Mitra",
-    desc: "Insentif khusus berupa voucher promo untuk mitra.",
-    icon: "gift",
-  },
-];
+const BENEFIT_ICONS = ["users", "lightning", "book", "globe", "ticket", "gift"];
 
 const MemberCommunity = () => {
   const containerRef = useRef(null);
   const bgTextRef = useRef(null);
+  const t = useTranslations("pageHome.memberCommunity");
+  const benefits = t.raw("benefits").map((item, index) => ({
+    id: index + 1,
+    title: item.title,
+    desc: item.desc,
+    icon: BENEFIT_ICONS[index],
+  }));
 
   useGSAP(
     () => {
-      ScrollTrigger.refresh();
-
-      // 1. Ghost Typography Parallax
-      gsap.to(bgTextRef.current, {
-        xPercent: -20,
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: "top bottom",
-          end: "bottom top",
-          scrub: 1,
-        },
+      // 1. Ghost Typography Parallax — quickSetter
+      const setGhostX = gsap.quickSetter(bgTextRef.current, "xPercent");
+      ScrollTrigger.create({
+        trigger: containerRef.current,
+        start: "top bottom",
+        end: "bottom top",
+        scrub: 1,
+        onUpdate: (self) => setGhostX(-20 * self.progress),
       });
 
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: containerRef.current,
           start: "top 70%",
-          toggleActions: "play none none reverse",
+          once: true,
         },
       });
 
@@ -77,37 +45,48 @@ const MemberCommunity = () => {
       tl.fromTo(
         ".comm-header-el",
         { y: 30, opacity: 0 },
-        { y: 0, opacity: 1, stagger: 0.1, duration: 0.8 }
+        { y: 0, opacity: 1, stagger: 0.1, duration: 0.8 },
       )
         .fromTo(
           ".ecosystem-hub",
           { scale: 0.8, opacity: 0 },
           { scale: 1, opacity: 1, duration: 1, ease: "back.out(1.7)" },
-          "-=0.4"
+          "-=0.4",
         )
         .fromTo(
           ".benefit-card",
           { y: 20, opacity: 0 },
           { y: 0, opacity: 1, stagger: 0.1, duration: 0.6 },
-          "-=0.6"
+          "-=0.6",
         )
         .fromTo(
           ".connector-line",
           { scaleX: 0, opacity: 0 },
           { scaleX: 1, opacity: 1, stagger: 0.05 },
-          "-=0.5"
+          "-=0.5",
         );
 
-      // 3. Continuous Hub Aura
-      gsap.to(".hub-aura", {
+      // 3. Continuous Hub Aura — gated by visibility
+      const hubAura = gsap.to(".hub-aura", {
         scale: 1.4,
         opacity: 0,
         duration: 2.5,
         repeat: -1,
         ease: "sine.out",
+        paused: true,
+      });
+
+      ScrollTrigger.create({
+        trigger: containerRef.current,
+        start: "top bottom",
+        end: "bottom top",
+        onEnter: () => hubAura.play(),
+        onEnterBack: () => hubAura.play(),
+        onLeave: () => hubAura.pause(),
+        onLeaveBack: () => hubAura.pause(),
       });
     },
-    { scope: containerRef }
+    { scope: containerRef },
   );
 
   return (
@@ -121,7 +100,7 @@ const MemberCommunity = () => {
           ref={bgTextRef}
           className="absolute top-1/2 -translate-y-1/2 left-0 whitespace-nowrap text-[22vw] font-black uppercase text-navy-77/[0.02] italic tracking-tighter"
         >
-          77 Community 77 Community
+          {t("bgText")}
         </div>
         <div
           className="absolute inset-0 opacity-[0.05]"
@@ -138,25 +117,24 @@ const MemberCommunity = () => {
           <div className="comm-header-el inline-flex items-center gap-2 px-4 py-1.5 bg-slate-50 border border-cyan-77/10 rounded-full mb-6">
             <span className="w-2 h-2 rounded-full bg-cyan-77 animate-pulse" />
             <span className="text-navy-77 font-bold text-[10px] uppercase tracking-[0.2em]">
-              Exclusive Ecosystem
+              {t("badge")}
             </span>
           </div>
           <h2 className="comm-header-el text-5xl lg:text-6xl font-black font-mulish mb-6 leading-tight">
-            77 Performance <br />
+            {t("titleLine1")} <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-navy-77 to-cyan-77">
-              Member Community
+              {t("titleLine2")}
             </span>
           </h2>
           <p className="comm-header-el text-slate-500 text-lg font-light max-w-2xl mx-auto">
-            Lebih dari sekadar jual-beli. Bergabunglah dengan ekosistem yang
-            menciptakan pertumbuhan bisnis berkelanjutan.
+            {t("description")}
           </p>
         </div>
 
         {/* ECOSYSTEM VISUAL */}
         <div className="relative max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 items-center gap-12 lg:gap-4">
           <div className="flex flex-col gap-6 order-2 lg:order-1">
-            {BENEFITS.slice(0, 3).map((item) => (
+            {benefits.slice(0, 3).map((item) => (
               <BenefitCard key={item.id} item={item} align="right" />
             ))}
           </div>
@@ -168,17 +146,17 @@ const MemberCommunity = () => {
                 <div className="absolute inset-2 border border-dashed border-cyan-77/20 rounded-full animate-[spin_20s_linear_infinite]" />
                 <span className="text-3xl mb-2">🤝</span>
                 <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest leading-none mb-1">
-                  Repeat
+                  {t("hubRepeat")}
                 </span>
                 <span className="text-lg font-black text-navy-77 leading-none">
-                  ECOSYSTEM
+                  {t("hubEcosystem")}
                 </span>
               </div>
             </div>
           </div>
 
           <div className="flex flex-col gap-6 order-3 lg:order-3">
-            {BENEFITS.slice(3, 6).map((item) => (
+            {benefits.slice(3, 6).map((item) => (
               <BenefitCard key={item.id} item={item} align="left" />
             ))}
           </div>
@@ -190,8 +168,7 @@ const MemberCommunity = () => {
             <div className="absolute top-0 right-0 w-64 h-64 bg-cyan-77/10 blur-[80px] -mr-32 -mt-32" />
             <div className="relative z-10">
               <h3 className="text-2xl md:text-3xl font-bold font-mulish mb-4">
-                "Community Ini Menciptakan Repeat Ecosystem, Bukan One-Time
-                Sales."
+                “{t("footerQuote")}”
               </h3>
               <div className="h-[1px] w-20 bg-cyan-77/50 mx-auto" />
             </div>

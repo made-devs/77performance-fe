@@ -4,18 +4,21 @@ import ProductionTech from "@/components/manufacturing/ProductionTech";
 import DurabilitySection from "@/components/manufacturing/DurabilitySection";
 import QualityTesting from "@/components/manufacturing/QualityTesting";
 import GlobalSupply from "@/components/manufacturing/GlobalSupply";
+import { getTranslations } from "next-intl/server";
 
-export default function ManufacturingPage() {
+export default async function ManufacturingPage() {
+  const t = await getTranslations("pageManufacturing");
+
   return (
     <main className="bg-white text-slate-900 selection:bg-[var(--color-navy-77)] selection:text-white overflow-hidden">
       <HeroOpening
-        uptitle="Infrastructure & Capacity"
-        titleLines={["GLOBAL", "MANUFACTURING", "FOUNDATION"]}
+        uptitle={t("uptitle")}
+        titleLines={[t("titleLine1"), t("titleLine2"), t("titleLine3")]}
         description={
           <>
-            Engineered to International Standards. <br />
+            {t("descriptionLead")} <br />
             <span className="text-white font-medium">
-              Precision. Automation. Scale.
+              {t("descriptionHighlight")}
             </span>
           </>
         }

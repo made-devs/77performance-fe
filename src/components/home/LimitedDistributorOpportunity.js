@@ -4,36 +4,28 @@ import React, { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useTranslations } from "next-intl";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const COMBINATIONS = [
-  "Global Manufacturing Foundation",
-  "Premium Grade A Products",
-  "Functional Product Promotion",
-  "Sustainable Automotive Ecosystem",
-];
-
-const SECURITY_POINTS = [
-  { label: "Wilayah (Territory)", icon: "map" },
-  { label: "Demand Pasar", icon: "chart" },
-  { label: "Margin Profit", icon: "wallet" },
-  { label: "Posisi Jangka Panjang", icon: "anchor" },
-];
+const SECURITY_ICONS = ["map", "chart", "wallet", "anchor"];
 
 const LimitedDistributorOpportunity = () => {
   const containerRef = useRef(null);
+  const t = useTranslations("pageHome.limitedOpportunity");
+  const combinations = t.raw("combinations");
+  const securityPoints = t.raw("securityPoints").map((label, index) => ({
+    label,
+    icon: SECURITY_ICONS[index],
+  }));
 
   useGSAP(
     () => {
-      ScrollTrigger.refresh();
-
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: containerRef.current,
           start: "top 80%",
-          end: "bottom bottom",
-          toggleActions: "play none none reverse",
+          once: true,
         },
       });
 
@@ -47,7 +39,7 @@ const LimitedDistributorOpportunity = () => {
           rotation: 0,
           duration: 0.6,
           ease: "back.out(1.7)",
-        }
+        },
       );
 
       // 2. Title Typography Reveal
@@ -55,7 +47,7 @@ const LimitedDistributorOpportunity = () => {
         ".limit-title span",
         { y: 50, opacity: 0 },
         { y: 0, opacity: 1, duration: 0.8, stagger: 0.1, ease: "power4.out" },
-        "-=0.3"
+        "-=0.3",
       );
 
       // 3. Map Pattern Pulse
@@ -63,7 +55,7 @@ const LimitedDistributorOpportunity = () => {
         ".bg-map-pattern",
         { opacity: 0, scale: 1.1 },
         { opacity: 0.1, scale: 1, duration: 1.5, ease: "power2.out" },
-        "-=0.8"
+        "-=0.8",
       );
 
       // 4. Content Columns Reveal
@@ -71,24 +63,24 @@ const LimitedDistributorOpportunity = () => {
         ".combo-item",
         { x: -30, opacity: 0 },
         { x: 0, opacity: 1, duration: 0.6, stagger: 0.1, ease: "power2.out" },
-        "-=0.5"
+        "-=0.5",
       );
 
       tl.fromTo(
         ".secure-card",
         { x: 30, opacity: 0 },
         { x: 0, opacity: 1, duration: 0.6, stagger: 0.1, ease: "power2.out" },
-        "-=0.8"
+        "-=0.8",
       );
 
       // 5. Final Quote Fade Up
       tl.fromTo(
         ".final-statement",
         { y: 30, opacity: 0 },
-        { y: 0, opacity: 1, duration: 1, ease: "power3.out" }
+        { y: 0, opacity: 1, duration: 1, ease: "power3.out" },
       );
     },
-    { scope: containerRef }
+    { scope: containerRef },
   );
 
   return (
@@ -117,19 +109,21 @@ const LimitedDistributorOpportunity = () => {
         {/* HEADER */}
         <div className="text-center mb-16 relative">
           <div className="alert-badge opacity-0 absolute -top-10 md:-top-12 left-1/2 -translate-x-1/2 bg-red-600 text-white px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest shadow-[0_0_20px_rgba(220,38,38,0.4)] border border-red-500 z-20">
-            Urgent Notice
+            {t("alert")}
           </div>
 
           <h2 className="limit-title text-5xl md:text-6xl lg:text-8xl font-black font-mulish tracking-tighter leading-none mb-4">
-            <span className="block opacity-0 text-white/20">LIMITED</span>
+            <span className="block opacity-0 text-white/20">
+              {t("limited")}
+            </span>
             <span className="block opacity-0 text-transparent bg-clip-text bg-gradient-to-r from-cyan-77 via-white to-cyan-77 bg-[length:200%_auto] animate-gradient">
-              OPPORTUNITY
+              {t("opportunity")}
             </span>
           </h2>
 
           <div className="inline-block mt-4 px-6 py-2 bg-white/5 border border-white/10 rounded-lg backdrop-blur-sm">
             <p className="text-cyan-77 font-bold text-lg md:text-xl uppercase tracking-widest">
-              Satu Kota • Satu Distributor
+              {t("exclusive")}
             </p>
           </div>
         </div>
@@ -139,15 +133,15 @@ const LimitedDistributorOpportunity = () => {
           {/* LEFT: FOUNDATION */}
           <div>
             <h3 className="text-2xl font-bold mb-8 font-mulish">
-              <span className="text-white/40">77 Performance Adalah </span>
+              <span className="text-white/40">{t("leftTitleTop")} </span>
               <br />
               <span className="text-white text-3xl">
-                Kombinasi Sempurna Dari:
+                {t("leftTitleBottom")}
               </span>
             </h3>
 
             <div className="space-y-4">
-              {COMBINATIONS.map((text, i) => (
+              {combinations.map((text, i) => (
                 <div
                   key={i}
                   className="combo-item opacity-0 group flex items-center gap-4 p-5 rounded-xl bg-white/5 border border-white/5 hover:border-cyan-77/30 hover:bg-white/10 transition-all duration-300"
@@ -180,11 +174,11 @@ const LimitedDistributorOpportunity = () => {
             <div className="absolute inset-0 bg-cyan-77/5 rotate-3 rounded-3xl blur-sm -z-10" />
             <div className="bg-navy-77/40 backdrop-blur-xl border border-white/10 rounded-3xl p-8 lg:p-12 shadow-2xl">
               <h3 className="text-sm text-cyan-77 font-bold uppercase tracking-[0.2em] mb-8 border-b border-white/5 pb-4">
-                Partner Privilege:
+                {t("partnerPrivilege")}
               </h3>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {SECURITY_POINTS.map((item, i) => (
+                {securityPoints.map((item, i) => (
                   <div
                     key={i}
                     className="secure-card opacity-0 group relative p-6 bg-white/5 rounded-2xl border border-white/5 hover:border-cyan-77/50 transition-all duration-300"
@@ -200,7 +194,7 @@ const LimitedDistributorOpportunity = () => {
               </div>
 
               <p className="mt-8 text-center text-[10px] text-white/30 uppercase tracking-widest font-bold">
-                *Slot wilayah bersifat eksklusif
+                {t("slotNote")}
               </p>
             </div>
           </div>
@@ -213,12 +207,12 @@ const LimitedDistributorOpportunity = () => {
           <div className="relative z-10 flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16">
             <div className="text-left md:w-1/2">
               <p className="text-white/40 font-bold uppercase tracking-widest text-xs mb-2">
-                Option A
+                {t("optionALabel")}
               </p>
               <p className="text-white/60 font-medium text-xl leading-relaxed">
-                Jika Ingin Sekadar Jualan, <br />
+                {t("optionAText")} <br />
                 <span className="text-white/30 font-light">
-                  Banyak Pilihan di Luar Sana.
+                  {t("optionASubtext")}
                 </span>
               </p>
             </div>
@@ -227,15 +221,15 @@ const LimitedDistributorOpportunity = () => {
 
             <div className="text-left md:w-1/2">
               <p className="text-cyan-77 font-bold uppercase tracking-widest text-xs mb-2">
-                Option B
+                {t("optionBLabel")}
               </p>
               <p className="text-white font-black text-2xl md:text-3xl leading-tight font-mulish">
-                Bangun Bisnis <br />
+                {t("optionBLine1")} <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-cyan-77">
-                  Jangka Panjang
+                  {t("optionBLine2")}
                 </span>
                 <br />
-                Bersama Kami.
+                {t("optionBLine3")}
               </p>
             </div>
           </div>

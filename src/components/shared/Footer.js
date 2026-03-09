@@ -1,6 +1,14 @@
+"use client";
+
 import React from "react";
+import { useTranslations } from "next-intl";
 
 const Footer = () => {
+  const t = useTranslations("footer");
+  const year = new Date().getFullYear();
+
+  const companyLinks = ["about", "vision", "career", "news"];
+
   return (
     <footer className="bg-slate-950 text-slate-300 font-mulish relative overflow-hidden">
       {/* --- DECORATIVE TOP BORDER --- */}
@@ -15,9 +23,7 @@ const Footer = () => {
               77 <span className="text-cyan-500">PERFORMANCE</span>
             </h2>
             <p className="text-slate-400 leading-relaxed max-w-sm">
-              Kami membangun ekosistem otomotif masa depan. Bukan sekadar
-              menjual sparepart, tapi memberikan solusi bisnis berkelanjutan,
-              sistem teruji, dan produk Grade A untuk pertumbuhan mitra kami.
+              {t("brandDescription")}
             </p>
             {/* Social Icons */}
             <div className="flex gap-4 pt-2">
@@ -30,18 +36,23 @@ const Footer = () => {
 
           {/* COLUMN 2: QUICK LINKS (2 Cols) */}
           <div className="lg:col-span-2 space-y-6">
-            <h4 className="text-white font-bold text-lg">Perusahaan</h4>
+            <h4 className="text-white font-bold text-lg">
+              {t("sections.company")}
+            </h4>
             <ul className="space-y-3">
-              <FooterLink href="#">Tentang Kami</FooterLink>
-              <FooterLink href="#">Visi & Misi</FooterLink>
-              <FooterLink href="#">Karir</FooterLink>
-              <FooterLink href="#">Berita & Artikel</FooterLink>
+              {companyLinks.map((key) => (
+                <FooterLink key={key} href="#">
+                  {t(`companyLinks.${key}`)}
+                </FooterLink>
+              ))}
             </ul>
           </div>
 
           {/* COLUMN 3: SUPPORT (3 Cols) */}
           <div className="lg:col-span-3 space-y-6">
-            <h4 className="text-white font-bold text-lg">Hubungi Kami</h4>
+            <h4 className="text-white font-bold text-lg">
+              {t("sections.contact")}
+            </h4>
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
                 <svg
@@ -64,11 +75,11 @@ const Footer = () => {
                   />
                 </svg>
                 <span className="text-sm">
-                  Headquarters:
+                  {t("contact.hqLabel")}
                   <br />
-                  Jl. Otomotif Raya No. 77
+                  {t("contact.addressLine1")}
                   <br />
-                  Jakarta Utara, Indonesia
+                  {t("contact.addressLine2")}
                 </span>
               </li>
               <li className="flex items-center gap-3">
@@ -86,10 +97,10 @@ const Footer = () => {
                   />
                 </svg>
                 <a
-                  href="mailto:partnership@77performance.id"
+                  href={`mailto:${t("contact.email")}`}
                   className="text-sm hover:text-cyan-400 transition-colors"
                 >
-                  partnership@77performance.id
+                  {t("contact.email")}
                 </a>
               </li>
               <li className="flex items-center gap-3">
@@ -106,26 +117,27 @@ const Footer = () => {
                     d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
                   />
                 </svg>
-                <span className="text-sm">+62 812-3456-7890</span>
+                <span className="text-sm">{t("contact.phone")}</span>
               </li>
             </ul>
           </div>
 
           {/* COLUMN 4: NEWSLETTER (3 Cols) */}
           <div className="lg:col-span-3 space-y-6">
-            <h4 className="text-white font-bold text-lg">Tetap Terhubung</h4>
+            <h4 className="text-white font-bold text-lg">
+              {t("sections.newsletter")}
+            </h4>
             <p className="text-sm text-slate-400">
-              Dapatkan update produk terbaru dan strategi bisnis otomotif
-              langsung di inbox Anda.
+              {t("newsletter.description")}
             </p>
             <form className="space-y-3">
               <input
                 type="email"
-                placeholder="Alamat Email Anda"
+                placeholder={t("newsletter.placeholder")}
                 className="w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 text-sm transition-all"
               />
               <button className="w-full bg-cyan-600 hover:bg-cyan-500 text-white font-bold py-3 px-4 rounded-lg transition-colors text-sm uppercase tracking-wider">
-                Subscribe
+                {t("newsletter.button")}
               </button>
             </form>
           </div>
@@ -135,18 +147,16 @@ const Footer = () => {
       {/* --- COPYRIGHT BOTTOM BAR --- */}
       <div className="bg-slate-900 border-t border-slate-800 relative z-10">
         <div className="container mx-auto px-6 py-6 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-500">
-          <p>
-            © {new Date().getFullYear()} 77 Performance. All rights reserved.
-          </p>
+          <p>{t("bottom.copyright", { year })}</p>
           <div className="flex gap-6">
             <a href="#" className="hover:text-cyan-400 transition-colors">
-              Privacy Policy
+              {t("bottom.privacy")}
             </a>
             <a href="#" className="hover:text-cyan-400 transition-colors">
-              Terms of Service
+              {t("bottom.terms")}
             </a>
             <a href="#" className="hover:text-cyan-400 transition-colors">
-              Sitemap
+              {t("bottom.sitemap")}
             </a>
           </div>
         </div>

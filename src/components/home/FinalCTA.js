@@ -4,6 +4,7 @@ import React, { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useTranslations } from "next-intl";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -11,27 +12,25 @@ const FinalCTA = () => {
   const containerRef = useRef(null);
   const buttonRef = useRef(null);
   const bgRef = useRef(null);
+  const t = useTranslations("pageHome.finalCta");
 
   useGSAP(
     () => {
-      ScrollTrigger.refresh();
-
-      // 1. Moving Aurora Gradient Logic
-      // Animate background position untuk simulasi aurora mengalir
-      gsap.to(bgRef.current, {
+      // 1. Moving Aurora Gradient — gated, pause saat off-screen
+      const aurora = gsap.to(bgRef.current, {
         backgroundPosition: "100% 50%",
         duration: 15,
         repeat: -1,
         yoyo: true,
         ease: "sine.inOut",
+        paused: true,
       });
 
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: containerRef.current,
           start: "top 75%",
-          end: "bottom bottom",
-          toggleActions: "play none none reverse",
+          once: true,
         },
       });
 
@@ -39,7 +38,7 @@ const FinalCTA = () => {
       tl.fromTo(
         ".cta-content",
         { y: 60, opacity: 0, scale: 0.98 },
-        { y: 0, opacity: 1, scale: 1, duration: 1.2, ease: "power3.out" }
+        { y: 0, opacity: 1, scale: 1, duration: 1.2, ease: "power3.out" },
       )
         .fromTo(
           ".cta-text",
@@ -51,25 +50,49 @@ const FinalCTA = () => {
             stagger: 0.15,
             ease: "back.out(1.2)",
           },
-          "-=0.6"
+          "-=0.6",
         )
         .fromTo(
           buttonRef.current,
           { scale: 0, opacity: 0 },
           { scale: 1, opacity: 1, duration: 0.6, ease: "elastic.out(1, 0.5)" },
-          "-=0.2"
+          "-=0.2",
         );
 
-      // 3. Button Pulse Loop
-      gsap.to(".btn-glow-ring", {
+      // 3. Button Pulse Loop — gated by visibility
+      const btnGlow = gsap.to(".btn-glow-ring", {
         scale: 1.6,
         opacity: 0,
         duration: 2,
         repeat: -1,
         ease: "power1.out",
+        paused: true,
+      });
+
+      // Visibility gate: aurora + btnGlow hanya play saat terlihat
+      ScrollTrigger.create({
+        trigger: containerRef.current,
+        start: "top bottom",
+        end: "bottom top",
+        onEnter: () => {
+          aurora.play();
+          btnGlow.play();
+        },
+        onEnterBack: () => {
+          aurora.play();
+          btnGlow.play();
+        },
+        onLeave: () => {
+          aurora.pause();
+          btnGlow.pause();
+        },
+        onLeaveBack: () => {
+          aurora.pause();
+          btnGlow.pause();
+        },
       });
     },
-    { scope: containerRef }
+    { scope: containerRef },
   );
 
   return (
@@ -106,20 +129,19 @@ const FinalCTA = () => {
           <div className="relative z-10">
             <div className="cta-text mb-10 flex justify-center opacity-0">
               <span className="px-6 py-2 rounded-full bg-navy-77/50 border border-cyan-77/30 text-cyan-400 text-xs font-bold uppercase tracking-[0.4em] shadow-2xl">
-                Strategic Expansion
+                {t("badge")}
               </span>
             </div>
 
             <h2 className="cta-text text-5xl md:text-8xl font-black text-white font-mulish mb-10 leading-[0.95] opacity-0 tracking-tighter">
-              Amankan Wilayah <br />
+              {t("titleLine1")} <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-cyan-400 to-white/40">
-                Eksklusif Anda.
+                {t("titleLine2")}
               </span>
             </h2>
 
             <p className="cta-text text-white/50 text-xl max-w-2xl mx-auto mb-16 font-mulish font-light leading-relaxed opacity-0">
-              Jadilah distributor tunggal di kota Anda. Jangan biarkan
-              kompetitor mengambil peluang emas dalam ekosistem 77 Performance.
+              {t("description")}
             </p>
 
             {/* --- ACTION BUTTON --- */}
@@ -134,7 +156,7 @@ const FinalCTA = () => {
               />
 
               <button className="relative z-10 bg-gradient-to-r from-[#021526] to-[#0e6ba0] hover:to-cyan-600 text-white font-black text-xl px-16 py-7 rounded-full border border-white/10 shadow-2xl transition-all duration-500 flex items-center gap-4 mx-auto group-hover/btn:scale-105 active:scale-95">
-                <span>HUBUNGI PRINCIPAL</span>
+                <span>{t("button")}</span>
                 <svg
                   className="w-6 h-6 group-hover/btn:translate-x-2 transition-transform duration-300"
                   fill="none"
@@ -153,7 +175,7 @@ const FinalCTA = () => {
 
             <div className="cta-text mt-16 opacity-0">
               <p className="text-white/20 text-[10px] font-bold uppercase tracking-[0.3em]">
-                77 Performance • Official Partnership 2026
+                {t("footer")}
               </p>
             </div>
           </div>

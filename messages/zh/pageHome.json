@@ -1,0 +1,509 @@
+{
+  "heroSlideshow": {
+    "sub": "GLOBAL • PREMIUM • PERFORMANCE",
+    "title": "高端进口汽车零部件",
+    "description": "甄选高品质汽车零部件，为性能与耐久而打造。",
+    "cta": "探索产品",
+    "posterAlt": "首页主视觉",
+    "marqueeBrand": "77 PERFORMANCE",
+    "marqueeTag": "高端进口零部件"
+  },
+  "aboutSection": {
+    "badgeYears": "全球制造经验年限",
+    "tagline": "全球化准备愿景",
+    "titleLine1": "基于成熟验证的",
+    "titleLine2": "全球制造体系",
+    "description": "77 Performance 是高端进口汽车零部件品牌，建立在成熟的全球制造基础之上，采用 Premium Grade A 材料，并以长期增长导向的商业体系赋能合作伙伴。",
+    "features": [
+      "全球制造标准",
+      "Premium Grade A 材料",
+      "面向长期增长的商业体系"
+    ],
+    "stats": {
+      "facilityLabel": "厂房面积",
+      "qualityLabel": "质量标准",
+      "exportLabel": "出口洲别"
+    }
+  },
+  "manufacturingSection": {
+    "badge": "品质背后",
+    "titleLine1": "工程打造于",
+    "titleLine2": "工业级规模",
+    "description": "我们不仅装配，更进行完整制造。凭借数万平方米设施与精密技术，77 Performance 每个零件都诞生于世界级制造标准。",
+    "features": [
+      {
+        "title": "工业级设施规模",
+        "desc": "数万平方米设施覆盖生产、研发与集中仓储。"
+      },
+      {
+        "title": "自动化装配",
+        "desc": "自动机器人系统保障每个单元的精度一致性。"
+      },
+      {
+        "title": "精密加工",
+        "desc": "先进 CNC 技术实现微米级精度与稳定性能。"
+      },
+      {
+        "title": "多阶段质检",
+        "desc": "从原料到出货前终检的分层检测流程。"
+      },
+      {
+        "title": "研发创新",
+        "desc": "持续优化设计与材料耐久性。"
+      },
+      {
+        "title": "全球 OEM 标准",
+        "desc": "在全球市场被信赖为 OEM 等级替代品质。"
+      }
+    ]
+  },
+  "qualitySection": {
+    "intro": {
+      "tag": "核心理念",
+      "titleLine1": "工程化",
+      "titleLine2": "品质",
+      "description": "品质不只是承诺。77 Performance 将工程精度与全球标准放在首位。",
+      "scroll": "滚动"
+    },
+    "pillars": [
+      {
+        "id": "01",
+        "bgText": "77 PERFORMANCE",
+        "title": "高端材料",
+        "subtitle": "Grade A 甄选",
+        "desc": "我们对基础材料绝不妥协，采用高强度钢与 Grade-A 橡胶组件。",
+        "features": [
+          "高强度钢",
+          "耐热橡胶",
+          "防腐涂层"
+        ]
+      },
+      {
+        "id": "02",
+        "bgText": "COMFORT",
+        "title": "工程化舒适",
+        "subtitle": "精密阻尼",
+        "desc": "驾乘舒适并非偶然。我们的阀系经过校准，可有效抑制微振动。",
+        "features": [
+          "自适应阀系",
+          "降噪优化",
+          "平顺回弹"
+        ]
+      },
+      {
+        "id": "03",
+        "bgText": "DURABILITY",
+        "title": "极致耐久",
+        "subtitle": "持久可靠",
+        "desc": "为长寿命而设计，每个单元都经过高循环耐久测试。",
+        "features": [
+          "高循环测试",
+          "防漏密封",
+          "重载结构"
+        ]
+      }
+    ]
+  },
+  "specsSection": {
+    "header": {
+      "tag": "制造 DNA",
+      "titlePrefix": "全球标准",
+      "titleMiddle": "蓝图",
+      "titleSuffix": "体系",
+      "description": "我们的制造基础由关键质量支柱构成，确保世界级精度、一致性与耐久性。"
+    },
+    "cards": {
+      "integrated": {
+        "title": "一体化生产生态",
+        "desc": "数万平方米设施整合 Machining、Assembly、Surface Treatment 与 Final Inspection，全流程同场协同。",
+        "badges": [
+          "自动化装配",
+          "精密加工",
+          "工业规模"
+        ]
+      },
+      "experience": {
+        "label": "经验年限",
+        "desc": "自 2008 年起，保持稳定且可持续的生产表现。"
+      },
+      "globalMarket": {
+        "title": "全球市场",
+        "regions": "ASIA • EUROPE • AMERICA • MEA",
+        "desc": "在全球多个区域广泛应用于 Aftermarket 与 OEM Replacement 市场。"
+      },
+      "quality": {
+        "title": "严格质量控制",
+        "desc": "从原料到成品执行多阶段检验。",
+        "items": [
+          {
+            "title": "ISO 认证",
+            "desc": "质量管理体系"
+          },
+          {
+            "title": "E-Coating",
+            "desc": "电泳防腐"
+          },
+          {
+            "title": "动态阻尼",
+            "desc": "100% 性能测试"
+          },
+          {
+            "title": "高循环测试",
+            "desc": "耐久保障"
+          },
+          {
+            "title": "OEM 标准",
+            "desc": "等效品质"
+          }
+        ]
+      },
+      "portfolio": {
+        "title": "完整产品组合",
+        "desc": "完整底盘与悬挂产品线：Shock Absorber、Control Arm、Bushing、Ball Joint 与 Rack End。",
+        "tag1": "减震器",
+        "tag2": "悬挂部件"
+      },
+      "rnd": {
+        "title": "研发驱动",
+        "desc": "内部研发团队持续优化设计与材料。",
+        "footer": "OEM & ODM"
+      }
+    }
+  },
+  "brandPositioning": {
+    "badge": "品牌定位",
+    "titleLine1": "长期主义",
+    "titleLine2": "商业布局。",
+    "descriptionLead": "在质量波动频繁的市场中，我们选择了不同路径。",
+    "brandName": "77 Performance",
+    "descriptionTail": "并非为了只在最低价货架上竞争而生。",
+    "quote": "我们不只销售零部件。我们构建面向未来的品牌权威、一致性与信任。",
+    "points": [
+      {
+        "title": "价值优先于价格",
+        "desc": "定价反映 Grade-A 材料与研发质量。"
+      },
+      {
+        "title": "全球一致性",
+        "desc": "首批与第 1000 批保持同等质量标准。"
+      },
+      {
+        "title": "长期品牌资产",
+        "desc": "服务追求商业权威的合作伙伴，而非仅做商品交易。"
+      }
+    ],
+    "complianceLabel": "高端标准合规",
+    "imageAlt": "77 Performance 工程能力"
+  },
+  "globalVision": {
+    "watermark": "GLOBAL",
+    "badge": "国际覆盖",
+    "titleLine1": "全球化准备",
+    "titleLine2": "愿景与执行。",
+    "descriptionLead": "立足国际标准制造体系，",
+    "brandName": "77 Performance",
+    "descriptionTail": "不受地理边界限制。我们打造面向亚洲、欧洲与美洲市场的产品生态。",
+    "stats": [
+      {
+        "label": "标准",
+        "value": "OEM 等效",
+        "sub": "全球合规"
+      },
+      {
+        "label": "扩张",
+        "value": "出口就绪",
+        "sub": "跨境物流"
+      },
+      {
+        "label": "网络",
+        "value": "多区域",
+        "sub": "APAC • EU • MEA • US"
+      }
+    ]
+  },
+  "distributorBenefits": {
+    "badge": "分销商价值主张",
+    "titleLine1": "不只是采购零部件。",
+    "titleLine2": "而是结构化伙伴关系。",
+    "description": "成为 77 Performance 分销商，意味着进入成熟商业生态。我们提供从上游到下游的 360° 支持。",
+    "benefits": [
+      {
+        "title": "月度营收保障",
+        "desc": "来自全印尼 TJM Auto Care 与 Raja Oto 网络的销售，月度最低营收保障 IDR 100,000,000。"
+      },
+      {
+        "title": "年度订货目标",
+        "desc": "目标 IDR 500M/月（IDR 6B/年）。首年下调为 IDR 250M/月。"
+      },
+      {
+        "title": "高利润空间",
+        "desc": "利润最高可达 150%，并享受分销商专属折扣与量级价格。"
+      },
+      {
+        "title": "官方产品质保",
+        "desc": "全线产品提供 1 年国内质保与 2 年国际质保。"
+      },
+      {
+        "title": "区域独家",
+        "desc": "一城一区仅设一名分销商，不设双分销。"
+      },
+      {
+        "title": "产品培训",
+        "desc": "提供线上/线下官方产品知识培训与最新技术更新。"
+      },
+      {
+        "title": "免费高端网站",
+        "desc": "为分销商提供专属品牌网站（例如：www.7performancejogja.com）。"
+      },
+      {
+        "title": "企业法务支持",
+        "desc": "可接入法务团队与第三方追款支持，协助处理应收问题。"
+      },
+      {
+        "title": "全国艺人推广",
+        "desc": "提供 Zack Lee 免费推广及可直接发布内容，支持门店/车间合作方。"
+      },
+      {
+        "title": "完整推广包",
+        "desc": "营销物料包含横幅、展示架、产品模块与纸质手册。"
+      },
+      {
+        "title": "现代库存系统",
+        "desc": "支持库存管理、自定义条码与实时价格表更新。"
+      },
+      {
+        "title": "门店展示套装",
+        "desc": "1 套电视展示 + 促销与培训视频，可直接门店播放。"
+      },
+      {
+        "title": "紧急支持",
+        "desc": "总部快速响应团队支持紧急库存、质保索赔与技术问题。"
+      },
+      {
+        "title": "品牌方推荐",
+        "desc": "总部品牌方直接向区域分销商推荐门店与车间资源。"
+      },
+      {
+        "title": "全国免运支持",
+        "desc": "大雅加达免运 + 全国补贴（最低订货 IDR 400M）。"
+      },
+      {
+        "title": "即用营销内容",
+        "desc": "完整素材包：产品图、电影感视频与可直接发布品牌内容。"
+      }
+    ],
+    "bonusBadge": "分销商专属权益",
+    "bonusTitle": "特别增值福利",
+    "bonus": [
+      {
+        "title": "年度业绩奖励",
+        "desc": "按营收达成与稳定性发放专属奖励（现金/展示设备）。"
+      },
+      {
+        "title": "新品优先配货",
+        "desc": "新产品优先获取，并在公开市场前享有库存优先权。"
+      }
+    ]
+  },
+  "promotionStrategy": {
+    "bgText": "77 Performance 77 Performance",
+    "badge": "专业策略",
+    "titleLine1": "功能相关性。",
+    "titleLine2": "高端价值。",
+    "description": "通过互补产品策略为每笔交易创造可感知价值，从而建立合作伙伴信任。",
+    "mainPromo": {
+      "subtitle": "核心项目",
+      "title": "购买 Shockbreaker / Racksteer",
+      "highlight": "免费赠送 Trisev Buffer Suspension",
+      "desc": "购买 77 Performance Shockbreaker 和/或 Racksteer，即可获得 Trisev Buffer Suspension 赠品，无额外成本提升舒适与稳定性。",
+      "tags": [
+        "Shockbreaker",
+        "Racksteer",
+        "Bundling Package"
+      ]
+    },
+    "offerLabel": "企业优惠",
+    "offerTitle": "专属组合套装",
+    "programTitle": "优势项目",
+    "additionalPrograms": [
+      {
+        "title": "免费数字素材",
+        "desc": "提供可直接发布的高清产品图、海报与官方社媒内容。"
+      },
+      {
+        "title": "Zack Lee 联名推广视频",
+        "desc": "由 Zack Lee 直接出演门店与车间专属宣传视频。"
+      },
+      {
+        "title": "演示视频权限",
+        "desc": "官方产品教育与安装演示视频，助力成交转化。"
+      },
+      {
+        "title": "产品最高 30% 折扣",
+        "desc": "活动期间指定产品可享最高 30% 折扣。"
+      },
+      {
+        "title": "组合套装价格",
+        "desc": "组合采购专属价格，利润空间更具吸引力。"
+      },
+      {
+        "title": "全国免运",
+        "desc": "促销订单可享全印尼配送费用减免。"
+      },
+      {
+        "title": "优先发货",
+        "desc": "促销订单享受优先打包与发运流程。"
+      },
+      {
+        "title": "提前获取活动",
+        "desc": "比市场更早获得新品发布与促销信息。"
+      },
+      {
+        "title": "官方店额外 10% 折扣",
+        "desc": "通过官方店下单可再享 10% 折扣。"
+      }
+    ]
+  },
+  "memberCommunity": {
+    "bgText": "77 Community 77 Community",
+    "badge": "专属生态",
+    "titleLine1": "77 Performance",
+    "titleLine2": "Member Community",
+    "description": "不止于买卖。加入可持续增长的商业生态网络。",
+    "hubRepeat": "Repeat",
+    "hubEcosystem": "ECOSYSTEM",
+    "benefits": [
+      {
+        "title": "会员专属群组",
+        "desc": "进入门店与车间经营者的私域社群。"
+      },
+      {
+        "title": "更快活动更新",
+        "desc": "第一时间掌握新品与活动信息。"
+      },
+      {
+        "title": "培训与教育资讯",
+        "desc": "提供技术资料与商业策略，提升团队能力。"
+      },
+      {
+        "title": "全国网络链接",
+        "desc": "连接全印尼门店与车间资源网络。"
+      },
+      {
+        "title": "活动优先邀请",
+        "desc": "优先受邀参加展会与 77 Performance 活动。"
+      },
+      {
+        "title": "合作门店优惠券",
+        "desc": "为合作伙伴提供专项促销券激励。"
+      }
+    ],
+    "footerQuote": "这个社区创造的是可重复增长生态，而非一次性销售。"
+  },
+  "realDifference": {
+    "bgText": "高性能标准 高性能标准",
+    "badge": "对比研究",
+    "titlePrefix": "真正的",
+    "titleHighlight": "差异。",
+    "advantageLabel": "77 Performance 优势",
+    "philosophyTag": "我们的核心理念",
+    "philosophyLine1": "别人卖零件。",
+    "philosophyLine2": "我们建生意。",
+    "comparisons": [
+      {
+        "label": "核心焦点",
+        "others": "只卖产品",
+        "us": "构建系统、需求与可持续增长"
+      },
+      {
+        "label": "价格策略",
+        "others": "无价值价格战",
+        "us": "聚焦价值与业务增长"
+      },
+      {
+        "label": "体系支持",
+        "others": "售后即放手",
+        "us": "陪跑、培训与数字营销支持"
+      }
+    ]
+  },
+  "distributorQualification": {
+    "bgText": "资质要求 资质要求",
+    "badge": "官方标准",
+    "titlePrefix": "分销商",
+    "titleHighlight": "资质要求。",
+    "quote": "以不妥协的专业标准，打造汽车行业未来。",
+    "requirements": [
+      {
+        "title": "公司合法资质",
+        "desc": "需提供负责人身份证、税号、企业主体文件及运营仓库。"
+      },
+      {
+        "title": "汽车行业背景",
+        "desc": "需具备汽车领域相关经验或活跃网络（车间/门店/社群）。"
+      },
+      {
+        "title": "区域目标承诺",
+        "desc": "可按品牌方规定区域达成销售目标。"
+      },
+      {
+        "title": "必须完成产品培训",
+        "desc": "需通过官方产品知识培训后方可激活分销资格。"
+      },
+      {
+        "title": "网络建设能力",
+        "desc": "能够管理所在区域的销售链路（合作车间网络）。"
+      },
+      {
+        "title": "遵循品牌方体系",
+        "desc": "必须遵守官方价格体系与 77 Performance 政策。"
+      },
+      {
+        "title": "运营责任",
+        "desc": "运营与人力相关成本由分销商自行承担。"
+      },
+      {
+        "title": "品牌声誉承诺",
+        "desc": "在运营区域内专业维护 77 Performance 品牌形象。"
+      }
+    ],
+    "cta": "下载资质 PDF"
+  },
+  "limitedOpportunity": {
+    "alert": "紧急提示",
+    "limited": "限量",
+    "opportunity": "机会",
+    "exclusive": "一城 • 一分销商",
+    "leftTitleTop": "77 Performance 是",
+    "leftTitleBottom": "以下要素的完美组合：",
+    "combinations": [
+      "全球制造基础",
+      "Premium Grade A 产品",
+      "功能型产品推广",
+      "可持续汽车生态"
+    ],
+    "partnerPrivilege": "合作伙伴特权：",
+    "securityPoints": [
+      "区域（Territory）",
+      "市场需求",
+      "利润空间",
+      "长期市场位置"
+    ],
+    "slotNote": "*区域名额为独家配置",
+    "optionALabel": "选项 A",
+    "optionAText": "如果你只想做销售，",
+    "optionASubtext": "外面有很多选择。",
+    "optionBLabel": "选项 B",
+    "optionBLine1": "与我们一起",
+    "optionBLine2": "构建长期",
+    "optionBLine3": "商业版图。"
+  },
+  "finalCta": {
+    "badge": "战略扩张",
+    "titleLine1": "锁定你的",
+    "titleLine2": "独家区域。",
+    "description": "成为你所在城市的唯一分销商，不要让竞争对手先拿下 77 Performance 生态中的黄金机会。",
+    "button": "联系品牌方",
+    "footer": "77 Performance • 官方合作伙伴 2026"
+  }
+}

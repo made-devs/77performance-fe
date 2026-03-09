@@ -4,11 +4,14 @@ import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useTranslations } from "next-intl";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function SpecsSection() {
   const containerRef = useRef(null);
+  const t = useTranslations("pageHome.specsSection");
+  const cards = t.raw("cards");
 
   useGSAP(
     () => {
@@ -40,7 +43,7 @@ export default function SpecsSection() {
         });
       });
     },
-    { scope: containerRef }
+    { scope: containerRef },
   );
 
   return (
@@ -62,19 +65,18 @@ export default function SpecsSection() {
         {/* HEADER */}
         <div className="mb-16 max-w-3xl spec-title">
           <span className="text-cyan-77 font-mulish font-bold tracking-widest text-sm uppercase mb-2 block">
-            Manufacturing DNA
+            {t("header.tag")}
           </span>
           <h2 className="text-4xl md:text-5xl font-mulish font-black text-slate-900 leading-tight">
-            The{" "}
+            {t("header.titlePrefix")}{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-77 to-navy-77">
-              Blueprint
+              {t("header.titleMiddle")}
             </span>{" "}
-            of <br />
-            Global Standards
+            <br />
+            {t("header.titleSuffix")}
           </h2>
           <p className="mt-4 text-slate-600 text-lg font-mulish">
-            Fondasi manufaktur kami dibangun di atas pilar kualitas yang
-            menjamin presisi, konsistensi, dan daya tahan kelas dunia.
+            {t("header.description")}
           </p>
         </div>
 
@@ -110,17 +112,15 @@ export default function SpecsSection() {
                 </svg>
               </div>
               <h3 className="text-2xl font-mulish font-bold mb-2">
-                Integrated Production Ecosystem
+                {cards.integrated.title}
               </h3>
               <p className="text-slate-300 text-sm mb-4 max-w-md font-mulish">
-                Fasilitas puluhan ribu m² dengan sistem terintegrasi: Machining,
-                Assembly, Surface Treatment, hingga Final Inspection dalam satu
-                atap.
+                {cards.integrated.desc}
               </p>
               <div className="flex flex-wrap gap-2">
-                <Badge text="Automated Assembly" />
-                <Badge text="Precision Machining" />
-                <Badge text="Scale Industry" />
+                {cards.integrated.badges.map((badge) => (
+                  <Badge key={badge} text={badge} />
+                ))}
               </div>
             </div>
           </div>
@@ -132,10 +132,10 @@ export default function SpecsSection() {
               15<span className="text-cyan-77 text-4xl">+</span>
             </h4>
             <p className="text-slate-500 font-mulish font-bold text-sm tracking-wider uppercase mt-2 relative z-10">
-              Years Experience
+              {cards.experience.label}
             </p>
             <p className="text-xs text-slate-400 mt-2 relative z-10 font-mulish">
-              Sejak 2008, rekam jejak produksi stabil & berkelanjutan.
+              {cards.experience.desc}
             </p>
           </div>
 
@@ -153,16 +153,15 @@ export default function SpecsSection() {
 
             <div className="relative z-10">
               <h3 className="text-white font-mulish font-bold text-xl">
-                Global Market
+                {cards.globalMarket.title}
               </h3>
               <p className="text-cyan-77 text-xs mt-1 font-mulish">
-                ASIA • EUROPE • AMERICA • MEA
+                {cards.globalMarket.regions}
               </p>
             </div>
             <div className="relative z-10 mt-4">
               <p className="text-slate-400 text-xs leading-relaxed font-mulish">
-                Dipercaya di berbagai wilayah dunia untuk pasar Aftermarket &
-                OEM Replacement.
+                {cards.globalMarket.desc}
               </p>
             </div>
           </div>
@@ -186,25 +185,21 @@ export default function SpecsSection() {
                 </svg>
               </div>
               <h3 className="text-xl font-mulish font-bold text-slate-900">
-                Strict Quality Control
+                {cards.quality.title}
               </h3>
               <p className="text-slate-500 text-xs mt-2 font-mulish">
-                Multi-stage inspection dari material hingga barang jadi.
+                {cards.quality.desc}
               </p>
             </div>
 
             <ul className="space-y-4 flex-grow">
-              <ListItem
-                title="ISO Certified"
-                desc="Quality Management System"
-              />
-              <ListItem
-                title="E-Coating"
-                desc="Electrophoresis Anti-Corrosion"
-              />
-              <ListItem title="Dynamic Damping" desc="100% Performance Test" />
-              <ListItem title="High Cycle Test" desc="Durability Assurance" />
-              <ListItem title="OEM Standard" desc="Equivalent Quality" />
+              {cards.quality.items.map((item) => (
+                <ListItem
+                  key={item.title}
+                  title={item.title}
+                  desc={item.desc}
+                />
+              ))}
             </ul>
           </div>
 
@@ -212,18 +207,17 @@ export default function SpecsSection() {
           <div className="bento-card col-span-1 md:col-span-2 lg:col-span-2 row-span-1 bg-white rounded-3xl p-8 shadow-sm border border-slate-200 hover:border-cyan-77 transition-all duration-300 flex flex-col md:flex-row items-center gap-8 relative overflow-hidden">
             <div className="flex-1 relative z-10">
               <h3 className="text-xl font-mulish font-bold text-slate-900 mb-2">
-                Complete Portfolio
+                {cards.portfolio.title}
               </h3>
               <p className="text-slate-600 text-sm mb-4 font-mulish">
-                Rangkaian produk chassis & suspensi lengkap: Shock Absorber,
-                Control Arm, Bushing, Ball Joint, hingga Rack End.
+                {cards.portfolio.desc}
               </p>
               <div className="flex gap-3">
                 <div className="px-3 py-1 bg-slate-100 rounded text-xs font-mulish font-bold text-slate-600">
-                  Shock Absorber
+                  {cards.portfolio.tag1}
                 </div>
                 <div className="px-3 py-1 bg-slate-100 rounded text-xs font-mulish font-bold text-slate-600">
-                  Suspension Parts
+                  {cards.portfolio.tag2}
                 </div>
               </div>
             </div>
@@ -241,13 +235,16 @@ export default function SpecsSection() {
 
           {/* CARD 6: R&D (Small) */}
           <div className="bento-card col-span-1 md:col-span-1 lg:col-span-1 row-span-1 bg-gradient-to-br from-cyan-77 to-navy-77 rounded-3xl p-8 shadow-lg text-white flex flex-col justify-center hover:scale-[1.02] transition-transform duration-300">
-            <h3 className="text-lg font-mulish font-bold mb-2">R&D Oriented</h3>
+            <h3 className="text-lg font-mulish font-bold mb-2">
+              {cards.rnd.title}
+            </h3>
             <p className="text-cyan-100 text-xs leading-relaxed font-mulish">
-              Tim riset internal untuk peningkatan desain & material secara
-              berkelanjutan.
+              {cards.rnd.desc}
             </p>
             <div className="mt-4 pt-4 border-t border-white/20 flex justify-between items-center">
-              <span className="text-xs font-mulish font-bold">OEM & ODM</span>
+              <span className="text-xs font-mulish font-bold">
+                {cards.rnd.footer}
+              </span>
               <svg
                 className="w-4 h-4"
                 fill="none"

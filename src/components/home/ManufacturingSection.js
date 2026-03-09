@@ -5,10 +5,11 @@ import Image from "next/image";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useTranslations } from "next-intl";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const FEATURES = [
+const FEATURE_ICONS = [
   {
     icon: (
       <svg
@@ -24,8 +25,6 @@ const FEATURES = [
         <path d="M17 17h0v0" />
       </svg>
     ),
-    title: "Industrial Scale Facility",
-    desc: "Fasilitas puluhan ribu m² mencakup produksi, R&D, dan warehouse terpusat.",
   },
   {
     icon: (
@@ -41,8 +40,6 @@ const FEATURES = [
         <circle cx="12" cy="7" r="4" />
       </svg>
     ),
-    title: "Automated Assembly",
-    desc: "Sistem robotik otomatis menjamin konsistensi presisi di setiap unit.",
   },
   {
     icon: (
@@ -57,8 +54,6 @@ const FEATURES = [
         <path d="M12 20v-6M12 4v2M6.5 7l-1.5 1.5M17.5 7l1.5 1.5M4 12h2M18 12h2M6.5 17l-1.5-1.5M17.5 17l1.5-1.5" />
       </svg>
     ),
-    title: "Precision Machining",
-    desc: "Teknologi CNC mutakhir untuk akurasi mikron dan performa komponen.",
   },
   {
     icon: (
@@ -74,8 +69,6 @@ const FEATURES = [
         <path d="M12 8v4l3 3" />
       </svg>
     ),
-    title: "Multi-stage QC",
-    desc: "Inspeksi berlapis dari bahan baku hingga final check sebelum pengiriman.",
   },
   {
     icon: (
@@ -92,8 +85,6 @@ const FEATURES = [
         <path d="M2 12l5 5" />
       </svg>
     ),
-    title: "R&D Innovation",
-    desc: "Pengembangan berkelanjutan untuk desain dan durabilitas material.",
   },
   {
     icon: (
@@ -109,8 +100,6 @@ const FEATURES = [
         <circle cx="12" cy="7" r="4" />
       </svg>
     ),
-    title: "Global OEM Standard",
-    desc: "Dipercaya pasar global sebagai pengganti setara kualitas OEM.",
   },
 ];
 
@@ -118,6 +107,13 @@ export default function ManufacturingSection() {
   const container = useRef(null);
   const bgImage = useRef(null);
   const gridContainer = useRef(null);
+  const t = useTranslations("pageHome.manufacturingSection");
+  const featureTexts = t.raw("features");
+  const features = FEATURE_ICONS.map((feature, index) => ({
+    ...feature,
+    title: featureTexts[index].title,
+    desc: featureTexts[index].desc,
+  }));
 
   useGSAP(
     () => {
@@ -170,7 +166,7 @@ export default function ManufacturingSection() {
         }
       }, 1500);
     },
-    { scope: container }
+    { scope: container },
   );
 
   return (
@@ -189,7 +185,6 @@ export default function ManufacturingSection() {
             alt="Factory Background"
             fill
             className="object-cover"
-            priority
           />
         </div>
       </div>
@@ -209,18 +204,16 @@ export default function ManufacturingSection() {
         {/* Header Section */}
         <div className="max-w-4xl mx-auto text-center mb-20">
           <span className="inline-block py-1 px-3 border border-cyan-77/30 rounded-full bg-cyan-77/10 text-cyan-77 text-xs font-mulish font-bold tracking-widest uppercase mb-6 backdrop-blur-sm">
-            Behind The Quality
+            {t("badge")}
           </span>
           <h2 className="text-4xl md:text-6xl font-mulish font-black text-white mb-6 leading-tight">
-            Engineered at <br />
+            {t("titleLine1")} <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-cyan-77 to-cyan-500">
-              Industrial Scale
+              {t("titleLine2")}
             </span>
           </h2>
           <p className="text-lg text-gray-300 max-w-2xl mx-auto font-mulish leading-relaxed">
-            Kami tidak hanya merakit, kami memproduksi. Dengan fasilitas puluhan
-            ribu meter persegi dan teknologi presisi, setiap komponen 77
-            Performance lahir dari standar manufaktur kelas dunia.
+            {t("description")}
           </p>
         </div>
 
@@ -229,7 +222,7 @@ export default function ManufacturingSection() {
           ref={gridContainer}
           className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
         >
-          {FEATURES.map((f, i) => (
+          {features.map((f, i) => (
             <div
               key={i}
               className="feature-card group relative p-8 rounded-sm border border-white/10 bg-white/5 backdrop-blur-md hover:bg-black/40 hover:border-cyan-77/50 transition-all duration-500 overflow-hidden"

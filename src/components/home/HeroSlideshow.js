@@ -1,48 +1,50 @@
-'use client';
+"use client";
 
-import { useRef } from 'react';
-import Image from 'next/image';
-import gsap from 'gsap';
-import { useGSAP } from '@gsap/react';
-import Marquee from 'react-fast-marquee';
+import { useRef } from "react";
+import Image from "next/image";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import Marquee from "react-fast-marquee";
+import { useTranslations } from "next-intl";
 
 export default function HeroSlideshow() {
   const container = useRef();
   const videoRef = useRef();
+  const t = useTranslations("pageHome.heroSlideshow");
 
   useGSAP(
     () => {
       const tl = gsap.timeline();
 
       // Animasi fade-in untuk video saat siap
-      tl.to('.hero-video', { opacity: 1, duration: 1.5, ease: 'power2.inOut' });
+      tl.to(".hero-video", { opacity: 1, duration: 1.5, ease: "power2.inOut" });
 
       tl.fromTo(
-        '.hero-sub',
+        ".hero-sub",
         { y: 20, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.8, ease: 'power2.out' },
-        '-=0.5'
+        { y: 0, opacity: 1, duration: 0.8, ease: "power2.out" },
+        "-=0.5",
       )
         .fromTo(
-          '.hero-title',
+          ".hero-title",
           { y: 50, opacity: 0 },
-          { y: 0, opacity: 1, duration: 1, ease: 'power4.out' },
-          '-=0.6'
+          { y: 0, opacity: 1, duration: 1, ease: "power4.out" },
+          "-=0.6",
         )
         .fromTo(
-          '.hero-desc',
+          ".hero-desc",
           { y: 20, opacity: 0 },
           { y: 0, opacity: 1, duration: 0.8 },
-          '-=0.7'
+          "-=0.7",
         )
         .fromTo(
-          '.hero-btn',
+          ".hero-btn",
           { y: 20, opacity: 0 },
           { y: 0, opacity: 1, duration: 0.8 },
-          '-=0.6'
+          "-=0.6",
         );
     },
-    { scope: container }
+    { scope: container },
   );
 
   return (
@@ -54,7 +56,7 @@ export default function HeroSlideshow() {
       <div className="absolute inset-0 w-full h-full">
         <Image
           src="/hero.webp"
-          alt="Poster"
+          alt={t("posterAlt")}
           fill
           className="object-cover max-[400px]:object-[-710px_center] object-[-810px_center] md:object-center"
           priority
@@ -68,7 +70,8 @@ export default function HeroSlideshow() {
         muted
         loop
         playsInline
-        preload="auto"
+        preload="metadata"
+        poster="/hero.webp"
         className="hero-video absolute inset-0 w-full h-full object-cover max-[400px]:object-[-710px_center] object-[-810px_center] md:object-center opacity-0 transition-opacity"
       >
         <source src="/hero.mp4" type="video/mp4" />
@@ -81,14 +84,13 @@ export default function HeroSlideshow() {
       <div className="relative z-30 h-full w-full max-w-[1440px] mx-auto flex flex-col justify-center px-6 text-white pointer-events-none">
         <div className="max-w-4xl pointer-events-auto">
           <span className="hero-sub block text-cyan-77 font-bold tracking-widest mb-4 text-sm md:text-base">
-            GLOBAL • PREMIUM • PERFORMANCE
+            {t("sub")}
           </span>
           <h1 className="hero-title pr-10 md:pr-0 text-5xl md:text-7xl lg:text-8xl font-mulish font-bold mb-6">
-            Premium Import Automotive Parts
+            {t("title")}
           </h1>
           <p className="hero-desc text-lg md:text-2xl font-body max-w-xl text-gray-200">
-            Discover the finest selection of automotive parts, engineered for
-            performance and durability.
+            {t("description")}
           </p>
 
           <div className="hero-btn mt-10">
@@ -96,7 +98,7 @@ export default function HeroSlideshow() {
               <div className="absolute inset-0 w-full h-full bg-cyan-77 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.19,1,0.22,1)]" />
               <div className="relative z-10 flex items-center gap-3">
                 <span className="font-mulish font-bold tracking-[0.15em] text-white group-hover:text-black transition-colors duration-300">
-                  EXPLORE PARTS
+                  {t("cta")}
                 </span>
                 <svg
                   className="w-5 h-5 text-cyan-77 group-hover:text-black transition-all duration-300 group-hover:translate-x-2"
@@ -127,14 +129,14 @@ export default function HeroSlideshow() {
         >
           <div className="flex items-center">
             <span className="mx-8 text-sm md:text-base font-bold tracking-[0.2em] text-white font-mulish">
-              77 PERFORMANCE
+              {t("marqueeBrand")}
             </span>
             <span className="text-cyan-77 text-xs">✦</span>
             <span
               className="mx-8 text-sm md:text-base font-bold tracking-[0.2em] text-transparent font-mulish"
-              style={{ WebkitTextStroke: '1px rgba(255,255,255,0.5)' }}
+              style={{ WebkitTextStroke: "1px rgba(255,255,255,0.5)" }}
             >
-              PREMIUM IMPORT PARTS
+              {t("marqueeTag")}
             </span>
             <span className="text-cyan-77 text-xs">✦</span>
           </div>

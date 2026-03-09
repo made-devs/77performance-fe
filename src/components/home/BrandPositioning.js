@@ -1,15 +1,19 @@
 "use client";
 
 import React, { useRef } from "react";
+import Image from "next/image";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useTranslations } from "next-intl";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const BrandPositioning = () => {
   const containerRef = useRef(null);
   const imageRef = useRef(null);
+  const t = useTranslations("pageHome.brandPositioning");
+  const points = t.raw("points");
 
   useGSAP(
     () => {
@@ -44,7 +48,7 @@ const BrandPositioning = () => {
         willChange: "transform",
       });
     },
-    { scope: containerRef }
+    { scope: containerRef },
   );
 
   return (
@@ -68,45 +72,30 @@ const BrandPositioning = () => {
           {/* LEFT: STORYTELLING */}
           <div className="lg:col-span-5">
             <div className="reveal-text mb-4">
-              <Badge text="Brand Positioning" />
+              <Badge text={t("badge")} />
             </div>
 
             <h2 className="reveal-text text-4xl lg:text-5xl font-mulish font-black text-dark-77 leading-[1.15] mb-8">
-              The Long-Term <br />
+              {t("titleLine1")} <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-77 to-navy-77">
-                Business Game.
+                {t("titleLine2")}
               </span>
             </h2>
 
             <p className="reveal-text text-gray-600 text-lg leading-relaxed mb-8 font-mulish">
-              Di pasar yang dipenuhi fluktuasi kualitas, kami memilih jalur
-              berbeda.
-              <strong className="text-dark-77"> 77 Performance</strong> tidak
-              diciptakan untuk sekadar bersaing di rak harga termurah.
+              {t("descriptionLead")}
+              <strong className="text-dark-77"> {t("brandName")}</strong>{" "}
+              {t("descriptionTail")}
             </p>
 
             <div className="reveal-text border-l-4 border-cyan-77 pl-6 py-2 mb-10 bg-slate-50/50">
               <p className="text-dark-77 font-bold text-xl italic font-mulish leading-snug">
-                "Kami tidak hanya menjual sparepart. Kami membangun otoritas,
-                konsistensi, dan kepercayaan untuk masa depan."
+                “{t("quote")}”
               </p>
             </div>
 
             <div className="space-y-5">
-              {[
-                {
-                  title: "Value Over Price",
-                  desc: "Harga yang mencerminkan kualitas material Grade-A & R&D.",
-                },
-                {
-                  title: "Global Consistency",
-                  desc: "Kualitas batch pertama identik dengan batch ke-1000.",
-                },
-                {
-                  title: "Legacy Building",
-                  desc: "Bagi mitra yang mencari otoritas bisnis, bukan sekadar komoditas.",
-                },
-              ].map((item, i) => (
+              {points.map((item, i) => (
                 <div key={i} className="reveal-text flex items-start group">
                   <div className="mt-1.5 w-2 h-2 rounded-full bg-cyan-77 mr-4 group-hover:scale-150 transition-transform" />
                   <div>
@@ -126,10 +115,12 @@ const BrandPositioning = () => {
           <div className="lg:col-span-7 relative group">
             <div className="relative h-[600px] w-full overflow-hidden rounded-2xl shadow-2xl border border-slate-100">
               <div className="absolute inset-0 bg-dark-77/20 z-10 group-hover:bg-transparent transition-colors duration-700" />
-              <img
+              <Image
                 ref={imageRef}
                 src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?q=80&w=2600&auto=format&fit=crop"
-                alt="77 Performance Engineering"
+                alt={t("imageAlt")}
+                fill
+                sizes="(max-width: 1024px) 100vw, 60vw"
                 className="w-full h-full object-cover scale-110 grayscale group-hover:grayscale-0 transition-all duration-1000"
               />
 
@@ -139,7 +130,7 @@ const BrandPositioning = () => {
                   100%
                 </div>
                 <div className="text-[10px] tracking-[0.2em] uppercase font-bold opacity-80 font-mulish">
-                  Premium Standard Compliance
+                  {t("complianceLabel")}
                 </div>
               </div>
             </div>

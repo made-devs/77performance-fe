@@ -1,0 +1,18 @@
+{
+  "logoAlt": "77 Performance Logo",
+  "cta": "Become a Distributor",
+  "links": {
+    "manufacturing": "Manufacturing",
+    "products": "Products",
+    "gallery": "Gallery",
+    "community": "Community",
+    "contact": "Contact",
+    "about": "About",
+    "distributor": "Distributor"
+  },
+  "languages": {
+    "id": "ID",
+    "en": "EN",
+    "zh": "中文"
+  }
+}

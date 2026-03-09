@@ -4,89 +4,15 @@ import React, { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useTranslations } from "next-intl";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const BENEFITS = [
-  {
-    title: "Garansi Omset Bulanan",
-    desc: "Garansi omset minimum Rp100.000.000 per bulan dari penjualan ke jaringan Bengkel TJM Auto Care dan Raja Oto seluruh Indonesia.",
-  },
-  {
-    title: "Target Order Tahunan",
-    desc: "Target Rp500jt/bulan (Rp6 M/tahun). Tahun pertama diringankan: Rp250jt/bulan.",
-  },
-  {
-    title: "Profit Margin Maksimal",
-    desc: "Profit hingga 150%, diskon khusus distributor, & special price berdasarkan volume.",
-  },
-  {
-    title: "Garansi Produk Resmi",
-    desc: "Garansi nasional 1 tahun dan garansi internasional 2 tahun untuk semua produk.",
-  },
-  {
-    title: "Area Eksklusif",
-    desc: "1 distributor untuk 1 kota/wilayah. Tanpa distributor ganda di area yang sama.",
-  },
-  {
-    title: "Pelatihan Produk",
-    desc: "Training product knowledge resmi online/offline & update teknologi terbaru.",
-  },
-  {
-    title: "Website Premium Gratis",
-    desc: "Website khusus distributor untuk branding (cth: www.7performancejogja.com).",
-  },
-  {
-    title: "Bantuan Legal Korporat",
-    desc: "Akses legal team & debt recovery pihak ketiga untuk bantuan tagihan macet.",
-  },
-  {
-    title: "Promosi Artis Nasional",
-    desc: "Free promosi Zack Lee & konten siap publish untuk mendukung mitra toko/bengkel.",
-  },
-  {
-    title: "Paket Promosi Lengkap",
-    desc: "Marketing set: banner, rak showing, modul produk, & brosur fisik.",
-  },
-  {
-    title: "Sistem Stock Modern",
-    desc: "Manajemen stock, barcode custom, & live pricelist update real-time.",
-  },
-  {
-    title: "Paket Display Toko",
-    desc: "1 set TV display + video promosi & edukasi siap tayang di toko.",
-  },
-  {
-    title: "Support Emergency",
-    desc: "Akses tim pusat fast response untuk stock urgent, klaim, & teknis.",
-  },
-  {
-    title: "Referral Principal",
-    desc: "Rekomendasi bengkel & toko langsung dari principal pusat ke distributor area.",
-  },
-  {
-    title: "Free Ongkir Nasional",
-    desc: "Gratis ongkir Jabodetabek + Subsidi seluruh Indonesia (Min. order Rp400jt).",
-  },
-  {
-    title: "Konten Marketing Siap",
-    desc: "Full kit: Foto produk, video cinematic, materi branding tinggal posting.",
-  },
-];
-
-const BONUS_BENEFITS = [
-  {
-    title: "Bonus Omset Tahunan",
-    desc: "Reward eksklusif (cash/unit display) berdasarkan pencapaian omset & konsistensi.",
-  },
-  {
-    title: "Prioritas Stok Awal",
-    desc: "Akses lebih awal terhadap produk baru & prioritas ketersediaan stock sebelum pasar umum.",
-  },
-];
-
 const DistributorBenefits = () => {
   const containerRef = useRef(null);
+  const t = useTranslations("pageHome.distributorBenefits");
+  const benefits = t.raw("benefits");
+  const bonusBenefits = t.raw("bonus");
 
   useGSAP(
     () => {
@@ -120,7 +46,7 @@ const DistributorBenefits = () => {
         },
       });
     },
-    { scope: containerRef }
+    { scope: containerRef },
   );
 
   return (
@@ -150,27 +76,25 @@ const DistributorBenefits = () => {
           <div className="benefit-header flex items-center gap-3 mb-4">
             <span className="h-[2px] w-12 bg-cyan-77" />
             <span className="text-cyan-77 font-bold tracking-widest uppercase text-sm font-mulish">
-              Distributor Value Proposition
+              {t("badge")}
             </span>
           </div>
           {/* Mengganti text-slate-900 menjadi text-dark-77 */}
           <h2 className="benefit-header text-4xl lg:text-5xl font-black text-dark-77 font-mulish leading-tight">
-            Not Just Buying Parts. <br />
+            {t("titleLine1")} <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-77 to-navy-77">
-              It's a Structured Partnership.
+              {t("titleLine2")}
             </span>
           </h2>
           <p className="benefit-header mt-6 text-lg text-slate-600 max-w-2xl font-mulish">
-            Menjadi distributor 77 Performance berarti memiliki akses ke
-            ekosistem bisnis yang matang. Kami memberikan dukungan 360° dari
-            hulu ke hilir.
+            {t("description")}
           </p>
         </div>
 
         {/* --- MAIN GRID (16 POINTS) --- */}
         {/* Tidak ada class opacity-0 atau hidden disini, render statis normal */}
         <div className="grid-container grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 xl:gap-5 mb-8">
-          {BENEFITS.map((item, index) => (
+          {benefits.map((item, index) => (
             <div
               key={index}
               // Hapus class 'benefit-card' agar tidak tertarget oleh script GSAP lama (jika ada sisa)
@@ -225,15 +149,15 @@ const DistributorBenefits = () => {
           <div className="relative z-10">
             <div className="text-center mb-10">
               <span className="inline-block px-4 py-1 rounded-full bg-cyan-77/20 text-white border border-cyan-77/30 text-xs font-bold uppercase tracking-widest mb-4">
-                Exclusive Distributor Perks
+                {t("bonusBadge")}
               </span>
               <h3 className="text-3xl font-black text-white font-mulish">
-                Benefit Tambahan Khusus
+                {t("bonusTitle")}
               </h3>
             </div>
 
             <div className="grid md:grid-cols-2 gap-8">
-              {BONUS_BENEFITS.map((item, index) => (
+              {bonusBenefits.map((item, index) => (
                 <div
                   key={index}
                   className="bonus-card flex items-start gap-6 bg-white/5 border border-white/10 p-6 rounded-xl hover:bg-white/10 transition-colors"

@@ -1,9 +1,11 @@
 "use client";
 import React, { Suspense } from "react";
 import { useSearchParams } from "next/navigation";
+import { useTranslations } from "next-intl";
 
 function GuideContent() {
   const searchParams = useSearchParams();
+  const t = useTranslations("reviewGuide");
   const isReviewMode = searchParams.get("mode") === "review";
 
   if (!isReviewMode) return null;
@@ -13,16 +15,12 @@ function GuideContent() {
       <div className="flex items-center gap-3 mb-2">
         <div className="w-3 h-3 bg-green-500 rounded-full animate-ping" />
         <p className="font-black text-sm uppercase tracking-tighter">
-          Review Mode Active
+          {t("active")}
         </p>
       </div>
-      <p className="text-xs leading-relaxed text-slate-600 mb-3">
-        Halo Boss! Gunakan **Vercel Toolbar** (balon percakapan) di bagian bawah
-        layar untuk klik dan beri komentar langsung pada bagian yang ingin
-        dikritik.
-      </p>
+      <p className="text-xs leading-relaxed text-slate-600 mb-3">{t("body")}</p>
       <div className="text-[10px] font-mono bg-slate-100 p-2 rounded">
-        Animasi & Layout Live Feedback
+        {t("hint")}
       </div>
     </div>
   );

@@ -5,16 +5,19 @@ import ProductsPerformance from "@/components/products/ProductsPerformance";
 import ProductsReliability from "@/components/products/ProductsReliability";
 import ProductsWarranty from "@/components/products/ProductsWarranty";
 import ProductsClosing from "@/components/products/ProductsClosing";
+import { getTranslations } from "next-intl/server";
 
-export default function ProductsPage() {
+export default async function ProductsPage() {
+  const t = await getTranslations("pageProducts");
+
   return (
     <main className="bg-white text-slate-900 selection:bg-[var(--color-cyan-77)] selection:text-white overflow-hidden">
       <HeroOpening
-        uptitle="Product Lineup"
-        titleLines={["ENGINEERED", "AUTOMOTIVE", "PARTS"]}
+        uptitle={t("uptitle")}
+        titleLines={[t("titleLine1"), t("titleLine2"), t("titleLine3")]}
         description={
           <span className="text-white text-xl md:text-2xl font-light tracking-wide">
-            Performance &bull; Comfort &bull; Reliability
+            {t("description")}
           </span>
         }
         bgImageUrl="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&q=80&w=2940"

@@ -1,0 +1,509 @@
+{
+  "heroSlideshow": {
+    "sub": "GLOBAL • PREMIUM • PERFORMANCE",
+    "title": "Suku Cadang Otomotif Impor Premium",
+    "description": "Temukan pilihan suku cadang otomotif terbaik yang dirancang untuk performa dan ketahanan.",
+    "cta": "JELAJAHI PRODUK",
+    "posterAlt": "Poster Hero",
+    "marqueeBrand": "77 PERFORMANCE",
+    "marqueeTag": "SPAREPART IMPOR PREMIUM"
+  },
+  "aboutSection": {
+    "badgeYears": "Tahun Pengalaman Manufaktur Global",
+    "tagline": "Visi Siap Global",
+    "titleLine1": "Dibangun di Atas",
+    "titleLine2": "Manufaktur Global Teruji",
+    "description": "77 Performance adalah brand sparepart otomotif impor premium yang dibangun di atas fondasi manufaktur global, menggunakan material Premium Grade A, serta didukung sistem bisnis untuk pertumbuhan jangka panjang.",
+    "features": [
+      "Standar Manufaktur Global",
+      "Material Premium Grade A",
+      "Sistem Bisnis untuk Pertumbuhan Jangka Panjang"
+    ],
+    "stats": {
+      "facilityLabel": "Fasilitas m²",
+      "qualityLabel": "Standar Kualitas",
+      "exportLabel": "Benua Ekspor"
+    }
+  },
+  "manufacturingSection": {
+    "badge": "Di Balik Kualitas",
+    "titleLine1": "Direkayasa dalam",
+    "titleLine2": "Skala Industri",
+    "description": "Kami tidak hanya merakit, kami memproduksi. Dengan fasilitas puluhan ribu meter persegi dan teknologi presisi, setiap komponen 77 Performance lahir dari standar manufaktur kelas dunia.",
+    "features": [
+      {
+        "title": "Fasilitas Skala Industri",
+        "desc": "Fasilitas puluhan ribu m² mencakup produksi, R&D, dan gudang terpusat."
+      },
+      {
+        "title": "Perakitan Otomatis",
+        "desc": "Sistem robotik otomatis menjamin konsistensi presisi di setiap unit."
+      },
+      {
+        "title": "Precision Machining",
+        "desc": "Teknologi CNC mutakhir untuk akurasi mikron dan performa komponen."
+      },
+      {
+        "title": "QC Bertahap",
+        "desc": "Inspeksi berlapis dari bahan baku hingga final check sebelum pengiriman."
+      },
+      {
+        "title": "Inovasi R&D",
+        "desc": "Pengembangan berkelanjutan untuk desain dan durabilitas material."
+      },
+      {
+        "title": "Standar OEM Global",
+        "desc": "Dipercaya pasar global sebagai pengganti setara kualitas OEM."
+      }
+    ]
+  },
+  "qualitySection": {
+    "intro": {
+      "tag": "Filosofi",
+      "titleLine1": "KUALITAS",
+      "titleLine2": "TERREKAYASA",
+      "description": "Kualitas bukan sekadar janji. Di 77 Performance, kami mengutamakan presisi teknik dan standar global.",
+      "scroll": "Scroll"
+    },
+    "pillars": [
+      {
+        "id": "01",
+        "bgText": "77 PERFORMANCE",
+        "title": "Material Premium",
+        "subtitle": "Seleksi Grade A",
+        "desc": "Kami tidak berkompromi pada bahan dasar. Menggunakan baja berkualitas tinggi dan komponen karet grade-A.",
+        "features": [
+          "Baja High-Tensile",
+          "Karet Tahan Panas",
+          "Lapisan Anti Korosi"
+        ]
+      },
+      {
+        "id": "02",
+        "bgText": "COMFORT",
+        "title": "Kenyamanan Terrekayasa",
+        "subtitle": "Precision Damping",
+        "desc": "Kenyamanan berkendara bukan kebetulan. Sistem valving kami dikalibrasi untuk meredam getaran mikro.",
+        "features": [
+          "Adaptive Valving",
+          "Peredaman Noise",
+          "Smooth Rebound"
+        ]
+      },
+      {
+        "id": "03",
+        "bgText": "DURABILITY",
+        "title": "Durabilitas Ekstrem",
+        "subtitle": "Built to Last",
+        "desc": "Dirancang untuk umur pakai panjang. Setiap unit melewati uji ketahanan siklus tinggi.",
+        "features": [
+          "High Cycle Testing",
+          "Leak-Proof Seal",
+          "Struktur Heavy Duty"
+        ]
+      }
+    ]
+  },
+  "specsSection": {
+    "header": {
+      "tag": "DNA Manufaktur",
+      "titlePrefix": "Blueprint",
+      "titleMiddle": "Standar",
+      "titleSuffix": "Global",
+      "description": "Fondasi manufaktur kami dibangun di atas pilar kualitas yang menjamin presisi, konsistensi, dan daya tahan kelas dunia."
+    },
+    "cards": {
+      "integrated": {
+        "title": "Ekosistem Produksi Terintegrasi",
+        "desc": "Fasilitas puluhan ribu m² dengan sistem terintegrasi: Machining, Assembly, Surface Treatment, hingga Final Inspection dalam satu atap.",
+        "badges": [
+          "Automated Assembly",
+          "Precision Machining",
+          "Scale Industry"
+        ]
+      },
+      "experience": {
+        "label": "Tahun Pengalaman",
+        "desc": "Sejak 2008, rekam jejak produksi stabil & berkelanjutan."
+      },
+      "globalMarket": {
+        "title": "Pasar Global",
+        "regions": "ASIA • EUROPE • AMERICA • MEA",
+        "desc": "Dipercaya di berbagai wilayah dunia untuk pasar Aftermarket & OEM Replacement."
+      },
+      "quality": {
+        "title": "Kontrol Kualitas Ketat",
+        "desc": "Inspeksi bertahap dari material hingga barang jadi.",
+        "items": [
+          {
+            "title": "ISO Certified",
+            "desc": "Sistem Manajemen Kualitas"
+          },
+          {
+            "title": "E-Coating",
+            "desc": "Electrophoresis Anti-Corrosion"
+          },
+          {
+            "title": "Dynamic Damping",
+            "desc": "100% Uji Performa"
+          },
+          {
+            "title": "High Cycle Test",
+            "desc": "Jaminan Durabilitas"
+          },
+          {
+            "title": "OEM Standard",
+            "desc": "Kualitas Setara"
+          }
+        ]
+      },
+      "portfolio": {
+        "title": "Portofolio Lengkap",
+        "desc": "Rangkaian produk chassis & suspensi lengkap: Shock Absorber, Control Arm, Bushing, Ball Joint, hingga Rack End.",
+        "tag1": "Shock Absorber",
+        "tag2": "Suspension Parts"
+      },
+      "rnd": {
+        "title": "Berorientasi R&D",
+        "desc": "Tim riset internal untuk peningkatan desain & material secara berkelanjutan.",
+        "footer": "OEM & ODM"
+      }
+    }
+  },
+  "brandPositioning": {
+    "badge": "Posisi Brand",
+    "titleLine1": "Permainan Bisnis",
+    "titleLine2": "Jangka Panjang.",
+    "descriptionLead": "Di pasar yang dipenuhi fluktuasi kualitas, kami memilih jalur berbeda.",
+    "brandName": "77 Performance",
+    "descriptionTail": "tidak diciptakan untuk sekadar bersaing di rak harga termurah.",
+    "quote": "Kami tidak hanya menjual sparepart. Kami membangun otoritas, konsistensi, dan kepercayaan untuk masa depan.",
+    "points": [
+      {
+        "title": "Value Over Price",
+        "desc": "Harga yang mencerminkan kualitas material Grade-A & R&D."
+      },
+      {
+        "title": "Global Consistency",
+        "desc": "Kualitas batch pertama identik dengan batch ke-1000."
+      },
+      {
+        "title": "Legacy Building",
+        "desc": "Bagi mitra yang mencari otoritas bisnis, bukan sekadar komoditas."
+      }
+    ],
+    "complianceLabel": "Kepatuhan Standar Premium",
+    "imageAlt": "Rekayasa 77 Performance"
+  },
+  "globalVision": {
+    "watermark": "GLOBAL",
+    "badge": "Cakupan Internasional",
+    "titleLine1": "Visi Global",
+    "titleLine2": "& Eksekusi.",
+    "descriptionLead": "Berangkat dari manufaktur berstandar internasional,",
+    "brandName": "77 Performance",
+    "descriptionTail": "tidak dibatasi oleh geografi. Kami membangun ekosistem produk yang relevan untuk pasar Asia, Eropa, hingga Amerika.",
+    "stats": [
+      {
+        "label": "Standar",
+        "value": "Setara OEM",
+        "sub": "Kepatuhan Global"
+      },
+      {
+        "label": "Ekspansi",
+        "value": "Siap Ekspor",
+        "sub": "Logistik Lintas Negara"
+      },
+      {
+        "label": "Jaringan",
+        "value": "Multi-Region",
+        "sub": "APAC • EU • MEA • US"
+      }
+    ]
+  },
+  "distributorBenefits": {
+    "badge": "Proposisi Nilai Distributor",
+    "titleLine1": "Bukan Sekadar Beli Produk.",
+    "titleLine2": "Ini Kemitraan Terstruktur.",
+    "description": "Menjadi distributor 77 Performance berarti memiliki akses ke ekosistem bisnis yang matang. Kami memberikan dukungan 360° dari hulu ke hilir.",
+    "benefits": [
+      {
+        "title": "Garansi Omset Bulanan",
+        "desc": "Garansi omset minimum Rp100.000.000 per bulan dari penjualan ke jaringan Bengkel TJM Auto Care dan Raja Oto seluruh Indonesia."
+      },
+      {
+        "title": "Target Order Tahunan",
+        "desc": "Target Rp500jt/bulan (Rp6 M/tahun). Tahun pertama diringankan: Rp250jt/bulan."
+      },
+      {
+        "title": "Profit Margin Maksimal",
+        "desc": "Profit hingga 150%, diskon khusus distributor, & special price berdasarkan volume."
+      },
+      {
+        "title": "Garansi Produk Resmi",
+        "desc": "Garansi nasional 1 tahun dan garansi internasional 2 tahun untuk semua produk."
+      },
+      {
+        "title": "Area Eksklusif",
+        "desc": "1 distributor untuk 1 kota/wilayah. Tanpa distributor ganda di area yang sama."
+      },
+      {
+        "title": "Pelatihan Produk",
+        "desc": "Training product knowledge resmi online/offline & update teknologi terbaru."
+      },
+      {
+        "title": "Website Premium Gratis",
+        "desc": "Website khusus distributor untuk branding (cth: www.7performancejogja.com)."
+      },
+      {
+        "title": "Bantuan Legal Korporat",
+        "desc": "Akses legal team & debt recovery pihak ketiga untuk bantuan tagihan macet."
+      },
+      {
+        "title": "Promosi Artis Nasional",
+        "desc": "Free promosi Zack Lee & konten siap publish untuk mendukung mitra toko/bengkel."
+      },
+      {
+        "title": "Paket Promosi Lengkap",
+        "desc": "Marketing set: banner, rak showing, modul produk, & brosur fisik."
+      },
+      {
+        "title": "Sistem Stock Modern",
+        "desc": "Manajemen stock, barcode custom, & live pricelist update real-time."
+      },
+      {
+        "title": "Paket Display Toko",
+        "desc": "1 set TV display + video promosi & edukasi siap tayang di toko."
+      },
+      {
+        "title": "Support Emergency",
+        "desc": "Akses tim pusat fast response untuk stock urgent, klaim, & teknis."
+      },
+      {
+        "title": "Referral Principal",
+        "desc": "Rekomendasi bengkel & toko langsung dari principal pusat ke distributor area."
+      },
+      {
+        "title": "Free Ongkir Nasional",
+        "desc": "Gratis ongkir Jabodetabek + Subsidi seluruh Indonesia (Min. order Rp400jt)."
+      },
+      {
+        "title": "Konten Marketing Siap",
+        "desc": "Full kit: Foto produk, video cinematic, materi branding tinggal posting."
+      }
+    ],
+    "bonusBadge": "Benefit Distributor Eksklusif",
+    "bonusTitle": "Benefit Tambahan Khusus",
+    "bonus": [
+      {
+        "title": "Bonus Omset Tahunan",
+        "desc": "Reward eksklusif (cash/unit display) berdasarkan pencapaian omset & konsistensi."
+      },
+      {
+        "title": "Prioritas Stok Awal",
+        "desc": "Akses lebih awal terhadap produk baru & prioritas ketersediaan stock sebelum pasar umum."
+      }
+    ]
+  },
+  "promotionStrategy": {
+    "bgText": "77 Performance 77 Performance",
+    "badge": "Strategi Profesional",
+    "titleLine1": "Relevansi Fungsi.",
+    "titleLine2": "Nilai Premium.",
+    "description": "Membangun kepercayaan mitra melalui strategi produk komplementer yang menambah nilai nyata pada setiap transaksi.",
+    "mainPromo": {
+      "subtitle": "Program Utama",
+      "title": "Beli Shockbreaker / Racksteer",
+      "highlight": "GRATIS Trisev Buffer Suspension",
+      "desc": "Setiap pembelian unit Shockbreaker dan/atau Racksteer 77 Performance mendapatkan Bonus Langsung Trisev Buffer Suspension. Tingkatkan kenyamanan & stabilitas tanpa biaya tambahan.",
+      "tags": [
+        "Shockbreaker",
+        "Racksteer",
+        "Bundling Package"
+      ]
+    },
+    "offerLabel": "Penawaran Korporat",
+    "offerTitle": "Paket Bundling Eksklusif",
+    "programTitle": "Program Keunggulan",
+    "additionalPrograms": [
+      {
+        "title": "Gratis Materi Digital",
+        "desc": "Akses foto, poster, & konten sosmed resmi HD siap posting."
+      },
+      {
+        "title": "Endorse Video Zack Lee",
+        "desc": "Video promosi eksklusif bengkel & toko langsung oleh Zack Lee."
+      },
+      {
+        "title": "Akses Video Demo",
+        "desc": "Video edukasi produk & demo instalasi resmi untuk bantu closing."
+      },
+      {
+        "title": "Diskon Produk 30%",
+        "desc": "Potongan harga hingga 30% untuk item tertentu selama periode promo."
+      },
+      {
+        "title": "Harga Paket Bundling",
+        "desc": "Harga khusus pembelian paket bundling dengan margin profit menarik."
+      },
+      {
+        "title": "Free Ongkir Nasional",
+        "desc": "Gratis biaya pengantaran pembelian promo ke seluruh Indonesia."
+      },
+      {
+        "title": "Prioritas Pengiriman",
+        "desc": "Pesanan promo mendapatkan jalur prioritas proses packing."
+      },
+      {
+        "title": "Akses Promo Awal",
+        "desc": "Info launching produk baru & promo lebih awal dibanding pasar."
+      },
+      {
+        "title": "Diskon 10% di Official Store",
+        "desc": "Dapatkan diskon 10% untuk setiap pembelian melalui official store."
+      }
+    ]
+  },
+  "memberCommunity": {
+    "bgText": "77 Community 77 Community",
+    "badge": "Ekosistem Eksklusif",
+    "titleLine1": "77 Performance",
+    "titleLine2": "Member Community",
+    "description": "Lebih dari sekadar jual-beli. Bergabunglah dengan ekosistem yang menciptakan pertumbuhan bisnis berkelanjutan.",
+    "hubRepeat": "Repeat",
+    "hubEcosystem": "ECOSYSTEM",
+    "benefits": [
+      {
+        "title": "Grup Eksklusif Member",
+        "desc": "Akses ke komunitas tertutup sesama pebisnis bengkel & toko."
+      },
+      {
+        "title": "Update Promo Lebih Cepat",
+        "desc": "Jadilah yang pertama tahu tentang produk baru dan campaign."
+      },
+      {
+        "title": "Info Training & Edukasi",
+        "desc": "Materi teknis dan strategi bisnis untuk upgrade skill tim Anda."
+      },
+      {
+        "title": "Networking Nasional",
+        "desc": "Koneksi luas dengan jaringan bengkel se-Indonesia."
+      },
+      {
+        "title": "Undangan Event & Campaign",
+        "desc": "Prioritas undangan untuk pameran dan event 77 Performance."
+      },
+      {
+        "title": "Voucher Bengkel Mitra",
+        "desc": "Insentif khusus berupa voucher promo untuk mitra."
+      }
+    ],
+    "footerQuote": "Community ini menciptakan repeat ecosystem, bukan one-time sales."
+  },
+  "realDifference": {
+    "bgText": "Standar Performa Tinggi Standar Performa Tinggi",
+    "badge": "Studi Perbandingan",
+    "titlePrefix": "Perbedaan",
+    "titleHighlight": "Nyata.",
+    "advantageLabel": "Keunggulan 77 Performance",
+    "philosophyTag": "Filosofi Inti Kami",
+    "philosophyLine1": "Yang lain menjual parts.",
+    "philosophyLine2": "Kami membangun bisnis.",
+    "comparisons": [
+      {
+        "label": "Fokus Utama",
+        "others": "Hanya Menjual Produk",
+        "us": "Membangun Sistem, Demand, & Keberlanjutan"
+      },
+      {
+        "label": "Strategi Harga",
+        "others": "Perang Harga Tanpa Nilai",
+        "us": "Fokus pada Value & Pertumbuhan Bisnis"
+      },
+      {
+        "label": "Support Sistem",
+        "others": "Lepas Tangan Setelah Jual",
+        "us": "Pendampingan, Training, & Marketing Digital"
+      }
+    ]
+  },
+  "distributorQualification": {
+    "bgText": "Kualifikasi Kualifikasi",
+    "badge": "Standar Resmi",
+    "titlePrefix": "Kualifikasi",
+    "titleHighlight": "Distributor.",
+    "quote": "Membangun masa depan otomotif dengan standar profesionalisme tanpa kompromi.",
+    "requirements": [
+      {
+        "title": "Legalitas Perusahaan Resmi",
+        "desc": "Memiliki KTP penanggung jawab, NPWP, badan usaha (PT), serta gudang operasional."
+      },
+      {
+        "title": "Background Otomotif Aktif",
+        "desc": "Memiliki pengalaman atau jaringan aktif di bidang otomotif (bengkel/toko/komunitas)."
+      },
+      {
+        "title": "Komitmen Target Wilayah",
+        "desc": "Siap memenuhi target penjualan sesuai wilayah yang ditetapkan oleh principal."
+      },
+      {
+        "title": "Wajib Training Product",
+        "desc": "Lulus training product knowledge resmi sebagai syarat aktivasi distributor."
+      },
+      {
+        "title": "Kemampuan Bangun Jaringan",
+        "desc": "Mampu mengelola rantai penjualan (mitra bengkel) di wilayah masing-masing."
+      },
+      {
+        "title": "Kepatuhan Sistem Principal",
+        "desc": "Wajib mengikuti standar harga dan kebijakan resmi 77 Performance."
+      },
+      {
+        "title": "Tanggung Jawab Operasional",
+        "desc": "Seluruh biaya operasional dan SDM menjadi tanggung jawab distributor."
+      },
+      {
+        "title": "Komitmen Reputasi Brand",
+        "desc": "Menjaga citra brand 77 Performance di wilayah operasional secara profesional."
+      }
+    ],
+    "cta": "Unduh PDF Persyaratan"
+  },
+  "limitedOpportunity": {
+    "alert": "Pemberitahuan Penting",
+    "limited": "TERBATAS",
+    "opportunity": "PELUANG",
+    "exclusive": "Satu Kota • Satu Distributor",
+    "leftTitleTop": "77 Performance Adalah",
+    "leftTitleBottom": "Kombinasi Sempurna Dari:",
+    "combinations": [
+      "Fondasi Manufaktur Global",
+      "Produk Premium Grade A",
+      "Promosi Produk Fungsional",
+      "Ekosistem Otomotif Berkelanjutan"
+    ],
+    "partnerPrivilege": "Keistimewaan Mitra:",
+    "securityPoints": [
+      "Wilayah (Territory)",
+      "Demand Pasar",
+      "Margin Profit",
+      "Posisi Jangka Panjang"
+    ],
+    "slotNote": "*Slot wilayah bersifat eksklusif",
+    "optionALabel": "Pilihan A",
+    "optionAText": "Jika Ingin Sekadar Jualan,",
+    "optionASubtext": "Banyak Pilihan di Luar Sana.",
+    "optionBLabel": "Pilihan B",
+    "optionBLine1": "Bangun Bisnis",
+    "optionBLine2": "Jangka Panjang",
+    "optionBLine3": "Bersama Kami."
+  },
+  "finalCta": {
+    "badge": "Ekspansi Strategis",
+    "titleLine1": "Amankan Wilayah",
+    "titleLine2": "Eksklusif Anda.",
+    "description": "Jadilah distributor tunggal di kota Anda. Jangan biarkan kompetitor mengambil peluang emas dalam ekosistem 77 Performance.",
+    "button": "HUBUNGI PRINCIPAL",
+    "footer": "77 Performance • Kemitraan Resmi 2026"
+  }
+}

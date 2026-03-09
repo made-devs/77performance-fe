@@ -1,0 +1,32 @@
+{
+  "brandDescription": "我们正在打造未来的汽车生态系统。我们不仅销售零部件，更为合作伙伴提供可持续的商业解决方案、成熟的运营体系与 Grade A 产品，助力长期增长。",
+  "sections": {
+    "company": "公司",
+    "contact": "联系我们",
+    "newsletter": "保持联系"
+  },
+  "companyLinks": {
+    "about": "关于我们",
+    "vision": "愿景与使命",
+    "career": "加入我们",
+    "news": "新闻与文章"
+  },
+  "contact": {
+    "hqLabel": "总部：",
+    "addressLine1": "Jl. Otomotif Raya No. 77",
+    "addressLine2": "雅加达北区，印度尼西亚",
+    "email": "partnership@77performance.id",
+    "phone": "+62 812-3456-7890"
+  },
+  "newsletter": {
+    "description": "获取最新产品更新与汽车业务策略，直达您的邮箱。",
+    "placeholder": "您的邮箱地址",
+    "button": "订阅"
+  },
+  "bottom": {
+    "copyright": "© {year} 77 Performance。保留所有权利。",
+    "privacy": "隐私政策",
+    "terms": "服务条款",
+    "sitemap": "网站地图"
+  }
+}

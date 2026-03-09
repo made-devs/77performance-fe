@@ -5,20 +5,21 @@ import DistributorSupport from "@/components/distributor/DistributorSupport";
 import DistributorTerritory from "@/components/distributor/DistributorTerritory";
 import DistributorQualification from "@/components/distributor/DistributorQualification";
 import DistributorClosing from "@/components/distributor/DistributorClosing";
+import { getTranslations } from "next-intl/server";
 
-export default function DistributorPage() {
+export default async function DistributorPage() {
+  const t = await getTranslations("pageDistributor");
+
   return (
     <main className="bg-white text-slate-900 selection:bg-[var(--color-cyan-77)] selection:text-white overflow-hidden">
       <HeroOpening
-        uptitle="Partner Program"
-        titleLines={["BECOME", "DISTRIBUTOR", "PARTNER"]}
+        uptitle={t("uptitle")}
+        titleLines={[t("titleLine1"), t("titleLine2"), t("titleLine3")]}
         description={
           <>
-            Join our authorized distributor network to access preferential
-            pricing, priority logistics, and full marketing support. <br />
+            {t("descriptionLead")} <br />
             <span className="text-white font-medium">
-              Grow with us — territory protection, training, and incentives
-              available.
+              {t("descriptionHighlight")}
             </span>
           </>
         }
