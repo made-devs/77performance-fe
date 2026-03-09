@@ -5,11 +5,13 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Mail, Clock, Building2, Send } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function ContactMain() {
   const container = useRef(null);
+  const t = useTranslations("pageContact");
 
   useGSAP(
     () => {
@@ -53,11 +55,10 @@ export default function ContactMain() {
           <div className="space-y-12">
             <div className="info-item">
               <h2 className="text-4xl md:text-5xl font-black tracking-tighter mb-6">
-                HEADQUARTERS
+                {t("main.headquartersTitle")}
               </h2>
               <p className="text-lg text-slate-600 leading-relaxed max-w-md">
-                Pusat operasi dan distribusi kami. Kunjungan wholesale tersedia
-                berdasarkan janji temu.
+                {t("main.headquartersDesc")}
               </p>
             </div>
 
@@ -68,13 +69,16 @@ export default function ContactMain() {
                 </div>
                 <div>
                   <h4 className="font-bold uppercase tracking-widest text-sm mb-1">
-                    Office Address
+                    {t("main.officeAddressTitle")}
                   </h4>
-                  <p className="text-slate-600">
-                    Jl. Otomotif Raya No. 77, Kemayoran
-                    <br />
-                    Jakarta Pusat, Indonesia 10620
-                  </p>
+                  <p
+                    className="text-slate-600"
+                    dangerouslySetInnerHTML={{
+                      __html:
+                        t("main.officeAddress") ||
+                        "Jl. Otomotif Raya No. 77, Kemayoran<br />Jakarta Pusat, Indonesia 10620",
+                    }}
+                  ></p>
                 </div>
               </div>
 
@@ -84,13 +88,16 @@ export default function ContactMain() {
                 </div>
                 <div>
                   <h4 className="font-bold uppercase tracking-widest text-sm mb-1">
-                    Business Hours
+                    {t("main.businessHoursTitle")}
                   </h4>
-                  <p className="text-slate-600">
-                    Mon - Fri: 08:30 - 17:00 WIB
-                    <br />
-                    Sat: 09:00 - 14:00 WIB
-                  </p>
+                  <p
+                    className="text-slate-600"
+                    dangerouslySetInnerHTML={{
+                      __html:
+                        t("main.businessHours") ||
+                        "Mon - Fri: 08:30 - 17:00 WIB<br />Sat: 09:00 - 14:00 WIB",
+                    }}
+                  ></p>
                 </div>
               </div>
 
@@ -100,7 +107,7 @@ export default function ContactMain() {
                 </div>
                 <div>
                   <h4 className="font-bold uppercase tracking-widest text-sm mb-1">
-                    B2B Enquiries
+                    {t("main.b2bTitle")}
                   </h4>
                   <p className="text-slate-600">
                     partnership@77performance.co.id
@@ -112,12 +119,10 @@ export default function ContactMain() {
             {/* Selection Disclaimer */}
             <div className="info-item bg-slate-50 p-6 border-l-4 border-[var(--color-navy-77)] mt-12">
               <h4 className="font-bold text-sm uppercase tracking-widest mb-2">
-                Partnership Selection
+                {t("main.selectionTitle")}
               </h4>
               <p className="text-sm text-slate-500 leading-relaxed text-justify">
-                Untuk menjaga stabilitas pasar dan kualitas layanan, 77
-                Performance menerapkan proses seleksi ketat bagi calon
-                distributor baru. Pengajuan akan ditinjau dalam 3-5 hari kerja.
+                {t("main.selectionDesc")}
               </p>
             </div>
           </div>
@@ -125,7 +130,7 @@ export default function ContactMain() {
           {/* RIGHT: CONTACT FORM */}
           <div className="lg:pl-12">
             <h3 className="text-xl font-bold tracking-widest uppercase text-[var(--color-cyan-77)] mb-8 info-item">
-              Partnership Inquiry
+              {t("main.formTitle")}
             </h3>
 
             <form className="space-y-2">
@@ -133,7 +138,7 @@ export default function ContactMain() {
               <div className="form-item grid grid-cols-1 md:grid-cols-2 gap-6 pb-6">
                 <div className="space-y-2">
                   <label className="text-xs font-bold uppercase tracking-widest opacity-50">
-                    Full Name
+                    {t("main.formName")}
                   </label>
                   <input
                     type="text"
@@ -143,7 +148,7 @@ export default function ContactMain() {
                 </div>
                 <div className="space-y-2">
                   <label className="text-xs font-bold uppercase tracking-widest opacity-50">
-                    Company Name
+                    {t("main.formCompany")}
                   </label>
                   <input
                     type="text"
@@ -155,7 +160,7 @@ export default function ContactMain() {
 
               <div className="form-item space-y-2 pb-6">
                 <label className="text-xs font-bold uppercase tracking-widest opacity-50">
-                  Email Address
+                  {t("main.formEmail")}
                 </label>
                 <input
                   type="email"
@@ -166,7 +171,7 @@ export default function ContactMain() {
 
               <div className="form-item space-y-2 pb-6">
                 <label className="text-xs font-bold uppercase tracking-widest opacity-50">
-                  Phone / WhatsApp
+                  {t("main.formPhone")}
                 </label>
                 <input
                   type="tel"
@@ -177,11 +182,11 @@ export default function ContactMain() {
 
               <div className="form-item space-y-2 pb-8">
                 <label className="text-xs font-bold uppercase tracking-widest opacity-50">
-                  Purpose of Inquiry
+                  {t("main.formPurpose")}
                 </label>
                 <textarea
                   className="w-full bg-transparent border-b border-slate-300 py-3 focus:outline-none focus:border-[var(--color-cyan-77)] transition-colors text-lg min-h-[100px] resize-none"
-                  placeholder="Ceritakan kebutuhan bisnis Anda..."
+                  placeholder={t("main.formPurposePlaceholder")}
                 />
               </div>
 
@@ -190,7 +195,7 @@ export default function ContactMain() {
                   type="button"
                   className="group w-full md:w-auto px-8 py-4 bg-[var(--color-navy-77)] text-white font-bold tracking-widest uppercase text-sm hover:bg-[var(--color-cyan-77)] transition-all duration-300 flex items-center justify-center gap-4"
                 >
-                  Submit Inquiry
+                  {t("main.formSubmit")}
                   <Send
                     size={16}
                     className="group-hover:translate-x-2 group-hover:-translate-y-1 transition-transform duration-300"

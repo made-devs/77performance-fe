@@ -5,11 +5,13 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { MapPin } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function DistributorTerritory() {
   const container = useRef(null);
+  const t = useTranslations("pageDistributor.territory");
 
   useGSAP(
     () => {
@@ -45,17 +47,16 @@ export default function DistributorTerritory() {
           <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full mb-6">
             <MapPin size={18} />
             <span className="text-sm font-bold uppercase tracking-wider">
-              Blue Ocean Strategy
+              {t("label")}
             </span>
           </div>
           <h2 className="text-4xl md:text-6xl font-black mb-6 leading-tight">
-            One City.
+            {t("titleLine1")}
             <br />
-            One Distributor.
+            {t("titleLine2")}
           </h2>
           <p className="text-white/90 text-xl leading-relaxed max-w-md">
-            Kami menjamin eksklusivitas wilayah. Tidak ada perang harga internal
-            brand. Wilayah Anda adalah aset Anda.
+            {t("description")}
           </p>
         </div>
 
@@ -64,9 +65,9 @@ export default function DistributorTerritory() {
           <div className="relative w-80 h-80 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center border border-white/20 shadow-2xl">
             <div className="absolute inset-0 bg-white/5 rounded-full animate-ping opacity-20" />
             <div className="text-center">
-              <h3 className="text-5xl font-black mb-1">100%</h3>
+              <h3 className="text-5xl font-black mb-1">{t("securedValue")}</h3>
               <p className="uppercase tracking-widest text-sm font-bold">
-                Secured Area
+                {t("securedLabel")}
               </p>
             </div>
 

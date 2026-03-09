@@ -5,51 +5,51 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Globe, ShoppingBag, Activity, Zap, Server } from "lucide-react";
+import { useTranslations, useLocale } from "next-intl";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const nodes = [
   {
     id: "principal",
-    label: "PRINCIPAL",
-    sub: "System HQ",
     icon: Globe,
-    stats: "Global Standards",
-    color: "text-white",
+    pos: "top-8 left-1/2 -translate-x-1/2 md:top-[24%] md:-translate-y-1/2",
     bg: "bg-[var(--color-navy-77)]",
+    color: "text-white",
     border: "border-[var(--color-cyan-77)]",
-    // Mobile: Top (dengan jarak aman), Desktop: Top 5%
-    pos: "top-8 left-1/2 -translate-x-1/2 md:top-[5%]",
+    sub: "System HQ",
+    label: "PRINCIPAL",
+    stats: "Global Standards",
   },
   {
     id: "distributor",
-    label: "DISTRIBUTOR",
-    sub: "Regional Hub",
     icon: Server,
-    stats: "Stock Buffer",
-    color: "text-[var(--color-navy-77)]",
+    pos: "top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 md:top-[80%] md:left-[18.75%]",
     bg: "bg-white",
+    color: "text-[var(--color-navy-77)]",
     border: "border-white",
-    // Mobile: Center Middle, Desktop: Bottom Left
-    pos: "top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 md:top-auto md:translate-y-0 md:bottom-[10%] md:left-[10%] md:translate-x-0",
+    sub: "Regional Hub",
+    label: "DISTRIBUTOR",
+    stats: "Stock Buffer",
   },
   {
     id: "retail",
-    label: "RETAIL / WORKSHOP",
-    sub: "Frontline Market",
     icon: ShoppingBag,
-    stats: "End-User Service",
-    color: "text-white",
+    pos: "bottom-8 left-1/2 -translate-x-1/2 md:bottom-auto md:top-[80%] md:left-[81.25%] md:-translate-y-1/2",
     bg: "bg-[#111]",
+    color: "text-white",
     border: "border-slate-700",
-    // Mobile: Bottom (dengan jarak aman), Desktop: Bottom Right
-    pos: "bottom-8 left-1/2 -translate-x-1/2 md:bottom-[10%] md:left-auto md:right-[10%] md:translate-x-0",
+    sub: "Frontline Market",
+    label: "RETAIL / WORKSHOP",
+    stats: "End-User Service",
   },
 ];
 
 export default function EcosystemStructure() {
   const container = useRef(null);
   const svgRef = useRef(null);
+  const t = useTranslations("pageCommunity");
+  const locale = useLocale();
 
   useGSAP(
     () => {
@@ -62,25 +62,18 @@ export default function EcosystemStructure() {
         },
       });
 
-      // 1. Reveal Background Grid & Title
-      tl.from(".bg-grid", { opacity: 0, scale: 1.2, duration: 1.5 }).from(
+      tl.from(".bg-grid", { opacity: 0, duration: 1.2 }).from(
         ".header-reveal",
         { y: 50, opacity: 0, stagger: 0.1 },
         "<",
       );
 
-      // 2. Connector Lines Drawing Effect - Target SVG elements safely
       tl.from(
         ".conn-path",
-        {
-          strokeDashoffset: 1000,
-          duration: 2,
-          ease: "power2.inOut",
-        },
+        { strokeDashoffset: 1000, duration: 2, ease: "power2.inOut" },
         "-=1",
       );
 
-      // 3. Nodes Entrance (Tech Card Pop-up)
       tl.from(
         ".node-card",
         {
@@ -94,50 +87,36 @@ export default function EcosystemStructure() {
         "-=1.5",
       );
 
-      // 4. Infinite Floating Animation for Nodes
       gsap.to(".node-card", {
-        y: -15,
+        y: -12,
         duration: 3,
         ease: "sine.inOut",
-        stagger: {
-          each: 0.5,
-          yoyo: true,
-          repeat: -1,
-        },
+        stagger: { each: 0.6, yoyo: true, repeat: -1 },
       });
     },
-    { scope: container },
+    { scope: container, dependencies: [locale] },
   );
+
+  const nodesTrans = t.raw("structure.nodes") || [];
 
   return (
     <section
       ref={container}
       className="relative min-h-[110vh] bg-[#0a1929] text-white flex flex-col items-center justify-center py-20 overflow-hidden"
     >
-      {/* 1. BACKGROUND LAYERS */}
-      <div className="bg-grid absolute inset-0 opacity-20 bg-[linear-gradient(rgba(5,145,190,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(5,145,190,0.1)_1px,transparent_1px)] bg-[size:50px_50px] [perspective:1000px] [transform:rotateX(60deg)_scale(2)] origin-top" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[var(--color-cyan-77)] opacity-10 blur-[100px] rounded-full pointer-events-none" />
+      <div className="absolute inset-0 opacity-20 bg-gradient-to-br from-[#051923] via-[#052432] to-transparent" />
 
-      {/* HEADER */}
       <div className="relative z-10 text-center mb-12 px-6">
         <div className="header-reveal inline-flex items-center gap-2 px-4 py-1 rounded-full border border-[var(--color-cyan-77)]/30 bg-[var(--color-cyan-77)]/10 text-[var(--color-cyan-77)] text-xs font-mono tracking-widest uppercase mb-6">
           <Activity size={14} className="animate-pulse" />
-          Live Ecosystem Status
+          {t("structure.statusLabel")}
         </div>
         <h2 className="header-reveal text-5xl md:text-7xl font-black tracking-tighter mb-4 text-transparent bg-clip-text bg-gradient-to-b from-white to-white/50">
-          CONNECTED CORE
+          {t("structure.title")}
         </h2>
       </div>
 
-      {/* THE DIAGRAM CONTAINER */}
-      {/* FIX: Height ditetapkan 750px di mobile agar kartu bisa ditumpuk vertikal tanpa overlapping. Di desktop kembali ke aspect-video. */}
       <div className="relative w-full max-w-5xl h-[750px] md:h-auto md:aspect-video mx-auto">
-        {/* MOBILE ONLY: Simple Vertical Line Connector */}
-        <div className="md:hidden absolute left-1/2 top-20 bottom-20 w-[2px] -translate-x-1/2 bg-gradient-to-b from-transparent via-[var(--color-cyan-77)]/50 to-transparent">
-          <div className="absolute top-0 left-0 w-full h-full animate-pulse bg-white/20" />
-        </div>
-
-        {/* DESKTOP ONLY: Complex Triangle SVG Pipelines */}
         <svg
           ref={svgRef}
           className="absolute inset-0 w-full h-full pointer-events-none z-0 overflow-visible hidden md:block"
@@ -149,16 +128,8 @@ export default function EcosystemStructure() {
               <stop offset="50%" stopColor="#0591be" stopOpacity="1" />
               <stop offset="100%" stopColor="#0591be" stopOpacity="0" />
             </linearGradient>
-            <filter id="glow">
-              <feGaussianBlur stdDeviation="2.5" result="coloredBlur" />
-              <feMerge>
-                <feMergeNode in="coloredBlur" />
-                <feMergeNode in="SourceGraphic" />
-              </feMerge>
-            </filter>
           </defs>
 
-          {/* Background Dotted Lines */}
           <path
             d="M400,120 L150,400 L650,400 Z"
             fill="none"
@@ -168,7 +139,6 @@ export default function EcosystemStructure() {
             className="opacity-30"
           />
 
-          {/* Main Power Bright Lines (Animated) */}
           <g>
             <path
               d="M400,120 L150,400"
@@ -177,7 +147,6 @@ export default function EcosystemStructure() {
               strokeWidth="2"
               strokeDasharray="1000"
               className="conn-path"
-              filter="url(#glow)"
             />
             <path
               d="M400,120 L650,400"
@@ -186,7 +155,6 @@ export default function EcosystemStructure() {
               strokeWidth="2"
               strokeDasharray="1000"
               className="conn-path"
-              filter="url(#glow)"
             />
             <path
               d="M150,400 L650,400"
@@ -195,64 +163,20 @@ export default function EcosystemStructure() {
               strokeWidth="2"
               strokeDasharray="1000"
               className="conn-path"
-              filter="url(#glow)"
             />
           </g>
-
-          {/* Moving Data Packets */}
-          <circle
-            r="4"
-            fill="white"
-            className="animate-[flow1_3s_linear_infinite]"
-          >
-            <animateMotion
-              dur="3s"
-              repeatCount="indefinite"
-              path="M400,120 L150,400"
-            />
-          </circle>
-          <circle
-            r="4"
-            fill="white"
-            className="animate-[flow2_3s_linear_infinite_1s]"
-          >
-            <animateMotion
-              dur="3s"
-              repeatCount="indefinite"
-              path="M400,120 L650,400"
-            />
-          </circle>
-          <circle
-            r="4"
-            fill="white"
-            className="animate-[flow3_4s_linear_infinite]"
-          >
-            <animateMotion
-              dur="4s"
-              repeatCount="indefinite"
-              path="M150,400 L650,400"
-            />
-          </circle>
         </svg>
 
-        {/* 3. INTERACTIVE NODES */}
         {nodes.map((node, i) => (
           <div
             key={node.id}
             className={`node-card absolute ${node.pos} group cursor-pointer z-10 w-64`}
           >
-            {/* Connector Dot */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-40 h-40 bg-[var(--color-cyan-77)]/20 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-            {/* The Tech Card */}
             <div
-              className={`
-                    relative overflow-hidden backdrop-blur-md rounded-xl border p-6
-                    transition-all duration-300 transform group-hover:scale-105 group-hover:-translate-y-2 box-border 
-                    ${node.bg} ${node.color} ${node.border} shadow-2xl
-                `}
+              className={`relative overflow-hidden rounded-xl border p-6 transition-all duration-300 transform group-hover:scale-105 group-hover:-translate-y-2 ${node.bg} ${node.color} ${node.border} shadow-2xl`}
             >
-              {/* Scanlight Effect */}
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:animate-[shimmer_1s_infinite]" />
 
               <div className="flex items-start justify-between mb-4">
@@ -267,17 +191,18 @@ export default function EcosystemStructure() {
 
               <div>
                 <span className="block text-[10px] font-mono opacity-60 tracking-widest uppercase mb-1">
-                  {node.sub}
+                  {nodesTrans[i]?.sub ?? node.sub}
                 </span>
                 <h3 className="font-black text-lg tracking-tight leading-none mb-4">
-                  {node.label}
+                  {nodesTrans[i]?.label ?? node.label}
                 </h3>
 
-                {/* Fake Stats Line */}
-                <div className="w-full h-[1px] bg-current opacity-20 mb-3" />
+                <div className="w-full h-px bg-current opacity-20 mb-3" />
                 <div className="flex justify-between items-center text-xs font-mono font-bold">
-                  <span className="opacity-70">Focus</span>
-                  <span>{node.stats}</span>
+                  <span className="opacity-70">
+                    {t("structure.focusLabel", { fallback: "Focus" })}
+                  </span>
+                  <span>{nodesTrans[i]?.stats ?? node.stats}</span>
                 </div>
               </div>
             </div>
@@ -285,13 +210,11 @@ export default function EcosystemStructure() {
         ))}
       </div>
 
-      <style jsx global>{`
-        @keyframes shimmer {
-          100% {
-            transform: translateX(100%);
-          }
-        }
-      `}</style>
+      <style
+        dangerouslySetInnerHTML={{
+          __html: `@keyframes shimmer { 100% { transform: translateX(100%); } }`,
+        }}
+      />
     </section>
   );
 }

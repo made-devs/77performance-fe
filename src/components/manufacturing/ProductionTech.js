@@ -5,12 +5,14 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Cpu, Scan, Zap } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function ProductionTech() {
   const container = useRef(null);
   const horizontalRef = useRef(null);
+  const t = useTranslations("pageManufacturing");
 
   useGSAP(
     () => {
@@ -37,29 +39,21 @@ export default function ProductionTech() {
     { scope: container },
   );
 
-  const items = [
-    {
-      title: "Automated Assembly",
-      subtitle: "Robotic Precision",
-      desc: "Lini perakitan otomatis mengurangi human-error dan memastikan konsistensi dimensi setiap komponen hingga mikron.",
-      icon: Zap,
-      img: "https://images.unsplash.com/photo-1537462713505-a1ce18d5ac58?q=80&w=3451&auto=format&fit=crop",
-    },
-    {
-      title: "Precision Machining",
-      subtitle: "CNC Technology",
-      desc: "Menggunakan mesin CNC 5-axis mutakhir untuk finishing permukaan yang sempurna dan toleransi yang ketat.",
-      icon: Scan,
-      img: "https://images.unsplash.com/photo-1563205764-6e927063dd51?q=80&w=3540&auto=format&fit=crop",
-    },
-    {
-      title: "Industrial Grade",
-      subtitle: "Heavy Duty Output",
-      desc: "Dirancang untuk durabilitas tinggi, mampu menahan beban kerja ekstrem sesuai standar OEM internasional.",
-      icon: Cpu,
-      img: "https://images.unsplash.com/photo-1635327376041-37d45889602a?q=80&w=3542&auto=format&fit=crop",
-    },
+  const translations = t.raw("productionTech.items");
+  const ICONS = [Zap, Scan, Cpu];
+  const IMAGES = [
+    "https://images.unsplash.com/photo-1537462713505-a1ce18d5ac58?q=80&w=3451&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1563205764-6e927063dd51?q=80&w=3540&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1635327376041-37d45889602a?q=80&w=3542&auto=format&fit=crop",
   ];
+
+  const items = (translations || []).map((tr, idx) => ({
+    title: tr.title,
+    subtitle: tr.subtitle,
+    desc: tr.desc,
+    icon: ICONS[idx] || Zap,
+    img: IMAGES[idx],
+  }));
 
   return (
     <section

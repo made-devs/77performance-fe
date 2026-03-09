@@ -1,15 +1,19 @@
 "use client";
 
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ScrollSmoother } from "gsap/ScrollSmoother";
 import { useGSAP } from "@gsap/react";
+import { usePathname } from "next/navigation";
+import { useLocale } from "next-intl";
 
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother, useGSAP);
 
 export default function GSAPWrapper({ children }) {
   const container = useRef();
+  const pathname = usePathname();
+  const locale = useLocale();
 
   useGSAP(
     () => {
@@ -38,6 +42,20 @@ export default function GSAPWrapper({ children }) {
     },
     { scope: container },
   );
+
+  useEffect(() => {
+    const refreshGsap = () => {
+      ScrollTrigger.clearScrollMemory();
+      const smoother = ScrollSmoother.get();
+      smoother?.refresh();
+      ScrollTrigger.refresh(true);
+    };
+
+    const timeoutId = window.setTimeout(refreshGsap, 50);
+    return () => {
+      window.clearTimeout(timeoutId);
+    };
+  }, [pathname, locale]);
 
   return (
     <div ref={container} id="smooth-wrapper">

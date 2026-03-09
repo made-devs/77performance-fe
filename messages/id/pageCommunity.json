@@ -2,5 +2,81 @@
   "uptitle": "JARINGAN GLOBAL",
   "titleLine1": "EKOSISTEM",
   "titleLine2": "BERKELANJUTAN",
-  "description": "Transformasi konsep komunitas dari sekadar pengguna menjadi jaringan bisnis terintegrasi yang menghubungkan Principal, Distributor, dan Jaringan Ritel."
+  "description": "Transformasi konsep komunitas dari sekadar pengguna menjadi jaringan bisnis terintegrasi yang menghubungkan Principal, Distributor, dan Jaringan Ritel.",
+
+  "concept": {
+    "bgText": "EKOSISTEM",
+    "label": "Mendefinisikan Ulang Koneksi",
+    "headline": [
+      "Lebih dari sekadar",
+      "sebuah komunitas.",
+      "INI ADALAH INFRASTRUKTUR\nBISNIS."
+    ],
+    "paragraph": "Kami mengubah paradigma. Bukan sekadar tempat berkumpul pasif, melainkan ekosistem aktif yang menghubungkan distributor, bengkel, dan ritel dalam alur kolaborasi yang saling menguntungkan.",
+    "cta": "Pelajari Strukturnya"
+  },
+
+  "structure": {
+    "statusLabel": "Status Ekosistem Langsung",
+    "title": "INTI TERHUBUNG",
+    "focusLabel": "Fokus",
+    "nodes": [
+      {
+        "label": "PRINCIPAL",
+        "sub": "Kantor Pusat Sistem",
+        "stats": "Standar Global"
+      },
+      {
+        "label": "DISTRIBUTOR",
+        "sub": "Pusat Regional",
+        "stats": "Buffer Stok"
+      },
+      {
+        "label": "RETAIL / BENGKEL",
+        "sub": "Pasar Depan",
+        "stats": "Layanan End-User"
+      }
+    ]
+  },
+
+  "strategy": {
+    "bottomLeft": "77 Perf. Ecosystem",
+    "bottomMiddle": "Gulir ke Bawah untuk Navigasi Kanan",
+    "items": [
+      {
+        "id": "01",
+        "tag": "STABILITY",
+        "title": "PERMINTAAN BERULANG",
+        "desc": "Struktur distribusi terkontrol kami menciptakan siklus pemesanan yang stabil, bukan sekadar penjualan sekali.",
+        "tag": "STABILITY"
+      },
+      {
+        "id": "02",
+        "tag": "BENEFIT",
+        "title": "NILAI LEBIH",
+        "desc": "Member tidak hanya membeli produk — mereka membeli akses ke dukungan teknis, edukasi produk, dan jaringan nasional."
+      },
+      {
+        "id": "03",
+        "tag": "CONTROL",
+        "title": "PENYELARASAN MEREK",
+        "desc": "Standarisasi visual dan kualitas layanan di seluruh jaringan menciptakan persepsi premium di mata konsumen akhir."
+      }
+    ]
+  },
+
+  "closing": {
+    "preline": "BANGUN BERSAMA.",
+    "emphasis": "TUMBUH BERSAMA.",
+    "paragraph": "77 Performance Community dirancang sebagai fondasi hubungan jangka panjang, memperkuat jaringan bisnis, dan menciptakan ekosistem otomotif yang sehat dan berkelanjutan.",
+    "cta": {
+      "small": "Bergabung Dengan",
+      "big": "EKOSISTEM"
+    },
+    "whatsappMessage": "Halo Admin, saya tertarik untuk bergabung dalam jaringan ekosistem bisnis 77 Performance. Mohon info syarat dan ketentuannya.",
+    "footer": {
+      "left": "© 2026 77 Performance",
+      "right": "Divisi Komunitas"
+    }
+  }
 }

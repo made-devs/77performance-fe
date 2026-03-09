@@ -5,47 +5,32 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Hexagon, Layers, ShieldCheck, Zap, Plus } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const content = [
+const META = [
   {
-    id: "01",
-    title: "PREMIUM MATERIALS",
-    short: "FORGED ALLOY",
-    desc: "Baja paduan tempa & karet grade-A. Struktur molekul padat anti-fatik.",
     icon: Layers,
-    bg: "bg-[#145591]", // Navy 77
+    bg: "bg-[#145591]",
     text: "text-white",
     border: "border-white/20",
   },
   {
-    id: "02",
-    title: "ENGINEERING DISCIPLINE",
-    short: "MICRON PRECISION",
-    desc: "Toleransi machining <0.05mm pada setiap pivot point untuk handling presisi.",
     icon: Zap,
-    bg: "bg-[#0591be]", // Cyan 77
+    bg: "bg-[#0591be]",
     text: "text-white",
     border: "border-white/20",
   },
   {
-    id: "03",
-    title: "GLOBAL STANDARDS",
-    short: "ISO/TS CERTIFIED",
-    desc: "Proses manufaktur bersertifikasi ISO/TS 16949 melampaui standar OEM.",
     icon: Hexagon,
-    bg: "bg-slate-100", // Light
+    bg: "bg-slate-100",
     text: "text-[#145591]",
     border: "border-[#145591]/20",
   },
   {
-    id: "04",
-    title: "LONGEVITY FOCUS",
-    short: "LONG LIFESPAN",
-    desc: "Didesain untuk masa pakai jangka panjang (Extended Service Life).",
     icon: ShieldCheck,
-    bg: "bg-[#111111]", // Dark
+    bg: "bg-[#111111]",
     text: "text-white",
     border: "border-white/20",
   },
@@ -53,6 +38,7 @@ const content = [
 
 export default function ProductsPhilosophy() {
   const container = useRef(null);
+  const t = useTranslations("pageProducts");
 
   // State untuk melacak panel mana yang aktif (default: panel pertama)
   const [activeIdx, setActiveIdx] = useState(0);
@@ -62,6 +48,15 @@ export default function ProductsPhilosophy() {
   const getFlexClass = (index) => {
     return activeIdx === index ? "flex-[3_3_0%]" : "flex-[1_1_0%]";
   };
+
+  const translations = t.raw("philosophy.items") || [];
+  const content = translations.map((tr, idx) => ({
+    ...tr,
+    icon: META[idx]?.icon || Layers,
+    bg: META[idx]?.bg || "bg-[#145591]",
+    text: META[idx]?.text || "text-white",
+    border: META[idx]?.border || "border-white/20",
+  }));
 
   return (
     <section

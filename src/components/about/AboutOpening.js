@@ -4,12 +4,14 @@ import React, { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useTranslations } from "next-intl";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function AboutOpening() {
   const container = useRef(null);
   const bgImage = useRef(null);
+  const t = useTranslations("pageAbout");
 
   useGSAP(
     () => {
@@ -76,29 +78,28 @@ export default function AboutOpening() {
       <div className="relative z-10 container mx-auto px-6 md:px-12 pt-20">
         <div className="max-w-5xl">
           <p className="hero-uptitle text-[var(--color-cyan-77)] font-bold tracking-[0.3em] uppercase mb-6 text-sm md:text-base border-l-4 border-[var(--color-cyan-77)] pl-4">
-            Since 2008 &bull; Global Manufacturing
+            {t("uptitle")}
           </p>
 
           <div className="overflow-hidden">
             <h1 className="hero-title-line text-7xl md:text-[8rem] font-extrabold tracking-tighter leading-[0.9] text-white">
-              ENGINEERED
+              {t("titleLine1")}
             </h1>
           </div>
           <div className="overflow-hidden">
             <h1 className="hero-title-line text-7xl md:text-[8rem] font-extrabold tracking-tighter leading-[0.9] text-transparent bg-clip-text bg-gradient-to-r from-white to-[var(--color-silver-77)]">
-              PERFECTION
+              {t("titleLine2")}
             </h1>
           </div>
 
           <div className="mt-10 md:mt-16 flex flex-col md:flex-row gap-8 items-start">
             <div className="h-[2px] w-24 bg-[var(--color-cyan-77)] mt-4 hidden md:block" />
             <p className="hero-desc text-xl md:text-2xl text-slate-300 font-light leading-relaxed max-w-2xl">
-              77 Performance delivers{" "}
+              {t("descriptionLead")}{" "}
               <span className="text-white font-medium">
-                premium automotive parts
+                {t("descriptionHighlight")}
               </span>{" "}
-              built on a foundation of proven global manufacturing and precision
-              engineering.
+              {t("descriptionTail")}
             </p>
           </div>
         </div>

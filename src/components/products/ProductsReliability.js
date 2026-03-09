@@ -11,46 +11,20 @@ import {
   BarChart3,
   Crosshair,
 } from "lucide-react";
+import { useTranslations, useLocale } from "next-intl";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const features = [
-  {
-    icon: ShieldCheck,
-    title: "STRUCTURE",
-    subtitle: "SOLID FRAME",
-    desc: "Konstruksi logam diperkuat (Reinforced Steel) menahan guncangan ekstrem.",
-    stat: "100%",
-    statLabel: "SOLIDITY",
-  },
-  {
-    icon: Timer,
-    title: "LIFESPAN",
-    subtitle: "EXTENDED LIFE",
-    desc: "Dirancang dengan material anti-fatigue untuk masa pakai jangka panjang.",
-    stat: "5yr+",
-    statLabel: "SERVICE LIFE",
-  },
-  {
-    icon: PenTool,
-    title: "PRECISION",
-    subtitle: "ZERO DEFECT",
-    desc: "Toleransi manufaktur di bawah 0.05mm memastikan pemasangan presisi.",
-    stat: "<0.1%",
-    statLabel: "ERROR RATE",
-  },
-  {
-    icon: BarChart3,
-    title: "QUALITY",
-    subtitle: "TRIPLE QC",
-    desc: "Setiap batch melewati 3 tahap uji stress-test sebelum pengemasan.",
-    stat: "ISO",
-    statLabel: "CERTIFIED",
-  },
-];
+const ICONS = [ShieldCheck, Timer, PenTool, BarChart3];
 
 export default function ProductsReliability() {
   const container = useRef(null);
+  const t = useTranslations("pageProducts");
+  const locale = useLocale();
+  const features = (t.raw("reliability.features") || []).map((f, idx) => ({
+    ...f,
+    icon: ICONS[idx] || ShieldCheck,
+  }));
 
   useGSAP(
     () => {
@@ -82,7 +56,7 @@ export default function ProductsReliability() {
         );
       });
     },
-    { scope: container },
+    { scope: container, dependencies: [locale] },
   );
 
   return (
@@ -96,19 +70,15 @@ export default function ProductsReliability() {
           <div className="flex items-center gap-2 mb-4 animate-pulse">
             <Crosshair size={20} className="text-[var(--color-cyan-77)]" />
             <span className="font-mono text-xs tracking-widest uppercase">
-              RELIABILITY INDEX
+              {t("reliability.uptitle")}
             </span>
           </div>
           <h2 className="text-6xl md:text-8xl font-black tracking-tighter leading-[0.9]">
-            BUILT TO <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-cyan-77)] to-[var(--color-navy-77)]">
-              ENDURE.
-            </span>
+            {t("reliability.heading")}
           </h2>
         </div>
         <p className="md:max-w-md text-lg text-slate-600 font-light leading-relaxed border-l-4 border-[var(--color-cyan-77)] pl-6">
-          Bukan sekadar sparepart. Ini adalah jaminan ketahanan di bawah tekanan
-          jalanan yang ekstrem.
+          {t("reliability.paragraph")}
         </p>
       </div>
 

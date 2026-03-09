@@ -2,5 +2,76 @@
   "uptitle": "GLOBAL NETWORK",
   "titleLine1": "SUSTAINABLE",
   "titleLine2": "ECOSYSTEM",
-  "description": "Transforming the community concept from users only into an integrated business network that connects Principals, Distributors, and Retail Networks."
+  "description": "Transforming the community concept from users only into an integrated business network that connects Principals, Distributors, and Retail Networks.",
+
+  "concept": {
+    "bgText": "ECOSYSTEM",
+    "label": "Redefining Connection",
+    "headline": [
+      "More than just",
+      "a community.",
+      "IT'S A BUSINESS\nINFRASTRUCTURE."
+    ],
+    "paragraph": "We shift the paradigm. Not a passive meetup space, but an active ecosystem that links distributors, workshops, and retailers into one mutually beneficial collaboration flow.",
+    "cta": "Learn The Structure"
+  },
+
+  "structure": {
+    "statusLabel": "Live Ecosystem Status",
+    "title": "CONNECTED CORE",
+    "focusLabel": "Focus",
+    "nodes": [
+      { "label": "PRINCIPAL", "sub": "System HQ", "stats": "Global Standards" },
+      {
+        "label": "DISTRIBUTOR",
+        "sub": "Regional Hub",
+        "stats": "Stock Buffer"
+      },
+      {
+        "label": "RETAIL / WORKSHOP",
+        "sub": "Frontline Market",
+        "stats": "End-User Service"
+      }
+    ]
+  },
+
+  "strategy": {
+    "bottomLeft": "77 Perf. Ecosystem",
+    "bottomMiddle": "Scroll Down to Navigate Right",
+    "items": [
+      {
+        "id": "01",
+        "tag": "STABILITY",
+        "title": "REPEAT DEMAND",
+        "desc": "Our controlled distribution structure creates stable reorder cycles, not one-off sales."
+      },
+      {
+        "id": "02",
+        "tag": "BENEFIT",
+        "title": "VALUE BEYOND",
+        "desc": "Members don't just buy products — they buy access to technical support, product education, and a national network."
+      },
+      {
+        "id": "03",
+        "tag": "CONTROL",
+        "title": "BRAND ALIGNMENT",
+        "desc": "Visual and service standardization across the network creates a premium perception with end-users."
+      }
+    ]
+  },
+
+  "closing": {
+    "preline": "BUILDING TOGETHER.",
+    "emphasis": "GROWING TOGETHER.",
+    "paragraph": "77 Performance Community is designed as the foundation for long-term relationships, strengthening business networks, and creating a healthy, sustainable automotive ecosystem.",
+    "cta": {
+      "small": "Join The",
+      "big": "ECOSYSTEM"
+    },
+    "whatsappMessage": "Hello Admin, I'm interested to join the 77 Performance business ecosystem. Please share requirements and terms.",
+    "footer": {
+      "left": "© 2026 77 Performance",
+      "right": "Community Division"
+    }
+  }
 }

@@ -5,6 +5,7 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { MessageCircle, ArrowUpRight } from "lucide-react";
+import { useTranslations, useLocale } from "next-intl";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -13,10 +14,12 @@ export default function ProductsClosing() {
   const btnRef = useRef(null);
   const textRef = useRef(null);
 
+  const t = useTranslations("pageProducts");
+  const locale = useLocale();
+
   // WhatsApp Link Config - Disesuaikan untuk B2B
-  const whatsappNumber = "6285210450511";
-  const message =
-    "Halo Admin, saya tertarik untuk kerjasama distribusi / wholesale produk 77 Performance. Boleh info pricelist?";
+  const whatsappNumber = t("closing.whatsappNumber");
+  const message = t("closing.whatsappMessage");
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
 
   useGSAP(
@@ -85,7 +88,7 @@ export default function ProductsClosing() {
         btn.removeEventListener("mouseleave", handleMouseLeave);
       };
     },
-    { scope: container },
+    { scope: container, dependencies: [locale] },
   );
 
   return (
@@ -120,7 +123,7 @@ export default function ProductsClosing() {
       {/* 3. LAYER MAIN CONTENT */}
       <div className="relative z-10 container mx-auto px-6 text-center flex flex-col items-center">
         <p className="char-reveal text-[var(--color-cyan-77)] font-mono text-sm tracking-[0.5em] mb-8 uppercase">
-          Global Supply Chain Partner
+          {t("closing.uptitle")}
         </p>
 
         <h2
@@ -128,11 +131,13 @@ export default function ProductsClosing() {
           className="text-6xl md:text-8xl lg:text-9xl font-black tracking-tighter leading-[0.85] mb-12 mix-blend-overlay"
         >
           <div className="overflow-hidden">
-            <span className="char-reveal inline-block">SCALE YOUR</span>
+            <span className="char-reveal inline-block">
+              {t.raw("closing.titleLines")[0]}
+            </span>
           </div>
           <div className="overflow-hidden">
             <span className="char-reveal inline-block text-transparent bg-clip-text bg-gradient-to-r from-white to-slate-400">
-              BUSINESS
+              {t.raw("closing.titleLines")[1]}
             </span>
           </div>
         </h2>
@@ -149,11 +154,11 @@ export default function ProductsClosing() {
 
           <div className="relative z-10 flex flex-col items-center gap-2 text-white group-hover:text-[var(--color-navy-77)] transition-colors duration-300">
             <span className="text-lg font-bold tracking-widest uppercase mb-1">
-              Partner Up
+              {t("closing.cta")}
             </span>
             <MessageCircle size={48} strokeWidth={1.5} />
             <div className="flex items-center gap-1 text-xs opacity-70 mt-2">
-              <span>B2B INQUIRY</span>
+              <span>{t("closing.ctaSub")}</span>
               <ArrowUpRight size={12} />
             </div>
           </div>
@@ -161,13 +166,15 @@ export default function ProductsClosing() {
 
         {/* Footer */}
         <div className="mt-24 flex flex-col md:flex-row gap-8 items-center text-xs text-white/30 font-mono tracking-widest">
-          <span>© 2026 77 PERFORMANCE</span>
+          <span>{t("closing.footerLeft")}</span>
           <span className="hidden md:inline">•</span>
-          <span>MANUFACTURING & IMPORT</span>
+          <span>{t("closing.footerRight")}</span>
         </div>
       </div>
 
-      <style jsx global>{`
+      <style
+        dangerouslySetInnerHTML={{
+          __html: `
         @keyframes marquee {
           0% {
             transform: translateX(0%);
@@ -176,7 +183,9 @@ export default function ProductsClosing() {
             transform: translateX(-50%);
           }
         }
-      `}</style>
+      `,
+        }}
+      />
     </section>
   );
 }

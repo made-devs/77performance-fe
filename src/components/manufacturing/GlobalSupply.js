@@ -5,11 +5,13 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Globe2 } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function GlobalSupply() {
   const container = useRef(null);
+  const t = useTranslations("pageManufacturing");
 
   useGSAP(
     () => {
@@ -37,16 +39,7 @@ export default function GlobalSupply() {
     { scope: container },
   );
 
-  const regions = [
-    "ASIA",
-    "EUROPE",
-    "MIDDLE EAST",
-    "AFRICA",
-    "AMERICA",
-    "ASIA",
-    "EUROPE",
-    "MIDDLE EAST",
-  ];
+  const regions = t.raw("globalSupply.regions");
 
   return (
     <section ref={container} className="py-32 bg-slate-50 overflow-hidden">
@@ -54,11 +47,10 @@ export default function GlobalSupply() {
         <div className="supply-header">
           <Globe2 className="w-16 h-16 text-[var(--color-navy-77)] mx-auto mb-6" />
           <h2 className="text-4xl md:text-6xl font-bold text-[var(--color-navy-77)] mb-4">
-            Global Supply Experience
+            {t("globalSupply.heading")}
           </h2>
           <p className="text-slate-600 text-lg max-w-2xl mx-auto">
-            Dipercaya di berbagai benua untuk pasar Aftermarket & OEM
-            Replacement.
+            {t("globalSupply.paragraph")}
           </p>
         </div>
       </div>
@@ -87,7 +79,7 @@ export default function GlobalSupply() {
 
       <div className="text-center mt-12">
         <p className="text-sm font-bold tracking-widest text-[var(--color-navy-77)] uppercase">
-          Proven Distribution Network
+          {t("globalSupply.tagline")}
         </p>
       </div>
     </section>

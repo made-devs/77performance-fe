@@ -5,13 +5,16 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ShieldCheck, CheckCircle2 } from "lucide-react";
+import { useTranslations, useLocale } from "next-intl";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function ProductsWarranty() {
   const container = useRef(null);
   const badgeRef = useRef(null);
-
+  const t = useTranslations("pageProducts");
+  const locale = useLocale();
+  const warrantyItems = t.raw("warranty.items");
   useGSAP(
     () => {
       // Rotasi Badge saat Scroll
@@ -38,7 +41,7 @@ export default function ProductsWarranty() {
         },
       });
     },
-    { scope: container },
+    { scope: container, dependencies: [locale] },
   );
 
   return (
@@ -85,11 +88,18 @@ export default function ProductsWarranty() {
           </div>
 
           <h2 className="text-5xl md:text-7xl font-black tracking-tighter leading-none mb-4">
-            LIFETIME <br />
-            <span className="text-[var(--color-cyan-77)]">ASSURANCE</span>
+            {t("warranty.leftTitle")
+              .split(" ")
+              .map((line, i) => (
+                <React.Fragment key={i}>
+                  {line}
+                  {i === 0 ? <br /> : null}
+                </React.Fragment>
+              ))}
+            <span className="text-[var(--color-cyan-77)]"></span>
           </h2>
           <p className="text-white/60 font-mono text-sm tracking-widest uppercase">
-            Term & Condition Applied
+            {t("warranty.termNote")}
           </p>
         </div>
       </div>
@@ -98,34 +108,19 @@ export default function ProductsWarranty() {
       <div className="lg:w-1/2 flex items-center bg-white">
         <div className="warranty-content p-12 lg:p-24 w-full">
           <span className="inline-block py-1 px-3 border border-[var(--color-navy-77)] rounded-full text-[var(--color-navy-77)] text-xs font-bold tracking-widest uppercase mb-8">
-            Warranty Policy
+            {t("warranty.tag")}
           </span>
 
           <h3 className="warranty-item text-4xl md:text-5xl font-black text-[var(--color-navy-77)] tracking-tighter mb-8 leading-tight">
-            WE STAND BEHIND <br /> EVERY PART.
+            {t("warranty.heading")}
           </h3>
 
           <p className="warranty-item text-lg text-slate-600 leading-relaxed font-light mb-12 max-w-lg">
-            Komitmen kami terhadap kualitas bukan sekadar slogan. Kami
-            memberikan perlindungan menyeluruh untuk setiap sparepart 77
-            Performance yang terpasang.
+            {t("warranty.paragraph")}
           </p>
 
           <div className="space-y-6">
-            {[
-              {
-                title: "Defect Protection",
-                desc: "Perlindungan 100% terhadap cacat produksi material.",
-              },
-              {
-                title: "Direct Replacement",
-                desc: "Proses klaim one-to-one replacement yang cepat.",
-              },
-              {
-                title: "Nationwide Support",
-                desc: "Dukungan jaringan distributor di seluruh Indonesia.",
-              },
-            ].map((item, i) => (
+            {(warrantyItems || []).map((item, i) => (
               <div
                 key={i}
                 className="warranty-item group flex items-start gap-5 p-4 hover:bg-slate-50 rounded-xl transition-colors duration-300 border border-transparent hover:border-slate-100"
@@ -146,7 +141,7 @@ export default function ProductsWarranty() {
           </div>
 
           <button className="warranty-item mt-12 px-8 py-4 bg-[var(--color-navy-77)] text-white font-bold tracking-widest uppercase text-sm hover:bg-[var(--color-cyan-77)] transition-all duration-300 w-full md:w-auto">
-            Download Policy PDF
+            {t("warranty.cta")}
           </button>
         </div>
       </div>

@@ -5,11 +5,12 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Plus, X } from "lucide-react";
+import { useTranslations, useLocale } from "next-intl";
 
 gsap.registerPlugin(ScrollTrigger);
 
-// Data Gambar Unsplash (Tema Otomotif/Industrial)
-const galleryItems = [
+// Fallback data (used if translations not present)
+const FALLBACK_ITEMS = [
   // Kolom 1
   {
     src: "https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&q=80&w=800",
@@ -66,6 +67,10 @@ export default function ParallaxGallery() {
   const container = useRef(null);
   const [selectedImg, setSelectedImg] = useState(null);
 
+  const t = useTranslations("pageGallery");
+  const locale = useLocale();
+  const galleryItems = t?.raw("gallery.items") || FALLBACK_ITEMS;
+
   useGSAP(
     () => {
       // Parallax Effect: Kolom tengah (col-2) bergerak lebih cepat ke atas
@@ -92,7 +97,7 @@ export default function ParallaxGallery() {
         },
       });
     },
-    { scope: container },
+    { scope: container, dependencies: [locale] },
   );
 
   // Group images by columns
@@ -161,7 +166,7 @@ export default function ParallaxGallery() {
 
           <div className="absolute bottom-12 left-12 text-white">
             <span className="text-[var(--color-cyan-77)] font-mono text-xs tracking-widest uppercase block mb-1">
-              Image Archive
+              {t("gallery.lightbox.archiveTag")}
             </span>
             <h3 className="text-4xl font-black tracking-tighter uppercase">
               {selectedImg.title}

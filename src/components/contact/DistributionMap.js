@@ -3,55 +3,49 @@
 import React, { useState } from "react";
 import dynamic from "next/dynamic";
 import { X, MapPin, Phone, ArrowRight } from "lucide-react";
+import { useTranslations } from "next-intl";
+
+const MapLoadingFallback = () => {
+  const t = useTranslations("pageContact");
+  return (
+    <div className="w-full h-full bg-[#0a0a0a] flex items-center justify-center text-white/20">
+      {t("map.loading")}
+    </div>
+  );
+};
 
 // Import MapWrapper secara dinamis dengan SSR false
 const MapWrapper = dynamic(() => import("./MapWrapper"), {
   ssr: false,
-  loading: () => (
-    <div className="w-full h-full bg-[#0a0a0a] flex items-center justify-center text-white/20">
-      Loading Map Core...
-    </div>
-  ),
+  loading: MapLoadingFallback,
 });
 
-const branches = [
+const defaultBranches = [
   {
     id: 1,
-    city: "JAKARTA (HQ)",
     coords: [-6.1751, 106.865],
-    address: "Jl. Otomotif Raya No. 77, Kemayoran, Jakarta Pusat",
     phone: "+62 21 5555 7777",
-    role: "HEADQUARTERS",
     image:
       "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=800",
   },
   {
     id: 2,
-    city: "SURABAYA",
     coords: [-7.2575, 112.7521],
-    address: "Kawasan Industri Rungkut, Surabaya, Jawa Timur",
     phone: "+62 31 8888 9999",
-    role: "EAST JAVA HUB",
     image:
       "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=800",
   },
   {
     id: 3,
-    city: "MEDAN",
     coords: [3.5952, 98.6722],
-    address: "Jl. Gatot Subroto No. 88, Medan, Sumatera Utara",
     phone: "+62 61 4444 2222",
-    role: "SUMATRA POINT",
     image:
       "https://images.unsplash.com/photo-1566576912902-1d59f3e0821c?auto=format&fit=crop&q=80&w=800",
   },
   {
     id: 4,
-    city: "MAKASSAR",
     coords: [-5.1477, 119.4327],
-    address: "Jl. Pettarani No. 100, Makassar, Sulawesi Selatan",
     phone: "+62 411 777 0000",
-    role: "EAST INDONESIA",
     image:
       "https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&q=80&w=800",
   },
@@ -59,6 +53,13 @@ const branches = [
 
 export default function DistributionMap() {
   const [activeBranch, setActiveBranch] = useState(null);
+  const t = useTranslations("pageContact");
+
+  const transBranches = t.raw("map.branches") || [];
+  const branches = defaultBranches.map((b, i) => ({
+    ...b,
+    ...transBranches[i],
+  }));
 
   // Helper untuk clear active branch (tombol X)
   const handleClose = () => setActiveBranch(null);
@@ -112,7 +113,7 @@ export default function DistributionMap() {
               <div className="flex items-center gap-2 text-[var(--color-cyan-77)] mb-4">
                 <MapPin size={18} />
                 <span className="text-xs font-mono tracking-widest uppercase">
-                  Location Detail
+                  {t("map.locationDetail")}
                 </span>
               </div>
 
@@ -139,7 +140,7 @@ export default function DistributionMap() {
                 rel="noopener noreferrer"
                 className="mt-8 w-full py-4 bg-[var(--color-cyan-77)] hover:bg-white hover:text-[var(--color-navy-77)] font-bold tracking-widest uppercase text-sm transition-all duration-300 flex items-center justify-center gap-2 group text-white rounded-xl"
               >
-                View on G-Maps
+                {t("map.viewOnMaps")}
                 <ArrowRight
                   size={16}
                   className="group-hover:translate-x-1 transition-transform"
@@ -155,14 +156,16 @@ export default function DistributionMap() {
         className={`absolute bottom-12 right-12 z-[400] text-right pointer-events-none transition-opacity duration-500 ${activeBranch ? "opacity-0" : "opacity-100"}`}
       >
         <h2 className="text-5xl md:text-8xl font-black text-white/5 tracking-tighter leading-none">
-          NETWORK
+          {t("map.networkTitle")}
         </h2>
         <p className="text-[var(--color-cyan-77)] font-mono text-xs md:text-sm tracking-widest uppercase animate-pulse">
-          Use scroll/pinch to zoom • Click points
+          {t("map.instructionOverlay")}
         </p>
       </div>
 
-      <style jsx global>{`
+      <style
+        dangerouslySetInnerHTML={{
+          __html: `
         .custom-marker {
           background: transparent;
           border: none;
@@ -199,7 +202,9 @@ export default function DistributionMap() {
             opacity: 0;
           }
         }
-      `}</style>
+      `,
+        }}
+      />
     </section>
   );
 }

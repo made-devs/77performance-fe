@@ -5,6 +5,7 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ArrowUpRight, Network } from "lucide-react";
+import { useTranslations, useLocale } from "next-intl";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -12,10 +13,12 @@ export default function CommunityClosing() {
   const container = useRef(null);
   const btnRef = useRef(null);
 
+  const t = useTranslations("pageCommunity");
+  const locale = useLocale();
+
   // CTA Config: Link ke WhatsApp untuk Join Community/Network
   const whatsappNumber = "6285210450511";
-  const message =
-    "Halo Admin, saya tertarik untuk bergabung dalam jaringan ekosistem bisnis 77 Performance. Mohon info syarat dan ketentuannya.";
+  const message = t("closing.whatsappMessage");
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
 
   useGSAP(
@@ -78,7 +81,7 @@ export default function CommunityClosing() {
         }
       };
     },
-    { scope: container },
+    { scope: container, dependencies: [locale] },
   );
 
   return (
@@ -93,14 +96,12 @@ export default function CommunityClosing() {
         <div className="w-1 h-20 bg-[var(--color-cyan-77)] mx-auto mb-12 closing-text" />
 
         <h2 className="closing-text text-5xl md:text-7xl font-black tracking-tighter leading-tight mb-8">
-          BUILDING TOGETHER. <br />
-          <span className="text-[var(--color-cyan-77)]">GROWING TOGETHER.</span>
+          {t("closing.preline")} <br />
+          <span className="text-[var(--color-cyan-77)]">{t("closing.emphasis")}</span>
         </h2>
 
         <p className="closing-text text-xl md:text-2xl font-light text-slate-300 leading-relaxed max-w-3xl mx-auto mb-16">
-          77 Performance Community dirancang sebagai fondasi hubungan jangka
-          panjang, memperkuat jaringan bisnis, dan menciptakan ekosistem
-          otomotif yang sehat dan berkelanjutan.
+          {t("closing.paragraph")}
         </p>
 
         {/* --- NEW COOL CTA SECTION --- */}
@@ -125,10 +126,10 @@ export default function CommunityClosing() {
 
             <div className="text-center leading-none">
               <span className="block text-xs font-mono tracking-[0.2em] opacity-60 group-hover:opacity-90 mb-1 uppercase">
-                Join The
+                {t("closing.cta.small")}
               </span>
               <span className="block text-3xl font-black tracking-tighter">
-                ECOSYSTEM
+                {t("closing.cta.big")}
               </span>
             </div>
 
@@ -140,9 +141,9 @@ export default function CommunityClosing() {
         </div>
 
         <div className="mt-24 opacity-30 font-mono tracking-widest text-xs uppercase flex justify-center gap-4 md:gap-8">
-          <span>© 2026 77 Performance</span>
+          <span>{t("closing.footer.left")}</span>
           <span>•</span>
-          <span>Community Division</span>
+          <span>{t("closing.footer.right")}</span>
         </div>
       </div>
     </section>

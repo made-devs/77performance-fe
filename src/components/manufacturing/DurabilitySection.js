@@ -5,11 +5,13 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Shield } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function DurabilitySection() {
   const container = useRef(null);
+  const t = useTranslations("pageManufacturing");
 
   useGSAP(
     () => {
@@ -53,10 +55,12 @@ export default function DurabilitySection() {
                 <div className="flex items-center gap-2 mb-2">
                   <Shield className="w-6 h-6 text-[var(--color-cyan-77)]" />
                   <span className="font-bold uppercase tracking-wider text-sm">
-                    Protection
+                    {t("durability.tag")}
                   </span>
                 </div>
-                <h3 className="text-3xl font-bold">Electrophoresis Coating</h3>
+                <h3 className="text-3xl font-bold">
+                  {t("durability.heading")}
+                </h3>
               </div>
             </div>
           </div>
@@ -64,23 +68,17 @@ export default function DurabilitySection() {
           {/* Right Panel: Data */}
           <div className="lg:w-1/2">
             <h2 className="text-[var(--color-cyan-77)] font-bold tracking-widest uppercase mb-4">
-              Anti-Corrosion & Durability
+              {t("durability.uptitle")}
             </h2>
             <h3 className="text-4xl md:text-5xl font-bold text-[var(--color-navy-77)] mb-8">
-              Built to last in extreme conditions.
+              {t("durability.heading2")}
             </h3>
             <p className="text-slate-600 text-lg mb-10">
-              Proses pelapisan kami bukan sekadar cat. Kami menggunakan
-              teknologi Electrophoresis yang mengikat partikel pelindung ke
-              permukaan metal hingga level mikroskopis.
+              {t("durability.paragraph")}
             </p>
 
             <ul className="right-list space-y-6">
-              {[
-                { title: "Salt Spray Test", val: "500+ Hours Passed" },
-                { title: "Coating Thickness", val: "Uniform Micron Precision" },
-                { title: "Rust Resistance", val: "Superior Grade" },
-              ].map((item, idx) => (
+              {t.raw("durability.list").map((item, idx) => (
                 <li
                   key={idx}
                   className="flex items-center justify-between border-b border-slate-200 pb-4"

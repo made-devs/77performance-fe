@@ -4,5 +4,110 @@
   "titleLine2": "PERFECTION",
   "descriptionLead": "77 Performance delivers",
   "descriptionHighlight": "premium automotive parts",
-  "descriptionTail": "built on a foundation of proven global manufacturing and precision engineering."
+  "descriptionTail": "built on a foundation of proven global manufacturing and precision engineering.",
+  "whoWeAre": {
+    "label": "01 / The Identity",
+    "statements": [
+      {
+        "text": "We "
+      },
+      {
+        "text": "are "
+      },
+      {
+        "text": "not "
+      },
+      {
+        "text": "just "
+      },
+      {
+        "text": "importers. "
+      },
+      {
+        "text": "We ",
+        "isCyan": true
+      },
+      {
+        "text": "are ",
+        "isCyan": true
+      },
+      {
+        "text": "brand ",
+        "isCyan": true
+      },
+      {
+        "text": "builders ",
+        "isCyan": true
+      },
+      {
+        "text": "engineered "
+      },
+      {
+        "text": "for "
+      },
+      {
+        "text": "long-term "
+      },
+      {
+        "text": "excellence."
+      }
+    ],
+    "features": [
+      {
+        "title": "Global Manufacturing DNA",
+        "desc": "77 Performance stands firmly on a foundation of global manufacturing. Every component we release has gone through rigorous R&D processes, not just generic product renaming."
+      },
+      {
+        "title": "Value Beyond Price",
+        "desc": "Our focus is creating <strong>Sustainable Business</strong>. Our products are not designed for cheap price wars, but rather to provide consistent performance that builds your customers' trust."
+      }
+    ]
+  },
+  "manufacturing": {
+    "label": "02 / The Backbone",
+    "title": "Built on <br /> Industrial Scale.",
+    "experienceTitle": "Years of Excellence",
+    "experienceDesc": "More than a decade of experience in precision manufacturing. We understand metallurgy, machine tolerances, and global durability standards.",
+    "supplyChainTitle": "Global Supply Chain",
+    "supplyChainDesc": "International distribution network serving OEM and aftermarket segments across multiple continents.",
+    "precisionTitle": "Precision Engineering",
+    "precisionDesc": "Automated assembly lines & rigorous QC protocols.",
+    "volumeTitle": "High Volume Capability",
+    "volumeDesc": "Tens of thousands of square meters of manufacturing facilities ready to support massive market expansion."
+  },
+  "philosophy": {
+    "label": "03 / Our Values",
+    "title": "Philosophy",
+    "desc": "The standards we firmly uphold in every product we bring to the market.",
+    "items": [
+      {
+        "icon": "Activity",
+        "title": "Consistency",
+        "desc": "Stable Grade A material quality in every production batch, without compromise."
+      },
+      {
+        "icon": "ShieldCheck",
+        "title": "Reliability",
+        "desc": "Precise and reliable parts durability for comfortable daily driving."
+      },
+      {
+        "icon": "Handshake",
+        "title": "Trust",
+        "desc": "Business transparency and full support for our distributor partners."
+      },
+      {
+        "icon": "TrendingUp",
+        "title": "Growth",
+        "desc": "A long-term vision to grow together in the modern automotive ecosystem."
+      }
+    ]
+  },
+  "closing": {
+    "line1": "NOT JUST",
+    "highlight1": "PARTS.",
+    "line2": "BUSINESS",
+    "highlight2": "VALUE.",
+    "desc": "Join the ecosystem designed for long-term growth and stability.",
+    "btn": "Become A Distributor"
+  }
 }

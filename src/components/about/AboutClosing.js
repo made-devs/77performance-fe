@@ -5,12 +5,13 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ArrowRight } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function AboutClosing() {
   const container = useRef(null);
-  const textTitle = useRef(null);
+  const t = useTranslations("pageAbout.closing");
 
   useGSAP(
     () => {
@@ -54,20 +55,21 @@ export default function AboutClosing() {
 
       <div className="closing-content relative z-10 text-center px-6">
         <h2 className="text-5xl md:text-8xl font-black text-white px-4 md:px-0 tracking-tighter mb-8 leading-[0.9]">
-          NOT JUST{" "}
+          {t("line1")}{" "}
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-cyan-77)] to-white">
-            PARTS.
+            {t("highlight1")}
           </span>{" "}
           <br />
-          BUSINESS <span className="text-[var(--color-cyan-77)]">VALUE.</span>
+          {t("line2")}{" "}
+          <span className="text-[var(--color-cyan-77)]">{t("highlight2")}</span>
         </h2>
 
         <p className="text-slate-300 text-lg md:text-xl max-w-2xl mx-auto mb-10 font-light">
-          Join the ecosystem designed for long-term growth and stability.
+          {t("desc")}
         </p>
 
         <button className="group relative inline-flex items-center gap-3 px-8 py-4 bg-[var(--color-cyan-77)] text-white rounded-full font-bold tracking-wider uppercase hover:bg-white hover:text-[var(--color-navy-77)] transition-all duration-300 overflow-hidden">
-          <span className="relative z-10">Become A Distributor</span>
+          <span className="relative z-10">{t("btn")}</span>
           <ArrowRight className="w-5 h-5 relative z-10 group-hover:translate-x-1 transition-transform" />
           {/* Fill Effect */}
           <div className="absolute inset-0 bg-white translate-y-full group-hover:translate-y-0 transition-transform duration-300 z-0" />

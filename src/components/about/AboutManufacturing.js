@@ -5,11 +5,13 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Settings, Globe, BarChart3, Factory } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function AboutManufacturing() {
   const container = useRef(null);
+  const t = useTranslations("pageAbout.manufacturing");
 
   useGSAP(
     () => {
@@ -53,11 +55,12 @@ export default function AboutManufacturing() {
       <div className="container mx-auto px-6 md:px-12">
         <div className="mb-20 max-w-3xl">
           <h2 className="text-[var(--color-cyan-77)] font-bold tracking-widest uppercase text-sm mb-4">
-            02 / The Backbone
+            {t("label")}
           </h2>
-          <h3 className="text-5xl md:text-7xl font-bold leading-tight">
-            Built on <br /> Industrial Scale.
-          </h3>
+          <h3
+            className="text-5xl md:text-7xl font-bold leading-tight"
+            dangerouslySetInnerHTML={{ __html: t("title") }}
+          />
         </div>
 
         {/* Bento Grid Layout */}
@@ -69,11 +72,11 @@ export default function AboutManufacturing() {
               <span className="big-number text-8xl md:text-9xl font-extrabold text-white block mb-2">
                 15<span className="text-[var(--color-cyan-77)]">+</span>
               </span>
-              <h4 className="text-2xl font-bold mb-4">Years of Excellence</h4>
+              <h4 className="text-2xl font-bold mb-4">
+                {t("experienceTitle")}
+              </h4>
               <p className="text-slate-300 text-lg max-w-md">
-                Pengalaman lebih dari satu dekade dalam manufaktur presisi. Kami
-                mengerti metalurgi, toleransi mesin, dan standar durabilitas
-                global.
+                {t("experienceDesc")}
               </p>
             </div>
           </div>
@@ -86,10 +89,11 @@ export default function AboutManufacturing() {
             <div className="h-full bg-[var(--color-cyan-77)] text-white p-10 rounded-2xl flex flex-col justify-between group hover:-translate-y-2 transition-transform duration-500">
               <Globe className="w-16 h-16 mb-8 text-blue-900" />
               <div>
-                <h4 className="text-2xl font-bold mb-2">Global Supply Chain</h4>
+                <h4 className="text-2xl font-bold mb-2">
+                  {t("supplyChainTitle")}
+                </h4>
                 <p className="opacity-90 leading-relaxed">
-                  Jaringan distribusi internasional yang melayani pasar OEM dan
-                  aftermarket di berbagai benua.
+                  {t("supplyChainDesc")}
                 </p>
               </div>
             </div>
@@ -99,10 +103,8 @@ export default function AboutManufacturing() {
           <div className="bento-card bg-white text-[var(--color-navy-77)] p-10 rounded-2xl flex flex-col justify-between group">
             <Settings className="w-12 h-12 mb-6 text-[var(--color-cyan-77)] animate-spin-slow" />
             <div>
-              <h4 className="text-xl font-bold mb-2">Precision Engineering</h4>
-              <p className="text-slate-600">
-                Automated assembly lines &amp; rigorous QC protocols.
-              </p>
+              <h4 className="text-xl font-bold mb-2">{t("precisionTitle")}</h4>
+              <p className="text-slate-600">{t("precisionDesc")}</p>
             </div>
           </div>
 
@@ -112,11 +114,8 @@ export default function AboutManufacturing() {
               <BarChart3 className="w-8 h-8 text-[var(--color-cyan-77)]" />
             </div>
             <div>
-              <h4 className="text-xl font-bold mb-1">High Volume Capability</h4>
-              <p className="text-slate-400">
-                Fasilitas manufaktur puluhan ribu meter persegi siap mendukung
-                ekspansi pasar besar-besaran.
-              </p>
+              <h4 className="text-xl font-bold mb-1">{t("volumeTitle")}</h4>
+              <p className="text-slate-400">{t("volumeDesc")}</p>
             </div>
           </div>
         </div>

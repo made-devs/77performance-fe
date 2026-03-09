@@ -4,5 +4,53 @@
   "titleLine2": "DENGAN HQ",
   "description": "Jalur komunikasi resmi untuk kemitraan, distribusi, dan informasi korporat 77 Performance.",
   "mapTitleHighlight": "Jangkauan",
-  "mapTitleTail": "Nasional"
+  "mapTitleTail": "Nasional",
+  "main": {
+    "headquartersTitle": "HEADQUARTERS",
+    "headquartersDesc": "Pusat operasi dan distribusi kami. Kunjungan wholesale tersedia berdasarkan janji temu.",
+    "officeAddressTitle": "Office Address",
+    "businessHoursTitle": "Business Hours",
+    "b2bTitle": "B2B Enquiries",
+    "selectionTitle": "Partnership Selection",
+    "selectionDesc": "Untuk menjaga stabilitas pasar dan kualitas layanan, 77 Performance menerapkan proses seleksi ketat bagi calon distributor baru. Pengajuan akan ditinjau dalam 3-5 hari kerja.",
+    "formTitle": "Partnership Inquiry",
+    "formName": "Full Name",
+    "formCompany": "Company Name",
+    "formEmail": "Email Address",
+    "formPhone": "Phone / WhatsApp",
+    "formPurpose": "Purpose of Inquiry",
+    "formPurposePlaceholder": "Ceritakan kebutuhan bisnis Anda...",
+    "formSubmit": "Submit Inquiry",
+    "officeAddress": "Jl. Otomotif Raya No. 77, Kemayoran<br />Jakarta Pusat, Indonesia 10620",
+    "businessHours": "Sen - Jum: 08:30 - 17:00 WIB<br />Sab: 09:00 - 14:00 WIB"
+  },
+  "map": {
+    "loading": "Loading Map Core...",
+    "locationDetail": "Location Detail",
+    "viewOnMaps": "View on G-Maps",
+    "networkTitle": "NETWORK",
+    "instructionOverlay": "Gunakan scroll/pinch untuk zoom • Klik titik lokasi",
+    "branches": [
+      {
+        "city": "JAKARTA (HQ)",
+        "address": "Jl. Otomotif Raya No. 77, Kemayoran, Jakarta Pusat",
+        "role": "HEADQUARTERS"
+      },
+      {
+        "city": "SURABAYA",
+        "address": "Kawasan Industri Rungkut, Surabaya, Jawa Timur",
+        "role": "EAST JAVA HUB"
+      },
+      {
+        "city": "MEDAN",
+        "address": "Jl. Gatot Subroto No. 88, Medan, Sumatera Utara",
+        "role": "SUMATRA POINT"
+      },
+      {
+        "city": "MAKASSAR",
+        "address": "Jl. Pettarani No. 100, Makassar, Sulawesi Selatan",
+        "role": "EAST INDONESIA"
+      }
+    ]
+  }
 }

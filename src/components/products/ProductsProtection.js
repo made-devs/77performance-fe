@@ -3,9 +3,12 @@
 import React, { useRef } from "react";
 import { motion, useTransform, useScroll } from "motion/react";
 import { PackageCheck, Shield, Award } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 export default function ProductsProtection() {
   const targetRef = useRef(null);
+  const t = useTranslations("pageProducts");
+  const ICONS = [PackageCheck, Shield, Award];
 
   // Horizontal Scroll Setup (Fake) or just visual interaction
   const { scrollYProgress } = useScroll({
@@ -39,7 +42,7 @@ export default function ProductsProtection() {
             transition={{ delay: 0.2 }}
             className="inline-block py-1 px-3 rounded-full border border-[var(--color-cyan-77)] text-[var(--color-cyan-77)] text-xs font-bold tracking-widest uppercase mb-6"
           >
-            Brand Value
+            {t("protection.tag")}
           </motion.span>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -47,29 +50,12 @@ export default function ProductsProtection() {
             transition={{ delay: 0.3 }}
             className="text-3xl md:text-5xl font-extrabold tracking-tighter"
           >
-            PROTECTION & <br />
-            AUTHENTICITY
+            {t("protection.heading")}
           </motion.h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-          {[
-            {
-              icon: PackageCheck,
-              title: "Premium Packaging",
-              desc: "Kemasan kokoh yang melindungi produk dari kerusakan selama logistik, sekaligus meningkatkan citra di rak toko.",
-            },
-            {
-              icon: Shield,
-              title: "Seal of Authenticity",
-              desc: "Segel hologram dan QR code untuk memastikan keaslian produk dan melindungi reputasi penjual.",
-            },
-            {
-              icon: Award,
-              title: "Official Warranty",
-              desc: "Didukung oleh garansi resmi yang memberikan rasa aman bagi pelanggan akhir Anda.",
-            },
-          ].map((item, i) => (
+          {t.raw("protection.items").map((item, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, y: 40 }}
@@ -83,7 +69,10 @@ export default function ProductsProtection() {
               className="bg-white/5 border border-white/10 p-8 rounded-2xl hover:bg-white/10 transition-colors"
             >
               <div className="mb-6 flex justify-center text-[var(--color-cyan-77)]">
-                <item.icon size={48} strokeWidth={1} />
+                {(() => {
+                  const Icon = ICONS[i] || PackageCheck;
+                  return <Icon size={48} strokeWidth={1} />;
+                })()}
               </div>
               <h3 className="text-xl font-bold mb-4">{item.title}</h3>
               <p className="text-slate-400 text-sm leading-relaxed">

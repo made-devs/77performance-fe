@@ -3,5 +3,187 @@
   "titleLine1": "ENGINEERED",
   "titleLine2": "AUTOMOTIVE",
   "titleLine3": "PARTS",
-  "description": "Performance • Comfort • Reliability"
+  "description": "Performance • Comfort • Reliability",
+
+  "categories": {
+    "intro": {
+      "tag": "PORTFOLIO",
+      "titleLine1": "PRODUCT",
+      "titleLine2": "RANGE",
+      "scrollHint": "SCROLL TO EXPLORE",
+      "cta": "VIEW SPECS"
+    },
+    "items": [
+      {
+        "id": "01",
+        "title": "SHOCK ABSORBER",
+        "category": "DAMPING",
+        "image": "https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&q=80&w=800"
+      },
+      {
+        "id": "02",
+        "title": "CONTROL ARMS",
+        "category": "LINKAGE",
+        "image": "https://images.unsplash.com/photo-1530982011887-3cc11cc85693?auto=format&fit=crop&q=80&w=800"
+      },
+      {
+        "id": "03",
+        "title": "BRAKE SYSTEM",
+        "category": "SAFETY",
+        "image": "https://images.unsplash.com/photo-1494976388531-d1058494cdd8?auto=format&fit=crop&q=80&w=800"
+      },
+      {
+        "id": "04",
+        "title": "STABILIZER",
+        "category": "BALANCE",
+        "image": "https://images.unsplash.com/photo-1517524008697-84bbe3c3fd98?auto=format&fit=crop&q=80&w=800"
+      },
+      {
+        "id": "05",
+        "title": "BALL JOINT",
+        "category": "PIVOT",
+        "image": "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=800"
+      }
+    ]
+  },
+
+  "performance": {
+    "metricLabel": "PERFORMANCE METRIC",
+    "techSpecs": "Tech Specs",
+    "panels": [
+      {
+        "id": "01",
+        "metric": "0.02s",
+        "label": "VALVE RESPONSE",
+        "desc": "Piston valve responds instantly to road inputs, eliminating damping lag."
+      },
+      {
+        "id": "02",
+        "metric": "98%",
+        "label": "VIBRATION LOSS",
+        "desc": "Polyurethane bushings absorb micro-vibrations, isolating the cabin from road roughness."
+      },
+      {
+        "id": "03",
+        "metric": "ZERO",
+        "label": "BODY ROLL",
+        "desc": "Precision stabilizer geometry keeps the chassis flat during sharp maneuvers."
+      }
+    ]
+  },
+
+  "philosophy": {
+    "items": [
+      {
+        "id": "01",
+        "title": "PREMIUM MATERIALS",
+        "short": "FORGED ALLOY",
+        "desc": "Forged alloy steel and Grade-A elastomers for a dense, fatigue-resistant molecular structure."
+      },
+      {
+        "id": "02",
+        "title": "ENGINEERING DISCIPLINE",
+        "short": "MICRON PRECISION",
+        "desc": "Machining tolerances below 0.05mm at every pivot point for precision handling."
+      },
+      {
+        "id": "03",
+        "title": "GLOBAL STANDARDS",
+        "short": "ISO/TS CERTIFIED",
+        "desc": "Manufacturing processes certified to ISO/TS standards, exceeding OEM requirements."
+      },
+      {
+        "id": "04",
+        "title": "LONGEVITY FOCUS",
+        "short": "LONG LIFESPAN",
+        "desc": "Engineered for extended service life through material selection and robust design."
+      }
+    ],
+    "cta": "Learn More"
+  },
+
+  "protection": {
+    "tag": "Brand Value",
+    "heading": "PROTECTION & AUTHENTICITY",
+    "items": [
+      {
+        "title": "Premium Packaging",
+        "desc": "Sturdy packaging that protects parts in transit and elevates shelf presence."
+      },
+      {
+        "title": "Seal of Authenticity",
+        "desc": "Hologram seals and QR verification to ensure genuine products and protect seller reputation."
+      },
+      {
+        "title": "Official Warranty",
+        "desc": "Backed by official warranty coverage to provide peace of mind for end customers."
+      }
+    ]
+  },
+
+  "reliability": {
+    "uptitle": "RELIABILITY INDEX",
+    "heading": "BUILT TO ENDURE.",
+    "paragraph": "More than spare parts. This is a guarantee of durability under extreme road stress.",
+    "features": [
+      {
+        "iconKey": "ShieldCheck",
+        "title": "STRUCTURE",
+        "subtitle": "SOLID FRAME",
+        "desc": "Reinforced metal construction withstands extreme impacts.",
+        "stat": "100%",
+        "statLabel": "SOLIDITY"
+      },
+      {
+        "iconKey": "Timer",
+        "title": "LIFESPAN",
+        "subtitle": "EXTENDED LIFE",
+        "desc": "Designed with anti-fatigue materials for long service life.",
+        "stat": "5yr+",
+        "statLabel": "SERVICE LIFE"
+      },
+      {
+        "iconKey": "PenTool",
+        "title": "PRECISION",
+        "subtitle": "ZERO DEFECT",
+        "desc": "Manufacturing tolerances below 0.05mm ensure precise fitting.",
+        "stat": "<0.1%",
+        "statLabel": "ERROR RATE"
+      },
+      {
+        "iconKey": "BarChart3",
+        "title": "QUALITY",
+        "subtitle": "TRIPLE QC",
+        "desc": "Each batch passes three stages of stress testing before packing.",
+        "stat": "ISO",
+        "statLabel": "CERTIFIED"
+      }
+    ]
+  },
+
+  "warranty": {
+    "leftTitle": "LIFETIME ASSURANCE",
+    "termNote": "Terms & Conditions Applied",
+    "tag": "Warranty Policy",
+    "heading": "WE STAND BEHIND EVERY PART.",
+    "paragraph": "Our commitment to quality is not just a slogan. We provide comprehensive protection for every 77 Performance part installed.",
+    "items": [
+      { "title": "Defect Protection", "desc": "Full protection against manufacturing defects." },
+      { "title": "Direct Replacement", "desc": "Fast one-to-one replacement claim process." },
+      { "title": "Nationwide Support", "desc": "Distributor network support across the country." }
+    ],
+    "cta": "Download Policy PDF"
+  }
+  ,
+  "closing": {
+    "uptitle": "Global Supply Chain Partner",
+    "titleLines": ["SCALE YOUR", "BUSINESS"],
+    "cta": "Partner Up",
+    "ctaSub": "B2B INQUIRY",
+    "whatsappMessage": "Hello Admin, I'm interested in distribution / wholesale partnership for 77 Performance. Please share pricelist?",
+    "whatsappNumber": "6285210450511",
+    "marquee": ["SUPPLY. QUALITY. PROFIT."],
+    "footerLeft": "© 2026 77 PERFORMANCE",
+    "footerRight": "MANUFACTURING & IMPORT"
+  }
 }

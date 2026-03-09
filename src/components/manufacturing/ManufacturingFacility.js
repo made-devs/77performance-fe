@@ -5,11 +5,15 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Factory, Warehouse, Microscope, FileCheck } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function ManufacturingFacility() {
   const container = useRef(null);
+  const t = useTranslations("pageManufacturing");
+  const cards = t.raw("facility.cards");
+  const ICONS = [Factory, Microscope, FileCheck, Warehouse];
 
   useGSAP(
     () => {
@@ -66,15 +70,13 @@ export default function ManufacturingFacility() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-20 text-wrapper">
           <div>
             <h2 className="facility-text opacity-0 text-[var(--color-cyan-77)] font-bold tracking-widest uppercase mb-4">
-              The Facility
+              {t("facility.tag")}
             </h2>
             <h3 className="facility-text opacity-0 text-4xl md:text-6xl font-bold leading-tight mb-6">
-              Industrial Scale <br /> Capabilities.
+              {t("facility.heading")}
             </h3>
             <p className="facility-text opacity-0 text-lg text-slate-600 leading-relaxed">
-              Beroperasi di atas fasilitas seluas puluhan ribu meter persegi,
-              pabrik kami mengintegrasikan seluruh proses produksi mulai dari
-              bahan baku hingga pengujian akhir di satu lokasi terpadu.
+              {t("facility.paragraph")}
             </p>
           </div>
           <div className="facility-text opacity-0 relative h-[400px] w-full rounded-2xl overflow-hidden group shadow-2xl">
@@ -86,28 +88,7 @@ export default function ManufacturingFacility() {
 
         {/* Specs Grid */}
         <div className="cards-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {[
-            {
-              icon: Factory,
-              title: "Production",
-              desc: "Automated Assembly Lines",
-            },
-            {
-              icon: Microscope,
-              title: "R&D Center",
-              desc: "Material Development Lab",
-            },
-            {
-              icon: FileCheck,
-              title: "QC Station",
-              desc: "100% Precision Check",
-            },
-            {
-              icon: Warehouse,
-              title: "Warehouse",
-              desc: "Global Logistics Hub",
-            },
-          ].map((item, idx) => (
+          {cards.map((item, idx) => (
             // WRAPPER STRATEGY:
             // Div luar (.spec-card-wrapper) menangani animasi GSAP masuk (Translation/Opacity)
             // Div dalam menangani Styling, Hover, dan Shadow.
@@ -118,7 +99,12 @@ export default function ManufacturingFacility() {
             >
               <div className="h-full w-full p-8 border border-slate-200 bg-slate-50 flex flex-col items-center text-center hover:border-[var(--color-cyan-77)] hover:shadow-xl hover:-translate-y-1 transition-all duration-300 rounded-lg group cursor-default">
                 <div className="bg-white p-4 rounded-full shadow-sm mb-6 group-hover:scale-110 transition-transform duration-300">
-                  <item.icon className="w-8 h-8 text-[var(--color-cyan-77)]" />
+                  {(() => {
+                    const Icon = ICONS[idx] || Factory;
+                    return (
+                      <Icon className="w-8 h-8 text-[var(--color-cyan-77)]" />
+                    );
+                  })()}
                 </div>
                 <h4 className="text-xl font-bold mb-2 text-[var(--color-navy-77)]">
                   {item.title}

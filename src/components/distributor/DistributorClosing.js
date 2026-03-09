@@ -4,11 +4,13 @@ import React, { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useTranslations } from "next-intl";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function DistributorClosing() {
   const container = useRef(null);
+  const t = useTranslations("pageDistributor.closing");
 
   useGSAP(
     () => {
@@ -41,10 +43,10 @@ export default function DistributorClosing() {
 
       <div className="container mx-auto px-6 relative z-10">
         <h2 className="closing-text text-4xl md:text-7xl font-bold tracking-tighter mb-6">
-          LIMITED OPPORTUNITY.
+          {t("title")}
         </h2>
         <p className="closing-text text-xl md:text-2xl text-[var(--color-cyan-77)] font-light max-w-3xl mx-auto">
-          Early Partner Advantage securing long-term ecosystem position.
+          {t("description")}
         </p>
       </div>
     </section>

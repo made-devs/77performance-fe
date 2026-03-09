@@ -3,5 +3,176 @@
   "titleLine1": "精工",
   "titleLine2": "汽车",
   "titleLine3": "零部件",
-  "description": "性能 • 舒适 • 可靠"
+  "description": "性能 • 舒适 • 可靠",
+
+  "categories": {
+    "intro": {
+      "tag": "作品集",
+      "titleLine1": "产品",
+      "titleLine2": "系列",
+      "scrollHint": "向下滚动以浏览",
+      "cta": "查看规格"
+    },
+    "items": [
+      {
+        "id": "01",
+        "title": "减震器",
+        "category": "阻尼",
+        "image": "https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&q=80&w=800"
+      },
+      {
+        "id": "02",
+        "title": "控制臂",
+        "category": "连杆",
+        "image": "https://images.unsplash.com/photo-1530982011887-3cc11cc85693?auto=format&fit=crop&q=80&w=800"
+      },
+      {
+        "id": "03",
+        "title": "制动系统",
+        "category": "安全",
+        "image": "https://images.unsplash.com/photo-1494976388531-d1058494cdd8?auto=format&fit=crop&q=80&w=800"
+      },
+      {
+        "id": "04",
+        "title": "稳定杆",
+        "category": "平衡",
+        "image": "https://images.unsplash.com/photo-1517524008697-84bbe3c3fd98?auto=format&fit=crop&q=80&w=800"
+      },
+      {
+        "id": "05",
+        "title": "球接头",
+        "category": "枢轴",
+        "image": "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=800"
+      }
+    ]
+  },
+
+  "performance": {
+    "metricLabel": "性能指标",
+    "techSpecs": "技术规格",
+    "panels": [
+      {
+        "id": "01",
+        "metric": "0.02s",
+        "label": "阀响应",
+        "desc": "活塞阀对路面变化瞬时响应，消除阻尼延迟。"
+      },
+      {
+        "id": "02",
+        "metric": "98%",
+        "label": "振动损失",
+        "desc": "聚氨酯衬套吸收微振动，隔离车舱免受路面不平。"
+      },
+      {
+        "id": "03",
+        "metric": "零",
+        "label": "车身侧倾",
+        "desc": "精密稳定杆几何结构在急转弯中保持车身平稳。"
+      }
+    ]
+  },
+
+  "philosophy": {
+    "items": [
+      {
+        "id": "01",
+        "title": "优质材料",
+        "short": "锻造合金",
+        "desc": "锻造合金钢与A级橡胶，结构致密抗疲劳。"
+      },
+      {
+        "id": "02",
+        "title": "工程纪律",
+        "short": "微米精度",
+        "desc": "所有枢轴点加工公差低于0.05mm，确保精准操控。"
+      },
+      {
+        "id": "03",
+        "title": "全球标准",
+        "short": "ISO/TS 认证",
+        "desc": "制造流程符合ISO/TS认证，超越OEM标准。"
+      },
+      {
+        "id": "04",
+        "title": "耐久为先",
+        "short": "长寿命",
+        "desc": "通过材料与设计实现更长的使用寿命。"
+      }
+    ],
+    "cta": "了解更多"
+  },
+
+  "protection": {
+    "tag": "品牌价值",
+    "heading": "保护与真伪",
+    "items": [
+      {
+        "title": "高级包装",
+        "desc": "坚固包装保护运输中的零件，同时提升陈列形象。"
+      },
+      { "title": "真伪标识", "desc": "全息防伪与二维码验证，确保产品正品。" },
+      { "title": "官方保修", "desc": "由官方保修支持，为最终用户提供保障。" }
+    ]
+  },
+
+  "reliability": {
+    "uptitle": "可靠性指数",
+    "heading": "经久耐用",
+    "paragraph": "不仅仅是备件。这是在极端路况下的耐用保障。",
+    "features": [
+      {
+        "title": "结构",
+        "subtitle": "坚固车架",
+        "desc": "加固金属结构承受极端冲击。",
+        "stat": "100%",
+        "statLabel": "坚固性"
+      },
+      {
+        "title": "寿命",
+        "subtitle": "延长寿命",
+        "desc": "采用抗疲劳材料设计以延长服役期。",
+        "stat": "5年+",
+        "statLabel": "服役期"
+      },
+      {
+        "title": "精度",
+        "subtitle": "零缺陷",
+        "desc": "制造公差低于0.05mm保证精确配装。",
+        "stat": "<0.1%",
+        "statLabel": "错误率"
+      },
+      {
+        "title": "质量",
+        "subtitle": "三重质检",
+        "desc": "每一批次经过三阶段应力测试后才可出厂。",
+        "stat": "ISO",
+        "statLabel": "认证"
+      }
+    ]
+  },
+
+  "warranty": {
+    "leftTitle": "终身保证",
+    "termNote": "适用条款与条件",
+    "tag": "保修政策",
+    "heading": "我们为每一件零件负责。",
+    "paragraph": "我们的质量承诺不仅仅是口号。我们为每件安装的77 Performance零件提供全面保障。",
+    "items": [
+      { "title": "缺陷保护", "desc": "对制造缺陷提供全面保护。" },
+      { "title": "直接更换", "desc": "快速的一对一更换索赔流程。" },
+      { "title": "全国支持", "desc": "覆盖全国的经销商网络支持。" }
+    ],
+    "cta": "下载保修政策 PDF"
+  },
+  "closing": {
+    "uptitle": "全球供应链合作伙伴",
+    "titleLines": ["拓展您的", "业务"],
+    "cta": "合作洽谈",
+    "ctaSub": "B2B 咨询",
+    "whatsappMessage": "您好，管理员，我有兴趣与77 Performance进行分销/批发合作，请提供价目表。",
+    "whatsappNumber": "6285210450511",
+    "marquee": ["SUPPLY. QUALITY. PROFIT."],
+    "footerLeft": "© 2026 77 PERFORMANCE",
+    "footerRight": "制造与进口"
+  }
 }

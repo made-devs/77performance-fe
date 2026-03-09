@@ -2,5 +2,64 @@
   "uptitle": "全球网络",
   "titleLine1": "可持续",
   "titleLine2": "生态系统",
-  "description": "将社区从单纯用户模式升级为一体化商业网络，连接品牌方、分销商与零售网络。"
+  "description": "将社区从单纯用户模式升级为一体化商业网络，连接品牌方、分销商与零售网络。",
+
+  "concept": {
+    "bgText": "生态系统",
+    "label": "重新定义连接",
+    "headline": ["不仅仅是", "一个社区。", "它是商业\n基础设施。"],
+    "paragraph": "我们在改变范式。这不是被动的聚会场所，而是将分销商、车间和零售商连接为互利的主动生态系统。",
+    "cta": "了解结构"
+  },
+
+  "structure": {
+    "statusLabel": "实时生态状态",
+    "title": "连接核心",
+    "focusLabel": "关注点",
+    "nodes": [
+      { "label": "PRINCIPAL", "sub": "系统总部", "stats": "全球标准" },
+      { "label": "DISTRIBUTOR", "sub": "区域中心", "stats": "库存缓冲" },
+      { "label": "RETAIL / WORKSHOP", "sub": "前线市场", "stats": "终端服务" }
+    ]
+  },
+
+  "strategy": {
+    "bottomLeft": "77 Perf. 生态",
+    "bottomMiddle": "向下滚动以向右导航",
+    "items": [
+      {
+        "id": "01",
+        "tag": "STABILITY",
+        "title": "重复需求",
+        "desc": "我们受控的分销结构创造稳定的再订购周期，而非一次性的销售。"
+      },
+      {
+        "id": "02",
+        "tag": "BENEFIT",
+        "title": "超越价值",
+        "desc": "会员购买的不只是产品，而是技术支持、产品培训和全国性网络的接入。"
+      },
+      {
+        "id": "03",
+        "tag": "CONTROL",
+        "title": "品牌一致性",
+        "desc": "在整个网络中实现视觉和服务标准化，营造面向终端用户的高端感知。"
+      }
+    ]
+  },
+
+  "closing": {
+    "preline": "携手共建。",
+    "emphasis": "共同成长。",
+    "paragraph": "77 Performance 社区旨在作为长期关系的基础，强化商业网络，并打造健康可持续的汽车生态系统。",
+    "cta": {
+      "small": "加入",
+      "big": "生态系统"
+    },
+    "whatsappMessage": "您好管理员，我有兴趣加入77 Performance的商业生态系统。请提供加入条件和规则。",
+    "footer": {
+      "left": "© 2026 77 Performance",
+      "right": "社区部门"
+    }
+  }
 }

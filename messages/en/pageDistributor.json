@@ -4,5 +4,95 @@
   "titleLine2": "DISTRIBUTOR",
   "titleLine3": "PARTNER",
   "descriptionLead": "Join our authorized distributor network to access preferential pricing, priority logistics, and full marketing support.",
-  "descriptionHighlight": "Grow with us — territory protection, training, and incentives available."
+  "descriptionHighlight": "Grow with us — territory protection, training, and incentives available.",
+  "valueProp": {
+    "line1": [
+      "Joining ",
+      "77 ",
+      "Performance ",
+      "is ",
+      "not ",
+      "about ",
+      "buying ",
+      "products. "
+    ],
+    "line2": [
+      "It ",
+      "is ",
+      "entering ",
+      "a ",
+      "structured ",
+      "business ",
+      "ecosystem."
+    ],
+    "description": "We provide the system, the product, and the market positioning. You provide the local dominance."
+  },
+  "benefits": {
+    "label": "Why Partner With Us",
+    "title": "Distributor Privileges",
+    "description": "Strategic advantages designed for your business sustainability.",
+    "items": [
+      {
+        "title": "Market Demand",
+        "desc": "Research-driven products with strong demand and fast-moving parts."
+      },
+      {
+        "title": "Healthy Margin",
+        "desc": "Tiered pricing structure that protects distributor profitability."
+      },
+      {
+        "title": "Digital Support",
+        "desc": "Official distributor listing on our main website."
+      },
+      {
+        "title": "Legal & Protection",
+        "desc": "Brand legal support and territorial protection."
+      }
+    ]
+  },
+  "support": {
+    "title": "Promotion & Support System",
+    "description": "We do not let you fight alone. Our support system is designed to accelerate your market penetration.",
+    "items": [
+      {
+        "title": "Free Buffer Stock",
+        "desc": "Special suspension buffer stock program for the beginning of the year."
+      },
+      {
+        "title": "Smart Bundling",
+        "desc": "Sales packages that combine moving parts and slow-moving parts."
+      },
+      {
+        "title": "Marketing Kit",
+        "desc": "Catalogs, banners, apparel, and digital assets."
+      },
+      {
+        "title": "Priority Shipping",
+        "desc": "Priority logistics lane for distributor restocking."
+      }
+    ]
+  },
+  "territory": {
+    "label": "Blue Ocean Strategy",
+    "titleLine1": "One City.",
+    "titleLine2": "One Distributor.",
+    "description": "We guarantee territorial exclusivity. No internal brand price wars. Your area is your asset.",
+    "securedValue": "100%",
+    "securedLabel": "Secured Area"
+  },
+  "qualification": {
+    "title": "Qualification",
+    "description": "We are highly selective in choosing partners. This program is only for serious business entities.",
+    "items": [
+      "Official Business Entity (Ltd./CV equivalent)",
+      "Minimum 3 years of automotive industry experience",
+      "Own sales team and logistics fleet",
+      "Commitment to pricing and territorial SOP",
+      "Healthy financial capability"
+    ]
+  },
+  "closing": {
+    "title": "LIMITED OPPORTUNITY.",
+    "description": "Early Partner Advantage securing long-term ecosystem position."
+  }
 }

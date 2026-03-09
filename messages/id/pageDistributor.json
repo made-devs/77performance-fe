@@ -4,5 +4,96 @@
   "titleLine2": "MITRA",
   "titleLine3": "DISTRIBUTOR",
   "descriptionLead": "Bergabunglah dengan jaringan distributor resmi kami untuk mendapatkan harga prioritas, logistik utama, dan dukungan pemasaran penuh.",
-  "descriptionHighlight": "Tumbuh bersama kami — proteksi wilayah, pelatihan, dan insentif tersedia."
+  "descriptionHighlight": "Tumbuh bersama kami — proteksi wilayah, pelatihan, dan insentif tersedia.",
+  "valueProp": {
+    "line1": [
+      "Bergabung ",
+      "dengan ",
+      "77 ",
+      "Performance ",
+      "bukan ",
+      "sekadar ",
+      "membeli ",
+      "produk. "
+    ],
+    "line2": [
+      "Ini ",
+      "adalah ",
+      "masuk ",
+      "ke ",
+      "ekosistem ",
+      "bisnis ",
+      "yang ",
+      "terstruktur."
+    ],
+    "description": "Kami menyediakan sistem, produk, dan positioning pasar. Anda menghadirkan dominasi lokal."
+  },
+  "benefits": {
+    "label": "Mengapa Bermitra Dengan Kami",
+    "title": "Keistimewaan Distributor",
+    "description": "Keuntungan strategis yang dirancang untuk sustainabilitas bisnis Anda.",
+    "items": [
+      {
+        "title": "Permintaan Pasar",
+        "desc": "Produk berbasis riset pasar dengan demand tinggi dan fast moving parts."
+      },
+      {
+        "title": "Margin Sehat",
+        "desc": "Struktur harga bertingkat menjaga profitabilitas distributor."
+      },
+      {
+        "title": "Dukungan Digital",
+        "desc": "Listing distributor resmi di website utama kami."
+      },
+      {
+        "title": "Legal & Proteksi",
+        "desc": "Dukungan legalitas brand dan proteksi wilayah."
+      }
+    ]
+  },
+  "support": {
+    "title": "Sistem Promosi & Dukungan",
+    "description": "Kami tidak membiarkan Anda berjuang sendirian. Support system kami dirancang untuk mengakselerasi penetrasi pasar Anda.",
+    "items": [
+      {
+        "title": "Free Buffer Stock",
+        "desc": "Program buffer stock suspension khusus awal tahun."
+      },
+      {
+        "title": "Smart Bundling",
+        "desc": "Paket penjualan yang menggabungkan moving parts dan slow moving."
+      },
+      {
+        "title": "Marketing Kit",
+        "desc": "Katalog, banner, apparel, dan aset digital."
+      },
+      {
+        "title": "Priority Shipping",
+        "desc": "Jalur logistik prioritas untuk restock distributor."
+      }
+    ]
+  },
+  "territory": {
+    "label": "Blue Ocean Strategy",
+    "titleLine1": "Satu Kota.",
+    "titleLine2": "Satu Distributor.",
+    "description": "Kami menjamin eksklusivitas wilayah. Tidak ada perang harga internal brand. Wilayah Anda adalah aset Anda.",
+    "securedValue": "100%",
+    "securedLabel": "Wilayah Aman"
+  },
+  "qualification": {
+    "title": "Kualifikasi",
+    "description": "Kami sangat selektif dalam memilih mitra. Program ini hanya untuk entitas bisnis yang serius.",
+    "items": [
+      "Badan Usaha Resmi (PT/CV)",
+      "Memiliki pengalaman di bidang otomotif minimal 3 tahun",
+      "Memiliki tim sales dan armada logistik",
+      "Komitmen terhadap SOP harga dan wilayah",
+      "Kemampuan finansial yang sehat"
+    ]
+  },
+  "closing": {
+    "title": "OPORTUNITAS TERBATAS.",
+    "description": "Keunggulan mitra awal untuk mengamankan posisi jangka panjang dalam ekosistem."
+  }
 }

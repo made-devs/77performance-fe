@@ -5,12 +5,15 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Sparkles, ArrowRight } from "lucide-react";
+import { useTranslations, useLocale } from "next-intl";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function CommunityConcept() {
   const container = useRef(null);
   const textRef = useRef(null);
+  const t = useTranslations("pageCommunity");
+  const locale = useLocale();
 
   useGSAP(
     () => {
@@ -63,8 +66,10 @@ export default function CommunityConcept() {
         },
       });
     },
-    { scope: container },
+    { scope: container, dependencies: [locale] },
   );
+
+  const headline = t.raw("concept.headline") || [];
 
   return (
     <section
@@ -75,7 +80,7 @@ export default function CommunityConcept() {
       {/* Giant Moving Text (Background Texture) */}
       <div className="absolute top-[10%] left-0 w-full pointer-events-none select-none opacity-[0.03] overflow-hidden whitespace-nowrap">
         <h1 className="big-bg-text text-[30vw] font-black leading-none text-[var(--color-navy-77)] translate-x-[10%]">
-          ECOSYSTEM
+          {t("concept.bgText", { fallback: "ECOSYSTEM" })}
         </h1>
       </div>
 
@@ -88,7 +93,7 @@ export default function CommunityConcept() {
         <div className="concept-reveal flex items-center gap-4 mb-16">
           <span className="w-12 h-[1px] bg-[var(--color-navy-77)]" />
           <span className="font-mono text-sm tracking-[0.3em] uppercase text-[var(--color-navy-77)]">
-            Redefining Connection
+            {t("concept.label")}
           </span>
         </div>
 
@@ -100,15 +105,14 @@ export default function CommunityConcept() {
           </div>
 
           <h2 className="text-5xl md:text-7xl lg:text-8xl font-light text-[var(--color-navy-77)] leading-[1.1] tracking-tight">
-            <span className="concept-reveal block">More than just</span>
+            <span className="concept-reveal block">
+              {headline[0] ?? "More than just"}
+            </span>
             <span className="concept-reveal block italic font-serif text-slate-400">
-              a community.
+              {headline[1] ?? "a community."}
             </span>
             <span className="concept-reveal block font-black mt-2 relative inline-block highlight-text">
-              IT'S A BUSINESS
-              <br />
-              INFRASTRUCTURE.
-              {/* Underline Highlight */}
+              {headline[2] ?? "IT'S A BUSINESS\nINFRASTRUCTURE."}
               <span className="highlight-line absolute bottom-2 left-0 w-full h-[0.1em] bg-[var(--color-cyan-77)] origin-left -z-10 opacity-60" />
             </span>
           </h2>
@@ -126,16 +130,12 @@ export default function CommunityConcept() {
           {/* Right: Detailed Description & CTA */}
           <div className="md:col-span-8 lg:col-span-6 concept-reveal">
             <p className="text-xl md:text-2xl text-slate-600 leading-relaxed font-light mb-8">
-              Kami mengubah paradigma. Bukan sekadar tempat berkumpul pasif,
-              melainkan{" "}
-              <b className="text-[var(--color-navy-77)]">ekosistem aktif</b>{" "}
-              yang menghubungkan distributor, bengkel, dan toko dalam satu alur
-              kolaborasi yang saling menguntungkan.
+              {t("concept.paragraph")}
             </p>
 
             <div className="flex items-center gap-2 group cursor-pointer text-[var(--color-navy-77)] font-bold tracking-widest uppercase text-sm">
               <span className="border-b border-transparent group-hover:border-[var(--color-navy-77)] transition-all">
-                Learn The Structure
+                {t("concept.cta")}
               </span>
               <ArrowRight
                 size={16}

@@ -5,33 +5,28 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Repeat, ShieldCheck, TrendingUp, ArrowRight } from "lucide-react";
+import { useTranslations, useLocale } from "next-intl";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const strategies = [
+const baseStrategies = [
   {
     id: "01",
-    title: "REPEAT DEMAND",
     icon: Repeat,
-    desc: "Struktur distribusi terkontrol kami menciptakan siklus order yang stabil, bukan sekadar penjualan sekali putus.",
     tag: "STABILITY",
     theme: "bg-[var(--color-navy-77)] text-white",
     accent: "text-[var(--color-cyan-77)]",
   },
   {
     id: "02",
-    title: "VALUE BEYOND",
     icon: TrendingUp,
-    desc: "Member bukan membeli barang. Mereka membeli akses ke dukungan teknis, edukasi produk, dan jaringan nasional.",
     tag: "BENEFIT",
     theme: "bg-white text-[var(--color-navy-77)]",
     accent: "text-[var(--color-navy-77)]",
   },
   {
     id: "03",
-    title: "BRAND ALIGNMENT",
     icon: ShieldCheck,
-    desc: "Standarisasi visual dan kualitas layanan di seluruh jaringan, menciptakan persepsi premium di mata end-user.",
     tag: "CONTROL",
     theme: "bg-[#111] text-white",
     accent: "text-white",
@@ -41,6 +36,16 @@ const strategies = [
 export default function CommunityStrategy() {
   const sectionRef = useRef(null);
   const triggerRef = useRef(null);
+  const t = useTranslations("pageCommunity");
+  const locale = useLocale();
+
+  const translatedItems = t.raw("strategy.items") || [];
+  const strategies = baseStrategies.map((b, i) => ({
+    ...b,
+    title: translatedItems[i]?.title ?? "",
+    desc: translatedItems[i]?.desc ?? "",
+    tag: translatedItems[i]?.tag ?? b.tag,
+  }));
 
   useGSAP(
     () => {
@@ -62,7 +67,7 @@ export default function CommunityStrategy() {
         },
       });
     },
-    { scope: triggerRef },
+    { scope: triggerRef, dependencies: [locale] },
   );
 
   return (
@@ -72,10 +77,7 @@ export default function CommunityStrategy() {
       className="relative overflow-hidden w-full h-screen"
     >
       {/* Moving Container (Horizontal Content) */}
-      <div
-        ref={sectionRef}
-        className="flex h-full w-fit" // w-fit agar mengikuti lebar konten children
-      >
+      <div ref={sectionRef} className="flex h-full w-fit">
         {strategies.map((item, i) => (
           <div
             key={i}
@@ -136,9 +138,9 @@ export default function CommunityStrategy() {
 
             {/* Bottom Bar Details */}
             <div className="absolute bottom-6 md:bottom-12 left-0 w-full px-6 md:px-12 flex justify-between items-end opacity-40 font-mono text-[10px] md:text-xs uppercase tracking-widest pointer-events-none">
-              <span>77 Perf. Ecosystem</span>
+              <span>{t("strategy.bottomLeft")}</span>
               <span className="hidden md:inline">
-                Scroll Down to Navigate Right
+                {t("strategy.bottomMiddle")}
               </span>
               <span>{item.id} / 03</span>
             </div>

@@ -1,4 +1,35 @@
 {
+  "uptitle": "Arsip Visual",
+  "titleLine1": "VISUAL",
+  "titleLine2": "ARSIP",
+  "description": "Kumpulan gambar terkurasi dari 77 Performance — motion dan detail.",
+
+  "hero": {
+    "marquee": "ARSIP VISUAL",
+    "curated": "Momen Terkurasi",
+    "scrollHint": "Gulir untuk Menjelajah"
+  },
+
+  "gallery": {
+    "items": [
+      { "src": "https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&q=80&w=800", "col": 1, "title": "Penyetelan Presisi" },
+      { "src": "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&q=80&w=800", "col": 1, "title": "Malam Hari" },
+      { "src": "https://images.unsplash.com/photo-1597687210387-e45e74257181?auto=format&fit=crop&q=80&w=800", "col": 1, "title": "Ruang Mesin" },
+
+      { "src": "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&q=80&w=800", "col": 2, "title": "Blueprints" },
+      { "src": "https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&q=80&w=800", "col": 2, "title": "Pengelasan" },
+      { "src": "https://images.unsplash.com/photo-1487754180451-c456f719a1fc?auto=format&fit=crop&q=80&w=800", "col": 2, "title": "Fabrikasi" },
+
+      { "src": "https://images.unsplash.com/photo-1503376763036-066120622c74?auto=format&fit=crop&q=80&w=800", "col": 3, "title": "Bengkel Neon" },
+      { "src": "https://images.unsplash.com/photo-1532585252495-22049eb8ae2b?auto=format&fit=crop&q=80&w=800", "col": 3, "title": "Hari Lomba" },
+      { "src": "https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?auto=format&fit=crop&q=80&w=800", "col": 3, "title": "Detail" }
+    ],
+    "lightbox": {
+      "archiveTag": "Arsip Gambar"
+    }
+  }
+}
+{
   "uptitle": "ARSIP VISUAL",
   "titleLine1": "REKAYASA",
   "titleLine2": "ARTISTIK",

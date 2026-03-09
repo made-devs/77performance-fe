@@ -5,11 +5,13 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { TrendingUp, ShieldCheck, DollarSign, Globe } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function DistributorBenefits() {
   const container = useRef(null);
+  const t = useTranslations("pageDistributor.benefits");
 
   useGSAP(
     () => {
@@ -32,28 +34,11 @@ export default function DistributorBenefits() {
     { scope: container },
   );
 
-  const benefits = [
-    {
-      icon: TrendingUp,
-      title: "Market Demand",
-      desc: "Produk riset pasar tinggi, moving fast parts.",
-    },
-    {
-      icon: DollarSign,
-      title: "Healthy Margin",
-      desc: "Struktur harga bertingkat menjaga profitabilitas distributor.",
-    },
-    {
-      icon: Globe,
-      title: "Digital Support",
-      desc: "Listing distributor resmi di website utama kami.",
-    },
-    {
-      icon: ShieldCheck,
-      title: "Legal & Protection",
-      desc: "Dukungan legalitas brand dan proteksi wilayah.",
-    },
-  ];
+  const icons = [TrendingUp, DollarSign, Globe, ShieldCheck];
+  const benefits = (t.raw("items") || []).map((item, idx) => ({
+    ...item,
+    icon: icons[idx] || TrendingUp,
+  }));
 
   return (
     <section
@@ -64,15 +49,12 @@ export default function DistributorBenefits() {
         <div className="mb-16 md:flex justify-between items-end">
           <div>
             <h2 className="text-[var(--color-cyan-77)] font-bold tracking-widest uppercase mb-2">
-              Why Partner With Us
+              {t("label")}
             </h2>
-            <h3 className="text-4xl md:text-5xl font-bold">
-              Distributor Privileges
-            </h3>
+            <h3 className="text-4xl md:text-5xl font-bold">{t("title")}</h3>
           </div>
           <p className="text-slate-300 mt-4 md:mt-0 max-w-md md:text-right">
-            Keuntungan strategis yang dirancang untuk sustainabilitas bisnis
-            Anda.
+            {t("description")}
           </p>
         </div>
 

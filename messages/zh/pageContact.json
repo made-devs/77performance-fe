@@ -4,5 +4,53 @@
   "titleLine2": "总部",
   "description": "77 Performance 的官方沟通渠道，涵盖合作、分销与企业信息咨询。",
   "mapTitleHighlight": "全国",
-  "mapTitleTail": "覆盖"
+  "mapTitleTail": "覆盖",
+  "main": {
+    "headquartersTitle": "总部 (HEADQUARTERS)",
+    "headquartersDesc": "我们的运营和分销中心。批发访问需提前预约。",
+    "officeAddressTitle": "办公地址 (Office Address)",
+    "businessHoursTitle": "营业时间 (Business Hours)",
+    "b2bTitle": "B2B 咨询 (B2B Enquiries)",
+    "selectionTitle": "合作伙伴筛选 (Partnership Selection)",
+    "selectionDesc": "为了维护市场稳定和服务质量，77 Performance 对潜在的新分销商实施严格的筛选流程。申请将在3-5个工作日内进行审查。",
+    "formTitle": "合作伙伴关系咨询 (Partnership Inquiry)",
+    "formName": "全名 (Full Name)",
+    "formCompany": "公司名称 (Company Name)",
+    "formEmail": "电子邮件 (Email Address)",
+    "formPhone": "电话 / WhatsApp (Phone / WhatsApp)",
+    "formPurpose": "咨询目的 (Purpose of Inquiry)",
+    "formPurposePlaceholder": "请告诉我们您的业务需求...",
+    "formSubmit": "提交咨询 (Submit Inquiry)",
+    "officeAddress": "Jl. Otomotif Raya No. 77, Kemayoran<br />Central Jakarta, Indonesia 10620",
+    "businessHours": "周一 至 周五: 08:30 - 17:00 WIB<br />周六: 09:00 - 14:00 WIB"
+  },
+  "map": {
+    "loading": "正在加载地图核心 (Loading Map Core)...",
+    "locationDetail": "位置详情 (Location Detail)",
+    "viewOnMaps": "在谷歌地图上查看 (View on G-Maps)",
+    "networkTitle": "网络 (NETWORK)",
+    "instructionOverlay": "使用滚动/捏合缩放 • 点击点 (Use scroll/pinch to zoom • Click points)",
+    "branches": [
+      {
+        "city": "雅加达 - 总部 (JAKARTA HQ)",
+        "address": "Jl. Otomotif Raya No. 77, Kemayoran, Central Jakarta",
+        "role": "总部 (HEADQUARTERS)"
+      },
+      {
+        "city": "泗水 - 东爪哇枢纽 (SURABAYA)",
+        "address": "Rungkut Industrial Estate, Surabaya, East Java",
+        "role": "东爪哇枢纽 (EAST JAVA HUB)"
+      },
+      {
+        "city": "棉兰 - 苏门答腊点 (MEDAN)",
+        "address": "Jl. Gatot Subroto No. 88, Medan, North Sumatra",
+        "role": "苏门答腊点 (SUMATRA POINT)"
+      },
+      {
+        "city": "望加锡 - 印尼东部 (MAKASSAR)",
+        "address": "Jl. Pettarani No. 100, Makassar, South Sulawesi",
+        "role": "印尼东部 (EAST INDONESIA)"
+      }
+    ]
+  }
 }

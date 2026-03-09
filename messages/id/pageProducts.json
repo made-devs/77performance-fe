@@ -3,5 +3,191 @@
   "titleLine1": "SUKU CADANG",
   "titleLine2": "OTOMOTIF",
   "titleLine3": "TERREKAYASA",
-  "description": "Performa • Kenyamanan • Keandalan"
+  "description": "Performa • Kenyamanan • Keandalan",
+
+  "categories": {
+    "intro": {
+      "tag": "PORTOFOLIO",
+      "titleLine1": "PRODUK",
+      "titleLine2": "RANGE",
+      "scrollHint": "GULUNG UNTUK MENJELAJAH",
+      "cta": "LIHAT SPEK"
+    },
+    "items": [
+      {
+        "id": "01",
+        "title": "PEREDAM KEJUT",
+        "category": "DAMPING",
+        "image": "https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&q=80&w=800"
+      },
+      {
+        "id": "02",
+        "title": "LENGAN KONTROL",
+        "category": "LINKAGE",
+        "image": "https://images.unsplash.com/photo-1530982011887-3cc11cc85693?auto=format&fit=crop&q=80&w=800"
+      },
+      {
+        "id": "03",
+        "title": "SISTEM REM",
+        "category": "KEAMANAN",
+        "image": "https://images.unsplash.com/photo-1494976388531-d1058494cdd8?auto=format&fit=crop&q=80&w=800"
+      },
+      {
+        "id": "04",
+        "title": "STABILIZER",
+        "category": "KETAHANAN",
+        "image": "https://images.unsplash.com/photo-1517524008697-84bbe3c3fd98?auto=format&fit=crop&q=80&w=800"
+      },
+      {
+        "id": "05",
+        "title": "SOKET BOLA",
+        "category": "PIVOT",
+        "image": "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=800"
+      }
+    ]
+  },
+
+  "performance": {
+    "metricLabel": "METRIK PERFORMA",
+    "techSpecs": "Spesifikasi Teknis",
+    "panels": [
+      {
+        "id": "01",
+        "metric": "0.02s",
+        "label": "RESPONS KATUP",
+        "desc": "Katup piston merespons perubahan permukaan jalan secara instan, menghilangkan lag pada damping."
+      },
+      {
+        "id": "02",
+        "metric": "98%",
+        "label": "PENYUSUTAN GETAR",
+        "desc": "Bushing polyurethane menyerap getaran mikro sehingga kabin tetap nyaman."
+      },
+      {
+        "id": "03",
+        "metric": "NOL",
+        "label": "BODY ROLL",
+        "desc": "Geometri stabilizer presisi menjaga sasis tetap datar saat manuver tajam."
+      }
+    ]
+  },
+
+  "philosophy": {
+    "items": [
+      {
+        "id": "01",
+        "title": "Bahan Premium",
+        "short": "ALLOY TEMPA",
+        "desc": "Baja paduan tempa dan elastomer grade-A untuk struktur anti-fatigue yang padat."
+      },
+      {
+        "id": "02",
+        "title": "Disiplin Rekayasa",
+        "short": "PRESISI MIKRON",
+        "desc": "Toleransi machining <0.05mm di setiap titik pivot untuk handling presisi."
+      },
+      {
+        "id": "03",
+        "title": "Standar Global",
+        "short": "SERTIFIKASI ISO/TS",
+        "desc": "Proses manufaktur bersertifikat ISO/TS yang melampaui standar OEM."
+      },
+      {
+        "id": "04",
+        "title": "Fokus Ketahanan",
+        "short": "UMUR PANJANG",
+        "desc": "Dirancang untuk masa pakai panjang melalui pemilihan material dan desain tangguh."
+      }
+    ],
+    "cta": "Pelajari Lebih Lanjut"
+  },
+
+  "protection": {
+    "tag": "Brand Value",
+    "heading": "PERLINDUNGAN & KEASLIAN",
+    "items": [
+      {
+        "title": "Kemasan Premium",
+        "desc": "Kemasan kokoh melindungi produk selama logistik dan memperkuat tampilan di rak."
+      },
+      {
+        "title": "Segel Keaslian",
+        "desc": "Segel hologram dan QR code untuk memastikan produk asli dan melindungi reputasi penjual."
+      },
+      {
+        "title": "Garansi Resmi",
+        "desc": "Didukung garansi resmi untuk memberikan rasa aman bagi pelanggan akhir."
+      }
+    ]
+  },
+
+  "reliability": {
+    "uptitle": "INDEKS KETAHANAN",
+    "heading": "DIBUAT UNTUK TAHAN.",
+    "paragraph": "Bukan sekadar suku cadang. Ini adalah jaminan ketahanan di bawah tekanan jalan yang ekstrem.",
+    "features": [
+      {
+        "title": "STRUKTUR",
+        "subtitle": "RANGKA PADAT",
+        "desc": "Konstruksi logam yang diperkuat menahan guncangan ekstrem.",
+        "stat": "100%",
+        "statLabel": "Kekokohan"
+      },
+      {
+        "title": "UMUR",
+        "subtitle": "MASA PAKAI PANJANG",
+        "desc": "Dirancang dengan material anti-fatigue untuk umur layanan yang panjang.",
+        "stat": "5thn+",
+        "statLabel": "Umur Layanan"
+      },
+      {
+        "title": "PRESISI",
+        "subtitle": "NOL CACAT",
+        "desc": "Toleransi manufaktur di bawah 0.05mm memastikan pemasangan presisi.",
+        "stat": "<0.1%",
+        "statLabel": "Tingkat Kesalahan"
+      },
+      {
+        "title": "KUALITAS",
+        "subtitle": "TRIPLE QC",
+        "desc": "Setiap batch melewati 3 tahap uji stress sebelum dikemas.",
+        "stat": "ISO",
+        "statLabel": "Bersertifikat"
+      }
+    ]
+  },
+
+  "warranty": {
+    "leftTitle": "JAMINAN SEUMUR HIDUP",
+    "termNote": "Syarat & Ketentuan Berlaku",
+    "tag": "Kebijakan Garansi",
+    "heading": "KAMI MENEGASKAN SETIAP SUKU CADANG.",
+    "paragraph": "Komitmen kami terhadap kualitas bukan sekadar slogan. Kami memberikan perlindungan menyeluruh untuk setiap suku cadang 77 Performance yang terpasang.",
+    "items": [
+      {
+        "title": "Perlindungan Cacat",
+        "desc": "Perlindungan penuh terhadap cacat produksi."
+      },
+      {
+        "title": "Penggantian Langsung",
+        "desc": "Proses klaim penggantian satu-ke-satu yang cepat."
+      },
+      {
+        "title": "Dukungan Nasional",
+        "desc": "Dukungan jaringan distributor di seluruh negeri."
+      }
+    ],
+    "cta": "Unduh Kebijakan PDF"
+  },
+  "closing": {
+    "uptitle": "Global Supply Chain Partner",
+    "titleLines": ["KEMBANGKAN", "BISNIS ANDA"],
+    "cta": "Partner Up",
+    "ctaSub": "B2B INQUIRY",
+    "whatsappMessage": "Halo Admin, saya tertarik untuk kerjasama distribusi / wholesale produk 77 Performance. Boleh info pricelist?",
+    "whatsappNumber": "6285210450511",
+    "marquee": ["SUPPLY. QUALITY. PROFIT."],
+    "footerLeft": "© 2026 77 PERFORMANCE",
+    "footerRight": "MANUFACTURING & IMPORT"
+  }
 }

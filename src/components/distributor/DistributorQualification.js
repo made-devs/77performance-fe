@@ -5,19 +5,15 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { CheckCircle2 } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function DistributorQualification() {
   const container = useRef(null);
+  const t = useTranslations("pageDistributor.qualification");
 
-  const quals = [
-    "Badan Usaha Resmi (PT/CV)",
-    "Memiliki pengalaman di bidang otomotif min. 3 tahun",
-    "Memiliki tim sales & armada logistik",
-    "Komitmen terhadap SOP harga & wilayah",
-    "Kemampuan finansial yang sehat",
-  ];
+  const quals = t.raw("items") || [];
 
   useGSAP(
     () => {
@@ -46,12 +42,9 @@ export default function DistributorQualification() {
     >
       <div className="md:w-1/3 bg-slate-100 p-12 md:p-20 flex flex-col justify-center">
         <h2 className="text-[var(--color-navy-77)] font-bold mb-4 text-3xl">
-          Qualification
+          {t("title")}
         </h2>
-        <p className="text-slate-500">
-          Kami sangat selektif dalam memilih mitra. Program ini hanya untuk
-          entitas bisnis yang serius.
-        </p>
+        <p className="text-slate-500">{t("description")}</p>
       </div>
       <div className="md:w-2/3 p-12 md:p-20 flex items-center">
         <ul className="qual-list space-y-6 w-full max-w-2xl">

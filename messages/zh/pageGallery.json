@@ -1,5 +1,36 @@
 {
   "uptitle": "视觉档案",
+  "titleLine1": "视觉",
+  "titleLine2": "档案",
+  "description": "77 Performance 的精选影像，展现动感与细节。",
+
+  "hero": {
+    "marquee": "视觉档案",
+    "curated": "策划瞬间",
+    "scrollHint": "向下滚动以浏览"
+  },
+
+  "gallery": {
+    "items": [
+      { "src": "https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&q=80&w=800", "col": 1, "title": "精密调校" },
+      { "src": "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&q=80&w=800", "col": 1, "title": "夜间驰骋" },
+      { "src": "https://images.unsplash.com/photo-1597687210387-e45e74257181?auto=format&fit=crop&q=80&w=800", "col": 1, "title": "发动机舱" },
+
+      { "src": "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&q=80&w=800", "col": 2, "title": "蓝图" },
+      { "src": "https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&q=80&w=800", "col": 2, "title": "焊接作业" },
+      { "src": "https://images.unsplash.com/photo-1487754180451-c456f719a1fc?auto=format&fit=crop&q=80&w=800", "col": 2, "title": "制造" },
+
+      { "src": "https://images.unsplash.com/photo-1503376763036-066120622c74?auto=format&fit=crop&q=80&w=800", "col": 3, "title": "霓虹车库" },
+      { "src": "https://images.unsplash.com/photo-1532585252495-22049eb8ae2b?auto=format&fit=crop&q=80&w=800", "col": 3, "title": "赛道日" },
+      { "src": "https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?auto=format&fit=crop&q=80&w=800", "col": 3, "title": "细节" }
+    ],
+    "lightbox": {
+      "archiveTag": "图片档案"
+    }
+  }
+}
+{
+  "uptitle": "视觉档案",
   "titleLine1": "工程",
   "titleLine2": "美学",
   "description": "通过视觉策展呈现 77 Performance 生态中的精度标准、机械细节与性能美学。"

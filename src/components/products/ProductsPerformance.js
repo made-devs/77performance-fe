@@ -5,45 +5,34 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ArrowUpRight, Gauge, Activity, Wind } from "lucide-react";
+import { useTranslations, useLocale } from "next-intl";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const panels = [
-  {
-    id: "01",
-    metric: "0.02s",
-    label: "VALVE RESPONSE",
-    desc: "Katup piston shockbreaker bereaksi instan terhadap perubahan permukaan jalan, menghilangkan lag pada damping.",
-    bg: "bg-[#145591]", // Navy 77
-    text: "text-white",
-    accent: "text-[#0591be]",
-    icon: Gauge,
-  },
-  {
-    id: "02",
-    metric: "98%",
-    label: "VIBRATION LOSS",
-    desc: "Material bushing polyurethane menyerap frekuensi getaran mikro, memisahkan kabin dari kekasaran aspal.",
-    bg: "bg-[#0591be]", // Cyan 77
-    text: "text-white",
-    accent: "text-white/60",
-    icon: Activity,
-  },
-  {
-    id: "03",
-    metric: "ZERO",
-    label: "BODY ROLL",
-    desc: "Geometri stabilizer link yang presisi menjaga sasis tetap datar saat manuver tikungan tajam.",
-    bg: "bg-white", // White
-    text: "text-[#145591]",
-    accent: "text-[#0591be]",
-    icon: Wind,
-  },
-];
+const DEFAULT_META = {
+  bgs: ["bg-[#145591]", "bg-[#0591be]", "bg-white"],
+  texts: ["text-white", "text-white", "text-[#145591]"],
+  accents: ["text-[#0591be]", "text-white/60", "text-[#0591be]"],
+  icons: [Gauge, Activity, Wind],
+};
 
 export default function ProductsPerformance() {
   const container = useRef(null);
   const [activeCtx, setActiveCtx] = useState(1); // Default panel tengah aktif
+  const t = useTranslations("pageProducts");
+  const locale = useLocale();
+
+  const translations = t.raw("performance.panels") || [];
+  const panels = translations.map((panel, idx) => ({
+    id: panel.id,
+    metric: panel.metric,
+    label: panel.label,
+    desc: panel.desc,
+    bg: DEFAULT_META.bgs[idx] || "bg-white",
+    text: DEFAULT_META.texts[idx] || "text-[#145591]",
+    accent: DEFAULT_META.accents[idx] || "text-[#0591be]",
+    icon: DEFAULT_META.icons[idx] || Gauge,
+  }));
 
   useGSAP(
     () => {
@@ -66,7 +55,7 @@ export default function ProductsPerformance() {
         },
       });
     },
-    { scope: container },
+    { scope: container, dependencies: [locale] },
   );
 
   return (
@@ -113,7 +102,7 @@ export default function ProductsPerformance() {
               <span
                 className={`font-mono text-sm tracking-[0.3em] uppercase block mb-2 ${panel.accent}`}
               >
-                PERFORMANCE METRIC
+                {t("performance.metricLabel")}
               </span>
               <h3 className="text-4xl md:text-5xl font-black uppercase tracking-tighter leading-[0.9]">
                 {panel.label}
@@ -146,7 +135,7 @@ export default function ProductsPerformance() {
               </p>
               <div className="mt-8 flex items-center gap-4 text-sm font-bold tracking-widest uppercase opacity-70">
                 <div className="h-[2px] w-8 bg-current" />
-                Tech Specs
+                {t("performance.techSpecs")}
               </div>
             </div>
           </div>

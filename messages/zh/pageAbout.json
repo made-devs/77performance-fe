@@ -4,5 +4,115 @@
   "titleLine2": "臻品",
   "descriptionLead": "77 Performance 提供",
   "descriptionHighlight": "高端汽车零部件",
-  "descriptionTail": "其基础来自成熟的全球制造体系与精密工程能力。"
+  "descriptionTail": "其基础来自成熟的全球制造体系与精密工程能力。",
+  "whoWeAre": {
+    "label": "01 / 品牌身份",
+    "statements": [
+      {
+        "text": "我们"
+      },
+      {
+        "text": "并不只是"
+      },
+      {
+        "text": "进口商。"
+      },
+      {
+        "text": "我们",
+        "isCyan": true
+      },
+      {
+        "text": "是",
+        "isCyan": true
+      },
+      {
+        "text": "品牌",
+        "isCyan": true
+      },
+      {
+        "text": "价值",
+        "isCyan": true
+      },
+      {
+        "text": "的",
+        "isCyan": true
+      },
+      {
+        "text": "构建者",
+        "isCyan": true
+      },
+      {
+        "text": "，"
+      },
+      {
+        "text": "为"
+      },
+      {
+        "text": "长期"
+      },
+      {
+        "text": "卓越"
+      },
+      {
+        "text": "而打造。"
+      }
+    ],
+    "features": [
+      {
+        "title": "全球制造基因",
+        "desc": "77 Performance 坚实地立足于全球制造的基础之上。我们发布的每一个组件都经过严格的研发流程，而不仅仅是通用产品的简单更名。"
+      },
+      {
+        "title": "超越价格的价值",
+        "desc": "我们的重点是创造<strong>可持续商业</strong>。我们的产品并非为了低价竞争，而是为了提供稳定一致的性能，帮助您建立客户信任。"
+      }
+    ]
+  },
+  "manufacturing": {
+    "label": "02 / 核心支柱",
+    "title": "构建于 <br /> 工业化规模之上。",
+    "experienceTitle": "卓越经验",
+    "experienceDesc": "在精密制造方面拥有十多年的经验。我们深谙冶金、机器公差和全球耐用性标准。",
+    "supplyChainTitle": "全球供应链",
+    "supplyChainDesc": "服务于多大洲 OEM 和售后市场的国际分销网络。",
+    "precisionTitle": "精密工程",
+    "precisionDesc": "自动化装配线与严格的质量控制流程。",
+    "volumeTitle": "高产能",
+    "volumeDesc": "数万平方米的制造设施，随时准备支持大规模的市场扩张。"
+  },
+  "philosophy": {
+    "label": "03 / 我们的价值观",
+    "title": "经营哲学",
+    "desc": "我们在推向市场的每一件产品中坚守的标准。",
+    "items": [
+      {
+        "icon": "Activity",
+        "title": "一致性",
+        "desc": "在每个生产批次中保持稳定的 A 级材料质量，绝不妥协。"
+      },
+      {
+        "icon": "ShieldCheck",
+        "title": "可靠性",
+        "desc": "精密可靠的零件耐用性，让日常驾驶舒适安心。"
+      },
+      {
+        "icon": "Handshake",
+        "title": "信任",
+        "desc": "业务透明度以及对我们经销商合作伙伴的全力支持。"
+      },
+      {
+        "icon": "TrendingUp",
+        "title": "共同成长",
+        "desc": "在现代汽车生态系统中共同成长的长期愿景。"
+      }
+    ]
+  },
+  "closing": {
+    "line1": "不仅仅是",
+    "highlight1": "零件。",
+    "line2": "商业",
+    "highlight2": "价值。",
+    "desc": "加入旨在实现长期增长和稳定的业务生态系统。",
+    "btn": "成为经销商"
+  }
 }

@@ -4,5 +4,70 @@
   "titleLine2": "制造",
   "titleLine3": "基础",
   "descriptionLead": "按国际标准打造。",
-  "descriptionHighlight": "精度。自动化。规模化。"
+  "descriptionHighlight": "精度。自动化。规模化。",
+
+  "facility": {
+    "tag": "工厂",
+    "heading": "工业规模能力。",
+    "paragraph": "我们的工厂占地数万平方米，整合了从原材料到最终检测的全部生产流程，集中在单一的生产基地。",
+    "cards": [
+      { "title": "生产", "desc": "自动化装配线" },
+      { "title": "研发中心", "desc": "材料开发实验室" },
+      { "title": "质检站", "desc": "100% 精度检验" },
+      { "title": "仓储", "desc": "全球物流枢纽" }
+    ]
+  },
+
+  "productionTech": {
+    "uptitle": "技术",
+    "heading": "生产线",
+    "items": [
+      {
+        "title": "自动化装配",
+        "subtitle": "机器人精度",
+        "desc": "自动化装配线减少人为误差，确保每个零件的尺寸一致性，精确到微米。"
+      },
+      {
+        "title": "精密加工",
+        "subtitle": "数控技术",
+        "desc": "采用先进的五轴数控机床，实现完美表面加工和严格公差控制。"
+      },
+      {
+        "title": "工业级",
+        "subtitle": "高强度产出",
+        "desc": "为高耐久性而设计，能够承受极端工作负荷，符合国际OEM标准。"
+      }
+    ]
+  },
+
+  "durability": {
+    "tag": "防护",
+    "heading": "电泳涂层",
+    "uptitle": "防腐与耐久",
+    "heading2": "在极端条件下经久耐用。",
+    "paragraph": "我们的涂层工艺不仅仅是涂漆。我们采用电泳涂覆技术，将保护性颗粒结合到金属表面，达到显微级别的防护。",
+    "list": [
+      { "title": "盐雾试验", "val": "通过500+小时" },
+      { "title": "涂层厚度", "val": "一致的微米级精度" },
+      { "title": "防锈性能", "val": "高级别" }
+    ]
+  },
+
+  "qualityTesting": {
+    "uptitle": "全面质量管理",
+    "heading": "出厂前测试。",
+    "paragraph": "每台产品都经过严格的动态阻尼测试和耐久性测试。我们在包装前拒绝任何不合格品。",
+    "grid": [
+      { "title": "动态测试", "desc": "恶劣地形模拟。" },
+      { "title": "耐久性", "desc": "30万+循环疲劳测试。" },
+      { "title": "冲击载荷", "desc": "高压抗压检测。" }
+    ]
+  },
+
+  "globalSupply": {
+    "heading": "全球供应经验",
+    "paragraph": "在全球各大洲赢得信赖，服务于售后与OEM替换市场。",
+    "regions": ["亚洲", "欧洲", "中东", "非洲", "美洲"],
+    "tagline": "成熟分销网络"
+  }
 }

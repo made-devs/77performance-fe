@@ -4,11 +4,15 @@ import React, { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useTranslations } from "next-intl";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function DistributorValueProp() {
   const container = useRef(null);
+  const t = useTranslations("pageDistributor.valueProp");
+  const line1 = t.raw("line1") || [];
+  const line2 = t.raw("line2") || [];
 
   useGSAP(
     () => {
@@ -38,26 +42,18 @@ export default function DistributorValueProp() {
     >
       <div className="container mx-auto px-6 md:px-12 text-center max-w-5xl">
         <h2 className="value-text text-3xl md:text-5xl lg:text-6xl font-bold leading-[1.2] text-[var(--color-navy-77)]">
-          <span>Joining </span>
-          <span>77 </span>
-          <span>Performance </span>
-          <span>is </span>
-          <span>not </span>
-          <span>about </span>
-          <span>buying </span>
-          <span>products. </span>
+          {line1.map((text, idx) => (
+            <span key={`line1-${idx}`}>{text}</span>
+          ))}
           <br className="my-4 block" />
-          <span className="text-[var(--color-cyan-77)]">It </span>
-          <span className="text-[var(--color-cyan-77)]">is </span>
-          <span className="text-[var(--color-cyan-77)]">entering </span>
-          <span className="text-[var(--color-cyan-77)]">a </span>
-          <span className="text-[var(--color-cyan-77)]">structured </span>
-          <span className="text-[var(--color-cyan-77)]">business </span>
-          <span className="text-[var(--color-cyan-77)]">ecosystem.</span>
+          {line2.map((text, idx) => (
+            <span key={`line2-${idx}`} className="text-[var(--color-cyan-77)]">
+              {text}
+            </span>
+          ))}
         </h2>
         <p className="mt-8 text-slate-500 text-lg max-w-2xl mx-auto">
-          We provide the system, the product, and the market positioning. You
-          provide the local dominance.
+          {t("description")}
         </p>
       </div>
     </section>

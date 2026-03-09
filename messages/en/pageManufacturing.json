@@ -4,5 +4,70 @@
   "titleLine2": "MANUFACTURING",
   "titleLine3": "FOUNDATION",
   "descriptionLead": "Engineered to international standards.",
-  "descriptionHighlight": "Precision. Automation. Scale."
+  "descriptionHighlight": "Precision. Automation. Scale.",
+
+  "facility": {
+    "tag": "The Facility",
+    "heading": "Industrial Scale Capabilities.",
+    "paragraph": "Operating across tens of thousands of square meters, our plant integrates the entire production process from raw materials to final testing in a single, unified site.",
+    "cards": [
+      { "title": "Production", "desc": "Automated Assembly Lines" },
+      { "title": "R&D Center", "desc": "Material Development Lab" },
+      { "title": "QC Station", "desc": "100% Precision Check" },
+      { "title": "Warehouse", "desc": "Global Logistics Hub" }
+    ]
+  },
+
+  "productionTech": {
+    "uptitle": "Technology",
+    "heading": "Production Line",
+    "items": [
+      {
+        "title": "Automated Assembly",
+        "subtitle": "Robotic Precision",
+        "desc": "Automated assembly lines reduce human error and ensure dimensional consistency of every component down to microns."
+      },
+      {
+        "title": "Precision Machining",
+        "subtitle": "CNC Technology",
+        "desc": "Utilizes advanced 5-axis CNC machines for flawless surface finishing and tight tolerances."
+      },
+      {
+        "title": "Industrial Grade",
+        "subtitle": "Heavy Duty Output",
+        "desc": "Designed for high durability, capable of withstanding extreme workloads to OEM international standards."
+      }
+    ]
+  },
+
+  "durability": {
+    "tag": "Protection",
+    "heading": "Electrophoresis Coating",
+    "uptitle": "Anti-Corrosion & Durability",
+    "heading2": "Built to last in extreme conditions.",
+    "paragraph": "Our coating process is more than paint. We use electrophoretic deposition to bind protective particles to metal surfaces at a microscopic level.",
+    "list": [
+      { "title": "Salt Spray Test", "val": "500+ Hours Passed" },
+      { "title": "Coating Thickness", "val": "Uniform Micron Precision" },
+      { "title": "Rust Resistance", "val": "Superior Grade" }
+    ]
+  },
+
+  "qualityTesting": {
+    "uptitle": "Total Quality Management",
+    "heading": "Tested Prior to Sale.",
+    "paragraph": "Every unit undergoes rigorous Dynamic Damping and Endurance tests. We reject 100% of defects before packaging.",
+    "grid": [
+      { "title": "Dynamic Test", "desc": "Simulation of rugged terrain." },
+      { "title": "Endurance", "desc": "300,000+ Cycles fatigue test." },
+      { "title": "Impact Load", "desc": "High pressure resistance check." }
+    ]
+  },
+
+  "globalSupply": {
+    "heading": "Global Supply Experience",
+    "paragraph": "Trusted across continents for Aftermarket & OEM replacement markets.",
+    "regions": ["ASIA", "EUROPE", "MIDDLE EAST", "AFRICA", "AMERICA"],
+    "tagline": "Proven Distribution Network"
+  }
 }

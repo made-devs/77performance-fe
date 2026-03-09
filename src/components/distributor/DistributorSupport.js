@@ -5,11 +5,13 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Package, Gift, MonitorPlay, Truck } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function DistributorSupport() {
   const container = useRef(null);
+  const t = useTranslations("pageDistributor.support");
 
   useGSAP(
     () => {
@@ -32,28 +34,11 @@ export default function DistributorSupport() {
     { scope: container },
   );
 
-  const supports = [
-    {
-      title: "Free Buffer Stock",
-      desc: "Program buffer suspension khusus awal tahun.",
-      icon: Package,
-    },
-    {
-      title: "Smart Bundling",
-      desc: "Paket penjualan moving parts + slow moving.",
-      icon: Gift,
-    },
-    {
-      title: "Marketing Kit",
-      desc: "Catalog, Banner, Apparel & Digital Assets.",
-      icon: MonitorPlay,
-    },
-    {
-      title: "Priority Shipping",
-      desc: "Jalur logistik prioritas untuk restock distributor.",
-      icon: Truck,
-    },
-  ];
+  const icons = [Package, Gift, MonitorPlay, Truck];
+  const supports = (t.raw("items") || []).map((item, idx) => ({
+    ...item,
+    icon: icons[idx] || Package,
+  }));
 
   return (
     <section
@@ -62,13 +47,8 @@ export default function DistributorSupport() {
     >
       <div className="container mx-auto px-6 md:px-12">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold mb-6">
-            Promotion & Support System
-          </h2>
-          <p className="text-slate-600">
-            Kami tidak membiarkan Anda berjuang sendirian. Support system kami
-            dirancang untuk mengakselerasi penetrasi pasar Anda.
-          </p>
+          <h2 className="text-3xl md:text-5xl font-bold mb-6">{t("title")}</h2>
+          <p className="text-slate-600">{t("description")}</p>
         </div>
 
         <div className="support-grid grid grid-cols-1 md:grid-cols-2 gap-8">

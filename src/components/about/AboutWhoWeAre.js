@@ -4,11 +4,16 @@ import React, { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useTranslations } from "next-intl";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function AboutWhoWeAre() {
   const container = useRef(null);
+  const t = useTranslations("pageAbout.whoWeAre");
+
+  const statements = t.raw("statements") || [];
+  const features = t.raw("features") || [];
 
   useGSAP(
     () => {
@@ -61,51 +66,44 @@ export default function AboutWhoWeAre() {
         {/* Label Section */}
         <div className="flex items-center gap-4 mb-12">
           <span className="text-sm font-bold tracking-widest uppercase text-[var(--color-cyan-77)]">
-            01 / The Identity
+            {t("label")}
           </span>
           <div className="divider-line h-[1px] flex-1 bg-slate-200" />
         </div>
 
         {/* Big Statement - Scroll Scrubbed */}
         <h2 className="main-statement text-4xl md:text-7xl font-bold leading-[1.1] mb-20 max-w-5xl">
-          <span>We </span>
-          <span>are </span>
-          <span>not </span>
-          <span>just </span>
-          <span>importers. </span>
-          <br className="hidden md:block" />
-          <span className="text-[var(--color-cyan-77)]">We </span>
-          <span className="text-[var(--color-cyan-77)]">are </span>
-          <span className="text-[var(--color-cyan-77)]">brand </span>
-          <span className="text-[var(--color-cyan-77)]">builders </span>
-          <span>engineered </span>
-          <span>for </span>
-          <span>long-term </span>
-          <span>excellence.</span>
+          {statements.map((stmt, idx) => (
+            <React.Fragment key={idx}>
+              <span
+                className={stmt.isCyan ? "text-[var(--color-cyan-77)]" : ""}
+              >
+                {stmt.text}
+              </span>
+              {idx === 4 && <br className="hidden md:block" />}
+            </React.Fragment>
+          ))}
         </h2>
 
         {/* Detailed Content */}
         <div className="details-grid grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24 border-t border-slate-200 pt-12">
           <div className="detail-text">
             <h3 className="text-2xl font-bold mb-4 text-slate-900">
-              Global Manufacturing DNA
+              {features[0]?.title}
             </h3>
-            <p className="text-slate-600 text-lg leading-relaxed">
-              77 Performance berdiri kokoh di atas fondasi manufaktur global.
-              Setiap komponen yang kami rilis telah melalui proses R&D ketat,
-              bukan sekadar renaming produk generik.
-            </p>
+            <p
+              className="text-slate-600 text-lg leading-relaxed"
+              dangerouslySetInnerHTML={{ __html: features[0]?.desc || "" }}
+            />
           </div>
           <div className="detail-text">
             <h3 className="text-2xl font-bold mb-4 text-slate-900">
-              Value Beyond Price
+              {features[1]?.title}
             </h3>
-            <p className="text-slate-600 text-lg leading-relaxed">
-              Fokus kami adalah menciptakan{" "}
-              <strong>Sustainable Business</strong>. Produk kami tidak dirancang
-              untuk perang harga murah, melainkan memberikan konsistensi
-              performa yang membangun kepercayaan pelanggan Anda.
-            </p>
+            <p
+              className="text-slate-600 text-lg leading-relaxed"
+              dangerouslySetInnerHTML={{ __html: features[1]?.desc || "" }}
+            />
           </div>
         </div>
       </div>

@@ -4,5 +4,73 @@
   "titleLine2": "MANUFAKTUR",
   "titleLine3": "GLOBAL",
   "descriptionLead": "Direkayasa dengan standar internasional.",
-  "descriptionHighlight": "Presisi. Otomasi. Skala."
+  "descriptionHighlight": "Presisi. Otomasi. Skala.",
+
+  "facility": {
+    "tag": "Fasilitas",
+    "heading": "Kemampuan Skala Industri.",
+    "paragraph": "Beroperasi di atas fasilitas seluas puluhan ribu meter persegi, pabrik kami mengintegrasikan seluruh proses produksi mulai dari bahan baku hingga pengujian akhir di satu lokasi terpadu.",
+    "cards": [
+      { "title": "Produksi", "desc": "Lini Perakitan Otomatis" },
+      { "title": "Pusat R&D", "desc": "Laboratorium Pengembangan Material" },
+      { "title": "Stasiun QC", "desc": "Pemeriksaan Presisi 100%" },
+      { "title": "Gudang", "desc": "Pusat Logistik Global" }
+    ]
+  },
+
+  "productionTech": {
+    "uptitle": "Teknologi",
+    "heading": "Lini Produksi",
+    "items": [
+      {
+        "title": "Perakitan Otomatis",
+        "subtitle": "Presisi Robotik",
+        "desc": "Lini perakitan otomatis mengurangi human-error dan memastikan konsistensi dimensi setiap komponen hingga mikron."
+      },
+      {
+        "title": "Pemrosesan Presisi",
+        "subtitle": "Teknologi CNC",
+        "desc": "Menggunakan mesin CNC 5-axis mutakhir untuk finishing permukaan yang sempurna dan toleransi yang ketat."
+      },
+      {
+        "title": "Kelas Industri",
+        "subtitle": "Output Heavy Duty",
+        "desc": "Dirancang untuk durabilitas tinggi, mampu menahan beban kerja ekstrem sesuai standar OEM internasional."
+      }
+    ]
+  },
+
+  "durability": {
+    "tag": "Perlindungan",
+    "heading": "Pelapisan Electrophoresis",
+    "uptitle": "Anti-Korosi & Durabilitas",
+    "heading2": "Dibuat untuk tahan dalam kondisi ekstrem.",
+    "paragraph": "Proses pelapisan kami bukan sekadar cat. Kami menggunakan teknologi Electrophoresis yang mengikat partikel pelindung ke permukaan metal hingga level mikroskopis.",
+    "list": [
+      { "title": "Uji Semprotan Garam", "val": "Lebih dari 500 Jam" },
+      { "title": "Ketebalan Pelapisan", "val": "Presisi Mikron yang Seragam" },
+      { "title": "Tahan Karat", "val": "Kualitas Unggul" }
+    ]
+  },
+
+  "qualityTesting": {
+    "uptitle": "Manajemen Mutu Total",
+    "heading": "Diuji Sebelum Dijual.",
+    "paragraph": "Setiap unit melewati Dynamic Damping Test dan Endurance Test yang ketat. Kami menolak 100% kecacatan sebelum produk dikemas.",
+    "grid": [
+      { "title": "Uji Dinamis", "desc": "Simulasi medan berat." },
+      { "title": "Ketahanan", "desc": "Uji 300.000+ siklus." },
+      {
+        "title": "Beban Tabrak",
+        "desc": "Pemeriksaan ketahanan tekanan tinggi."
+      }
+    ]
+  },
+
+  "globalSupply": {
+    "heading": "Pengalaman Pasokan Global",
+    "paragraph": "Dipercaya di berbagai benua untuk pasar Aftermarket & OEM Replacement.",
+    "regions": ["ASIA", "EROPA", "TIMUR TENGAH", "AFRIKA", "AMERIKA"],
+    "tagline": "Jaringan Distribusi Terbukti"
+  }
 }

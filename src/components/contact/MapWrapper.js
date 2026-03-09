@@ -18,6 +18,8 @@ function FlyToLocation({ coords }) {
 export default function MapWrapper({ branches, activeBranch, onBranchClick }) {
   const [icon, setIcon] = useState(null);
 
+  const [key, setKey] = useState(0);
+
   useEffect(() => {
     const customIcon = new L.DivIcon({
       className: "custom-marker",
@@ -26,10 +28,17 @@ export default function MapWrapper({ branches, activeBranch, onBranchClick }) {
       iconAnchor: [10, 10],
     });
     setIcon(customIcon);
+
+    // This is a workaround for Fast Refresh in development causing
+    // "Map container is being reused by another instance" error.
+    return () => {
+      setKey((prev) => prev + 1);
+    };
   }, []);
 
   return (
     <MapContainer
+      key={key}
       center={[-2.5, 118]}
       zoom={5}
       // UBAH DISINI: scrollWheelZoom={true} agar bisa zoom pakai mouse

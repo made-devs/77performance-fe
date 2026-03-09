@@ -4,5 +4,110 @@
   "titleLine2": "SEMPURNA",
   "descriptionLead": "77 Performance menghadirkan",
   "descriptionHighlight": "suku cadang otomotif premium",
-  "descriptionTail": "yang dibangun di atas fondasi manufaktur global teruji dan rekayasa presisi."
+  "descriptionTail": "yang dibangun di atas fondasi manufaktur global teruji dan rekayasa presisi.",
+  "whoWeAre": {
+    "label": "01 / Identitas",
+    "statements": [
+      {
+        "text": "Kami "
+      },
+      {
+        "text": "bukan "
+      },
+      {
+        "text": "sekadar "
+      },
+      {
+        "text": "importir. "
+      },
+      {
+        "text": "Kami ",
+        "isCyan": true
+      },
+      {
+        "text": "adalah ",
+        "isCyan": true
+      },
+      {
+        "text": "pembangun ",
+        "isCyan": true
+      },
+      {
+        "text": "merek ",
+        "isCyan": true
+      },
+      {
+        "text": "yang "
+      },
+      {
+        "text": "direkayasa "
+      },
+      {
+        "text": "untuk "
+      },
+      {
+        "text": "keunggulan "
+      },
+      {
+        "text": "jangka panjang."
+      }
+    ],
+    "features": [
+      {
+        "title": "DNA Manufaktur Global",
+        "desc": "77 Performance berdiri kokoh di atas fondasi manufaktur global. Setiap komponen yang kami rilis telah melalui proses R&D ketat, bukan sekadar renaming produk generik."
+      },
+      {
+        "title": "Nilai Melampaui Harga",
+        "desc": "Fokus kami adalah menciptakan <strong>Sustainable Business</strong>. Produk kami tidak dirancang untuk perang harga murah, melainkan memberikan konsistensi performa yang membangun kepercayaan pelanggan Anda."
+      }
+    ]
+  },
+  "manufacturing": {
+    "label": "02 / Fondasi",
+    "title": "Dibangun di Atas <br /> Skala Industri.",
+    "experienceTitle": "Tahun Keunggulan",
+    "experienceDesc": "Pengalaman lebih dari satu dekade dalam manufaktur presisi. Kami mengerti metalurgi, toleransi mesin, dan standar durabilitas global.",
+    "supplyChainTitle": "Rantai Pasok Global",
+    "supplyChainDesc": "Jaringan distribusi internasional yang melayani pasar OEM dan aftermarket di berbagai benua.",
+    "precisionTitle": "Rekayasa Presisi",
+    "precisionDesc": "Lini perakitan otomatis dan protokol kontrol kualitas yang ketat.",
+    "volumeTitle": "Kapasitas Volume Tinggi",
+    "volumeDesc": "Fasilitas manufaktur puluhan ribu meter persegi siap mendukung ekspansi pasar besar-besaran."
+  },
+  "philosophy": {
+    "label": "03 / Nilai Kami",
+    "title": "Filosofi",
+    "desc": "Standar yang kami pegang teguh dalam setiap produk yang kami antarkan ke pasar.",
+    "items": [
+      {
+        "icon": "Activity",
+        "title": "Konsistensi",
+        "desc": "Kualitas material Grade A yang stabil di setiap batch produksi, tanpa kompromi."
+      },
+      {
+        "icon": "ShieldCheck",
+        "title": "Keandalan",
+        "desc": "Ketahanan parts yang presisi dan diandalkan untuk kenyamanan berkendara harian."
+      },
+      {
+        "icon": "Handshake",
+        "title": "Kepercayaan",
+        "desc": "Transparansi bisnis dan dukungan penuh untuk mitra distributor kami."
+      },
+      {
+        "icon": "TrendingUp",
+        "title": "Pertumbuhan",
+        "desc": "Visi jangka panjang untuk tumbuh bersama dalam ekosistem otomotif modern."
+      }
+    ]
+  },
+  "closing": {
+    "line1": "BUKAN SEKADAR",
+    "highlight1": "SUKU CADANG.",
+    "line2": "NILAI",
+    "highlight2": "BISNIS.",
+    "desc": "Bergabung bersama ekosistem bisnis stabilitas tinggi dan terpercaya.",
+    "btn": "Menjadi Distributor"
+  }
 }
