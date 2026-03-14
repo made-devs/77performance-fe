@@ -36,7 +36,7 @@ export default async function AboutSection() {
             {/* Main Image */}
             <div className="relative h-[500px] w-full rounded-sm overflow-hidden shadow-2xl">
               <Image
-                src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=900&q=80"
+                src="/home/map.webp"
                 alt="Automotive Factory Production Line"
                 fill
                 className="object-cover hover:scale-105 transition-transform duration-700"

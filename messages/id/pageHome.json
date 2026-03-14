@@ -29,11 +29,11 @@
     "badge": "Di Balik Kualitas",
     "titleLine1": "Direkayasa dalam",
     "titleLine2": "Skala Industri",
-    "description": "Kami tidak hanya merakit, kami memproduksi. Dengan fasilitas puluhan ribu meter persegi dan teknologi presisi, setiap komponen 77 Performance lahir dari standar manufaktur kelas dunia.",
+    "description": "Kami tidak hanya merakit, kami memproduksi. Dengan fasilitas pabrik puluhan ribu meter persegi dan teknologi presisi, setiap komponen 77 Performance lahir dari standar manufaktur kelas dunia.",
     "features": [
       {
-        "title": "Fasilitas Skala Industri",
-        "desc": "Fasilitas puluhan ribu m² mencakup produksi, R&D, dan gudang terpusat."
+        "title": "Fasilitas Pabrik Skala Industri",
+        "desc": "Fasilitas pabrik puluhan ribu m² mencakup produksi, R&D, dan gudang terpusat."
       },
       {
         "title": "Perakitan Otomatis",
@@ -84,11 +84,7 @@
         "title": "Kenyamanan Terrekayasa",
         "subtitle": "Precision Damping",
         "desc": "Kenyamanan berkendara bukan kebetulan. Sistem valving kami dikalibrasi untuk meredam getaran mikro.",
-        "features": [
-          "Adaptive Valving",
-          "Peredaman Noise",
-          "Smooth Rebound"
-        ]
+        "features": ["Adaptive Valving", "Peredaman Noise", "Smooth Rebound"]
       },
       {
         "id": "03",
@@ -225,7 +221,7 @@
     "badge": "Proposisi Nilai Distributor",
     "titleLine1": "Bukan Sekadar Beli Produk.",
     "titleLine2": "Ini Kemitraan Terstruktur.",
-    "description": "Menjadi distributor 77 Performance berarti memiliki akses ke ekosistem bisnis yang matang. Kami memberikan dukungan 360° dari hulu ke hilir.",
+    "description": "Pertama di Indonesia, satu-satunya mitra yang menghadirkan ekosistem bisnis lengkap dan dukungan menyeluruh seperti 77 Performance.",
     "benefits": [
       {
         "title": "Garansi Omset Bulanan",
@@ -316,11 +312,7 @@
       "title": "Beli Shockbreaker / Racksteer",
       "highlight": "GRATIS Trisev Buffer Suspension",
       "desc": "Setiap pembelian unit Shockbreaker dan/atau Racksteer 77 Performance mendapatkan Bonus Langsung Trisev Buffer Suspension. Tingkatkan kenyamanan & stabilitas tanpa biaya tambahan.",
-      "tags": [
-        "Shockbreaker",
-        "Racksteer",
-        "Bundling Package"
-      ]
+      "tags": ["Shockbreaker", "Racksteer", "Bundling Package"]
     },
     "offerLabel": "Penawaran Korporat",
     "offerTitle": "Paket Bundling Eksklusif",

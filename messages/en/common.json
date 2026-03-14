@@ -1,3 +1,7 @@
 {
-  "language": "Language"
+  "language": "Language",
+  "downloads": {
+    "companyProfile": "Company Profile",
+    "distributorProposal": "Distributor Proposal"
+  }
 }

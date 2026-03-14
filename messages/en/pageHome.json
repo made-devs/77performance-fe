@@ -29,11 +29,11 @@
     "badge": "Behind The Quality",
     "titleLine1": "Engineered at",
     "titleLine2": "Industrial Scale",
-    "description": "We do not just assemble, we manufacture. With tens of thousands of square meters of facilities and precision technology, every 77 Performance component is produced under world-class manufacturing standards.",
+    "description": "We do not just assemble, we manufacture. With tens of thousands of square meters of factory facilities and precision technology, every 77 Performance component is produced under world-class manufacturing standards.",
     "features": [
       {
-        "title": "Industrial Scale Facility",
-        "desc": "Tens of thousands of m² covering production, R&D, and centralized warehousing."
+        "title": "Industrial-Scale Factory",
+        "desc": "Tens of thousands of m² of factory facilities covering production, R&D, and centralized warehousing."
       },
       {
         "title": "Automated Assembly",
@@ -84,11 +84,7 @@
         "title": "Engineered Comfort",
         "subtitle": "Precision Damping",
         "desc": "Driving comfort is not accidental. Our valving system is calibrated to absorb micro-vibrations.",
-        "features": [
-          "Adaptive Valving",
-          "Noise Reduction",
-          "Smooth Rebound"
-        ]
+        "features": ["Adaptive Valving", "Noise Reduction", "Smooth Rebound"]
       },
       {
         "id": "03",
@@ -225,7 +221,7 @@
     "badge": "Distributor Value Proposition",
     "titleLine1": "Not Just Buying Parts.",
     "titleLine2": "It's a Structured Partnership.",
-    "description": "Becoming a 77 Performance distributor means access to a mature business ecosystem. We provide 360° support from upstream to downstream.",
+    "description": "First in Indonesia, the only partner delivering a complete business ecosystem and end-to-end support like 77 Performance. Becoming a 77 Performance distributor means access to a mature business ecosystem. We provide 360° support from upstream to downstream.",
     "benefits": [
       {
         "title": "Monthly Revenue Guarantee",
@@ -316,11 +312,7 @@
       "title": "Buy Shockbreaker / Racksteer",
       "highlight": "FREE Trisev Buffer Suspension",
       "desc": "Every purchase of Shockbreaker and/or Racksteer units from 77 Performance gets an instant Trisev Buffer Suspension bonus. Improve comfort and stability at no extra cost.",
-      "tags": [
-        "Shockbreaker",
-        "Racksteer",
-        "Bundling Package"
-      ]
+      "tags": ["Shockbreaker", "Racksteer", "Bundling Package"]
     },
     "offerLabel": "Corporate Offer",
     "offerTitle": "Exclusive Bundling Kit",

@@ -4,50 +4,77 @@ import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function SpecsSection() {
   const containerRef = useRef(null);
+  const locale = useLocale();
   const t = useTranslations("pageHome.specsSection");
   const cards = t.raw("cards");
 
   useGSAP(
     () => {
+      const scoped = gsap.utils.selector(containerRef);
+      const titleElement = scoped(".spec-title")[0];
+
       // Animate Title
-      gsap.from(".spec-title", {
-        y: 50,
-        opacity: 0,
-        duration: 1,
-        scrollTrigger: {
-          trigger: ".spec-title",
-          start: "top 80%",
-        },
+      if (titleElement) {
+        gsap.from(titleElement, {
+          y: 50,
+          opacity: 0,
+          duration: 1,
+          scrollTrigger: {
+            trigger: titleElement,
+            start: "top 80%",
+          },
+        });
+      }
+
+      // Animate Grid Items (Robust on locale switch)
+      const cardElements = gsap.utils.toArray(scoped(".bento-card"));
+      const revealThreshold = window.innerHeight * 0.85;
+
+      gsap.set(cardElements, {
+        clearProps: "opacity,transform",
       });
 
-      // Animate Grid Items (Staggered Reveal) - Fixed
-      const cards = gsap.utils.toArray(".bento-card");
+      cardElements.forEach((card) => {
+        const isAlreadyInView =
+          card.getBoundingClientRect().top <= revealThreshold;
 
-      cards.forEach((card) => {
-        gsap.from(card, {
-          y: 80,
-          opacity: 0,
-          duration: 0.8,
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger: card,
-            start: "top 85%",
-            toggleActions: "play none none none",
+        if (isAlreadyInView) {
+          gsap.set(card, { y: 0, autoAlpha: 1 });
+          return;
+        }
+
+        gsap.set(card, { y: 80, autoAlpha: 0 });
+
+        ScrollTrigger.create({
+          trigger: card,
+          start: "top 85%",
+          once: true,
+          onEnter: () => {
+            gsap.to(card, {
+              y: 0,
+              autoAlpha: 1,
+              duration: 0.8,
+              ease: "power2.out",
+              overwrite: "auto",
+            });
           },
         });
       });
+
+      requestAnimationFrame(() => ScrollTrigger.refresh());
     },
-    { scope: containerRef },
+    { scope: containerRef, dependencies: [locale], revertOnUpdate: true },
   );
 
   return (
     <section
+      key={`specs-${locale}`}
       ref={containerRef}
       className="py-24 bg-slate-50 relative overflow-hidden"
     >

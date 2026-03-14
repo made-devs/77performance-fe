@@ -29,11 +29,11 @@
     "badge": "品质背后",
     "titleLine1": "工程打造于",
     "titleLine2": "工业级规模",
-    "description": "我们不仅装配，更进行完整制造。凭借数万平方米设施与精密技术，77 Performance 每个零件都诞生于世界级制造标准。",
+    "description": "我们不仅装配，更进行完整制造。凭借数万平方米的工厂设施与精密技术，77 Performance 每个零件都诞生于世界级制造标准。",
     "features": [
       {
-        "title": "工业级设施规模",
-        "desc": "数万平方米设施覆盖生产、研发与集中仓储。"
+        "title": "工业级工厂设施",
+        "desc": "数万平方米的工厂设施覆盖生产、研发与集中仓储。"
       },
       {
         "title": "自动化装配",
@@ -72,11 +72,7 @@
         "title": "高端材料",
         "subtitle": "Grade A 甄选",
         "desc": "我们对基础材料绝不妥协，采用高强度钢与 Grade-A 橡胶组件。",
-        "features": [
-          "高强度钢",
-          "耐热橡胶",
-          "防腐涂层"
-        ]
+        "features": ["高强度钢", "耐热橡胶", "防腐涂层"]
       },
       {
         "id": "02",
@@ -84,11 +80,7 @@
         "title": "工程化舒适",
         "subtitle": "精密阻尼",
         "desc": "驾乘舒适并非偶然。我们的阀系经过校准，可有效抑制微振动。",
-        "features": [
-          "自适应阀系",
-          "降噪优化",
-          "平顺回弹"
-        ]
+        "features": ["自适应阀系", "降噪优化", "平顺回弹"]
       },
       {
         "id": "03",
@@ -96,11 +88,7 @@
         "title": "极致耐久",
         "subtitle": "持久可靠",
         "desc": "为长寿命而设计，每个单元都经过高循环耐久测试。",
-        "features": [
-          "高循环测试",
-          "防漏密封",
-          "重载结构"
-        ]
+        "features": ["高循环测试", "防漏密封", "重载结构"]
       }
     ]
   },
@@ -116,11 +104,7 @@
       "integrated": {
         "title": "一体化生产生态",
         "desc": "数万平方米设施整合 Machining、Assembly、Surface Treatment 与 Final Inspection，全流程同场协同。",
-        "badges": [
-          "自动化装配",
-          "精密加工",
-          "工业规模"
-        ]
+        "badges": ["自动化装配", "精密加工", "工业规模"]
       },
       "experience": {
         "label": "经验年限",
@@ -225,7 +209,7 @@
     "badge": "分销商价值主张",
     "titleLine1": "不只是采购零部件。",
     "titleLine2": "而是结构化伙伴关系。",
-    "description": "成为 77 Performance 分销商，意味着进入成熟商业生态。我们提供从上游到下游的 360° 支持。",
+    "description": "印尼首创，唯一能像 77 Performance 那样提供完整商业生态与端到端支持的合作伙伴。成为 77 Performance 分销商，意味着进入成熟商业生态。我们提供从上游到下游的 360° 支持。",
     "benefits": [
       {
         "title": "月度营收保障",
@@ -316,11 +300,7 @@
       "title": "购买 Shockbreaker / Racksteer",
       "highlight": "免费赠送 Trisev Buffer Suspension",
       "desc": "购买 77 Performance Shockbreaker 和/或 Racksteer，即可获得 Trisev Buffer Suspension 赠品，无额外成本提升舒适与稳定性。",
-      "tags": [
-        "Shockbreaker",
-        "Racksteer",
-        "Bundling Package"
-      ]
+      "tags": ["Shockbreaker", "Racksteer", "Bundling Package"]
     },
     "offerLabel": "企业优惠",
     "offerTitle": "专属组合套装",

@@ -1,3 +1,7 @@
 {
-  "language": "语言"
+  "language": "语言",
+  "downloads": {
+    "companyProfile": "公司简介",
+    "distributorProposal": "经销商提案"
+  }
 }
