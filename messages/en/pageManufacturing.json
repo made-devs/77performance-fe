@@ -69,5 +69,17 @@
     "paragraph": "Trusted across continents for Aftermarket & OEM replacement markets.",
     "regions": ["ASIA", "EUROPE", "MIDDLE EAST", "AFRICA", "AMERICA"],
     "tagline": "Proven Distribution Network"
+  },
+
+  "closing": {
+    "uptitle": "Interested in Partnering?",
+    "titleLines": ["MASSIVE", "CAPACITY."],
+    "cta": "BECOME A DISTRIBUTOR",
+    "ctaSub": "CONTACT OUR TEAM",
+    "footerLeft": "OEM CAPABILITIES",
+    "footerRight": "GLOBAL SCALE",
+    "marqueeText": "MANUFACTURING. AUTOMATION. QUALITY.",
+    "whatsappNumber": "62811197779",
+    "whatsappMessage": "Hello 77 Performance, I am interested in discussing distributorship opportunities and your manufacturing capabilities."
   }
 }

@@ -11,31 +11,100 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default function DurabilitySection() {
   const container = useRef(null);
+  const leftPanelRef = useRef(null);
+  const rightListRef = useRef(null);
   const t = useTranslations("pageManufacturing");
 
   useGSAP(
     () => {
-      // Split reveal animation
-      gsap.from(".left-panel", {
-        xPercent: -50,
-        opacity: 0,
-        duration: 1.2,
-        scrollTrigger: {
-          trigger: container.current,
-          start: "top 70%",
-        },
-      });
+      if (!container.current) return;
 
-      gsap.from(".right-list li", {
-        x: 30,
-        opacity: 0,
-        stagger: 0.1,
-        duration: 1,
-        scrollTrigger: {
-          trigger: ".right-list",
+      const triggers = [];
+      const listItems = rightListRef.current
+        ? gsap.utils.toArray("li", rightListRef.current)
+        : [];
+
+      if (leftPanelRef.current) {
+        const leftTrigger = ScrollTrigger.create({
+          trigger: leftPanelRef.current,
+          start: "top 75%",
+          invalidateOnRefresh: true,
+          onEnter: () => {
+            gsap.fromTo(
+              leftPanelRef.current,
+              { xPercent: -20, autoAlpha: 0 },
+              {
+                xPercent: 0,
+                autoAlpha: 1,
+                duration: 1.1,
+                ease: "power3.out",
+                overwrite: "auto",
+              },
+            );
+          },
+          onEnterBack: () => {
+            gsap.fromTo(
+              leftPanelRef.current,
+              { xPercent: -10, autoAlpha: 0.4 },
+              {
+                xPercent: 0,
+                autoAlpha: 1,
+                duration: 0.8,
+                ease: "power2.out",
+                overwrite: "auto",
+              },
+            );
+          },
+        });
+        triggers.push(leftTrigger);
+      }
+
+      if (rightListRef.current && listItems.length) {
+        const listTrigger = ScrollTrigger.create({
+          trigger: rightListRef.current,
           start: "top 80%",
-        },
-      });
+          invalidateOnRefresh: true,
+          onEnter: () => {
+            gsap.fromTo(
+              listItems,
+              { x: 30, autoAlpha: 0 },
+              {
+                x: 0,
+                autoAlpha: 1,
+                stagger: 0.1,
+                duration: 0.9,
+                ease: "power3.out",
+                overwrite: "auto",
+              },
+            );
+          },
+          onEnterBack: () => {
+            gsap.fromTo(
+              listItems,
+              { x: 16, autoAlpha: 0.5 },
+              {
+                x: 0,
+                autoAlpha: 1,
+                stagger: 0.06,
+                duration: 0.7,
+                ease: "power2.out",
+                overwrite: "auto",
+              },
+            );
+          },
+        });
+        triggers.push(listTrigger);
+      }
+
+      const refresh = () => ScrollTrigger.refresh();
+      const rafId = requestAnimationFrame(refresh);
+      window.addEventListener("load", refresh);
+
+      return () => {
+        cancelAnimationFrame(rafId);
+        window.removeEventListener("load", refresh);
+        triggers.forEach((trigger) => trigger.kill());
+      };
     },
     { scope: container },
   );
@@ -61,7 +130,10 @@ export default function DurabilitySection() {
       <div className="container mx-auto px-6 md:px-12 relative z-10">
         <div className="flex flex-col lg:flex-row gap-16 items-center">
           {/* Left Panel: Visual Impact */}
-          <div className="left-panel lg:w-1/2 relative w-full">
+          <div
+            ref={leftPanelRef}
+            className="left-panel lg:w-1/2 relative w-full"
+          >
             <div className="relative rounded-[2.5rem] overflow-hidden shadow-[0_20px_60px_rgba(2,21,38,0.5)] border border-cyan-77/20 aspect-[4/3] group">
               {/* Image representing coating / raw material */}
               <div className="absolute inset-0 bg-[url('/about.webp')] bg-cover bg-center transition-transform duration-700 group-hover:scale-105" />
@@ -105,7 +177,7 @@ export default function DurabilitySection() {
               {t("durability.paragraph")}
             </p>
 
-            <ul className="right-list flex flex-col gap-4">
+            <ul ref={rightListRef} className="right-list flex flex-col gap-4">
               {t.raw("durability.list").map((item, idx) => (
                 <li
                   key={idx}

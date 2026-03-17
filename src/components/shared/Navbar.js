@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -33,6 +33,16 @@ export default function Navbar() {
   const pathname = usePathname();
   const router = useRouter();
 
+  useEffect(() => {
+    const rafId = window.requestAnimationFrame(() => {
+      ScrollTrigger.refresh();
+    });
+
+    return () => {
+      window.cancelAnimationFrame(rafId);
+    };
+  }, [pathname]);
+
   const handleLocaleChange = (nextLocale) => {
     if (nextLocale === locale) {
       return;
@@ -43,15 +53,9 @@ export default function Navbar() {
 
   useGSAP(
     () => {
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          start: "top top",
-          end: "+=100",
-          onLeave: () => setIsScrolled(true),
-          onEnterBack: () => setIsScrolled(false),
-          scrub: true, // Smooth scrubbing effect
-        },
-      });
+      setIsScrolled(window.scrollY > 20);
+
+      const tl = gsap.timeline({ paused: true });
 
       // Sembunyikan top bar saat discroll
       tl.to(
@@ -95,8 +99,22 @@ export default function Navbar() {
         },
         0,
       );
+
+      ScrollTrigger.create({
+        trigger: document.documentElement,
+        start: 0,
+        end: 100,
+        scrub: true,
+        animation: tl,
+        invalidateOnRefresh: true,
+        onUpdate: (self) => setIsScrolled(self.progress > 0.05),
+      });
     },
-    { scope: headerRef },
+    {
+      scope: headerRef,
+      dependencies: [pathname],
+      revertOnUpdate: true,
+    },
   );
 
   return (

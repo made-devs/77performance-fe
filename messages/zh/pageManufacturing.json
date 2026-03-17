@@ -69,5 +69,17 @@
     "paragraph": "在全球各大洲赢得信赖，服务于售后与OEM替换市场。",
     "regions": ["亚洲", "欧洲", "中东", "非洲", "美洲"],
     "tagline": "成熟分销网络"
+  },
+
+  "closing": {
+    "uptitle": "有意合作吗？",
+    "titleLines": ["庞大的", "产能。"],
+    "cta": "成为经销商",
+    "ctaSub": "联系我们的团队",
+    "footerLeft": "OEM 能力",
+    "footerRight": "全球规模",
+    "marqueeText": "制造 • 自动化 • 质量",
+    "whatsappNumber": "62811197779",
+    "whatsappMessage": "您好 77 Performance，我有兴趣探讨经销商合作机会和您的制造能力。"
   }
 }

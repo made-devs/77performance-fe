@@ -10,9 +10,9 @@ import { useTranslations, useLocale } from "next-intl";
 gsap.registerPlugin(ScrollTrigger);
 
 const DEFAULT_META = {
-  bgs: ["bg-[#145591]", "bg-[#0591be]", "bg-dark-77"],
-  texts: ["text-white", "text-white", "text-[#145591]"],
-  accents: ["text-[#0591be]", "text-white/60", "text-[#0591be]"],
+  bgs: ["bg-[#145591]/95", "bg-[#0591be]/90", "bg-[#0a0a0a]/95"],
+  texts: ["text-white", "text-white", "text-white"],
+  accents: ["text-cyan-300", "text-neutral-200", "text-cyan-400"],
   icons: [Gauge, Activity, Wind],
 };
 
@@ -61,30 +61,34 @@ export default function ProductsPerformance() {
   return (
     <section
       ref={container}
-      className="relative w-full h-screen min-h-[600px] overflow-hidden flex flex-col md:flex-row bg-black"
+      className="relative w-full min-h-[520px] md:min-h-[600px] overflow-hidden flex flex-col md:flex-row bg-[#021526]"
     >
+      {/* Fallback Ambient Background */}
+      <div className="absolute inset-0 bg-[url('/hero.webp')] bg-cover bg-center opacity-30 mix-blend-luminosity z-0" />
+      <div className="absolute inset-0 bg-[#021526]/50 mix-blend-overlay z-0" />
+
       {panels.map((panel, idx) => (
         <div
           key={idx}
           onMouseEnter={() => setActiveCtx(idx)}
           className={`
-            perf-panel relative flex flex-col justify-between overflow-hidden 
+            perf-panel relative flex flex-col justify-between overflow-hidden
             transition-[flex-grow] duration-700 ease-[cubic-bezier(0.25,1,0.5,1)]
-            ${panel.bg} ${panel.text}
-            ${activeCtx === idx ? "flex-[3_3_0%]" : "flex-[1_1_0%]"} 
-            group cursor-pointer border-b md:border-b-0 md:border-r border-black/10
+            ${panel.bg} ${panel.text} backdrop-blur-sm
+            ${activeCtx === idx ? "flex-[3_3_0%]" : "flex-[1_1_0%]"}
+            group cursor-pointer border-b md:border-b-0 md:border-r border-cyan-77/20
           `}
         >
           {/* 1. BACKGROUND TEXTURE */}
-          <div className="absolute inset-0 opacity-[0.07] bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-black to-transparent pointer-events-none" />
+          <div className="absolute inset-0 opacity-[0.2] bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-cyan-400/20 to-transparent pointer-events-none" />
 
           {/* 2. GIANT BACKGROUND NUMBER */}
-          <span className="absolute -bottom-20 -right-20 text-[30vh] font-black leading-none opacity-10 select-none tracking-tighter mix-blend-overlay">
+          <span className="absolute -bottom-20 -right-20 text-[18vh] font-black leading-none opacity-20 select-none tracking-tighter mix-blend-overlay text-white drop-shadow-2xl">
             {panel.id}
           </span>
 
           {/* 3. TOP CONTENT */}
-          <div className="p-8 md:p-12 relative z-10 anim-entry">
+          <div className="p-6 md:p-10 relative z-10 anim-entry">
             {" "}
             {/* Added anim-entry */}
             <div className="flex justify-between items-start">
@@ -111,14 +115,14 @@ export default function ProductsPerformance() {
           </div>
 
           {/* 4. BOTTOM HERO CONTENT */}
-          <div className="p-8 md:p-12 relative z-10 mt-auto anim-entry">
+          <div className="p-6 md:p-10 relative z-10 mt-auto anim-entry">
             {" "}
             {/* Added anim-entry */}
             {/* Metric Besar */}
             <h2
               className={`
                 font-black tracking-tighter transition-all duration-700
-                ${activeCtx === idx ? "text-[15vw] md:text-[10vw] leading-[0.8]" : "text-[10vw] md:text-[6vw] opacity-50"}
+                ${activeCtx === idx ? "text-[10vw] md:text-[8vw] leading-[0.9]" : "text-[8vw] md:text-[5vw] opacity-60"}
             `}
             >
               {panel.metric}

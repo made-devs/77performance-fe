@@ -12,11 +12,11 @@
 
 - Kalimat "Dengan fasilitas puluhan ribu meter persegi dan teknologi presisi" diganti dengan "Dengan fasilitas PABRIK puluhan ribu meter persegi dan teknologi presisi" ✅
 
-- dibagian "The Philosophy Engineered Quality" terlalu berat untuk digeser otomatis, kalau mau dibuat tombol untuk orang menggeser manual tanpa harus otomatis
+- dibagian "The Philosophy Engineered Quality" terlalu berat untuk digeser otomatis, kalau mau dibuat tombol untuk orang menggeser manual tanpa harus otomatis ✅
 
-- Dibagian "The Philosophy Engineered Quality" pakai gambar box packaging dan juga foto barang 77 performance (ambil dari compro)
+- Dibagian "The Philosophy Engineered Quality" pakai gambar box packaging dan juga foto barang 77 performance (ambil dari compro) ✅
 
-- Bagian "Menjadi distributor 77 Performance berarti memiliki akses ke ekosistem bisnis yang matang. Kami memberikan dukungan 360° dari hulu ke hilir." diganti menjadi "Pertama di Indonesia yang tidak ada yang bisa memberikan seperti 77 performance"
+- Bagian "Menjadi distributor 77 Performance berarti memiliki akses ke ekosistem bisnis yang matang. Kami memberikan dukungan 360° dari hulu ke hilir." diganti menjadi "Pertama di Indonesia yang tidak ada yang bisa memberikan seperti 77 performance" ✅
 
 - Kata kata di bagian Distributor Value Proposition masih kurang sempurna, sempurnakan oleh calvin
 

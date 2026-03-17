@@ -29,7 +29,7 @@
     "locationDetail": "Location Detail",
     "viewOnMaps": "View on G-Maps",
     "networkTitle": "NETWORK",
-    "instructionOverlay": "Use scroll/pinch to zoom • Click points",
+    "instructionOverlay": "Use Ctrl + scroll to zoom • Click points",
     "branches": [
       {
         "city": "JAKARTA (HQ)",

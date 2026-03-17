@@ -29,7 +29,7 @@
     "locationDetail": "位置详情 (Location Detail)",
     "viewOnMaps": "在谷歌地图上查看 (View on G-Maps)",
     "networkTitle": "网络 (NETWORK)",
-    "instructionOverlay": "使用滚动/捏合缩放 • 点击点 (Use scroll/pinch to zoom • Click points)",
+    "instructionOverlay": "使用 Ctrl + 滚动缩放 • 点击点 (Use Ctrl + scroll to zoom • Click points)",
     "branches": [
       {
         "city": "雅加达 - 总部 (JAKARTA HQ)",

@@ -3,7 +3,7 @@ import HeroOpening from "@/components/shared/HeroOpening";
 import CommunityConcept from "@/components/community/CommunityConcept";
 import EcosystemStructure from "@/components/community/EcosystemStructure";
 import CommunityStrategy from "@/components/community/CommunityStrategy";
-import CommunityClosing from "@/components/community/CommunityClosing"; // Reuse closing CTA
+import AnimatedCTA from "@/components/shared/AnimatedCTA";
 import { getLocale, getTranslations } from "next-intl/server";
 
 export default async function CommunityPage() {
@@ -31,7 +31,16 @@ export default async function CommunityPage() {
       <CommunityStrategy />
 
       {/* 7. CLOSING Positioning */}
-      <CommunityClosing />
+      <AnimatedCTA
+        uptitle={t("closing.preline")}
+        titleLines={[t("closing.emphasis"), t("closing.cta.big")]}
+        marqueeText={`${t("closing.preline")} ${t("closing.emphasis")}`}
+        ctaText={t("closing.cta.small")}
+        ctaSub={t("closing.cta.big")}
+        whatsappUrl={`https://wa.me/?text=${encodeURIComponent(t("closing.whatsappMessage"))}`}
+        footerLeft={t("closing.footer.left")}
+        footerRight={t("closing.footer.right")}
+      />
     </main>
   );
 }

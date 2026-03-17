@@ -29,7 +29,7 @@
     "locationDetail": "Location Detail",
     "viewOnMaps": "View on G-Maps",
     "networkTitle": "NETWORK",
-    "instructionOverlay": "Gunakan scroll/pinch untuk zoom • Klik titik lokasi",
+    "instructionOverlay": "Gunakan Ctrl + scroll untuk zoom • Klik titik lokasi",
     "branches": [
       {
         "city": "JAKARTA (HQ)",

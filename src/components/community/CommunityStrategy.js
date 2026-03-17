@@ -1,43 +1,38 @@
 "use client";
 
-import React, { useRef } from "react";
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Repeat, ShieldCheck, TrendingUp, ArrowRight } from "lucide-react";
-import { useTranslations, useLocale } from "next-intl";
-
-gsap.registerPlugin(ScrollTrigger);
+import React, { useState, useEffect } from "react";
+import {
+  Repeat,
+  ShieldCheck,
+  TrendingUp,
+  ArrowRight,
+  ChevronLeft,
+  ChevronRight,
+  Target,
+} from "lucide-react";
+import { useTranslations } from "next-intl";
 
 const baseStrategies = [
   {
     id: "01",
     icon: Repeat,
     tag: "STABILITY",
-    theme: "bg-[var(--color-navy-77)] text-white",
-    accent: "text-[var(--color-cyan-77)]",
   },
   {
     id: "02",
     icon: TrendingUp,
     tag: "BENEFIT",
-    theme: "bg-dark-77 text-[var(--color-navy-77)]",
-    accent: "text-[var(--color-navy-77)]",
   },
   {
     id: "03",
     icon: ShieldCheck,
     tag: "CONTROL",
-    theme: "bg-[#111] text-white",
-    accent: "text-white",
   },
 ];
 
 export default function CommunityStrategy() {
-  const sectionRef = useRef(null);
-  const triggerRef = useRef(null);
   const t = useTranslations("pageCommunity");
-  const locale = useLocale();
+  const [activeSlide, setActiveSlide] = useState(0);
 
   const translatedItems = t.raw("strategy.items") || [];
   const strategies = baseStrategies.map((b, i) => ({
@@ -47,105 +42,185 @@ export default function CommunityStrategy() {
     tag: translatedItems[i]?.tag ?? b.tag,
   }));
 
-  useGSAP(
-    () => {
-      const pinWrap = sectionRef.current;
-      const wrapWidth = pinWrap.scrollWidth;
-      const scrollWidth = wrapWidth - window.innerWidth;
+  const nextSlide = () => {
+    setActiveSlide((prev) => (prev + 1) % strategies.length);
+  };
 
-      // Animasi Horizontal Scroll Dasar
-      gsap.to(pinWrap, {
-        x: -scrollWidth, // Geser ke kiri sejauh sisa lebar konten
-        ease: "none",
-        scrollTrigger: {
-          trigger: triggerRef.current,
-          pin: true, // Pin section parent
-          scrub: 1, // Smooth scrolling
-          start: "top top",
-          end: () => `+=${scrollWidth}`, // Durasi scroll = panjang konten horizontal
-          invalidateOnRefresh: true, // Recalculate saat resize
-        },
-      });
-    },
-    { scope: triggerRef, dependencies: [locale] },
-  );
+  const prevSlide = () => {
+    setActiveSlide(
+      (prev) => (prev - 1 + strategies.length) % strategies.length,
+    );
+  };
+
+  const goToSlide = (index) => {
+    if (index !== activeSlide) setActiveSlide(index);
+  };
+
+  // Auto-slide effect that cleanly resets when user interacts (activeSlide changes)
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setActiveSlide((prev) => (prev + 1) % strategies.length);
+    }, 6000);
+
+    return () => clearInterval(timer);
+  }, [activeSlide, strategies.length]);
+
+  // Transform Logic for Coverflow layout
+  const getCardStyles = (index) => {
+    const diff = index - activeSlide;
+    let offset = diff;
+
+    // Handle infinite visual looping logic for 3 items
+    if (diff === -2) offset = 1;
+    if (diff === 2) offset = -1;
+
+    if (offset === 0) {
+      // Active Centered Card
+      return "translate-x-0 scale-100 opacity-100 z-40 shadow-[0_30px_80px_rgba(0,0,0,0.6)] border-cyan-400/40 bg-gradient-to-br from-[#0c2340] to-[#07172b]";
+    }
+    if (offset === -1) {
+      // Left Card (Pushed super to the left on mobile, partially showing on desktop)
+      return "-translate-x-[110%] md:-translate-x-[65%] lg:-translate-x-[85%] scale-[0.9] md:scale-[0.85] opacity-0 md:opacity-50 z-10 md:blur-[2px] cursor-pointer hover:opacity-80 border-[#1e3c66] bg-[#0c1828]";
+    }
+    if (offset === 1) {
+      // Right Card (Pushed super to the right on mobile, partially showing on desktop)
+      return "translate-x-[110%] md:translate-x-[65%] lg:translate-x-[85%] scale-[0.9] md:scale-[0.85] opacity-0 md:opacity-50 z-10 md:blur-[2px] cursor-pointer hover:opacity-80 border-[#1e3c66] bg-[#0c1828]";
+    }
+
+    return "opacity-0 z-0 pointer-events-none";
+  };
 
   return (
-    // Trigger Wrapper (Pinning Target)
-    <section
-      ref={triggerRef}
-      className="relative overflow-hidden w-full h-screen"
-    >
-      {/* Moving Container (Horizontal Content) */}
-      <div ref={sectionRef} className="flex h-full w-fit">
+    <section className="relative overflow-hidden w-full min-h-[100svh] flex flex-col justify-center py-24 bg-[#050f1a]">
+      {/* Abstract Background Details */}
+      <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-[#145591]/50 to-transparent opacity-50" />
+      <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-[#145591]/20 rounded-full blur-[150px] pointer-events-none" />
+      <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-cyan-700/10 rounded-full blur-[120px] pointer-events-none" />
+
+      {/* Section Header */}
+      <div className="relative z-20 text-center mb-12 md:mb-20 px-6">
+        <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full border border-cyan-400/20 bg-cyan-400/10 text-cyan-300 text-xs md:text-sm font-mono tracking-[0.2em] font-semibold uppercase mb-6 shadow-[0_0_20px_rgba(34,211,238,0.1)]">
+          <Target size={16} />
+          <span>
+            {t("strategy.bottomLeft") || "STRATEGIC"} •{" "}
+            {t("strategy.bottomMiddle") || "FRAMEWORK"}
+          </span>
+        </div>
+        <h2 className="text-4xl md:text-5xl lg:text-7xl font-black text-white tracking-tight">
+          Core{" "}
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-[#145591]">
+            Pillars
+          </span>
+        </h2>
+      </div>
+
+      {/* 3D Coverflow Track */}
+      <div className="relative z-10 w-full h-[520px] md:h-[580px] lg:h-[620px] flex items-center justify-center perspective-[1000px]">
         {strategies.map((item, i) => (
           <div
-            key={i}
+            key={item.id}
+            onClick={() => goToSlide(i)}
             className={`
-                strategy-panel w-screen h-screen flex-shrink-0 flex flex-col justify-center relative px-6 md:px-24
-                ${item.theme}
+              absolute w-[90%] sm:w-[85%] max-w-[420px] md:max-w-[480px] h-full p-8 md:p-12 rounded-[2rem] 
+              border flex flex-col transition-all duration-[800ms] ease-[cubic-bezier(0.25,1,0.5,1)] group
+              ${getCardStyles(i)}
             `}
           >
-            {/* Background Number */}
-            <span className="absolute top-[5%] right-0 text-[40vh] md:text-[50vh] font-black leading-none opacity-[0.05] select-none tracking-tighter pointer-events-none">
-              {item.id}
-            </span>
-
-            {/* Content Grid */}
-            <div className="relative z-10 w-full max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-end">
-              {/* Left Column */}
-              <div className="md:col-span-4 pb-4 border-b-2 border-inherit opacity-80 flex flex-col justify-between h-auto md:h-full md:min-h-[300px]">
-                <div className="space-y-6 mb-8 md:mb-0">
-                  <div
-                    className={`w-16 h-16 md:w-20 md:h-20 rounded-full border border-current flex items-center justify-center ${item.accent}`}
-                  >
-                    <item.icon size={32} strokeWidth={1.5} />
-                  </div>
-                  <span className="font-mono text-xs md:text-sm tracking-[0.4em] uppercase block">
-                    Strength_0{i + 1}
-                  </span>
-                </div>
-                <h3 className="hidden md:block text-xl font-bold tracking-widest uppercase">
-                  {item.tag}
-                </h3>
+            {/* Card Graphic Top */}
+            <div className="flex justify-between items-start mb-8 md:mb-12 w-full relative z-10">
+              <div
+                className={`w-16 h-16 md:w-20 md:h-20 rounded-[1.25rem] border flex items-center justify-center transition-colors duration-500
+                ${activeSlide === i ? "bg-cyan-400/10 border-cyan-400/40 text-cyan-400" : "bg-white/5 border-white/10 text-white/40"}
+              `}
+              >
+                <item.icon size={36} strokeWidth={1.5} />
               </div>
-
-              {/* Right Column (Typography) */}
-              <div className="md:col-span-8">
-                {/* Mobile Tag */}
-                <h3 className="md:hidden text-sm font-bold tracking-widest uppercase mb-2 opacity-60">
-                  {item.tag}
-                </h3>
-
-                <h2 className="text-5xl md:text-8xl lg:text-9xl font-black tracking-tighter leading-[0.9] mb-8 md:mb-12">
-                  {item.title}
-                </h2>
-
-                <div className="flex flex-col md:flex-row gap-8 items-start">
-                  <p className="text-lg md:text-2xl font-light leading-relaxed max-w-2xl opacity-80">
-                    {item.desc}
-                  </p>
-
-                  <div className="hidden md:flex items-center justify-center w-24 h-24 md:w-32 md:h-32 rounded-full border border-current group cursor-pointer hover:bg-[var(--color-cyan-77)] hover:text-white hover:border-[var(--color-cyan-77)] transition-all duration-500 flex-shrink-0">
-                    <ArrowRight
-                      size={40}
-                      className="group-hover:-rotate-45 transition-transform duration-500"
-                    />
-                  </div>
-                </div>
-              </div>
+              <span
+                className={`text-[5rem] md:text-[6rem] font-black select-none leading-none absolute -top-4 -right-2 md:right-0 transition-opacity duration-500
+                 ${activeSlide === i ? "text-white/5" : "text-white/[0.02]"}`}
+              >
+                {item.id}
+              </span>
             </div>
 
-            {/* Bottom Bar Details */}
-            <div className="absolute bottom-6 md:bottom-12 left-0 w-full px-6 md:px-12 flex justify-between items-end opacity-40 font-mono text-[10px] md:text-xs uppercase tracking-widest pointer-events-none">
-              <span>{t("strategy.bottomLeft")}</span>
-              <span className="hidden md:inline">
-                {t("strategy.bottomMiddle")}
+            {/* Typography */}
+            <div className="relative z-10 flex-grow flex flex-col justify-center">
+              <h3
+                className={`text-sm tracking-[0.4em] uppercase font-semibold mb-4 transition-colors duration-500
+                ${activeSlide === i ? "text-cyan-400" : "text-slate-500"}
+              `}
+              >
+                {item.tag}
+              </h3>
+              <h2 className="text-4xl lg:text-5xl font-black text-white tracking-tight leading-[1.05] mb-6">
+                {item.title}
+              </h2>
+              <p className="text-blue-100/70 text-base md:text-lg leading-relaxed font-light">
+                {item.desc}
+              </p>
+            </div>
+
+            {/* Bottom Interaction indicator */}
+            <div
+              className={`relative z-10 pt-6 md:pt-8 mt-6 border-t flex items-center justify-between transition-colors duration-500
+               ${activeSlide === i ? "border-cyan-400/20" : "border-white/5"}
+            `}
+            >
+              <span
+                className={`text-[10px] md:text-xs uppercase tracking-widest font-semibold transition-colors duration-500
+                 ${activeSlide === i ? "text-cyan-400" : "text-slate-600"}
+              `}
+              >
+                Initiate Protocol
               </span>
-              <span>{item.id} / 03</span>
+              <div
+                className={`w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center transition-all duration-500
+                 ${activeSlide === i ? "bg-cyan-400/20 text-cyan-300" : "bg-white/5 text-white/30"}
+              `}
+              >
+                <ArrowRight
+                  size={20}
+                  className={
+                    activeSlide === i
+                      ? "group-hover:translate-x-1 transition-transform"
+                      : ""
+                  }
+                />
+              </div>
             </div>
           </div>
         ))}
+      </div>
+
+      {/* Control Deck */}
+      <div className="relative z-20 flex items-center justify-center gap-6 mt-12 md:mt-20 px-6">
+        <button
+          onClick={prevSlide}
+          aria-label="Previous Slide"
+          className="w-12 h-12 md:w-14 md:h-14 rounded-full border border-white/10 bg-white/5 flex items-center justify-center text-white hover:bg-cyan-500 hover:text-[#050f1a] hover:border-cyan-500 transition-all duration-300 focus:scale-95"
+        >
+          <ChevronLeft size={24} />
+        </button>
+
+        <div className="flex gap-3 md:gap-4 items-center backdrop-blur-md bg-white/5 px-6 md:px-8 py-3.5 rounded-full border border-white/10">
+          {strategies.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => goToSlide(i)}
+              aria-label={`Go to slide ${i + 1}`}
+              className={`h-2 rounded-full transition-all duration-[600ms] ease-out 
+                ${activeSlide === i ? "w-10 md:w-12 bg-cyan-400" : "w-2 bg-white/30 hover:bg-white/60"}`}
+            />
+          ))}
+        </div>
+
+        <button
+          onClick={nextSlide}
+          aria-label="Next Slide"
+          className="w-12 h-12 md:w-14 md:h-14 rounded-full border border-white/10 bg-white/5 flex items-center justify-center text-white hover:bg-cyan-500 hover:text-[#050f1a] hover:border-cyan-500 transition-all duration-300 focus:scale-95"
+        >
+          <ChevronRight size={24} />
+        </button>
       </div>
     </section>
   );

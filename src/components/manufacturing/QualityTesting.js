@@ -44,37 +44,62 @@ export default function QualityTesting() {
   return (
     <section
       ref={container}
-      className="relative h-[80vh] w-full bg-slate-900 overflow-hidden flex items-center justify-center"
+      className="relative min-h-dvh w-full bg-[#0a0a0a] overflow-hidden flex items-center justify-center py-24"
     >
-      {/* Background Video Placeholder */}
-      <div className="absolute inset-0 opacity-40">
-        <div className="w-full h-full bg-[url('https://images.unsplash.com/photo-1621252062590-78170c06eb62?q=80&w=3540&auto=format&fit=crop')] bg-cover bg-center grayscale" />
+      {/* Background Image */}
+      <div className="absolute inset-0 z-0">
+        <div className="w-full h-full bg-[url('/about.webp')] bg-cover bg-center mix-blend-luminosity opacity-70" />
       </div>
 
-      {/* Blue Overlay Curtain Effect */}
-      <div className="qc-overlay absolute inset-0 bg-[var(--color-navy-77)]/90 mix-blend-multiply origin-bottom" />
+      {/* Cyber/Aquatic Overlays */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[#021526]/90 via-[#0e6ba0]/30 to-[#021526]/95 z-0" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-cyan-500/20 rounded-full blur-[150px] pointer-events-none z-0" />
 
-      <div className="qc-content relative z-10 text-center max-w-4xl px-6">
-        <div className="inline-block p-4 border-2 border-[var(--color-cyan-77)] rounded-full mb-8 hover:bg-[var(--color-cyan-77)] hover:text-white transition-colors cursor-pointer group">
-          <PlayCircle className="w-12 h-12 text-white" />
+      {/* Animated Curtain Effect */}
+      <div className="qc-overlay absolute inset-0 bg-[#021526] origin-bottom z-10 mix-blend-overlay opacity-60" />
+
+      <div className="qc-content relative z-20 text-center max-w-5xl px-6 flex flex-col items-center">
+        {/* Play Action (Glowing) */}
+        <div className="relative group cursor-pointer mb-10">
+          <div className="absolute inset-0 bg-cyan-400 rounded-full blur-xl opacity-30 group-hover:opacity-70 transition-opacity duration-500" />
+          <div className="relative flex items-center justify-center w-24 h-24 bg-[#021526]/60 backdrop-blur-md border border-cyan-400/50 rounded-full group-hover:bg-cyan-400 group-hover:border-cyan-400 transition-all duration-300 shadow-[0_0_30px_rgba(34,211,238,0.2)]">
+            <PlayCircle
+              className="w-10 h-10 text-cyan-400 group-hover:text-[#021526] ml-1 transition-colors"
+              strokeWidth={1.5}
+            />
+          </div>
         </div>
-        <h2 className="text-white font-bold tracking-[0.3em] uppercase mb-4 text-sm">
-          {t("qualityTesting.uptitle")}
-        </h2>
-        <h3 className="text-5xl md:text-7xl font-bold text-white mb-8">
+
+        {/* Badge */}
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-[#021526]/80 border border-cyan-77/30 rounded-full mb-6 backdrop-blur-md shadow-[0_0_15px_rgba(34,211,238,0.1)]">
+          <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse shadow-[0_0_8px_rgba(34,211,238,0.8)]" />
+          <h2 className="text-cyan-300 font-bold text-[10px] uppercase tracking-[0.2em] m-0">
+            {t("qualityTesting.uptitle")}
+          </h2>
+        </div>
+
+        {/* Titles */}
+        <h3 className="text-5xl md:text-7xl font-black font-mulish text-white mb-8 leading-tight drop-shadow-2xl">
           {t("qualityTesting.heading")}
         </h3>
-        <p className="text-slate-300 text-xl leading-relaxed mb-12">
+        <p className="text-slate-300 text-lg md:text-xl font-light font-mulish leading-relaxed mb-16 max-w-3xl">
           {t("qualityTesting.paragraph")}
         </p>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-8 text-left border-t border-white/20 pt-8">
+        {/* Data Grid with Glassmorphism */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 w-full text-left">
           {t.raw("qualityTesting.grid").map((g, i) => (
-            <div key={i} className={i === 2 ? "hidden md:block" : ""}>
-              <h4 className="text-[var(--color-cyan-77)] font-bold text-lg mb-1">
+            <div
+              key={i}
+              className={`p-8 bg-[#021526]/40 backdrop-blur-md border border-cyan-77/20 rounded-3xl group hover:bg-[#021526]/70 hover:border-cyan-400/50 hover:-translate-y-1 transition-all duration-500 shadow-[0_10px_30px_rgba(0,0,0,0.5)] ${i === 2 ? "sm:col-span-2 md:col-span-1" : ""}`}
+            >
+              <div className="w-10 h-1 bg-gradient-to-r from-cyan-400 to-transparent mb-5" />
+              <h4 className="text-cyan-400 font-black font-mulish text-2xl mb-2 group-hover:text-cyan-300 transition-colors drop-shadow-md">
                 {g.title}
               </h4>
-              <p className="text-xs text-slate-400">{g.desc}</p>
+              <p className="text-sm text-slate-300 font-light font-mulish leading-relaxed">
+                {g.desc}
+              </p>
             </div>
           ))}
         </div>

@@ -1,8 +1,9 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
+import React, { useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
 import { ArrowUpRight } from "lucide-react";
 import { useTranslations } from "next-intl";
 
@@ -10,138 +11,129 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default function ProductsCategories() {
   const container = useRef(null);
-  const raceRef = useRef(null);
   const t = useTranslations("pageProducts");
   const intro = t.raw("categories.intro");
   const categories = t.raw("categories.items");
 
-  useEffect(() => {
-    const sectionEl = container.current;
-    const raceEl = raceRef.current;
-    if (!sectionEl || !raceEl) return;
+  useGSAP(
+    () => {
+      const cards = gsap.utils.toArray(".bento-card");
+      if (!cards.length || !container.current) return;
 
-    let ctx;
-    let rafId;
-
-    rafId = requestAnimationFrame(() => {
-      const slides = Array.from(sectionEl.querySelectorAll(".category-panel"));
-      if (slides.length < 2) return;
-
-      const totalDistance = window.innerWidth * (slides.length - 1);
-
-      ctx = gsap.context(() => {
-        gsap.set(raceEl, { x: 0 });
-
-        const tl = gsap.timeline({
-          scrollTrigger: {
-            trigger: sectionEl,
-            pin: true,
-            pinSpacing: true,
-            scrub: 1,
-            end: `+=${totalDistance}`,
-            invalidateOnRefresh: true,
-            anticipatePin: 1,
-          },
+      const revealCards = () => {
+        gsap.from(cards, {
+          y: 60,
+          opacity: 0,
+          duration: 0.8,
+          stagger: 0.1,
+          ease: "power3.out",
+          overwrite: "auto",
+          clearProps: "opacity,transform",
         });
+      };
 
-        tl.to(raceEl, {
-          x: -totalDistance,
-          ease: "none",
-        });
+      const trigger = ScrollTrigger.create({
+        trigger: container.current,
+        start: "top 75%",
+        once: true,
+        invalidateOnRefresh: true,
+        onEnter: revealCards,
+      });
 
-        slides.forEach((slide) => {
-          const img = slide.querySelector("img");
-          if (!img) return;
-          gsap.to(img, {
-            x: 100,
-            ease: "none",
-            scrollTrigger: {
-              trigger: slide,
-              containerAnimation: tl,
-              start: "left center",
-              end: "right center",
-              scrub: true,
-            },
-          });
-        });
+      const refreshTriggers = () => ScrollTrigger.refresh();
+      const rafId = requestAnimationFrame(refreshTriggers);
+      window.addEventListener("load", refreshTriggers);
 
-        ScrollTrigger.refresh();
-      }, sectionEl);
-    });
+      return () => {
+        cancelAnimationFrame(rafId);
+        window.removeEventListener("load", refreshTriggers);
+        trigger.kill();
+      };
+    },
+    {
+      scope: container,
+      revertOnUpdate: true,
+      dependencies: [categories.length],
+    },
+  );
 
-    return () => {
-      cancelAnimationFrame(rafId);
-      ctx?.revert();
-    };
-  }, []); // runs once on mount; locale change remounts via key
+  // Custom function to create bento layout variations
+  const getBentoClass = (index) => {
+    const pattern = [
+      "md:col-span-2 md:row-span-2", // Large feature card
+      "md:col-span-1 md:row-span-1", // Standard
+      "md:col-span-1 md:row-span-1", // Standard
+      "md:col-span-2 md:row-span-1", // Wide (shares row with next)
+      "md:col-span-1 md:row-span-1", // Partner card to keep pair on same row
+      "md:col-span-1 md:row-span-1", // Standard / fills remaining column
+    ];
+    return pattern[index % pattern.length];
+  };
 
   return (
-    <section ref={container} className="relative overflow-hidden bg-slate-900">
-      {/* Container Panjang Horisontal */}
-      <div ref={raceRef} className="flex flex-nowrap h-screen w-fit">
-        {/* Intro Slide (Judul Besar) */}
-        <div className="category-panel w-screen h-screen flex-shrink-0 bg-[var(--color-navy-77)] relative flex items-center justify-center border-r border-white/10">
-          <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-20" />
-          <div className="relative z-10 text-center px-4">
-            <span className="block text-[var(--color-cyan-77)] font-mono text-sm tracking-[0.5em] mb-4">
-              {intro.tag}
+    <section ref={container} className="relative bg-[#0a0a0a] py-24 md:py-32">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section Header */}
+        <div className="max-w-4xl mb-16 md:mb-24">
+          <span className="block text-[#0591be] font-mono text-sm font-bold tracking-[0.5em] mb-4 uppercase drop-shadow-md">
+            {intro.tag}
+          </span>
+          <h2 className="text-4xl md:text-6xl font-black font-mulish leading-[1.1] text-white tracking-tighter mb-6">
+            {intro.titleLine1} <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0591be] to-cyan-200">
+              {intro.titleLine2}
             </span>
-            <h2 className="text-[12vw] font-black leading-[0.85] text-white tracking-tighter">
-              {intro.titleLine1} <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-cyan-77)] to-white">
-                {intro.titleLine2}
-              </span>
-            </h2>
-            <div className="mt-12 flex items-center justify-center gap-4 text-white/50 animate-pulse">
-              <span>{intro.scrollHint}</span>
-              <ArrowUpRight size={20} className="rotate-45" />
-            </div>
-          </div>
+          </h2>
+          <p className="text-white/60 font-mono tracking-widest text-sm uppercase flex items-center gap-3">
+            {intro.scrollHint}
+          </p>
         </div>
 
-        {/* Product Slides */}
-        {categories.map((item, index) => (
-          <div
-            key={index}
-            className="category-panel w-screen h-screen flex-shrink-0 relative flex"
-          >
-            {/* Split Layout: Image & Text overlapping */}
+        {/* Bento Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 auto-rows-[300px] md:auto-rows-[380px]">
+          {categories.map((item, index) => (
+            <div
+              key={index}
+              className={`bento-card group relative rounded-[2rem] overflow-hidden ${getBentoClass(index)} bg-[#111] hover:shadow-[0_0_40px_rgba(5,145,190,0.15)] transition-all duration-500 border border-white/5 hover:border-[#0591be]/30 cursor-pointer flex flex-col justify-end`}
+            >
+              {/* Background Image Container */}
+              <div className="absolute inset-0 overflow-hidden">
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="w-full h-full object-cover filter brightness-[0.45] contrast-125 group-hover:scale-110 group-hover:brightness-[0.6] transition-all duration-700 ease-out"
+                />
+                {/* Overlay Gradients */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#021526] via-[#145591]/20 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0591be]/0 to-black/80" />
+              </div>
 
-            {/* Background Image (Full Height) */}
-            <div className="absolute inset-0 w-full h-full overflow-hidden">
-              <img
-                src={item.image}
-                alt={item.title}
-                className="w-[110%] h-full object-cover filter brightness-50 contrast-125" // Scale 110% for parallax room
-              />
-            </div>
+              {/* Card Content Overlay */}
+              <div className="relative z-10 w-full p-8 md:p-10 flex flex-col justify-end h-full">
+                {/* Subtle ID watermark */}
+                <span className="absolute top-8 right-8 text-[4rem] font-black text-white mix-blend-overlay opacity-10 leading-none select-none group-hover:text-[#0591be] transition-colors duration-500">
+                  {item.id}
+                </span>
 
-            {/* Content Overlay */}
-            <div className="relative z-10 w-full h-full flex flex-col justify-end p-8 md:p-16 bg-gradient-to-t from-black/90 via-black/20 to-transparent">
-              <div className="border-t border-[var(--color-cyan-77)] pt-8 flex flex-col md:flex-row justify-between items-end">
-                <div>
-                  <span className="text-[10vw] md:text-[8vw] font-black text-white leading-[0.8] opacity-20 select-none absolute top-10 left-10">
-                    {item.id}
-                  </span>
-                  <div className="inline-block px-3 py-1 bg-[var(--color-cyan-77)] text-white text-xs font-bold tracking-widest mb-4">
-                    {item.category}
+                <div className="flex justify-between items-end gap-6 relative">
+                  <div>
+                    <div className="inline-block px-4 py-1.5 bg-[#0591be]/20 backdrop-blur-md text-[#0591be] text-xs font-bold tracking-[0.2em] uppercase rounded-full border border-[#0591be]/30 mb-4 group-hover:bg-[#0591be] group-hover:text-white transition-colors duration-300">
+                      {item.category}
+                    </div>
+                    <h3 className="text-3xl md:text-5xl font-black text-white tracking-tighter uppercase leading-[0.9] group-hover:text-[#0591be] transition-colors duration-300">
+                      {item.title}
+                    </h3>
                   </div>
-                  <h3 className="text-5xl md:text-8xl font-black text-white tracking-tighter uppercase mb-4">
-                    {item.title}
-                  </h3>
-                </div>
 
-                {/* Action Button */}
-                <button className="group flex items-center gap-4 border border-white/30 rounded-full px-8 py-4 backdrop-blur-sm hover:bg-dark-77 hover:text-[var(--color-navy-77)] transition-all duration-300">
-                  <span className="text-sm font-bold tracking-widest">
-                    {intro.cta}
-                  </span>
-                  <ArrowUpRight size={18} />
-                </button>
+                  {/* Hover Icon Action */}
+                  <div className="w-14 h-14 rounded-full bg-white/5 backdrop-blur-sm border border-white/10 flex items-center justify-center flex-shrink-0 group-hover:bg-[#0591be] group-hover:border-[#0591be] group-hover:-translate-y-2 group-hover:rotate-45 transition-all duration-300 ease-out">
+                    <ArrowUpRight size={24} className="text-white" />
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
   );

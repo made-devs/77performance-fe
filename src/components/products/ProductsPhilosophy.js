@@ -12,27 +12,35 @@ gsap.registerPlugin(ScrollTrigger);
 const META = [
   {
     icon: Layers,
-    bg: "bg-[#145591]",
+    bgOverlay: "from-[#021526]/90 to-[#021526]/55",
+    tint: "bg-[#145591]/40",
     text: "text-white",
-    border: "border-white/20",
+    border: "border-cyan-77/30",
+    image: "/hero.webp",
   },
   {
     icon: Zap,
-    bg: "bg-[#0591be]",
+    bgOverlay: "from-[#0a0a0a]/90 to-[#0a0a0a]/55",
+    tint: "bg-[#0591be]/30",
     text: "text-white",
-    border: "border-white/20",
+    border: "border-cyan-77/30",
+    image: "/home2.png",
   },
   {
     icon: Hexagon,
-    bg: "bg-neutral-900",
-    text: "text-[#145591]",
-    border: "border-[#145591]/20",
+    bgOverlay: "from-[#021526]/90 to-[#021526]/55",
+    tint: "bg-cyan-900/30",
+    text: "text-cyan-400",
+    border: "border-cyan-77/30",
+    image: "/home3.webp",
   },
   {
     icon: ShieldCheck,
-    bg: "bg-[#111111]",
+    bgOverlay: "from-[#0a0a0a]/90 to-[#0a0a0a]/55",
+    tint: "bg-[#111111]/50",
     text: "text-white",
-    border: "border-white/20",
+    border: "border-cyan-77/30",
+    image: "/about.webp",
   },
 ];
 
@@ -53,15 +61,17 @@ export default function ProductsPhilosophy() {
   const content = translations.map((tr, idx) => ({
     ...tr,
     icon: META[idx]?.icon || Layers,
-    bg: META[idx]?.bg || "bg-[#145591]",
+    bgOverlay: META[idx]?.bgOverlay || "from-[#021526]/80 to-[#021526]/95",
+    tint: META[idx]?.tint || "bg-[#145591]/40",
     text: META[idx]?.text || "text-white",
-    border: META[idx]?.border || "border-white/20",
+    border: META[idx]?.border || "border-cyan-77/30",
+    image: META[idx]?.image || "/hero.webp",
   }));
 
   return (
     <section
       ref={container}
-      className="relative w-full h-[80vh] min-h-[600px] flex flex-col md:flex-row overflow-hidden bg-slate-900"
+      className="relative w-full h-[80vh] min-h-[600px] flex flex-col md:flex-row overflow-hidden bg-[#0a0a0a]"
     >
       {content.map((item, index) => (
         <div
@@ -70,15 +80,28 @@ export default function ProductsPhilosophy() {
           className={`
             relative h-full transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] cursor-pointer overflow-hidden
             ${getFlexClass(index)} 
-            ${item.bg} 
             ${item.text}
             group border-b md:border-b-0 md:border-r ${item.border}
           `}
         >
+          {/* Background Image */}
+          <div
+            className="absolute inset-0 bg-cover bg-center transition-transform duration-1000 ease-in-out group-hover:scale-105 mix-blend-luminosity"
+            style={{ backgroundImage: `url('${item.image}')` }}
+          />
+
+          {/* Base Color Tint */}
+          {/* <div className={`absolute inset-0 ${item.tint} mix-blend-overlay`} /> */}
+
+          {/* Gradient Overlay for Text Readability */}
+          <div
+            className={`absolute inset-0 bg-gradient-to-t ${item.bgOverlay} z-0 pointer-events-none transition-opacity duration-700`}
+          />
+
           {/* Background Number (Visual Texture) */}
           <span
             className={`
-                absolute bottom-[-5%] right-[-1%] text-[20vh] font-black leading-none opacity-5 md:opacity-10 select-none transition-transform duration-700
+                absolute bottom-[-5%] right-[-1%] text-[20vh] font-black leading-none opacity-5 md:opacity-10 select-none transition-transform duration-700 z-0 text-cyan-500
                 ${activeIdx === index ? "scale-100 translate-x-0" : "scale-75 translate-x-10"}
             `}
           >
@@ -133,20 +156,20 @@ export default function ProductsPhilosophy() {
               <div
                 className={`
                     overflow-hidden transition-all duration-500 ease-out
-                    ${activeIdx === index ? "opacity-100 max-h-[300px] translate-y-0" : "opacity-0 max-h-0 translate-y-10"}
+                    ${activeIdx === index ? "opacity-100 max-h-[400px] translate-y-0" : "opacity-0 max-h-0 translate-y-10"}
                 `}
               >
-                <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tighter leading-none mb-4 uppercase">
+                <h2 className="text-4xl md:text-5xl lg:text-6xl font-black font-mulish tracking-tighter leading-tight mb-4 uppercase drop-shadow-lg">
                   {item.title}
                 </h2>
                 <p
-                  className={`text-lg md:text-xl font-light leading-relaxed max-w-md opacity-90`}
+                  className={`text-lg md:text-xl font-light font-mulish leading-relaxed max-w-md opacity-90 drop-shadow-md`}
                 >
                   {item.desc}
                 </p>
 
                 <button
-                  className={`mt-8 px-6 py-2 border rounded-full text-sm font-bold tracking-widest uppercase hover:bg-dark-77 hover:text-black transition-colors ${item.border}`}
+                  className={`mt-8 px-6 py-2 border rounded-full text-sm font-bold tracking-widest uppercase hover:bg-cyan-500 hover:text-[#0a0a0a] hover:border-cyan-500 transition-all duration-300 drop-shadow-md ${item.border}`}
                 >
                   Learn More
                 </button>
@@ -156,7 +179,7 @@ export default function ProductsPhilosophy() {
 
           {/* Overlay Gelap saat tidak aktif (Fokus visual ke panel aktif) */}
           <div
-            className={`absolute inset-0 bg-black/20 transition-opacity duration-700 ${activeIdx === index ? "opacity-0" : "opacity-100 hover:opacity-0"}`}
+            className={`absolute inset-0 bg-[#0a0a0a]/60 backdrop-blur-[2px] transition-all duration-700 z-0 ${activeIdx === index ? "opacity-0 pointer-events-none" : "opacity-100 hover:opacity-80"}`}
           />
         </div>
       ))}

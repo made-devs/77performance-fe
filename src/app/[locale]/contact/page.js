@@ -25,19 +25,8 @@ export default async function ContactPage() {
       <ContactMain />
 
       {/* 3. INTERACTIVE MAP */}
-      {/* Gelap / Peta di bawah */}
-      <div className="w-full">
-        <div className="py-12 bg-slate-900 text-center">
-          <h2 className="text-3xl font-bold text-white uppercase tracking-widest">
-            <span className="text-[var(--color-cyan-77)]">
-              {t("mapTitleHighlight")}
-            </span>{" "}
-            {t("mapTitleTail")}
-          </h2>
-          <div className="w-1 h-8 bg-[var(--color-cyan-77)] mx-auto mt-4" />
-        </div>
-        <DistributionMap />
-      </div>
+
+      <DistributionMap />
 
       {/* 4. CLOSING (B2B CTA) */}
       <ProductsClosing />

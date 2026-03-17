@@ -17,29 +17,61 @@ export default function ProductsWarranty() {
   const warrantyItems = t.raw("warranty.items");
   useGSAP(
     () => {
-      // Rotasi Badge saat Scroll
-      gsap.to(badgeRef.current, {
-        rotation: 360,
-        ease: "none",
-        scrollTrigger: {
-          trigger: container.current,
-          start: "bottom top",
-          end: "top bottom",
-          scrub: 1, // Putar badge sesuai kecepatan scroll user
-        },
-      });
+      if (!container.current) return;
 
-      // Content Fade In
-      gsap.from(".warranty-item", {
-        y: 30,
-        opacity: 0,
-        stagger: 0.2,
-        duration: 1,
-        scrollTrigger: {
-          trigger: ".warranty-content",
-          start: "top 70%",
-        },
-      });
+      const triggers = [];
+
+      // Rotasi Badge saat Scroll (safely create a scrollTrigger-backed tween)
+      if (badgeRef.current) {
+        const tw = gsap.to(badgeRef.current, {
+          rotation: 360,
+          ease: "none",
+          scrollTrigger: {
+            trigger: container.current,
+            start: "bottom top",
+            end: "top bottom",
+            scrub: 1,
+            invalidateOnRefresh: true,
+          },
+        });
+        if (tw && tw.scrollTrigger) triggers.push(tw.scrollTrigger);
+      }
+
+      // Content Fade In (scoped to this container)
+      const contentRoot =
+        container.current.querySelector(".warranty-content") ||
+        container.current;
+      const items = Array.from(contentRoot.querySelectorAll(".warranty-item"));
+      if (items.length) {
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: contentRoot,
+            start: "top 70%",
+            invalidateOnRefresh: true,
+          },
+        });
+
+        tl.from(items, {
+          y: 30,
+          opacity: 0,
+          stagger: 0.18,
+          duration: 0.9,
+          ease: "power3.out",
+        });
+
+        if (tl.scrollTrigger) triggers.push(tl.scrollTrigger);
+      }
+
+      // Force a refresh on mount to ensure ScrollTrigger measures correctly
+      const refresh = () => ScrollTrigger.refresh();
+      const rafId = requestAnimationFrame(refresh);
+      window.addEventListener("load", refresh);
+
+      return () => {
+        cancelAnimationFrame(rafId);
+        window.removeEventListener("load", refresh);
+        triggers.forEach((t) => t && t.kill && t.kill());
+      };
     },
     { scope: container, dependencies: [locale] },
   );
@@ -47,7 +79,7 @@ export default function ProductsWarranty() {
   return (
     <section
       ref={container}
-      className="relative w-full flex flex-col lg:flex-row bg-dark-77 overflow-hidden"
+      className="relative w-full flex flex-col lg:flex-row bg-[#0a0a0a] overflow-hidden"
     >
       {/* LEFT SIDE: Visual Anchor (Navy) */}
       <div className="lg:w-1/2 bg-[var(--color-navy-77)] text-white relative min-h-[500px] lg:min-h-screen flex items-center justify-center overflow-hidden">
@@ -105,17 +137,18 @@ export default function ProductsWarranty() {
       </div>
 
       {/* RIGHT SIDE: Content (White) */}
-      <div className="lg:w-1/2 flex items-center bg-dark-77">
-        <div className="warranty-content p-12 lg:p-24 w-full">
-          <span className="inline-block py-1 px-3 border border-[var(--color-navy-77)] rounded-full text-[var(--color-navy-77)] text-xs font-bold tracking-widest uppercase mb-8">
+      <div className="lg:w-1/2 flex items-center bg-gradient-to-b from-[#145591] to-[#021526] relative z-10">
+        <div className="absolute inset-0 bg-[#0a0a0a]/30 mix-blend-overlay pointer-events-none" />
+        <div className="warranty-content p-12 lg:p-24 w-full relative z-10">
+          <span className="inline-block py-1 px-3 border border-cyan-400/50 bg-[#021526]/50 rounded-full text-cyan-300 text-xs font-bold tracking-widest uppercase mb-8 shadow-[0_0_10px_rgba(34,211,238,0.1)]">
             {t("warranty.tag")}
           </span>
 
-          <h3 className="warranty-item text-4xl md:text-5xl font-black text-[var(--color-navy-77)] tracking-tighter mb-8 leading-tight">
+          <h3 className="warranty-item text-4xl md:text-5xl font-black font-mulish text-white tracking-tighter mb-8 leading-tight drop-shadow-md">
             {t("warranty.heading")}
           </h3>
 
-          <p className="warranty-item text-lg text-slate-300 leading-relaxed font-light mb-12 max-w-lg">
+          <p className="warranty-item text-lg text-slate-200 leading-relaxed font-light font-mulish mb-12 max-w-lg drop-shadow-md">
             {t("warranty.paragraph")}
           </p>
 
@@ -123,16 +156,16 @@ export default function ProductsWarranty() {
             {(warrantyItems || []).map((item, i) => (
               <div
                 key={i}
-                className="warranty-item group flex items-start gap-5 p-4 hover:bg-[#0a0a0a] rounded-xl transition-colors duration-300 border border-transparent hover:border-slate-100"
+                className="warranty-item group flex items-start gap-5 p-4 hover:bg-[#0a0a0a]/40 backdrop-blur-sm rounded-xl transition-all duration-300 border border-transparent hover:border-cyan-77/30 hover:shadow-[0_0_15px_rgba(34,211,238,0.1)]"
               >
-                <div className="mt-1 flex-shrink-0 w-8 h-8 rounded-full bg-[var(--color-cyan-77)]/10 text-[var(--color-cyan-77)] flex items-center justify-center group-hover:bg-[var(--color-cyan-77)] group-hover:text-white transition-all">
+                <div className="mt-1 flex-shrink-0 w-8 h-8 rounded-full bg-cyan-900/40 text-cyan-400 flex items-center justify-center group-hover:bg-cyan-500 group-hover:text-[#0a0a0a] transition-all duration-300 border border-cyan-77/20">
                   <CheckCircle2 size={16} strokeWidth={3} />
                 </div>
                 <div>
-                  <h4 className="text-xl font-bold text-[var(--color-navy-77)] mb-1">
+                  <h4 className="text-xl font-bold font-mulish text-white group-hover:text-cyan-300 transition-colors mb-1 drop-shadow-md">
                     {item.title}
                   </h4>
-                  <p className="text-sm text-slate-500 font-medium">
+                  <p className="text-sm text-slate-300 font-light drop-shadow-md">
                     {item.desc}
                   </p>
                 </div>
@@ -140,7 +173,7 @@ export default function ProductsWarranty() {
             ))}
           </div>
 
-          <button className="warranty-item mt-12 px-8 py-4 bg-[var(--color-navy-77)] text-white font-bold tracking-widest uppercase text-sm hover:bg-[var(--color-cyan-77)] transition-all duration-300 w-full md:w-auto">
+          <button className="warranty-item mt-12 px-8 py-4 bg-cyan-600 text-white font-bold tracking-widest uppercase text-sm hover:bg-cyan-400 hover:text-[#0a0a0a] hover:shadow-[0_0_20px_rgba(34,211,238,0.4)] transition-all duration-300 w-full md:w-auto shadow-lg">
             {t("warranty.cta")}
           </button>
         </div>
