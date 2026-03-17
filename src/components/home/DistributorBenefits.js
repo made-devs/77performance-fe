@@ -52,7 +52,7 @@ const DistributorBenefits = () => {
   return (
     <section
       ref={containerRef}
-      className="relative py-24 bg-slate-50 overflow-hidden"
+      className="relative py-24 min-h-dvh flex items-center justify-center bg-gradient-to-br from-[#021526] via-[#0e6ba0]/10 to-[#021526] overflow-hidden"
     >
       {/* --- BACKGROUND DECORATION --- */}
       <div className="absolute inset-0 z-0 pointer-events-none">
@@ -79,14 +79,14 @@ const DistributorBenefits = () => {
               {t("badge")}
             </span>
           </div>
-          {/* Mengganti text-slate-900 menjadi text-dark-77 */}
-          <h2 className="benefit-header text-4xl lg:text-5xl font-black text-dark-77 font-mulish leading-tight">
+          {/* Mengganti text-white menjadi text-white */}
+          <h2 className="benefit-header text-4xl lg:text-5xl font-black text-white font-mulish leading-tight">
             {t("titleLine1")} <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-77 to-navy-77">
               {t("titleLine2")}
             </span>
           </h2>
-          <p className="benefit-header mt-6 text-lg text-slate-600 max-w-2xl font-mulish">
+          <p className="benefit-header mt-6 text-lg text-slate-300 max-w-2xl font-mulish">
             {t("description")}
           </p>
         </div>
@@ -99,10 +99,10 @@ const DistributorBenefits = () => {
               key={index}
               // Hapus class 'benefit-card' agar tidak tertarget oleh script GSAP lama (jika ada sisa)
               // Tambahkan hover effect CSS murni (hover:scale-[1.02]) untuk interaktivitas tanpa JS
-              className="group relative bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-cyan-77/10 hover:border-cyan-77 hover:-translate-y-1 transition-all duration-300 overflow-hidden"
+              className="group relative bg-[#021526]/60 backdrop-blur-md p-6 rounded-2xl border border-white/10 shadow-sm hover:shadow-cyan-77/20 hover:border-cyan-77 hover:-translate-y-1 transition-all duration-300 overflow-hidden"
             >
-              {/* Number Watermark - Mengganti group-hover:text-cyan-50/80 menjadi text-cyan-77/10 */}
-              <div className="absolute -right-2 -top-4 text-[80px] font-black text-slate-100/50 select-none group-hover:text-cyan-77/10 transition-colors font-mulish z-0">
+              {/* Number Watermark */}
+              <div className="absolute -right-2 -top-4 text-[80px] font-black text-white/5 select-none group-hover:text-cyan-77/10 transition-colors font-mulish z-0">
                 {index + 1 < 10 ? `0${index + 1}` : index + 1}
               </div>
 
@@ -111,8 +111,8 @@ const DistributorBenefits = () => {
 
               <div className="relative z-10 h-full flex flex-col justify-between">
                 <div>
-                  {/* Mengganti text-slate-800 menjadi text-dark-77 */}
-                  <h3 className="font-mulish font-extrabold text-lg text-dark-77 leading-snug mb-3 group-hover:text-cyan-77 transition-colors">
+                  {/* Mengganti text-slate-200 menjadi text-white */}
+                  <h3 className="font-mulish font-extrabold text-lg text-white leading-snug mb-3 group-hover:text-cyan-77 transition-colors">
                     {item.title}
                   </h3>
                   <p className="text-slate-500 text-sm leading-relaxed font-mulish">
@@ -121,7 +121,7 @@ const DistributorBenefits = () => {
                 </div>
 
                 {/* Micro Interaction Element */}
-                <div className="mt-4 w-6 h-6 rounded-full border border-slate-200 flex items-center justify-center group-hover:bg-cyan-77 group-hover:border-cyan-77 transition-all">
+                <div className="mt-4 w-6 h-6 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-cyan-77 group-hover:border-cyan-77 transition-all">
                   <svg
                     className="w-3 h-3 text-slate-300 group-hover:text-white"
                     fill="none"
@@ -160,7 +160,7 @@ const DistributorBenefits = () => {
               {bonusBenefits.map((item, index) => (
                 <div
                   key={index}
-                  className="bonus-card flex items-start gap-6 bg-white/5 border border-white/10 p-6 rounded-xl hover:bg-white/10 transition-colors"
+                  className="bonus-card flex items-start gap-6 bg-dark-77/5 border border-white/10 p-6 rounded-xl hover:bg-dark-77/10 transition-colors"
                 >
                   <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-cyan-77 to-navy-77 rounded-lg flex items-center justify-center text-white font-bold text-xl font-mulish shadow-lg shadow-cyan-77/20">
                     {index + 1}

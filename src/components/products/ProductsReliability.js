@@ -62,7 +62,7 @@ export default function ProductsReliability() {
   return (
     <section
       ref={container}
-      className="relative bg-white text-[var(--color-navy-77)]"
+      className="relative bg-dark-77 text-[var(--color-navy-77)]"
     >
       {/* HEADER SECTION - Full Width */}
       <div className="py-24 px-6 md:px-12 border-b-2 border-slate-100 flex flex-col md:flex-row items-end justify-between gap-8">
@@ -77,7 +77,7 @@ export default function ProductsReliability() {
             {t("reliability.heading")}
           </h2>
         </div>
-        <p className="md:max-w-md text-lg text-slate-600 font-light leading-relaxed border-l-4 border-[var(--color-cyan-77)] pl-6">
+        <p className="md:max-w-md text-lg text-slate-300 font-light leading-relaxed border-l-4 border-[var(--color-cyan-77)] pl-6">
           {t("reliability.paragraph")}
         </p>
       </div>
@@ -87,7 +87,7 @@ export default function ProductsReliability() {
         {features.map((feature, idx) => (
           <div
             key={idx}
-            className="grid-item group relative min-h-[400px] border-b-2 md:border-b-0 border-r-2 border-slate-100 p-8 flex flex-col justify-between hover:bg-slate-50 transition-colors duration-500 overflow-hidden"
+            className="grid-item group relative min-h-[400px] border-b-2 md:border-b-0 border-r-2 border-slate-100 p-8 flex flex-col justify-between hover:bg-[#0a0a0a] transition-colors duration-500 overflow-hidden"
           >
             {/* Animated Top Border for effect */}
             <div className="inner-border absolute top-0 left-0 w-full h-1 bg-[var(--color-cyan-77)] origin-left transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
@@ -95,7 +95,7 @@ export default function ProductsReliability() {
             {/* Top Content */}
             <div>
               <div className="flex justify-between items-start mb-8">
-                <div className="p-3 bg-slate-100 rounded-lg group-hover:bg-[var(--color-navy-77)] group-hover:text-white transition-colors duration-300">
+                <div className="p-3 bg-neutral-900 rounded-lg group-hover:bg-[var(--color-navy-77)] group-hover:text-white transition-colors duration-300">
                   <feature.icon size={28} strokeWidth={1.5} />
                 </div>
                 <span className="font-mono text-xs opacity-40">0{idx + 1}</span>
@@ -113,7 +113,7 @@ export default function ProductsReliability() {
             </div>
 
             {/* Bottom Stat (Big Number) */}
-            <div className="mt-8 pt-8 border-t border-slate-200">
+            <div className="mt-8 pt-8 border-t border-white/10">
               <span className="block text-4xl font-black text-[var(--color-navy-77)] tracking-tighter">
                 {feature.stat}
               </span>

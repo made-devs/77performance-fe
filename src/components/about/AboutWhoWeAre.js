@@ -60,7 +60,7 @@ export default function AboutWhoWeAre() {
   return (
     <section
       ref={container}
-      className="relative py-32 bg-white text-[var(--color-navy-77)] overflow-hidden"
+      className="relative py-32 bg-dark-77 text-[var(--color-navy-77)] overflow-hidden"
     >
       <div className="container mx-auto px-6 md:px-12">
         {/* Label Section */}
@@ -86,22 +86,22 @@ export default function AboutWhoWeAre() {
         </h2>
 
         {/* Detailed Content */}
-        <div className="details-grid grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24 border-t border-slate-200 pt-12">
+        <div className="details-grid grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24 border-t border-white/10 pt-12">
           <div className="detail-text">
-            <h3 className="text-2xl font-bold mb-4 text-slate-900">
+            <h3 className="text-2xl font-bold mb-4 text-white">
               {features[0]?.title}
             </h3>
             <p
-              className="text-slate-600 text-lg leading-relaxed"
+              className="text-slate-300 text-lg leading-relaxed"
               dangerouslySetInnerHTML={{ __html: features[0]?.desc || "" }}
             />
           </div>
           <div className="detail-text">
-            <h3 className="text-2xl font-bold mb-4 text-slate-900">
+            <h3 className="text-2xl font-bold mb-4 text-white">
               {features[1]?.title}
             </h3>
             <p
-              className="text-slate-600 text-lg leading-relaxed"
+              className="text-slate-300 text-lg leading-relaxed"
               dangerouslySetInnerHTML={{ __html: features[1]?.desc || "" }}
             />
           </div>

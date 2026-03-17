@@ -76,15 +76,22 @@ export default function SpecsSection() {
     <section
       key={`specs-${locale}`}
       ref={containerRef}
-      className="py-24 bg-slate-50 relative overflow-hidden"
+      className="py-24 min-h-dvh flex items-center justify-center bg-navy-77/90 relative overflow-hidden"
     >
+      {/* Absolute dark overlay to keep it professional but tinted navy */}
+      <div className="absolute inset-0 bg-dark-77/80 pointer-events-none" />
+
+      {/* Background Ambient Glow (Increased intensity) */}
+      <div className="absolute top-0 right-0 w-[1000px] h-[1000px] bg-cyan-77/20 rounded-full blur-[150px] pointer-events-none translate-x-1/4 -translate-y-1/4" />
+      <div className="absolute bottom-0 left-0 w-[800px] h-[800px] bg-cyan-500/10 rounded-full blur-[120px] pointer-events-none -translate-x-1/4 translate-y-1/4" />
+
       {/* Background Grid Decoration */}
       <div
-        className="absolute inset-0 opacity-[0.03] pointer-events-none"
+        className="absolute inset-0 opacity-[0.15] pointer-events-none mix-blend-overlay"
         style={{
           backgroundImage:
-            "linear-gradient(#0891b2 1px, transparent 1px), linear-gradient(90deg, #0891b2 1px, transparent 1px)",
-          backgroundSize: "40px 40px",
+            "linear-gradient(#22d3ee 1px, transparent 1px), linear-gradient(90deg, #22d3ee 1px, transparent 1px)",
+          backgroundSize: "60px 60px",
         }}
       />
 
@@ -94,7 +101,7 @@ export default function SpecsSection() {
           <span className="text-cyan-77 font-mulish font-bold tracking-widest text-sm uppercase mb-2 block">
             {t("header.tag")}
           </span>
-          <h2 className="text-4xl md:text-5xl font-mulish font-black text-slate-900 leading-tight">
+          <h2 className="text-4xl md:text-5xl font-mulish font-black text-white leading-tight">
             {t("header.titlePrefix")}{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-77 to-navy-77">
               {t("header.titleMiddle")}
@@ -102,7 +109,7 @@ export default function SpecsSection() {
             <br />
             {t("header.titleSuffix")}
           </h2>
-          <p className="mt-4 text-slate-600 text-lg font-mulish">
+          <p className="mt-4 text-slate-300 text-lg font-mulish">
             {t("header.description")}
           </p>
         </div>
@@ -110,22 +117,22 @@ export default function SpecsSection() {
         {/* BENTO GRID LAYOUT */}
         <div className="bento-grid grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 auto-rows-[minmax(180px,auto)]">
           {/* CARD 1: FACTORY ECOSYSTEM (Large) */}
-          <div className="bento-card col-span-1 md:col-span-2 lg:col-span-2 row-span-2 relative group overflow-hidden rounded-3xl bg-white shadow-sm border border-slate-200 hover:border-cyan-77 transition-all duration-500">
-            <div className="absolute inset-0 bg-slate-900">
+          <div className="bento-card col-span-1 md:col-span-2 lg:col-span-2 row-span-2 relative group overflow-hidden rounded-[2rem] bg-cyan-77/10 backdrop-blur-xl shadow-2xl shadow-cyan-900/20 border border-cyan-400/30 hover:border-cyan-400 hover:shadow-cyan-400/30 hover:bg-cyan-77/20 transition-all duration-500">
+            <div className="absolute inset-0 bg-navy-900/50 mix-blend-overlay">
               {/* Image Placeholder */}
               <div
-                className="w-full h-full bg-cover bg-center opacity-60 group-hover:scale-105 transition-transform duration-700"
+                className="w-full h-full bg-cover bg-center opacity-30 group-hover:scale-105 transition-transform duration-700 mix-blend-luminosity"
                 style={{
                   backgroundImage: "url('home2.png')",
                 }}
               />
             </div>
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/50 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-dark-77 via-navy-77/40 to-transparent" />
 
-            <div className="relative h-full p-8 flex flex-col justify-end text-white">
-              <div className="mb-4 w-12 h-12 bg-cyan-77 rounded-full flex items-center justify-center">
+            <div className="relative h-full p-8 flex flex-col justify-end text-white z-10">
+              <div className="mb-4 w-12 h-12 bg-cyan-400 rounded-full flex items-center justify-center shadow-[0_0_15px_#22d3ee]">
                 <svg
-                  className="w-6 h-6 text-white"
+                  className="w-6 h-6 text-dark-77"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -138,10 +145,10 @@ export default function SpecsSection() {
                   ></path>
                 </svg>
               </div>
-              <h3 className="text-2xl font-mulish font-bold mb-2">
+              <h3 className="text-2xl font-mulish font-bold mb-2 drop-shadow-md">
                 {cards.integrated.title}
               </h3>
-              <p className="text-slate-300 text-sm mb-4 max-w-md font-mulish">
+              <p className="text-cyan-50 text-sm mb-4 max-w-md font-mulish drop-shadow-sm">
                 {cards.integrated.desc}
               </p>
               <div className="flex flex-wrap gap-2">
@@ -153,52 +160,54 @@ export default function SpecsSection() {
           </div>
 
           {/* CARD 2: EXPERIENCE (Medium) */}
-          <div className="bento-card col-span-1 md:col-span-1 lg:col-span-1 row-span-1 bg-white rounded-3xl p-8 shadow-sm border border-slate-200 hover:border-cyan-77 transition-all duration-300 flex flex-col justify-center relative overflow-hidden group">
-            <div className="absolute -right-4 -top-4 w-24 h-24 bg-cyan-50 rounded-full group-hover:scale-150 transition-transform duration-500" />
-            <h4 className="text-6xl font-mulish font-black text-slate-900 relative z-10">
-              15<span className="text-cyan-77 text-4xl">+</span>
+          <div className="bento-card col-span-1 md:col-span-1 lg:col-span-1 row-span-1 bg-cyan-77/10 backdrop-blur-xl rounded-[2rem] p-8 shadow-2xl shadow-cyan-900/20 border border-cyan-400/30 hover:border-cyan-400 hover:bg-cyan-77/20 transition-all duration-300 flex flex-col justify-center relative overflow-hidden group">
+            <div className="absolute -right-8 -top-8 w-32 h-32 bg-cyan-400/30 rounded-full blur-2xl group-hover:scale-150 group-hover:bg-cyan-400/40 transition-all duration-500" />
+            <h4 className="text-6xl font-mulish font-black text-white relative z-10 drop-shadow-[0_0_10px_rgba(34,211,238,0.5)]">
+              15<span className="text-cyan-400 text-4xl">+</span>
             </h4>
-            <p className="text-slate-500 font-mulish font-bold text-sm tracking-wider uppercase mt-2 relative z-10">
+            <p className="text-cyan-300 font-mulish font-bold text-sm tracking-wider uppercase mt-2 relative z-10">
               {cards.experience.label}
             </p>
-            <p className="text-xs text-slate-400 mt-2 relative z-10 font-mulish">
+            <p className="text-xs text-cyan-100/70 mt-2 relative z-10 font-mulish">
               {cards.experience.desc}
             </p>
           </div>
 
           {/* CARD 3: GLOBAL REACH (Medium) */}
-          <div className="bento-card col-span-1 md:col-span-1 lg:col-span-1 row-span-1 bg-slate-900 rounded-3xl p-8 shadow-sm border border-slate-800 hover:border-cyan-77 transition-all duration-300 flex flex-col justify-between relative overflow-hidden">
+          <div className="bento-card col-span-1 md:col-span-1 lg:col-span-1 row-span-1 bg-cyan-77/10 backdrop-blur-xl rounded-[2rem] p-8 shadow-2xl shadow-cyan-900/20 border border-cyan-400/30 hover:border-cyan-400 hover:bg-cyan-77/20 transition-all duration-300 flex flex-col justify-between relative overflow-hidden group">
             {/* Abstract Map Dots */}
             <div
-              className="absolute inset-0 opacity-20"
+              className="absolute inset-0 opacity-40 mix-blend-overlay transition-opacity duration-500 group-hover:opacity-70"
               style={{
                 backgroundImage:
-                  "radial-gradient(#22d3ee 1px, transparent 1px)",
-                backgroundSize: "20px 20px",
+                  "radial-gradient(#22d3ee 2px, transparent 2px)",
+                backgroundSize: "24px 24px",
               }}
             ></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-navy-900/80 to-transparent pointer-events-none" />
 
             <div className="relative z-10">
-              <h3 className="text-white font-mulish font-bold text-xl">
+              <h3 className="text-white font-mulish font-bold text-xl drop-shadow-md">
                 {cards.globalMarket.title}
               </h3>
-              <p className="text-cyan-77 text-xs mt-1 font-mulish">
+              <p className="text-cyan-400 text-xs mt-1 font-mulish font-bold">
                 {cards.globalMarket.regions}
               </p>
             </div>
             <div className="relative z-10 mt-4">
-              <p className="text-slate-400 text-xs leading-relaxed font-mulish">
+              <p className="text-cyan-100/70 text-xs leading-relaxed font-mulish">
                 {cards.globalMarket.desc}
               </p>
             </div>
           </div>
 
           {/* CARD 4: QUALITY STANDARDS (Tall) */}
-          <div className="bento-card col-span-1 md:col-span-1 lg:col-span-1 row-span-2 bg-white rounded-3xl p-8 shadow-sm border border-slate-200 hover:border-cyan-77 transition-all duration-300 flex flex-col">
-            <div className="mb-6">
-              <div className="w-10 h-10 bg-cyan-100 rounded-lg flex items-center justify-center mb-4 text-cyan-77">
+          <div className="bento-card col-span-1 md:col-span-1 lg:col-span-1 row-span-2 bg-cyan-77/10 backdrop-blur-xl rounded-[2rem] p-8 shadow-2xl shadow-cyan-900/20 border border-cyan-400/30 hover:border-cyan-400 hover:bg-cyan-77/20 transition-all duration-300 flex flex-col relative overflow-hidden group">
+            <div className="absolute top-0 right-0 w-full h-full bg-gradient-to-b from-cyan-400/5 via-transparent to-transparent pointer-events-none group-hover:from-cyan-400/20 transition-colors duration-500" />
+            <div className="mb-6 relative z-10">
+              <div className="w-12 h-12 bg-cyan-400/20 border border-cyan-400/50 rounded-xl flex items-center justify-center mb-6 text-cyan-300 shadow-[0_0_15px_rgba(34,211,238,0.3)]">
                 <svg
-                  className="w-6 h-6"
+                  className="w-7 h-7"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -211,15 +220,15 @@ export default function SpecsSection() {
                   ></path>
                 </svg>
               </div>
-              <h3 className="text-xl font-mulish font-bold text-slate-900">
+              <h3 className="text-xl font-mulish font-bold text-white drop-shadow-md">
                 {cards.quality.title}
               </h3>
-              <p className="text-slate-500 text-xs mt-2 font-mulish">
+              <p className="text-cyan-100/70 text-xs mt-2 font-mulish">
                 {cards.quality.desc}
               </p>
             </div>
 
-            <ul className="space-y-4 flex-grow">
+            <ul className="space-y-5 flex-grow relative z-10 mt-2">
               {cards.quality.items.map((item) => (
                 <ListItem
                   key={item.title}
@@ -231,24 +240,25 @@ export default function SpecsSection() {
           </div>
 
           {/* CARD 5: PRODUCT PORTFOLIO (Wide) */}
-          <div className="bento-card col-span-1 md:col-span-2 lg:col-span-2 row-span-1 bg-white rounded-3xl p-8 shadow-sm border border-slate-200 hover:border-cyan-77 transition-all duration-300 flex flex-col md:flex-row items-center gap-8 relative overflow-hidden">
+          <div className="bento-card col-span-1 md:col-span-2 lg:col-span-2 row-span-1 bg-cyan-77/10 backdrop-blur-xl rounded-[2rem] p-8 shadow-2xl shadow-cyan-900/20 border border-cyan-400/30 hover:border-cyan-400 hover:bg-cyan-77/20 transition-all duration-300 flex flex-col md:flex-row items-center gap-8 relative overflow-hidden group">
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-cyan-900/10 to-cyan-400/10 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             <div className="flex-1 relative z-10">
-              <h3 className="text-xl font-mulish font-bold text-slate-900 mb-2">
+              <h3 className="text-xl font-mulish font-bold text-white mb-2 drop-shadow-md">
                 {cards.portfolio.title}
               </h3>
-              <p className="text-slate-600 text-sm mb-4 font-mulish">
+              <p className="text-cyan-50/80 text-sm mb-5 font-mulish">
                 {cards.portfolio.desc}
               </p>
               <div className="flex gap-3">
-                <div className="px-3 py-1 bg-slate-100 rounded text-xs font-mulish font-bold text-slate-600">
+                <div className="px-4 py-1.5 bg-cyan-400/10 border border-cyan-400/40 rounded-lg text-xs font-mulish font-bold text-cyan-200 backdrop-blur-sm">
                   {cards.portfolio.tag1}
                 </div>
-                <div className="px-3 py-1 bg-slate-100 rounded text-xs font-mulish font-bold text-slate-600">
+                <div className="px-4 py-1.5 bg-cyan-400/10 border border-cyan-400/40 rounded-lg text-xs font-mulish font-bold text-cyan-200 backdrop-blur-sm">
                   {cards.portfolio.tag2}
                 </div>
               </div>
             </div>
-            <div className="w-full md:w-1/3 h-32 md:h-full relative">
+            <div className="w-full md:w-1/3 h-32 md:h-full relative z-10 mix-blend-screen opacity-80 group-hover:opacity-100 transition-opacity">
               {/* Placeholder for Product Image */}
               <div
                 className="absolute inset-0 bg-contain bg-center bg-no-repeat"
@@ -261,27 +271,28 @@ export default function SpecsSection() {
           </div>
 
           {/* CARD 6: R&D (Small) */}
-          <div className="bento-card col-span-1 md:col-span-1 lg:col-span-1 row-span-1 bg-gradient-to-br from-cyan-77 to-navy-77 rounded-3xl p-8 shadow-lg text-white flex flex-col justify-center hover:scale-[1.02] transition-transform duration-300">
-            <h3 className="text-lg font-mulish font-bold mb-2">
+          <div className="bento-card col-span-1 md:col-span-1 lg:col-span-1 row-span-1 bg-gradient-to-br from-cyan-400 to-cyan-77 rounded-[2rem] p-8 shadow-[0_0_30px_rgba(34,211,238,0.3)] text-dark-77 flex flex-col justify-center hover:scale-[1.02] hover:shadow-[0_0_40px_rgba(34,211,238,0.5)] transition-all duration-300 relative overflow-hidden">
+            <div className="absolute inset-0 bg-[url('/grid-pattern.png')] opacity-10 mix-blend-overlay" />
+            <h3 className="text-xl font-mulish font-black mb-2 relative z-10">
               {cards.rnd.title}
             </h3>
-            <p className="text-cyan-100 text-xs leading-relaxed font-mulish">
+            <p className="text-dark-77/80 text-xs leading-relaxed font-mulish font-bold relative z-10">
               {cards.rnd.desc}
             </p>
-            <div className="mt-4 pt-4 border-t border-white/20 flex justify-between items-center">
-              <span className="text-xs font-mulish font-bold">
+            <div className="mt-5 pt-5 border-t border-dark-77/20 flex justify-between items-center relative z-10">
+              <span className="text-xs font-mulish font-black uppercase tracking-wider">
                 {cards.rnd.footer}
               </span>
               <svg
-                className="w-4 h-4"
+                className="w-5 h-5"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
+                strokeWidth="3"
               >
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  strokeWidth="2"
                   d="M17 8l4 4m0 0l-4 4m4-4H3"
                 ></path>
               </svg>
@@ -296,7 +307,7 @@ export default function SpecsSection() {
 // Helper Components
 function Badge({ text }) {
   return (
-    <span className="px-3 py-1 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 text-xs font-mulish font-medium text-white">
+    <span className="px-3 py-1.5 rounded-lg bg-cyan-400/20 backdrop-blur-md border border-cyan-400/50 text-xs font-mulish font-bold text-cyan-50 shadow-[0_0_10px_rgba(34,211,238,0.1)]">
       {text}
     </span>
   );
@@ -304,13 +315,13 @@ function Badge({ text }) {
 
 function ListItem({ title, desc }) {
   return (
-    <li className="flex items-start gap-3 group">
-      <div className="w-1.5 h-1.5 mt-1.5 rounded-full bg-cyan-77 group-hover:scale-150 transition-transform" />
+    <li className="flex items-start gap-4 group">
+      <div className="w-2 h-2 mt-1.5 rounded-full bg-cyan-400 shadow-[0_0_8px_#22d3ee] group-hover:scale-150 transition-transform" />
       <div>
-        <h4 className="text-sm font-mulish font-bold text-slate-800 group-hover:text-cyan-77 transition-colors">
+        <h4 className="text-sm font-mulish font-bold text-white group-hover:text-cyan-300 transition-colors drop-shadow-sm">
           {title}
         </h4>
-        <p className="text-[10px] text-slate-500 uppercase tracking-wide font-mulish">
+        <p className="text-[10px] text-cyan-200/60 uppercase tracking-widest font-mulish font-semibold mt-0.5">
           {desc}
         </p>
       </div>

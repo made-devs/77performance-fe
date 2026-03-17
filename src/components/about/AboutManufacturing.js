@@ -100,11 +100,11 @@ export default function AboutManufacturing() {
           </div>
 
           {/* Card 3: Quality */}
-          <div className="bento-card bg-white text-[var(--color-navy-77)] p-10 rounded-2xl flex flex-col justify-between group">
+          <div className="bento-card bg-dark-77 text-[var(--color-navy-77)] p-10 rounded-2xl flex flex-col justify-between group">
             <Settings className="w-12 h-12 mb-6 text-[var(--color-cyan-77)] animate-spin-slow" />
             <div>
               <h4 className="text-xl font-bold mb-2">{t("precisionTitle")}</h4>
-              <p className="text-slate-600">{t("precisionDesc")}</p>
+              <p className="text-slate-300">{t("precisionDesc")}</p>
             </div>
           </div>
 

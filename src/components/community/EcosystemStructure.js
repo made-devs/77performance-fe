@@ -25,7 +25,7 @@ const nodes = [
     id: "distributor",
     icon: Server,
     pos: "top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 md:top-[80%] md:left-[18.75%]",
-    bg: "bg-white",
+    bg: "bg-dark-77",
     color: "text-[var(--color-navy-77)]",
     border: "border-white",
     sub: "Regional Hub",
@@ -180,7 +180,7 @@ export default function EcosystemStructure() {
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:animate-[shimmer_1s_infinite]" />
 
               <div className="flex items-start justify-between mb-4">
-                <div className={`p-2 rounded-lg bg-white/10 backdrop-blur-sm`}>
+                <div className={`p-2 rounded-lg bg-dark-77/10 backdrop-blur-sm`}>
                   <node.icon size={24} />
                 </div>
                 <Zap

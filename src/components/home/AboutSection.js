@@ -6,14 +6,17 @@ export default async function AboutSection() {
   const features = t.raw("features");
 
   return (
-    <section className="relative py-20 lg:py-32 bg-white overflow-hidden">
+    <section className="relative py-20 lg:py-32 min-h-dvh flex items-center justify-center bg-dark-77 overflow-hidden">
+      {/* Background Gradient Base (Opaque to prevent white bleed) */}
+      <div className="absolute inset-0 bg-gradient-to-br from-[#0a0a0a] via-[#0b1c2e] to-dark-77 pointer-events-none" />
+
       {/* --- AERO FLOW BACKGROUND START --- */}
 
       {/* 1. Top-Left Cyan Flow (Soft Entry) */}
-      <div className="absolute -top-[15%] -left-[10%] w-[60%] h-[60%] bg-gradient-to-br from-cyan-77/12 via-cyan-77/8 to-transparent rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute -top-[15%] -left-[10%] w-[60%] h-[60%] bg-gradient-to-br from-cyan-77/30 via-cyan-77/20 to-transparent rounded-full blur-[100px] pointer-events-none" />
 
       {/* 2. Bottom-Right Cyan Flow (Soft Exit) */}
-      <div className="absolute -bottom-[15%] -right-[10%] w-[60%] h-[60%] bg-gradient-to-tl from-cyan-77/12 via-cyan-77/8 to-transparent rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute -bottom-[15%] -right-[10%] w-[60%] h-[60%] bg-gradient-to-tl from-cyan-77/30 via-cyan-77/20 to-transparent rounded-full blur-[100px] pointer-events-none" />
 
       {/* 3. Subtle Tech Grid Pattern (Optional - for industrial feel) */}
       <div
@@ -27,7 +30,7 @@ export default async function AboutSection() {
       {/* --- AERO FLOW BACKGROUND END --- */}
 
       {/* Decorative Background Element (Blue Slash) - Keep if you like it */}
-      <div className="absolute top-0 right-0 w-1/3 h-full bg-gray-50/50 -skew-x-12 translate-x-20 z-0" />
+      <div className="absolute top-0 right-0 w-1/3 h-full bg-white/5 -skew-x-12 translate-x-20 z-0" />
 
       <div className="container mx-auto px-6 lg:px-20 relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -66,7 +69,7 @@ export default async function AboutSection() {
             </div>
 
             {/* Headline */}
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-mulish font-black text-dark-77 leading-tight mb-6">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-mulish font-black text-white leading-tight mb-6">
               {t("titleLine1")} <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-77 to-navy-77">
                 {t("titleLine2")}
@@ -74,7 +77,7 @@ export default async function AboutSection() {
             </h2>
 
             {/* Main Description */}
-            <p className="text-lg text-gray-600 leading-relaxed mb-8 font-mulish">
+            <p className="text-lg text-gray-300 leading-relaxed mb-8 font-mulish">
               {t("description")}
             </p>
 
@@ -86,28 +89,26 @@ export default async function AboutSection() {
             </div>
 
             {/* Stats / Trust Indicators */}
-            <div className="mt-10 pt-8 border-t border-gray-200 grid grid-cols-3 gap-4">
+            <div className="mt-10 pt-8 border-t border-white/10 grid grid-cols-3 gap-4">
               <div>
-                <h4 className="font-mulish font-bold text-dark-77 text-xl">
+                <h4 className="font-mulish font-bold text-white text-xl">
                   10k+
                 </h4>
-                <p className="text-xs text-gray-500 uppercase font-mulish">
+                <p className="text-xs text-gray-400 uppercase font-mulish">
                   {t("stats.facilityLabel")}
                 </p>
               </div>
               <div>
-                <h4 className="font-mulish font-bold text-dark-77 text-xl">
+                <h4 className="font-mulish font-bold text-white text-xl">
                   OEM
                 </h4>
-                <p className="text-xs text-gray-500 uppercase font-mulish">
+                <p className="text-xs text-gray-400 uppercase font-mulish">
                   {t("stats.qualityLabel")}
                 </p>
               </div>
               <div>
-                <h4 className="font-mulish font-bold text-dark-77 text-xl">
-                  4+
-                </h4>
-                <p className="text-xs text-gray-500 uppercase font-mulish">
+                <h4 className="font-mulish font-bold text-white text-xl">4+</h4>
+                <p className="text-xs text-gray-400 uppercase font-mulish">
                   {t("stats.exportLabel")}
                 </p>
               </div>
@@ -122,7 +123,7 @@ export default async function AboutSection() {
 // Helper Component for the List Items
 function FeatureItem({ text }) {
   return (
-    <div className="flex items-center gap-4 p-4 bg-gray-50 border-l-4 border-cyan-77 hover:bg-white hover:shadow-md transition-all duration-300 group">
+    <div className="flex items-center gap-4 p-4 bg-[#0a0a0a] border-l-4 border-cyan-77 hover:bg-dark-77 hover:shadow-md transition-all duration-300 group">
       <div className="flex-shrink-0 w-8 h-8 rounded-full bg-cyan-77/10 flex items-center justify-center text-cyan-77 group-hover:bg-cyan-77 group-hover:text-white transition-colors">
         <svg
           width="16"
@@ -137,7 +138,7 @@ function FeatureItem({ text }) {
           <polyline points="20 6 9 17 4 12"></polyline>
         </svg>
       </div>
-      <span className="font-mulish font-bold text-dark-77">{text}</span>
+      <span className="font-mulish font-bold text-white">{text}</span>
     </div>
   );
 }

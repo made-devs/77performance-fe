@@ -12,7 +12,7 @@ export default async function AboutPage() {
   return (
     <main
       key={`about-${locale}`}
-      className="bg-white text-slate-900 selection:bg-blue-900 selection:text-white overflow-hidden"
+      className="bg-dark-77 text-white selection:bg-blue-900 selection:text-white overflow-hidden"
     >
       <HeroOpening
         uptitle={t("uptitle")}

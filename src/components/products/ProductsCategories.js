@@ -132,7 +132,7 @@ export default function ProductsCategories() {
                 </div>
 
                 {/* Action Button */}
-                <button className="group flex items-center gap-4 border border-white/30 rounded-full px-8 py-4 backdrop-blur-sm hover:bg-white hover:text-[var(--color-navy-77)] transition-all duration-300">
+                <button className="group flex items-center gap-4 border border-white/30 rounded-full px-8 py-4 backdrop-blur-sm hover:bg-dark-77 hover:text-[var(--color-navy-77)] transition-all duration-300">
                   <span className="text-sm font-bold tracking-widest">
                     {intro.cta}
                   </span>

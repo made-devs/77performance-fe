@@ -113,8 +113,8 @@ export default function Navbar() {
           {/* Download Links */}
           <div className="flex items-center gap-4">
             <a
-              href="#"
-              download
+              href="/downloads/compro-77-performance.pdf"
+              download="Compro 77 Performance.pdf"
               className="group flex items-center gap-2 text-[10px] md:text-xs text-slate-400 hover:text-cyan-77 transition-colors uppercase tracking-widest font-bold"
             >
               <svg
@@ -134,10 +134,10 @@ export default function Navbar() {
                 {tCommon("downloads.companyProfile") || "Company Profile"}
               </span>
             </a>
-            <span className="w-[1px] h-3 bg-white/10 hidden md:block"></span>
+            <span className="w-[1px] h-3 bg-dark-77/10 hidden md:block"></span>
             <a
-              href="#"
-              download
+              href="/downloads/proposal-distributor-77-performance.docx"
+              download="Proposal Distributor 77 Performance.docx"
               className="group hidden md:flex items-center gap-2 text-[10px] md:text-xs text-slate-400 hover:text-cyan-77 transition-colors uppercase tracking-widest font-bold"
             >
               <svg
@@ -232,7 +232,7 @@ export default function Navbar() {
           {/* CTA Button */}
           <Link
             href="/distributor"
-            className="hidden md:block relative overflow-hidden group px-6 py-2 bg-white/10 border border-white/20 hover:border-cyan-77 transition-all duration-300"
+            className="hidden md:block relative overflow-hidden group px-6 py-2 bg-dark-77/10 border border-white/20 hover:border-cyan-77 transition-all duration-300"
           >
             <div className="absolute inset-0 bg-cyan-77 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out" />
             <span className="relative font-mulish text-sm font-bold tracking-widest text-white z-10 flex items-center gap-2">

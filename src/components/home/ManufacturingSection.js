@@ -172,7 +172,7 @@ export default function ManufacturingSection() {
   return (
     <section
       ref={container}
-      className="relative py-32 overflow-hidden bg-black"
+      className="relative py-32 min-h-dvh flex items-center justify-center overflow-hidden bg-dark-77"
     >
       {/* --- PARALLAX BACKGROUND START --- */}
       <div className="absolute inset-0 w-full h-[120%] -top-[10%] z-0">
@@ -190,7 +190,7 @@ export default function ManufacturingSection() {
       </div>
 
       {/* Dark Overlay & Tech Grid */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/90 via-black/70 to-black/90 z-10" />
+      <div className="absolute inset-0 bg-gradient-to-b from-dark-77/95 via-navy-77/80 to-[#0a0a0a]/95 z-10" />
       <div
         className="absolute inset-0 z-10 opacity-10 pointer-events-none"
         style={{
@@ -225,10 +225,10 @@ export default function ManufacturingSection() {
           {features.map((f, i) => (
             <div
               key={i}
-              className="feature-card group relative p-8 rounded-sm border border-white/10 bg-white/5 backdrop-blur-md hover:bg-black/40 hover:border-cyan-77/50 transition-all duration-500 overflow-hidden"
+              className="feature-card group relative p-8 rounded-sm border border-white/10 bg-[#0a0a0a]/50 backdrop-blur-md hover:bg-navy-77/20 hover:border-cyan-77/80 transition-all duration-500 overflow-hidden"
             >
               {/* Hover Glow Effect */}
-              <div className="absolute inset-0 bg-gradient-to-br from-cyan-77/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-br from-cyan-77/30 via-navy-77/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
 
               <div className="relative z-10 flex flex-col items-start h-full">
                 {/* Icon Box */}

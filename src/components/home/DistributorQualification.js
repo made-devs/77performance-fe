@@ -85,36 +85,44 @@ const DistributorQualification = () => {
   return (
     <section
       ref={containerRef}
-      className="relative py-32 bg-white overflow-hidden text-navy-77"
+      className="relative py-32 min-h-dvh flex items-center justify-center bg-[#0a0a0a] overflow-hidden text-white"
     >
       {/* --- BACKGROUND LAYER --- */}
       <div className="absolute inset-0 pointer-events-none select-none">
         <div
           ref={ghostTextRef}
-          className="absolute top-1/2 -translate-y-1/2 left-0 whitespace-nowrap text-[22vw] font-black uppercase text-navy-77/[0.02] italic tracking-tighter"
+          className="absolute top-1/2 -translate-y-1/2 left-0 whitespace-nowrap text-[22vw] font-black uppercase text-cyan-77/40 italic tracking-tighter"
         >
           {t("bgText")}
         </div>
-        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_10%_10%,_rgba(2,21,38,0.03)_0%,_transparent_50%)]" />
-        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_90%_90%,_rgba(34,211,238,0.03)_0%,_transparent_50%)]" />
+        <div
+          className="absolute inset-0 opacity-[0.03]"
+          style={{
+            backgroundImage:
+              "linear-gradient(#22d3ee 1px, transparent 1px), linear-gradient(90deg, #22d3ee 1px, transparent 1px)",
+            backgroundSize: "60px 60px",
+          }}
+        />
+        <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-cyan-77/10 rounded-full blur-[120px]" />
+        <div className="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] bg-[#021526]/50 rounded-full blur-[100px]" />
       </div>
 
       <div className="container mx-auto px-6 lg:px-12 relative z-10">
         {/* HEADER */}
         <div className="text-center max-w-3xl mx-auto mb-28">
-          <div className="qual-header-el inline-flex items-center gap-2 px-4 py-1.5 bg-slate-50 border border-navy-77/5 rounded-full mb-6">
-            <span className="w-1.5 h-1.5 rounded-full bg-cyan-77 animate-pulse" />
-            <span className="text-navy-77/60 font-bold text-[10px] uppercase tracking-[0.3em]">
+          <div className="qual-header-el inline-flex items-center gap-2 px-4 py-1.5 bg-[#021526]/80 border border-cyan-77/30 rounded-full mb-6 backdrop-blur-md shadow-[0_0_15px_rgba(34,211,238,0.1)]">
+            <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse shadow-[0_0_8px_rgba(34,211,238,0.8)]" />
+            <span className="text-cyan-300 font-bold text-[10px] uppercase tracking-[0.3em]">
               {t("badge")}
             </span>
           </div>
-          <h2 className="qual-header-el text-5xl lg:text-6xl font-black font-mulish mb-8 leading-tight">
+          <h2 className="qual-header-el text-5xl lg:text-6xl font-black font-mulish mb-8 leading-tight text-white">
             {t("titlePrefix")}{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-navy-77 to-cyan-77">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-cyan-77 drop-shadow-sm">
               {t("titleHighlight")}
             </span>
           </h2>
-          <p className="qual-header-el text-slate-500 text-lg font-light max-w-xl mx-auto italic">
+          <p className="qual-header-el text-slate-300 text-lg font-light max-w-xl mx-auto italic">
             “{t("quote")}”
           </p>
         </div>
@@ -122,15 +130,15 @@ const DistributorQualification = () => {
         {/* TIMELINE GRID */}
         <div className="relative max-w-6xl mx-auto">
           {/* Vertical Spine */}
-          <div className="center-spine absolute left-1/2 top-0 bottom-0 w-[1px] bg-gradient-to-b from-navy-77/5 via-cyan-77/40 to-navy-77/5 -translate-x-1/2 hidden lg:block" />
+          <div className="center-spine absolute left-1/2 top-0 bottom-0 w-[2px] bg-gradient-to-b from-transparent via-cyan-500/50 to-transparent -translate-x-1/2 hidden lg:block shadow-[0_0_15px_rgba(34,211,238,0.5)]" />
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-24 gap-y-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-24 gap-y-12 auto-rows-fr">
             {requirements.map((req, index) => {
               const isEven = index % 2 === 0;
               return (
                 <div
                   key={req.id}
-                  className={`req-card group relative flex flex-col ${
+                  className={`req-card group relative flex flex-col h-full ${
                     isEven
                       ? "lg:items-end lg:text-right"
                       : "lg:items-start lg:text-left"
@@ -138,17 +146,17 @@ const DistributorQualification = () => {
                 >
                   {/* Spine Node */}
                   <div
-                    className={`hidden lg:block absolute top-10 w-3 h-3 rounded-full border-2 border-cyan-77 bg-white z-20 transition-transform duration-500 group-hover:scale-150 group-hover:bg-cyan-77 ${
-                      isEven ? "-right-[54px]" : "-left-[54px]"
+                    className={`hidden lg:block absolute top-10 w-4 h-4 rounded-full border-2 border-cyan-400 bg-[#0a0a0a] shadow-[0_0_10px_rgba(34,211,238,0.5)] z-20 transition-transform duration-500 group-hover:scale-150 group-hover:bg-cyan-400 group-hover:shadow-[0_0_20px_rgba(34,211,238,0.8)] ${
+                      isEven ? "-right-[56px]" : "-left-[56px]"
                     }`}
                   />
 
-                  <div className="relative p-8 rounded-3xl bg-white border border-slate-100 shadow-[0_10px_40px_rgba(2,21,38,0.03)] hover:shadow-[0_20px_60px_rgba(34,211,238,0.1)] hover:border-cyan-77/20 transition-all duration-500 group">
+                  <div className="relative w-full h-full flex flex-col p-8 rounded-3xl bg-[#021526]/50 backdrop-blur-md border border-cyan-77/10 shadow-[0_10px_30px_rgba(0,0,0,0.5)] hover:shadow-[0_0_30px_rgba(34,211,238,0.15)] hover:bg-[#021526]/80 hover:border-cyan-400/50 transition-all duration-500 group">
                     {/* Corner Accent */}
                     <div
                       className={`absolute top-0 ${
                         isEven ? "left-0" : "right-0"
-                      } w-8 h-8 border-t-2 border-cyan-77/0 group-hover:border-cyan-77/40 transition-all duration-500 rounded-tr-none ${
+                      } w-8 h-8 border-t-2 border-cyan-77/0 group-hover:border-cyan-400 transition-all duration-500 rounded-tr-none ${
                         isEven
                           ? "border-l-2 rounded-tl-3xl"
                           : "border-r-2 rounded-tr-3xl"
@@ -160,14 +168,14 @@ const DistributorQualification = () => {
                         isEven ? "lg:items-end" : "lg:items-start"
                       } mb-6`}
                     >
-                      <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-navy-77 to-cyan-77 flex items-center justify-center text-white mb-6 shadow-lg shadow-navy-77/10">
+                      <div className="w-14 h-14 rounded-2xl bg-cyan-900/30 border border-cyan-77/30 flex items-center justify-center text-cyan-400 mb-6 shadow-[0_0_15px_rgba(34,211,238,0.2)] group-hover:bg-cyan-400 group-hover:text-[#021526] group-hover:shadow-[0_0_25px_rgba(34,211,238,0.5)] transition-all duration-500">
                         {getIcon(req.icon)}
                       </div>
-                      <h3 className="text-xl font-bold text-navy-77 font-mulish tracking-tight">
+                      <h3 className="text-xl font-bold text-white font-mulish tracking-tight group-hover:text-cyan-300 transition-colors">
                         {req.title}
                       </h3>
                     </div>
-                    <p className="text-sm text-slate-500 leading-relaxed font-light">
+                    <p className="text-sm text-slate-300 leading-relaxed font-light">
                       {req.desc}
                     </p>
                   </div>
@@ -179,8 +187,8 @@ const DistributorQualification = () => {
 
         {/* CTA */}
         <div className="text-center mt-28">
-          <button className="group relative px-10 py-5 bg-navy-77 text-white font-bold rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-[0_20px_40px_rgba(2,21,38,0.2)]">
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+          <button className="group relative px-10 py-5 bg-gradient-to-r from-cyan-600 to-cyan-500 text-white font-bold rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-[0_0_30px_rgba(34,211,238,0.4)] hover:-translate-y-1">
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
             <span className="relative z-10 flex items-center gap-3">
               {t("cta")}
               <svg

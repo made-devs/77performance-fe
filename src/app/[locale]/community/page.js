@@ -11,7 +11,7 @@ export default async function CommunityPage() {
   const locale = await getLocale();
 
   return (
-    <main key={`community-${locale}`} className="bg-white">
+    <main key={`community-${locale}`} className="bg-dark-77">
       {/* 1. HERO PAGE */}
       <HeroOpening
         uptitle={t("uptitle")}

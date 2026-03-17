@@ -38,7 +38,7 @@ export default function DistributorValueProp() {
   return (
     <section
       ref={container}
-      className="py-24 md:py-32 bg-white flex items-center justify-center"
+      className="py-24 md:py-32 bg-dark-77 flex items-center justify-center"
     >
       <div className="container mx-auto px-6 md:px-12 text-center max-w-5xl">
         <h2 className="value-text text-3xl md:text-5xl lg:text-6xl font-bold leading-[1.2] text-[var(--color-navy-77)]">

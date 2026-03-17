@@ -68,11 +68,11 @@ export default function AboutClosing() {
           {t("desc")}
         </p>
 
-        <button className="group relative inline-flex items-center gap-3 px-8 py-4 bg-[var(--color-cyan-77)] text-white rounded-full font-bold tracking-wider uppercase hover:bg-white hover:text-[var(--color-navy-77)] transition-all duration-300 overflow-hidden">
+        <button className="group relative inline-flex items-center gap-3 px-8 py-4 bg-[var(--color-cyan-77)] text-white rounded-full font-bold tracking-wider uppercase hover:bg-dark-77 hover:text-[var(--color-navy-77)] transition-all duration-300 overflow-hidden">
           <span className="relative z-10">{t("btn")}</span>
           <ArrowRight className="w-5 h-5 relative z-10 group-hover:translate-x-1 transition-transform" />
           {/* Fill Effect */}
-          <div className="absolute inset-0 bg-white translate-y-full group-hover:translate-y-0 transition-transform duration-300 z-0" />
+          <div className="absolute inset-0 bg-dark-77 translate-y-full group-hover:translate-y-0 transition-transform duration-300 z-0" />
         </button>
       </div>
     </section>

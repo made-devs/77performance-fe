@@ -98,7 +98,7 @@ const FinalCTA = () => {
   return (
     <section
       ref={containerRef}
-      className="relative py-32 overflow-hidden flex items-center justify-center min-h-[700px]"
+      className="relative py-32 overflow-hidden flex items-center justify-center min-h-dvh"
     >
       {/* --- THE MOVING AURORA BACKGROUND --- */}
       <div
@@ -125,7 +125,7 @@ const FinalCTA = () => {
 
       <div className="container mx-auto px-6 relative z-10 text-center">
         {/* --- MAIN GLASS CARD --- */}
-        <div className="cta-content max-w-5xl mx-auto bg-white/[0.03] backdrop-blur-3xl border border-white/10 rounded-[56px] p-16 md:p-24 shadow-[0_50px_100px_rgba(0,0,0,0.5)] relative overflow-hidden group">
+        <div className="cta-content max-w-5xl mx-auto bg-dark-77/[0.03] backdrop-blur-3xl border border-white/10 rounded-[56px] p-16 md:p-24 shadow-[0_50px_100px_rgba(0,0,0,0.5)] relative overflow-hidden group">
           <div className="relative z-10">
             <div className="cta-text mb-10 flex justify-center opacity-0">
               <span className="px-6 py-2 rounded-full bg-navy-77/50 border border-cyan-77/30 text-cyan-400 text-xs font-bold uppercase tracking-[0.4em] shadow-2xl">
@@ -151,7 +151,7 @@ const FinalCTA = () => {
             >
               <div className="btn-glow-ring absolute inset-0 rounded-full bg-cyan-77/40 z-0" />
               <div
-                className="btn-glow-ring absolute inset-0 rounded-full bg-white/10 z-0"
+                className="btn-glow-ring absolute inset-0 rounded-full bg-dark-77/10 z-0"
                 style={{ animationDelay: "1s" }}
               />
 

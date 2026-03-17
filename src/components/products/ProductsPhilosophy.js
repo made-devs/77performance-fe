@@ -24,7 +24,7 @@ const META = [
   },
   {
     icon: Hexagon,
-    bg: "bg-slate-100",
+    bg: "bg-neutral-900",
     text: "text-[#145591]",
     border: "border-[#145591]/20",
   },
@@ -146,7 +146,7 @@ export default function ProductsPhilosophy() {
                 </p>
 
                 <button
-                  className={`mt-8 px-6 py-2 border rounded-full text-sm font-bold tracking-widest uppercase hover:bg-white hover:text-black transition-colors ${item.border}`}
+                  className={`mt-8 px-6 py-2 border rounded-full text-sm font-bold tracking-widest uppercase hover:bg-dark-77 hover:text-black transition-colors ${item.border}`}
                 >
                   Learn More
                 </button>

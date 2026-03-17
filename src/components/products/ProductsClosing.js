@@ -148,7 +148,7 @@ export default function ProductsClosing() {
           href={whatsappUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="group relative w-48 h-48 md:w-64 md:h-64 rounded-full bg-[var(--color-cyan-77)] flex items-center justify-center cursor-pointer transition-colors duration-300 hover:bg-white"
+          className="group relative w-48 h-48 md:w-64 md:h-64 rounded-full bg-[var(--color-cyan-77)] flex items-center justify-center cursor-pointer transition-colors duration-300 hover:bg-dark-77"
         >
           <div className="absolute inset-0 rounded-full border border-[var(--color-cyan-77)] scale-100 animate-[ping_2s_cubic-bezier(0,0,0.2,1)_infinite] opacity-30" />
 

@@ -66,7 +66,7 @@ export default function ProductsProtection() {
                 duration: 0.8,
                 type: "spring",
               }}
-              className="bg-white/5 border border-white/10 p-8 rounded-2xl hover:bg-white/10 transition-colors"
+              className="bg-dark-77/5 border border-white/10 p-8 rounded-2xl hover:bg-dark-77/10 transition-colors"
             >
               <div className="mb-6 flex justify-center text-[var(--color-cyan-77)]">
                 {(() => {

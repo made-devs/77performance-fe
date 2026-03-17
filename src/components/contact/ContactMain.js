@@ -47,7 +47,7 @@ export default function ContactMain() {
   return (
     <section
       ref={container}
-      className="py-24 bg-white text-[var(--color-navy-77)]"
+      className="py-24 bg-dark-77 text-[var(--color-navy-77)]"
     >
       <div className="container mx-auto px-6 max-w-7xl">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20">
@@ -57,14 +57,14 @@ export default function ContactMain() {
               <h2 className="text-4xl md:text-5xl font-black tracking-tighter mb-6">
                 {t("main.headquartersTitle")}
               </h2>
-              <p className="text-lg text-slate-600 leading-relaxed max-w-md">
+              <p className="text-lg text-slate-300 leading-relaxed max-w-md">
                 {t("main.headquartersDesc")}
               </p>
             </div>
 
-            <div className="info-item space-y-8 border-t border-slate-200 pt-8">
+            <div className="info-item space-y-8 border-t border-white/10 pt-8">
               <div className="flex gap-4">
-                <div className="w-12 h-12 rounded-full bg-slate-50 flex items-center justify-center text-[var(--color-cyan-77)] shrink-0">
+                <div className="w-12 h-12 rounded-full bg-[#0a0a0a] flex items-center justify-center text-[var(--color-cyan-77)] shrink-0">
                   <Building2 size={24} />
                 </div>
                 <div>
@@ -72,7 +72,7 @@ export default function ContactMain() {
                     {t("main.officeAddressTitle")}
                   </h4>
                   <p
-                    className="text-slate-600"
+                    className="text-slate-300"
                     dangerouslySetInnerHTML={{
                       __html:
                         t("main.officeAddress") ||
@@ -83,7 +83,7 @@ export default function ContactMain() {
               </div>
 
               <div className="flex gap-4">
-                <div className="w-12 h-12 rounded-full bg-slate-50 flex items-center justify-center text-[var(--color-cyan-77)] shrink-0">
+                <div className="w-12 h-12 rounded-full bg-[#0a0a0a] flex items-center justify-center text-[var(--color-cyan-77)] shrink-0">
                   <Clock size={24} />
                 </div>
                 <div>
@@ -91,7 +91,7 @@ export default function ContactMain() {
                     {t("main.businessHoursTitle")}
                   </h4>
                   <p
-                    className="text-slate-600"
+                    className="text-slate-300"
                     dangerouslySetInnerHTML={{
                       __html:
                         t("main.businessHours") ||
@@ -102,14 +102,14 @@ export default function ContactMain() {
               </div>
 
               <div className="flex gap-4">
-                <div className="w-12 h-12 rounded-full bg-slate-50 flex items-center justify-center text-[var(--color-cyan-77)] shrink-0">
+                <div className="w-12 h-12 rounded-full bg-[#0a0a0a] flex items-center justify-center text-[var(--color-cyan-77)] shrink-0">
                   <Mail size={24} />
                 </div>
                 <div>
                   <h4 className="font-bold uppercase tracking-widest text-sm mb-1">
                     {t("main.b2bTitle")}
                   </h4>
-                  <p className="text-slate-600">
+                  <p className="text-slate-300">
                     partnership@77performance.co.id
                   </p>
                 </div>
@@ -117,7 +117,7 @@ export default function ContactMain() {
             </div>
 
             {/* Selection Disclaimer */}
-            <div className="info-item bg-slate-50 p-6 border-l-4 border-[var(--color-navy-77)] mt-12">
+            <div className="info-item bg-[#0a0a0a] p-6 border-l-4 border-[var(--color-navy-77)] mt-12">
               <h4 className="font-bold text-sm uppercase tracking-widest mb-2">
                 {t("main.selectionTitle")}
               </h4>
@@ -142,7 +142,7 @@ export default function ContactMain() {
                   </label>
                   <input
                     type="text"
-                    className="w-full bg-transparent border-b border-slate-300 py-3 focus:outline-none focus:border-[var(--color-cyan-77)] transition-colors text-lg"
+                    className="w-full bg-transparent border-b border-white/20 py-3 focus:outline-none focus:border-[var(--color-cyan-77)] transition-colors text-lg"
                     placeholder="John Doe"
                   />
                 </div>
@@ -152,7 +152,7 @@ export default function ContactMain() {
                   </label>
                   <input
                     type="text"
-                    className="w-full bg-transparent border-b border-slate-300 py-3 focus:outline-none focus:border-[var(--color-cyan-77)] transition-colors text-lg"
+                    className="w-full bg-transparent border-b border-white/20 py-3 focus:outline-none focus:border-[var(--color-cyan-77)] transition-colors text-lg"
                     placeholder="PT. Maju Mundur"
                   />
                 </div>
@@ -164,7 +164,7 @@ export default function ContactMain() {
                 </label>
                 <input
                   type="email"
-                  className="w-full bg-transparent border-b border-slate-300 py-3 focus:outline-none focus:border-[var(--color-cyan-77)] transition-colors text-lg"
+                  className="w-full bg-transparent border-b border-white/20 py-3 focus:outline-none focus:border-[var(--color-cyan-77)] transition-colors text-lg"
                   placeholder="business@company.com"
                 />
               </div>
@@ -175,7 +175,7 @@ export default function ContactMain() {
                 </label>
                 <input
                   type="tel"
-                  className="w-full bg-transparent border-b border-slate-300 py-3 focus:outline-none focus:border-[var(--color-cyan-77)] transition-colors text-lg"
+                  className="w-full bg-transparent border-b border-white/20 py-3 focus:outline-none focus:border-[var(--color-cyan-77)] transition-colors text-lg"
                   placeholder="+62 ..."
                 />
               </div>
@@ -185,7 +185,7 @@ export default function ContactMain() {
                   {t("main.formPurpose")}
                 </label>
                 <textarea
-                  className="w-full bg-transparent border-b border-slate-300 py-3 focus:outline-none focus:border-[var(--color-cyan-77)] transition-colors text-lg min-h-[100px] resize-none"
+                  className="w-full bg-transparent border-b border-white/20 py-3 focus:outline-none focus:border-[var(--color-cyan-77)] transition-colors text-lg min-h-[100px] resize-none"
                   placeholder={t("main.formPurposePlaceholder")}
                 />
               </div>

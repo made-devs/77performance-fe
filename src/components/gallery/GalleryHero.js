@@ -49,7 +49,7 @@ export default function GalleryHero() {
       <div className="absolute inset-x-0 top-0 h-full w-full opacity-10 bg-[linear-gradient(rgba(5,145,190,0.5)_1px,transparent_1px),linear-gradient(90deg,rgba(5,145,190,0.5)_1px,transparent_1px)] bg-[size:100px_100px]" />
 
       <div className="container mx-auto px-6 relative z-10">
-        <div className="hero-line w-full h-[1px] bg-white/20 mb-6 origin-left" />
+        <div className="hero-line w-full h-[1px] bg-dark-77/20 mb-6 origin-left" />
 
         <div className="overflow-hidden">
           {/* Ensure width follows text length */}
@@ -58,7 +58,7 @@ export default function GalleryHero() {
           </h1>
         </div>
 
-        <div className="hero-line w-full h-[1px] bg-white/20 mt-6 origin-right" />
+        <div className="hero-line w-full h-[1px] bg-dark-77/20 mt-6 origin-right" />
 
         <div className="flex justify-between items-end mt-8 text-white/50 font-mono text-xs md:text-sm uppercase tracking-widest">
           <div className="flex items-center gap-4">

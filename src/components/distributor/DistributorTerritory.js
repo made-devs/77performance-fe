@@ -44,7 +44,7 @@ export default function DistributorTerritory() {
 
       <div className="container mx-auto px-6 md:px-12 relative z-10 flex flex-col md:flex-row items-center gap-12">
         <div className="md:w-1/2">
-          <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full mb-6">
+          <div className="inline-flex items-center gap-2 bg-dark-77/20 backdrop-blur-sm px-4 py-2 rounded-full mb-6">
             <MapPin size={18} />
             <span className="text-sm font-bold uppercase tracking-wider">
               {t("label")}
@@ -62,8 +62,8 @@ export default function DistributorTerritory() {
 
         <div className="md:w-1/2 flex justify-center">
           {/* Visual representation of territory lock */}
-          <div className="relative w-80 h-80 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center border border-white/20 shadow-2xl">
-            <div className="absolute inset-0 bg-white/5 rounded-full animate-ping opacity-20" />
+          <div className="relative w-80 h-80 bg-dark-77/10 backdrop-blur-md rounded-full flex items-center justify-center border border-white/20 shadow-2xl">
+            <div className="absolute inset-0 bg-dark-77/5 rounded-full animate-ping opacity-20" />
             <div className="text-center">
               <h3 className="text-5xl font-black mb-1">{t("securedValue")}</h3>
               <p className="uppercase tracking-widest text-sm font-bold">
@@ -72,10 +72,10 @@ export default function DistributorTerritory() {
             </div>
 
             {/* Decorative floating points */}
-            <div className="map-point absolute top-10 right-10 w-4 h-4 bg-white rounded-full shadow-[0_0_20px_white]" />
-            <div className="map-point absolute bottom-20 left-10 w-3 h-3 bg-white/70 rounded-full" />
+            <div className="map-point absolute top-10 right-10 w-4 h-4 bg-dark-77 rounded-full shadow-[0_0_20px_white]" />
+            <div className="map-point absolute bottom-20 left-10 w-3 h-3 bg-dark-77/70 rounded-full" />
             <div className="map-point absolute top-1/2 -right-4 w-6 h-6 bg-[var(--color-navy-77)] border-2 border-white rounded-full flex items-center justify-center">
-              <div className="w-2 h-2 bg-white rounded-full" />
+              <div className="w-2 h-2 bg-dark-77 rounded-full" />
             </div>
           </div>
         </div>

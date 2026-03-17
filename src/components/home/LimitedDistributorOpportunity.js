@@ -86,7 +86,7 @@ const LimitedDistributorOpportunity = () => {
   return (
     <section
       ref={containerRef}
-      className="relative py-24 bg-navy-77 text-white overflow-hidden"
+      className="relative py-24 min-h-dvh flex items-center justify-center bg-navy-77 text-white overflow-hidden"
     >
       {/* --- BACKGROUND ELEMENTS --- */}
       <div className="absolute inset-0 bg-gradient-to-b from-navy-77 via-[#010c16] to-navy-77 z-0" />
@@ -121,7 +121,7 @@ const LimitedDistributorOpportunity = () => {
             </span>
           </h2>
 
-          <div className="inline-block mt-4 px-6 py-2 bg-white/5 border border-white/10 rounded-lg backdrop-blur-sm">
+          <div className="inline-block mt-4 px-6 py-2 bg-dark-77/5 border border-white/10 rounded-lg backdrop-blur-sm">
             <p className="text-cyan-77 font-bold text-lg md:text-xl uppercase tracking-widest">
               {t("exclusive")}
             </p>
@@ -144,7 +144,7 @@ const LimitedDistributorOpportunity = () => {
               {combinations.map((text, i) => (
                 <div
                   key={i}
-                  className="combo-item opacity-0 group flex items-center gap-4 p-5 rounded-xl bg-white/5 border border-white/5 hover:border-cyan-77/30 hover:bg-white/10 transition-all duration-300"
+                  className="combo-item opacity-0 group flex items-center gap-4 p-5 rounded-xl bg-dark-77/5 border border-white/5 hover:border-cyan-77/30 hover:bg-dark-77/10 transition-all duration-300"
                 >
                   <div className="flex-shrink-0 w-10 h-10 rounded-full bg-navy-77 border border-white/10 flex items-center justify-center group-hover:bg-cyan-77 transition-all duration-300">
                     <svg
@@ -181,7 +181,7 @@ const LimitedDistributorOpportunity = () => {
                 {securityPoints.map((item, i) => (
                   <div
                     key={i}
-                    className="secure-card opacity-0 group relative p-6 bg-white/5 rounded-2xl border border-white/5 hover:border-cyan-77/50 transition-all duration-300"
+                    className="secure-card opacity-0 group relative p-6 bg-dark-77/5 rounded-2xl border border-white/5 hover:border-cyan-77/50 transition-all duration-300"
                   >
                     <div className="mb-4 text-cyan-77 group-hover:scale-110 transition-transform">
                       {getIcon(item.icon)}
@@ -201,7 +201,7 @@ const LimitedDistributorOpportunity = () => {
         </div>
 
         {/* FINAL STATEMENT */}
-        <div className="final-statement opacity-0 max-w-5xl mx-auto text-center px-10 py-12 rounded-[32px] bg-white/5 border border-white/10 shadow-2xl relative overflow-hidden group">
+        <div className="final-statement opacity-0 max-w-5xl mx-auto text-center px-10 py-12 rounded-[32px] bg-dark-77/5 border border-white/10 shadow-2xl relative overflow-hidden group">
           <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-cyan-77 to-transparent opacity-50" />
 
           <div className="relative z-10 flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16">
@@ -217,7 +217,7 @@ const LimitedDistributorOpportunity = () => {
               </p>
             </div>
 
-            <div className="hidden md:block w-[1px] h-20 bg-white/10" />
+            <div className="hidden md:block w-[1px] h-20 bg-dark-77/10" />
 
             <div className="text-left md:w-1/2">
               <p className="text-cyan-77 font-bold uppercase tracking-widest text-xs mb-2">

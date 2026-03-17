@@ -21,6 +21,20 @@ const nextConfig = {
       },
     ],
   },
+  async headers() {
+    return [
+      {
+        // Force files served from /downloads to be downloaded instead of opened inline
+        source: "/downloads/:path*",
+        headers: [
+          {
+            key: "Content-Disposition",
+            value: "attachment",
+          },
+        ],
+      },
+    ];
+  },
 };
 
 export default withNextIntl(nextConfig);

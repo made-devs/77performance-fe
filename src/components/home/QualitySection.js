@@ -133,7 +133,7 @@ export default function QualitySection() {
   };
 
   return (
-    <section className="relative bg-white text-slate-800 overflow-hidden">
+    <section className="relative min-h-dvh flex flex-col justify-center bg-dark-77 text-slate-200 overflow-hidden">
       <div
         ref={viewportRef}
         className="w-full h-[100dvh] overflow-hidden relative"
@@ -179,32 +179,32 @@ export default function QualitySection() {
                 className="absolute inset-0 bg-cover bg-center"
                 style={{ backgroundImage: "url('/home3.webp')" }}
               />
-              <div className="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-white/95 via-white/80 to-white/50" />
+              <div className="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-dark-77/95 via-dark-77/80 to-dark-77/50" />
             </div>
 
             <div className="container mx-auto px-6 lg:px-20 relative z-10 flex flex-col justify-center h-full">
               <div className="max-w-4xl">
-                <span className="inline-block py-1 px-3 border border-cyan-77/30 rounded-full bg-cyan-50/80 backdrop-blur-sm text-cyan-600 text-[10px] lg:text-xs font-bold tracking-widest uppercase mb-4 lg:mb-6">
+                <span className="inline-block py-1 px-3 border border-cyan-77/30 rounded-full bg-[#0a0a0a]/80 backdrop-blur-sm text-cyan-500 text-[10px] lg:text-xs font-bold tracking-widest uppercase mb-4 lg:mb-6">
                   {t("intro.tag")}
                 </span>
-                <h2 className="text-4xl sm:text-6xl lg:text-8xl font-black leading-tight mb-4 lg:mb-8 text-slate-900">
+                <h2 className="text-4xl sm:text-6xl lg:text-8xl font-black leading-tight mb-4 lg:mb-8 text-white">
                   {t("intro.titleLine1")} <br />
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-77 to-navy-77">
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-cyan-600">
                     {t("intro.titleLine2")}
                   </span>
                 </h2>
-                <p className="text-base sm:text-lg lg:text-xl text-slate-600 max-w-xl border-l-4 border-cyan-77 pl-4 lg:pl-6">
+                <p className="text-base sm:text-lg lg:text-xl text-slate-300 max-w-xl border-l-4 border-cyan-77 pl-4 lg:pl-6">
                   {t("intro.description")}
                 </p>
 
                 <div className="mt-8 lg:mt-12 flex items-center gap-3">
-                  <span className="text-xs lg:text-sm font-black text-cyan-600 tracking-[0.2em] uppercase">
+                  <span className="text-xs lg:text-sm font-black text-cyan-400 tracking-[0.2em] uppercase">
                     {panelCounter}
                   </span>
                   <span className="w-12 h-[2px] bg-cyan-77/40" />
                 </div>
 
-                <div className="mt-4 flex items-center gap-2 text-cyan-700 text-xs lg:text-sm font-bold tracking-wide uppercase">
+                <div className="mt-4 flex items-center gap-2 text-cyan-400 text-xs lg:text-sm font-bold tracking-wide uppercase">
                   <span>{slideHint}</span>
                   <svg
                     className="w-4 h-4 animate-[pulse_1.3s_ease-in-out_2]"
@@ -222,7 +222,7 @@ export default function QualitySection() {
                 </div>
 
                 {!hasInteracted && (
-                  <div className="mt-3 lg:hidden inline-flex items-center gap-2 px-3 py-1.5 border border-cyan-77/30 bg-white/80 text-cyan-700 text-[11px] font-bold tracking-wide uppercase rounded-full">
+                  <div className="mt-3 lg:hidden inline-flex items-center gap-2 px-3 py-1.5 border border-cyan-77/30 bg-dark-77/80 text-cyan-700 text-[11px] font-bold tracking-wide uppercase rounded-full">
                     <span className="animate-pulse">↔</span>
                     <span>{swipeHint}</span>
                   </div>
@@ -272,13 +272,13 @@ export default function QualitySection() {
                     <div className="h-[2px] flex-grow bg-gradient-to-r from-cyan-77 to-transparent opacity-20" />
                   </div>
 
-                  <h3 className="text-3xl lg:text-5xl font-black text-slate-900 mb-2">
+                  <h3 className="text-3xl lg:text-5xl font-black text-white mb-2">
                     {item.title}
                   </h3>
                   <p className="text-cyan-600 font-bold tracking-widest text-xs lg:text-sm mb-4 lg:mb-8 uppercase">
                     {item.subtitle}
                   </p>
-                  <p className="text-base lg:text-lg text-slate-600 mb-6 lg:mb-10 line-clamp-4 lg:line-clamp-none">
+                  <p className="text-base lg:text-lg text-slate-300 mb-6 lg:mb-10 line-clamp-4 lg:line-clamp-none">
                     {item.desc}
                   </p>
 
@@ -286,7 +286,7 @@ export default function QualitySection() {
                     {item.features.map((feat) => (
                       <li
                         key={feat}
-                        className="flex items-center gap-3 text-slate-700 font-bold uppercase text-xs lg:text-sm tracking-wide"
+                        className="flex items-center gap-3 text-slate-300 font-bold uppercase text-xs lg:text-sm tracking-wide"
                       >
                         <span className="w-1.5 h-1.5 bg-cyan-77 rounded-full" />
                         {feat}
@@ -301,7 +301,7 @@ export default function QualitySection() {
                   <div className="absolute -top-2 -right-2 w-12 h-12 border-t-4 border-r-4 border-cyan-77 z-20" />
                   <div className="absolute -bottom-2 -left-2 w-12 h-12 border-b-4 border-l-4 border-cyan-77 z-20" />
 
-                  <div className="relative w-full h-full overflow-hidden bg-slate-100 z-10 shadow-2xl shadow-cyan-900/10">
+                  <div className="relative w-full h-full overflow-hidden bg-neutral-900 z-10 shadow-2xl shadow-cyan-900/10">
                     <div
                       className="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
                       style={{ backgroundImage: `url('${item.image}')` }}
@@ -342,7 +342,7 @@ export default function QualitySection() {
             aria-label="Previous panel"
             className={`w-10 h-10 lg:w-12 lg:h-12 border flex items-center justify-center transition-all ${
               isFirstPanel
-                ? "border-slate-200 text-slate-300 cursor-not-allowed"
+                ? "border-white/10 text-slate-300 cursor-not-allowed"
                 : "border-cyan-77/40 text-cyan-77 hover:bg-cyan-77 hover:text-white"
             }`}
           >
@@ -361,7 +361,7 @@ export default function QualitySection() {
             </svg>
           </button>
 
-          <div className="px-3 py-2 border border-cyan-77/30 bg-white/80 backdrop-blur-sm text-cyan-700 text-xs lg:text-sm font-bold tracking-widest min-w-20 text-center">
+          <div className="px-3 py-2 border border-cyan-77/30 bg-dark-77/80 backdrop-blur-sm text-cyan-700 text-xs lg:text-sm font-bold tracking-widest min-w-20 text-center">
             {panelCounter}
           </div>
 
@@ -372,7 +372,7 @@ export default function QualitySection() {
             aria-label="Next panel"
             className={`w-10 h-10 lg:w-12 lg:h-12 border flex items-center justify-center transition-all ${
               isLastPanel
-                ? "border-slate-200 text-slate-300 cursor-not-allowed"
+                ? "border-white/10 text-slate-300 cursor-not-allowed"
                 : "border-cyan-77/40 text-cyan-77 hover:bg-cyan-77 hover:text-white"
             }`}
           >

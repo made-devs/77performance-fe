@@ -74,7 +74,7 @@ export default function CommunityConcept() {
   return (
     <section
       ref={container}
-      className="relative min-h-[120vh] bg-slate-100 overflow-hidden flex items-center py-24"
+      className="relative min-h-[120vh] bg-neutral-900 overflow-hidden flex items-center py-24"
     >
       {/* BACKGROUND DECORATION */}
       {/* Giant Moving Text (Background Texture) */}
@@ -129,7 +129,7 @@ export default function CommunityConcept() {
 
           {/* Right: Detailed Description & CTA */}
           <div className="md:col-span-8 lg:col-span-6 concept-reveal">
-            <p className="text-xl md:text-2xl text-slate-600 leading-relaxed font-light mb-8">
+            <p className="text-xl md:text-2xl text-slate-300 leading-relaxed font-light mb-8">
               {t("concept.paragraph")}
             </p>
 

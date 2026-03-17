@@ -103,7 +103,7 @@ const RealDifference = () => {
     <section
       ref={containerRef}
       // BG: Kombinasi Navy-77 Solid dengan Gradient Mesh halus agar tidak flat
-      className="relative py-32 bg-navy-77 overflow-hidden text-white"
+      className="relative py-32 min-h-dvh flex items-center justify-center bg-navy-77 overflow-hidden text-white"
     >
       {/* --- BACKGROUND ELEMENTS --- */}
       <div className="absolute inset-0 z-0 pointer-events-none select-none">

@@ -21,7 +21,7 @@ const baseStrategies = [
     id: "02",
     icon: TrendingUp,
     tag: "BENEFIT",
-    theme: "bg-white text-[var(--color-navy-77)]",
+    theme: "bg-dark-77 text-[var(--color-navy-77)]",
     accent: "text-[var(--color-navy-77)]",
   },
   {

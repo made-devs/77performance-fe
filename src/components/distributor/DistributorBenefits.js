@@ -62,7 +62,7 @@ export default function DistributorBenefits() {
           {benefits.map((item, idx) => (
             <div
               key={idx}
-              className="benefit-card bg-white/5 border border-white/10 p-8 rounded-2xl hover:bg-white/10 transition-colors duration-300"
+              className="benefit-card bg-dark-77/5 border border-white/10 p-8 rounded-2xl hover:bg-dark-77/10 transition-colors duration-300"
             >
               <div className="bg-[var(--color-cyan-77)] w-12 h-12 flex items-center justify-center rounded-lg mb-6 text-white shadow-lg shadow-cyan-500/30">
                 <item.icon size={24} />

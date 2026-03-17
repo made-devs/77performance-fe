@@ -47,7 +47,7 @@ export default function ProductsWarranty() {
   return (
     <section
       ref={container}
-      className="relative w-full flex flex-col lg:flex-row bg-white overflow-hidden"
+      className="relative w-full flex flex-col lg:flex-row bg-dark-77 overflow-hidden"
     >
       {/* LEFT SIDE: Visual Anchor (Navy) */}
       <div className="lg:w-1/2 bg-[var(--color-navy-77)] text-white relative min-h-[500px] lg:min-h-screen flex items-center justify-center overflow-hidden">
@@ -105,7 +105,7 @@ export default function ProductsWarranty() {
       </div>
 
       {/* RIGHT SIDE: Content (White) */}
-      <div className="lg:w-1/2 flex items-center bg-white">
+      <div className="lg:w-1/2 flex items-center bg-dark-77">
         <div className="warranty-content p-12 lg:p-24 w-full">
           <span className="inline-block py-1 px-3 border border-[var(--color-navy-77)] rounded-full text-[var(--color-navy-77)] text-xs font-bold tracking-widest uppercase mb-8">
             {t("warranty.tag")}
@@ -115,7 +115,7 @@ export default function ProductsWarranty() {
             {t("warranty.heading")}
           </h3>
 
-          <p className="warranty-item text-lg text-slate-600 leading-relaxed font-light mb-12 max-w-lg">
+          <p className="warranty-item text-lg text-slate-300 leading-relaxed font-light mb-12 max-w-lg">
             {t("warranty.paragraph")}
           </p>
 
@@ -123,7 +123,7 @@ export default function ProductsWarranty() {
             {(warrantyItems || []).map((item, i) => (
               <div
                 key={i}
-                className="warranty-item group flex items-start gap-5 p-4 hover:bg-slate-50 rounded-xl transition-colors duration-300 border border-transparent hover:border-slate-100"
+                className="warranty-item group flex items-start gap-5 p-4 hover:bg-[#0a0a0a] rounded-xl transition-colors duration-300 border border-transparent hover:border-slate-100"
               >
                 <div className="mt-1 flex-shrink-0 w-8 h-8 rounded-full bg-[var(--color-cyan-77)]/10 text-[var(--color-cyan-77)] flex items-center justify-center group-hover:bg-[var(--color-cyan-77)] group-hover:text-white transition-all">
                   <CheckCircle2 size={16} strokeWidth={3} />

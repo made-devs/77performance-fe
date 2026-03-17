@@ -138,7 +138,7 @@ export default function DistributionMap() {
                 href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(activeBranch.address)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-8 w-full py-4 bg-[var(--color-cyan-77)] hover:bg-white hover:text-[var(--color-navy-77)] font-bold tracking-widest uppercase text-sm transition-all duration-300 flex items-center justify-center gap-2 group text-white rounded-xl"
+                className="mt-8 w-full py-4 bg-[var(--color-cyan-77)] hover:bg-dark-77 hover:text-[var(--color-navy-77)] font-bold tracking-widest uppercase text-sm transition-all duration-300 flex items-center justify-center gap-2 group text-white rounded-xl"
               >
                 {t("map.viewOnMaps")}
                 <ArrowRight

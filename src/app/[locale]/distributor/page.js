@@ -14,7 +14,7 @@ export default async function DistributorPage() {
   return (
     <main
       key={`distributor-${locale}`}
-      className="bg-white text-slate-900 selection:bg-[var(--color-cyan-77)] selection:text-white overflow-hidden"
+      className="bg-dark-77 text-white selection:bg-[var(--color-cyan-77)] selection:text-white overflow-hidden"
     >
       <HeroOpening
         uptitle={t("uptitle")}

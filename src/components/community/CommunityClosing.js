@@ -111,7 +111,7 @@ export default function CommunityClosing() {
             href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="group relative w-64 h-64 rounded-full bg-white text-[var(--color-navy-77)] flex flex-col items-center justify-center gap-2 cursor-pointer transition-colors duration-500 hover:bg-[var(--color-cyan-77)] hover:text-white z-20 shadow-[0_0_50px_rgba(255,255,255,0.1)] hover:shadow-[0_0_50px_rgba(5,145,190,0.4)]"
+            className="group relative w-64 h-64 rounded-full bg-dark-77 text-[var(--color-navy-77)] flex flex-col items-center justify-center gap-2 cursor-pointer transition-colors duration-500 hover:bg-[var(--color-cyan-77)] hover:text-white z-20 shadow-[0_0_50px_rgba(255,255,255,0.1)] hover:shadow-[0_0_50px_rgba(5,145,190,0.4)]"
           >
             {/* 1. Radar Ping Animation */}
             <div className="absolute inset-0 border border-white/40 rounded-full animate-[ping_2s_cubic-bezier(0,0,0.2,1)_infinite]" />
@@ -134,7 +134,7 @@ export default function CommunityClosing() {
             </div>
 
             {/* 3. Arrow Icon Bubble */}
-            <div className="mt-4 w-10 h-10 rounded-full bg-[var(--color-navy-77)] text-white group-hover:bg-white group-hover:text-[var(--color-cyan-77)] flex items-center justify-center transition-all duration-300 transform group-hover:rotate-45">
+            <div className="mt-4 w-10 h-10 rounded-full bg-[var(--color-navy-77)] text-white group-hover:bg-dark-77 group-hover:text-[var(--color-cyan-77)] flex items-center justify-center transition-all duration-300 transform group-hover:rotate-45">
               <ArrowUpRight size={18} />
             </div>
           </a>

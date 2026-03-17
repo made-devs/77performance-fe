@@ -86,9 +86,9 @@ export default function AboutPhilosophy() {
             return (
               <div
                 key={idx}
-                className="phil-card perspective-1000 group bg-white p-8 md:p-10 rounded-xl border border-slate-100 shadow-sm hover:shadow-2xl hover:bg-[var(--color-navy-77)] hover:text-white transition-all duration-500 will-change-transform"
+                className="phil-card perspective-1000 group bg-dark-77 p-8 md:p-10 rounded-xl border border-slate-100 shadow-sm hover:shadow-2xl hover:bg-[var(--color-navy-77)] hover:text-white transition-all duration-500 will-change-transform"
               >
-                <div className="mb-8 p-4 bg-slate-50 rounded-lg w-fit group-hover:bg-white/10 transition-colors">
+                <div className="mb-8 p-4 bg-[#0a0a0a] rounded-lg w-fit group-hover:bg-dark-77/10 transition-colors">
                   <Icon className="w-8 h-8 text-[var(--color-cyan-77)]" />
                 </div>
                 <h4 className="text-xl font-bold mb-4">{item.title}</h4>

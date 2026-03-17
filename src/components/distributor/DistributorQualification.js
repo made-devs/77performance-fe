@@ -38,9 +38,9 @@ export default function DistributorQualification() {
   return (
     <section
       ref={container}
-      className="py-24 bg-white flex flex-col md:flex-row"
+      className="py-24 bg-dark-77 flex flex-col md:flex-row"
     >
-      <div className="md:w-1/3 bg-slate-100 p-12 md:p-20 flex flex-col justify-center">
+      <div className="md:w-1/3 bg-neutral-900 p-12 md:p-20 flex flex-col justify-center">
         <h2 className="text-[var(--color-navy-77)] font-bold mb-4 text-3xl">
           {t("title")}
         </h2>

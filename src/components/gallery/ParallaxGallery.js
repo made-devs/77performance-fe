@@ -198,12 +198,12 @@ function GalleryCard({ item, onClick }) {
       {/* Hover Content */}
       <div className="absolute inset-0 p-6 flex flex-col justify-between opacity-0 group-hover:opacity-100 transition-opacity duration-500">
         <div className="flex justify-end">
-          <div className="w-10 h-10 rounded-full bg-white text-[var(--color-navy-77)] flex items-center justify-center">
+          <div className="w-10 h-10 rounded-full bg-dark-77 text-[var(--color-navy-77)] flex items-center justify-center">
             <Plus size={20} />
           </div>
         </div>
         <div>
-          <span className="block w-8 h-[2px] bg-white mb-2" />
+          <span className="block w-8 h-[2px] bg-dark-77 mb-2" />
           <h4 className="text-white font-bold tracking-widest uppercase text-sm">
             {item.title}
           </h4>

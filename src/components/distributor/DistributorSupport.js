@@ -43,21 +43,21 @@ export default function DistributorSupport() {
   return (
     <section
       ref={container}
-      className="py-24 bg-slate-50 text-[var(--color-navy-77)]"
+      className="py-24 bg-[#0a0a0a] text-[var(--color-navy-77)]"
     >
       <div className="container mx-auto px-6 md:px-12">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-3xl md:text-5xl font-bold mb-6">{t("title")}</h2>
-          <p className="text-slate-600">{t("description")}</p>
+          <p className="text-slate-300">{t("description")}</p>
         </div>
 
         <div className="support-grid grid grid-cols-1 md:grid-cols-2 gap-8">
           {supports.map((item, idx) => (
             <div
               key={idx}
-              className="support-item flex items-start gap-6 bg-white p-8 rounded-xl shadow-sm hover:shadow-md border border-slate-100 transition-all"
+              className="support-item flex items-start gap-6 bg-dark-77 p-8 rounded-xl shadow-sm hover:shadow-md border border-slate-100 transition-all"
             >
-              <div className="p-4 bg-slate-100 rounded-full text-[var(--color-navy-77)]">
+              <div className="p-4 bg-neutral-900 rounded-full text-[var(--color-navy-77)]">
                 <item.icon size={28} />
               </div>
               <div>

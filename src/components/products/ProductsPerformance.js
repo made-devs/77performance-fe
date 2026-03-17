@@ -10,7 +10,7 @@ import { useTranslations, useLocale } from "next-intl";
 gsap.registerPlugin(ScrollTrigger);
 
 const DEFAULT_META = {
-  bgs: ["bg-[#145591]", "bg-[#0591be]", "bg-white"],
+  bgs: ["bg-[#145591]", "bg-[#0591be]", "bg-dark-77"],
   texts: ["text-white", "text-white", "text-[#145591]"],
   accents: ["text-[#0591be]", "text-white/60", "text-[#0591be]"],
   icons: [Gauge, Activity, Wind],
@@ -28,7 +28,7 @@ export default function ProductsPerformance() {
     metric: panel.metric,
     label: panel.label,
     desc: panel.desc,
-    bg: DEFAULT_META.bgs[idx] || "bg-white",
+    bg: DEFAULT_META.bgs[idx] || "bg-dark-77",
     text: DEFAULT_META.texts[idx] || "text-[#145591]",
     accent: DEFAULT_META.accents[idx] || "text-[#0591be]",
     icon: DEFAULT_META.icons[idx] || Gauge,
@@ -88,7 +88,7 @@ export default function ProductsPerformance() {
             {" "}
             {/* Added anim-entry */}
             <div className="flex justify-between items-start">
-              <div className="bg-white/10 backdrop-blur-md p-4 rounded-full">
+              <div className="bg-dark-77/10 backdrop-blur-md p-4 rounded-full">
                 <panel.icon size={32} strokeWidth={1} />
               </div>
               <ArrowUpRight

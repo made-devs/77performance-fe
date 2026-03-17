@@ -42,21 +42,21 @@ export default function GlobalSupply() {
   const regions = t.raw("globalSupply.regions");
 
   return (
-    <section ref={container} className="py-32 bg-slate-50 overflow-hidden">
+    <section ref={container} className="py-32 bg-[#0a0a0a] overflow-hidden">
       <div className="container mx-auto px-6 md:px-12 text-center mb-16">
         <div className="supply-header">
           <Globe2 className="w-16 h-16 text-[var(--color-navy-77)] mx-auto mb-6" />
           <h2 className="text-4xl md:text-6xl font-bold text-[var(--color-navy-77)] mb-4">
             {t("globalSupply.heading")}
           </h2>
-          <p className="text-slate-600 text-lg max-w-2xl mx-auto">
+          <p className="text-slate-300 text-lg max-w-2xl mx-auto">
             {t("globalSupply.paragraph")}
           </p>
         </div>
       </div>
 
       {/* Infinite Marquee Text */}
-      <div className="relative w-full border-y border-slate-200 bg-white py-12 overflow-hidden">
+      <div className="relative w-full border-y border-white/10 bg-dark-77 py-12 overflow-hidden">
         <div className="marquee-track flex whitespace-nowrap gap-20 items-center">
           {regions.map((region, idx) => (
             <span

@@ -162,7 +162,7 @@ const PromotionStrategy = () => {
   return (
     <section
       ref={containerRef}
-      className="relative py-32 bg-gradient-to-br from-[#021526] via-[#0e6ba0] to-[#021526] overflow-hidden text-white"
+      className="relative py-32 min-h-dvh flex items-center justify-center bg-gradient-to-br from-[#021526] via-[#0e6ba0] to-[#021526] overflow-hidden text-white"
     >
       {/* --- PREMIUM BACKGROUND DECORATION --- */}
       <div className="absolute inset-0 z-0 pointer-events-none select-none">
@@ -181,8 +181,8 @@ const PromotionStrategy = () => {
         />
 
         {/* Precision Lines */}
-        <div className="absolute left-12 top-0 bottom-0 w-[1px] bg-white/5 precision-line" />
-        <div className="absolute right-12 top-0 bottom-0 w-[1px] bg-white/5 precision-line" />
+        <div className="absolute left-12 top-0 bottom-0 w-[1px] bg-dark-77/5 precision-line" />
+        <div className="absolute right-12 top-0 bottom-0 w-[1px] bg-dark-77/5 precision-line" />
 
         {/* Grid & HUD */}
         <div
@@ -221,10 +221,10 @@ const PromotionStrategy = () => {
 
         {/* MAIN CARD */}
         <div className="main-card-wrapper mb-20">
-          <div className="main-card-promo opacity-0 bg-white/[0.03] backdrop-blur-2xl border border-white/10 rounded-[40px] p-1 shadow-2xl">
+          <div className="main-card-promo opacity-0 bg-dark-77/[0.03] backdrop-blur-2xl border border-white/10 rounded-[40px] p-1 shadow-2xl">
             <div className="relative rounded-[38px] p-10 lg:p-16 flex flex-col lg:flex-row items-center gap-14">
               <div className="flex-1 z-10">
-                <div className="inline-block px-4 py-1.5 bg-white/10 border border-white/10 rounded-full text-[10px] font-bold uppercase tracking-widest mb-8 text-cyan-300">
+                <div className="inline-block px-4 py-1.5 bg-dark-77/10 border border-white/10 rounded-full text-[10px] font-bold uppercase tracking-widest mb-8 text-cyan-300">
                   {mainPromo.subtitle}
                 </div>
                 <h3 className="text-3xl lg:text-4xl font-bold text-white mb-4 font-mulish leading-tight">
@@ -240,7 +240,7 @@ const PromotionStrategy = () => {
                   {mainPromo.tags.map((tag, i) => (
                     <span
                       key={i}
-                      className="text-[10px] font-bold uppercase tracking-tighter bg-white/5 border border-white/10 px-3 py-1 rounded-md text-white/70"
+                      className="text-[10px] font-bold uppercase tracking-tighter bg-dark-77/5 border border-white/10 px-3 py-1 rounded-md text-white/70"
                     >
                       {tag}
                     </span>
@@ -279,9 +279,9 @@ const PromotionStrategy = () => {
             {additionalPrograms.map((item) => (
               <div
                 key={item.id}
-                className="additional-card opacity-0 group relative bg-white/[0.02] p-8 rounded-2xl border border-white/5 hover:border-white/20 transition-all duration-500"
+                className="additional-card opacity-0 group relative bg-dark-77/[0.02] p-8 rounded-2xl border border-white/5 hover:border-white/20 transition-all duration-500"
               >
-                <div className="mb-6 inline-flex items-center justify-center w-12 h-12 rounded-xl bg-white/5 text-white/40 group-hover:bg-cyan-500 group-hover:text-white transition-all duration-500">
+                <div className="mb-6 inline-flex items-center justify-center w-12 h-12 rounded-xl bg-dark-77/5 text-white/40 group-hover:bg-cyan-500 group-hover:text-white transition-all duration-500">
                   {getIcon(item.icon)}
                 </div>
                 <h4 className="text-xl font-bold text-white mb-3 font-mulish">
