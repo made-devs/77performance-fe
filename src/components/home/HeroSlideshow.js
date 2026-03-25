@@ -83,7 +83,7 @@ export default function HeroSlideshow() {
       {/* Content Overlay */}
       <div className="relative z-30 h-full w-full max-w-[1440px] mx-auto flex flex-col justify-center px-6 text-white pointer-events-none">
         <div className="max-w-4xl pointer-events-auto">
-          <span className="hero-sub block text-cyan-77 font-bold tracking-widest mb-4 text-sm md:text-base">
+          <span className="hero-sub block text-white font-bold tracking-widest mb-4 text-sm md:text-base">
             {t("sub")}
           </span>
           <h1 className="hero-title pr-10 md:pr-0 text-5xl md:text-7xl lg:text-8xl font-mulish font-bold mb-6">

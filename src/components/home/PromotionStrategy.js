@@ -221,7 +221,7 @@ const PromotionStrategy = () => {
 
         {/* MAIN CARD */}
         <div className="main-card-wrapper mb-20">
-          <div className="main-card-promo opacity-0 bg-dark-77/[0.03] backdrop-blur-2xl border border-white/10 rounded-[40px] p-1 shadow-2xl">
+          <div className="main-card-promo opacity-0 bg-[#0a2744]/90 backdrop-blur-xl border border-white/20 rounded-[40px] p-1 shadow-2xl">
             <div className="relative rounded-[38px] p-10 lg:p-16 flex flex-col lg:flex-row items-center gap-14">
               <div className="flex-1 z-10">
                 <div className="inline-block px-4 py-1.5 bg-dark-77/10 border border-white/10 rounded-full text-[10px] font-bold uppercase tracking-widest mb-8 text-cyan-300">
@@ -279,9 +279,9 @@ const PromotionStrategy = () => {
             {additionalPrograms.map((item) => (
               <div
                 key={item.id}
-                className="additional-card opacity-0 group relative bg-dark-77/[0.02] p-8 rounded-2xl border border-white/5 hover:border-white/20 transition-all duration-500"
+                className="additional-card opacity-0 group relative bg-[#0a2744]/80 backdrop-blur-md p-8 rounded-2xl border border-white/10 hover:border-cyan-500/50 hover:bg-[#0c3156] transition-all duration-500 shadow-lg"
               >
-                <div className="mb-6 inline-flex items-center justify-center w-12 h-12 rounded-xl bg-dark-77/5 text-white/40 group-hover:bg-cyan-500 group-hover:text-white transition-all duration-500">
+                <div className="mb-6 inline-flex items-center justify-center w-12 h-12 rounded-xl bg-cyan-950/50 text-cyan-400 group-hover:bg-cyan-500 group-hover:text-white transition-all duration-500 border border-cyan-500/20 group-hover:border-transparent">
                   {getIcon(item.icon)}
                 </div>
                 <h4 className="text-xl font-bold text-white mb-3 font-mulish">
