@@ -17,7 +17,7 @@ export default async function CommunityPage() {
         uptitle={t("uptitle")}
         titleLines={[t("titleLine1"), t("titleLine2")]}
         description={t("description")}
-        bgImageUrl="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1920"
+        bgImageUrl="/gallery/gallery3.webp" // Local image for consistent display
         height="100vh"
       />
 

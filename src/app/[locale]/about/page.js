@@ -26,7 +26,7 @@ export default async function AboutPage() {
             {t("descriptionTail")}
           </>
         }
-        bgImageUrl="/about.webp"
+        bgImageUrl="/gallery/gallery16.webp"
         height="110vh"
       />
       <AboutWhoWeAre />

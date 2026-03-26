@@ -24,7 +24,7 @@ export default async function ProductsPage() {
             {t("description")}
           </span>
         }
-        bgImageUrl="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&q=80&w=2940"
+        bgImageUrl="/gallery/gallery11.webp"
         height="100vh"
       />
 

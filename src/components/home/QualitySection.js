@@ -177,7 +177,7 @@ export default function QualitySection() {
             <div className="absolute inset-0 z-0">
               <div
                 className="absolute inset-0 bg-cover bg-center"
-                style={{ backgroundImage: "url('/home3.webp')" }}
+                style={{ backgroundImage: "url('/gallery/gallery18.webp')" }}
               />
               <div className="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-dark-77/95 via-dark-77/80 to-dark-77/50" />
             </div>

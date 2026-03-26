@@ -119,11 +119,11 @@ const BrandPositioning = () => {
               <div className="absolute inset-0 bg-dark-77/20 z-10 group-hover:bg-transparent transition-colors duration-700" />
               <Image
                 ref={imageRef}
-                src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?q=80&w=2600&auto=format&fit=crop"
+                src="/gallery/gallery20.webp"
                 alt={t("imageAlt")}
                 fill
                 sizes="(max-width: 1024px) 100vw, 60vw"
-                className="w-full h-full object-cover scale-110 grayscale group-hover:grayscale-0 transition-all duration-1000"
+                className="w-full h-full object-cover scale-110 transition-all duration-1000"
               />
 
               {/* Float Card */}

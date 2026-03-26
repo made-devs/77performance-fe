@@ -16,7 +16,7 @@ export default async function ContactPage() {
         uptitle={t("uptitle")}
         titleLines={[t("titleLine1"), t("titleLine2")]}
         description={t("description")}
-        bgImageUrl="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1920"
+        bgImageUrl="/gallery/gallery7.webp"
         height="100vh"
       />
 

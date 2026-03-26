@@ -15,8 +15,8 @@ export default async function GalleryPage() {
         uptitle={t("uptitle")}
         titleLines={[t("titleLine1"), t("titleLine2")]}
         description={t("description")}
-        // Image Theme: Dark Cinematic Garage/Detail
-        bgImageUrl="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&q=80&w=1920"
+        // Image Theme: Dark Cinematic Garage/Detail (local)
+        bgImageUrl="/gallery/gallery7.webp"
         height="100vh"
       />
       {/* 1. Kinetic Hero */}

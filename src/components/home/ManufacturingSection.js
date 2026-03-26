@@ -181,7 +181,7 @@ export default function ManufacturingSection() {
           className="relative w-full h-full will-change-transform"
         >
           <Image
-            src="/home2.png"
+            src="/gallery/gallery2.webp"
             alt="Factory Background"
             fill
             className="object-cover"

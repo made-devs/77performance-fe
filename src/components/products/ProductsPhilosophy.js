@@ -16,7 +16,7 @@ const META = [
     tint: "bg-[#145591]/40",
     text: "text-white",
     border: "border-cyan-77/30",
-    image: "/hero.webp",
+    image: "/gallery/gallery8.webp",
   },
   {
     icon: Zap,
@@ -24,7 +24,7 @@ const META = [
     tint: "bg-[#0591be]/30",
     text: "text-white",
     border: "border-cyan-77/30",
-    image: "/home2.png",
+    image: "/gallery/gallery18.webp",
   },
   {
     icon: Hexagon,
@@ -32,7 +32,7 @@ const META = [
     tint: "bg-cyan-900/30",
     text: "text-cyan-400",
     border: "border-cyan-77/30",
-    image: "/home3.webp",
+    image: "/gallery/gallery6.webp",
   },
   {
     icon: ShieldCheck,
@@ -40,7 +40,7 @@ const META = [
     tint: "bg-[#111111]/50",
     text: "text-white",
     border: "border-cyan-77/30",
-    image: "/about.webp",
+    image: "/gallery/gallery22.webp",
   },
 ];
 

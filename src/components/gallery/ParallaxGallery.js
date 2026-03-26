@@ -1,67 +1,25 @@
 "use client";
 
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
+import { createPortal } from "react-dom";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ScrollSmoother } from "gsap/ScrollSmoother";
 import { Plus, X } from "lucide-react";
 import { useTranslations, useLocale } from "next-intl";
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
-// Fallback data (used if translations not present)
-const FALLBACK_ITEMS = [
-  // Kolom 1
-  {
-    src: "https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&q=80&w=800",
-    col: 1,
-    title: "Precision Tuning",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&q=80&w=800",
-    col: 1,
-    title: "Night Run",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1597687210387-e45e74257181?auto=format&fit=crop&q=80&w=800",
-    col: 1,
-    title: "Engine Bay",
-  },
-
-  // Kolom 2 (Offset Speed)
-  {
-    src: "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&q=80&w=800",
-    col: 2,
-    title: "Blueprints",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&q=80&w=800",
-    col: 2,
-    title: "Welding Works",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1487754180451-c456f719a1fc?auto=format&fit=crop&q=80&w=800",
-    col: 2,
-    title: "Fabrication",
-  },
-
-  // Kolom 3
-  {
-    src: "https://images.unsplash.com/photo-1503376763036-066120622c74?auto=format&fit=crop&q=80&w=800",
-    col: 3,
-    title: "Neon Garage",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1532585252495-22049eb8ae2b?auto=format&fit=crop&q=80&w=800",
-    col: 3,
-    title: "Track Day",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?auto=format&fit=crop&q=80&w=800",
-    col: 3,
-    title: "Details",
-  },
-];
+// Fallback data (uses local images from public/gallery)
+const LOCAL_GALLERY_COUNT = 22;
+const FALLBACK_ITEMS = Array.from({ length: LOCAL_GALLERY_COUNT }).map(
+  (_, i) => ({
+    src: `/gallery/gallery${i + 1}.webp`,
+    col: (i % 3) + 1,
+    title: `Archive ${i + 1}`,
+  }),
+);
 
 export default function ParallaxGallery() {
   const container = useRef(null);
@@ -69,13 +27,37 @@ export default function ParallaxGallery() {
 
   const t = useTranslations("pageGallery");
   const locale = useLocale();
-  const galleryItems = t?.raw("gallery.items") || FALLBACK_ITEMS;
+
+  // Always use the full local gallery of 22 images for consistent display
+  const galleryItems = FALLBACK_ITEMS;
+
+  // Freeze/unfreeze ScrollSmoother + body scroll when lightbox opens/closes
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const smoother = ScrollSmoother.get();
+
+    if (selectedImg) {
+      smoother?.paused(true);
+      document.body.style.overflow = "hidden";
+      document.body.style.cursor = "default";
+    } else {
+      smoother?.paused(false);
+      document.body.style.overflow = "";
+      document.body.style.cursor = "";
+    }
+
+    return () => {
+      smoother?.paused(false);
+      document.body.style.overflow = "";
+      document.body.style.cursor = "";
+    };
+  }, [selectedImg]);
 
   useGSAP(
     () => {
-      // Parallax Effect: Kolom tengah (col-2) bergerak lebih cepat ke atas
+      // Parallax Effect: center column moves up faster
       gsap.to(".col-2", {
-        y: -150, // Geser ke atas 150px relatif terhadap scroll
+        y: -150,
         ease: "none",
         scrollTrigger: {
           trigger: container.current,
@@ -85,7 +67,7 @@ export default function ParallaxGallery() {
         },
       });
 
-      // Kolom pinggir bergerak lebih lambat (creates depth)
+      // Side columns move slower to create depth
       gsap.to(".col-1, .col-3", {
         y: 50,
         ease: "none",
@@ -106,75 +88,74 @@ export default function ParallaxGallery() {
   const col3 = galleryItems.filter((i) => i.col === 3);
 
   return (
-    <section
-      ref={container}
-      className="relative py-20 bg-[var(--color-navy-77)] min-h-screen overflow-hidden"
-    >
-      <div className="container mx-auto px-4 md:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
-          {/* COLUMN 1 */}
-          <div className="col-1 flex flex-col gap-12 pt-0 md:pt-24">
-            {col1.map((item, idx) => (
-              <GalleryCard
-                key={idx}
-                item={item}
-                onClick={() => setSelectedImg(item)}
-              />
-            ))}
-          </div>
+    <>
+      <section
+        ref={container}
+        className="relative py-20 bg-[var(--color-navy-77)] min-h-screen overflow-hidden"
+      >
+        <div className="container mx-auto px-4 md:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+            {/* COLUMN 1 */}
+            <div className="col-1 flex flex-col gap-12 pt-0 md:pt-24">
+              {col1.map((item, idx) => (
+                <GalleryCard
+                  key={idx}
+                  item={item}
+                  onClick={() => setSelectedImg(item)}
+                />
+              ))}
+            </div>
 
-          {/* COLUMN 2 (CENTER) */}
-          <div className="col-2 flex flex-col gap-12">
-            {col2.map((item, idx) => (
-              <GalleryCard
-                key={idx}
-                item={item}
-                onClick={() => setSelectedImg(item)}
-              />
-            ))}
-          </div>
+            {/* COLUMN 2 (CENTER) */}
+            <div className="col-2 flex flex-col gap-12">
+              {col2.map((item, idx) => (
+                <GalleryCard
+                  key={idx}
+                  item={item}
+                  onClick={() => setSelectedImg(item)}
+                />
+              ))}
+            </div>
 
-          {/* COLUMN 3 */}
-          <div className="col-3 flex flex-col gap-12 pt-0 md:pt-12">
-            {col3.map((item, idx) => (
-              <GalleryCard
-                key={idx}
-                item={item}
-                onClick={() => setSelectedImg(item)}
-              />
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* LIGHTBOX MODAL */}
-      {selectedImg && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/95 backdrop-blur-xl p-4 md:p-12 animate-in fade-in duration-300"
-          onClick={() => setSelectedImg(null)}
-        >
-          <button className="absolute top-8 right-8 text-white hover:text-[var(--color-cyan-77)] transition-colors">
-            <X size={40} strokeWidth={1} />
-          </button>
-
-          <img
-            src={selectedImg.src}
-            alt={selectedImg.title}
-            className="max-w-full max-h-full object-contain shadow-[0_0_100px_rgba(5,145,190,0.3)] animate-in zoom-in-90 duration-500"
-            onClick={(e) => e.stopPropagation()} // Prevent close on image click
-          />
-
-          <div className="absolute bottom-12 left-12 text-white">
-            <span className="text-[var(--color-cyan-77)] font-mono text-xs tracking-widest uppercase block mb-1">
-              {t("gallery.lightbox.archiveTag")}
-            </span>
-            <h3 className="text-4xl font-black tracking-tighter uppercase">
-              {selectedImg.title}
-            </h3>
+            {/* COLUMN 3 */}
+            <div className="col-3 flex flex-col gap-12 pt-0 md:pt-12">
+              {col3.map((item, idx) => (
+                <GalleryCard
+                  key={idx}
+                  item={item}
+                  onClick={() => setSelectedImg(item)}
+                />
+              ))}
+            </div>
           </div>
         </div>
-      )}
-    </section>
+      </section>
+
+      {/* LIGHTBOX — rendered in document.body via portal to escape GSAP transforms */}
+      {selectedImg &&
+        typeof document !== "undefined" &&
+        createPortal(
+          <div
+            className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/95 backdrop-blur-xl p-4 md:p-12 animate-in fade-in duration-300 cursor-default"
+            onClick={() => setSelectedImg(null)}
+          >
+            <button
+              className="absolute top-8 right-8 text-white hover:text-[var(--color-cyan-77)] transition-colors cursor-pointer"
+              onClick={() => setSelectedImg(null)}
+            >
+              <X size={40} strokeWidth={1} />
+            </button>
+
+            <img
+              src={selectedImg.src}
+              alt={selectedImg.title}
+              className="max-w-full max-h-full object-contain shadow-[0_0_100px_rgba(5,145,190,0.3)] animate-in zoom-in-90 duration-500"
+              onClick={(e) => e.stopPropagation()}
+            />
+          </div>,
+          document.body,
+        )}
+    </>
   );
 }
 
@@ -189,7 +170,7 @@ function GalleryCard({ item, onClick }) {
       <img
         src={item.src}
         alt={item.title}
-        className="w-full h-full object-cover transition-transform duration-700 ease-in-out group-hover:scale-110 grayscale group-hover:grayscale-0"
+        className="w-full h-full object-cover transition-transform duration-700 ease-in-out group-hover:scale-110"
       />
 
       {/* Overlay Cyan Tint */}
@@ -202,12 +183,7 @@ function GalleryCard({ item, onClick }) {
             <Plus size={20} />
           </div>
         </div>
-        <div>
-          <span className="block w-8 h-[2px] bg-dark-77 mb-2" />
-          <h4 className="text-white font-bold tracking-widest uppercase text-sm">
-            {item.title}
-          </h4>
-        </div>
+        {/* no text overlay per request */}
       </div>
     </div>
   );

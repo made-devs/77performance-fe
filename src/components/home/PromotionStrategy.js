@@ -248,13 +248,13 @@ const PromotionStrategy = () => {
                 </div>
               </div>
 
-              <div className="w-full lg:w-[500px] aspect-[4/3] relative rounded-3xl overflow-hidden shadow-2xl grayscale hover:grayscale-0 transition-all duration-1000 group">
+              <div className="w-full lg:w-[500px] aspect-[4/3] relative rounded-3xl overflow-hidden shadow-2xl transition-all duration-1000 group">
                 <Image
-                  src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?q=80&w=800"
+                  src="/home/bonus1.webp"
                   alt="Product"
                   fill
                   sizes="(max-width: 1024px) 100vw, 500px"
-                  className="w-full h-full object-cover scale-110 group-hover:scale-100 transition-transform duration-1000"
+                  className="w-full h-full object-cover scale-100 group-hover:scale-110 transition-transform duration-1000"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#021526] via-transparent to-transparent opacity-80" />
                 <div className="absolute bottom-8 left-8">

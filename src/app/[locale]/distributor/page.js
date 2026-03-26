@@ -27,7 +27,7 @@ export default async function DistributorPage() {
             </span>
           </>
         }
-        bgImageUrl="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=1200"
+        bgImageUrl="/gallery/gallery23.webp"
         height="110vh"
       />
       <DistributorValueProp />

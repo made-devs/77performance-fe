@@ -123,7 +123,7 @@ export default function SpecsSection() {
               <div
                 className="w-full h-full bg-cover bg-center opacity-30 group-hover:scale-105 transition-transform duration-700 mix-blend-luminosity"
                 style={{
-                  backgroundImage: "url('home2.png')",
+                  backgroundImage: "url('/gallery/gallery2.webp')",
                 }}
               />
             </div>

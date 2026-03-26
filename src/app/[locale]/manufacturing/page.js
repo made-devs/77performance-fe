@@ -27,7 +27,7 @@ export default async function ManufacturingPage() {
             </span>
           </>
         }
-        bgImageUrl="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=3270&auto=format&fit=crop"
+        bgImageUrl="/gallery/gallery6.webp"
         height="110vh"
       />
       <ManufacturingFacility />
